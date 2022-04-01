@@ -1,0 +1,20 @@
+{
+  "name": "phi-components",
+  "files": ["dist"],
+  "main": "./dist/my-lib.umd.js",
+  "module": "./dist/my-lib.es.js",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "goober": "^2.1.8",
+    "preact": "^10.7.0",
+    "preact-custom-element": "^4.2.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.6.3",
+    "vite": "^2.9.1"
+  }
+}
