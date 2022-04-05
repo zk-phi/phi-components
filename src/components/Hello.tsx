@@ -1,9 +1,16 @@
+import register from "preact-custom-element";
 import { css } from "goober";
 
 const className = css({
   color: "#ea0",
 });
 
-export default () => (
+const Hello = () => (
   <h1 class={ className }>Hello, World!!</h1>
 );
+
+Hello.register = () => {
+  register(Hello, "x-hello");
+};
+
+export default Hello;
