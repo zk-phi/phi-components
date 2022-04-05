@@ -21,10 +21,9 @@ export default defineConfig({
   },
   themeConfig: {
     sidebar: [
-      { text: "Introduction", link: "/" },
+      { text: "Installation", link: "/installation" },
       {
         text: "Components",
-        link: "/components/",
         children: [
           { text: "Hello", link: "/components/Hello/" },
         ],
