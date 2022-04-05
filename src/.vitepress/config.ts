@@ -1,8 +1,10 @@
+import Path from "path";
 import { defineConfig } from "vitepress";
 
 export default defineConfig({
   lang: "ja-JP",
   title: "phi-components",
+  outDir: Path.resolve("dist"),
   vue: {
     template: {
       compilerOptions: {

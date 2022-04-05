@@ -9,7 +9,7 @@ export default defineConfig({
     jsxInject: `import { h, Fragment } from "preact"`,
   },
   build: {
-    outDir: Path.resolve(__dirname, "dist"),
+    outDir: Path.resolve("dist"),
     lib: {
       entry: Path.resolve(__dirname, "src/main.ts"),
       name: "PhiComponents",
