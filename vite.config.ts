@@ -12,7 +12,7 @@ export default defineConfig({
     outDir: Path.resolve(__dirname, "dist"),
     lib: {
       entry: Path.resolve(__dirname, "src/main.ts"),
-      name: "phi-components",
+      name: "PhiComponents",
       fileName: (format) => `phi-components.${format}.js`,
     },
   },
