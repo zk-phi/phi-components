@@ -1,8 +1,8 @@
 {
   "name": "phi-components",
   "files": ["dist"],
-  "main": "./dist/my-lib.umd.js",
-  "module": "./dist/my-lib.es.js",
+  "main": "./dist/phi-components.umd.js",
+  "module": "./dist/phi-components.es.js",
   "scripts": {
     "build": "vite build",
     "dev": "vite",
