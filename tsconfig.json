@@ -3,8 +3,12 @@
     "src/**/*"
   ],
   "compilerOptions": {
+    "lib": [
+      "es2016"
+    ],
     "strict": true,
     "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "jsxImportSource": "preact"
