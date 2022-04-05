@@ -4,7 +4,7 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   lang: "ja-JP",
   title: "phi-components",
-  outDir: Path.resolve("dist"),
+  outDir: Path.resolve("doc"),
   vue: {
     template: {
       compilerOptions: {
