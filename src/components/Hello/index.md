@@ -1,12 +1,12 @@
 # Hello
 ## Demo
 
-<x-hello />
+<phi-hello />
 
 ## Web Components
 
 ```html
-<x-hello />
+<phi-hello />
 ```
 
 ## Preact

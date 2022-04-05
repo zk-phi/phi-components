@@ -10,7 +10,7 @@ const Hello = () => (
 );
 
 Hello.register = () => {
-  register(Hello, "x-hello");
+  register(Hello, "phi-hello");
 };
 
 export default Hello;
