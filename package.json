@@ -4,8 +4,10 @@
   "main": "./dist/phi-components.umd.js",
   "module": "./dist/phi-components.es.js",
   "scripts": {
-    "build": "vite build",
-    "dev": "vite",
+    "build:module": "vite build",
+    "build:doc": "vitepress build src",
+    "dev": "vitepress dev src",
+    "start": "vitepress serve src",
     "check": "tsc --noEmit"
   },
   "dependencies": {
