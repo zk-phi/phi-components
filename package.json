@@ -10,7 +10,7 @@
     "build:module": "vite build",
     "build:doc": "vitepress build src",
     "dev": "vitepress dev src",
-    "start": "vitepress serve src",
+    "serve": "vitepress serve src",
     "check": "tsc --noEmit"
   },
   "dependencies": {
