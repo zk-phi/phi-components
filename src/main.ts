@@ -1,7 +1,7 @@
-import Hello from "./components/Hello";
+import Button from "./components/Button/";
 
 const register = () => {
-  Hello.register();
+  Button.register();
 };
 
-export { Hello, register };
+export { Button, register };
