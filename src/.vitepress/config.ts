@@ -5,13 +5,6 @@ export default defineConfig({
   lang: "ja-JP",
   title: "phi-components",
   outDir: Path.resolve("doc"),
-  vue: {
-    template: {
-      compilerOptions: {
-        isCustomElement: tag => tag.includes("-"),
-      },
-    },
-  },
   vite: {
     esbuild: {
       jsxFactory: "h",
@@ -20,14 +13,16 @@ export default defineConfig({
     },
   },
   themeConfig: {
-    sidebar: [
-      { text: "Installation", link: "/installation" },
-      {
-        text: "Components",
-        children: [
-          { text: "Hello", link: "/components/Hello/" },
-        ],
-      }
-    ],
-  },
+    sidebar: [{
+      text: "Getting Started",
+      items: [
+        { text: "Installation", link: "/installation" },
+      ],
+    }, {
+      text: "Components",
+      items: [
+        { text: "Hello", link: "/components/Hello/" },
+      ],
+    }
+  ]},
 });
