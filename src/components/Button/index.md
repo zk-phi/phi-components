@@ -28,7 +28,7 @@
   </phi-button>
 </figure>
 
-`text` for supplemental buttons.
+`text` for supplemental actions.
 
 <figure>
   <phi-button variant="text">
@@ -43,7 +43,7 @@
 
 <figure>
   <phi-button danger=1>
-    <span slot="icon">🗑</span>
+    <span slot="icon">☠️</span>
     Delete
   </phi-button>
 </figure>

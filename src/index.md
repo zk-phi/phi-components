@@ -2,18 +2,18 @@
 
 A component library by zk-phi.
 
-- lightweight
+- reasonably lightweight
 - builds fast
-- available as both Web Components and Preact components
+- framework agnostic (available as both Web Components and Preact components)
 
 ### Design Principles
 
-- Simple enough to meet wide range of purposes
-- No animations, yes interactions
-  - Interactive elements are always distinguishable from plain texts, without need to hover
-  - Interactive elements are colored when hovered
-  - Interactive elements look different when active
 - Happy, positive and warm vibe
+- Not too fancy, meeting wide range of purposes
+- No animations, yes interactions
+  - All interactive elements are always distinguishable from plain texts, without need to hover
+  - All interactive elements are colored when hovered
+  - All interactive elements look different when active
 
 ### Technology overview
 
