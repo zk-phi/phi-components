@@ -4,12 +4,18 @@ export const color = {
   fg:        "#333333",
   distantFg: "#ffffff",
   bg:        "#ffffff",
+  border:    "#aaaaaa",
   primaryActive: "#de9e00", // okhsl(80, 100, 70)
   primary:       "#eeaa00", // okhsl(80, 100, 75)
   primaryHover:  "#ffb81c", // okhsl(80, 100, 80)
   dangerActive: "#ff3a45", // okhsl(24, 100, 60)
   danger:       "#ff6261", // okhsl(24, 100, 65)
   dangerHover:  "#ff7f7a", // okhsl(24, 100, 70)
+};
+
+export const boxShadow = {
+  primary: "0 0 0 2px rgba(238, 170, 0, 0.2)",
+  danger:  "0 0 0 2px rgba(255, 98, 97, 0.2)",
 };
 
 export const borderRadius = {
