@@ -65,7 +65,7 @@ const buttonStyle = css({
     background: "transparent",
     border: "1px dashed currentColor",
     ...clickable("var(--activeAccent)"),
-    "&:hover": {
+    "&:hover:not(:active)": {
       color: "var(--baseAccent)",
     },
   },
@@ -78,7 +78,7 @@ const buttonStyle = css({
     border: "none",
     borderBottom: "1px dotted currentColor",
     ...clickable("var(--activeAccent)"),
-    "&:hover": {
+    "&:hover:not(:active)": {
       color: "var(--baseAccent)",
     },
   },
