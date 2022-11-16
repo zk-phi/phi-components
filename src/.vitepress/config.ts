@@ -5,6 +5,13 @@ export default defineConfig({
   lang: "ja-JP",
   title: "phi-components",
   outDir: Path.resolve("doc"),
+  vue: {
+    template: {
+      compilerOptions: {
+        isCustomElement: tag => tag.includes("-"),
+      },
+    },
+  },
   vite: {
     esbuild: {
       jsxFactory: "h",
