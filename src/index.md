@@ -30,6 +30,8 @@ A **WIP** component library.
 
 ### Copyright
 
+Icons are taken from `Material DesignIcons` (c) Google.
+
 Built with ♡ by zk-phi
 
 <small>Peace, Love, Unity, Respect 🫶</small>

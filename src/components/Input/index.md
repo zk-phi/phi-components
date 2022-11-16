@@ -34,11 +34,6 @@ const value = ref("abrakadabra");
 
 ```html
 <phi-input id="input" value="abrakadabra" oninput="handler()" />
-
-<script>
-  const input = document.getElementById("input");
-  const handler = () => alert(input.value);
-</script>
 ```
 
 ### Attributes
