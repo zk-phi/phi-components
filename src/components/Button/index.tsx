@@ -1,7 +1,7 @@
 import { ComponentChildren, ComponentChild } from "preact";
 import classNames from "classnames";
 import { define } from "preactement";
-import { color, borderRadius, padding, fontSize, spacing, pressable, clickable } from "../../constants/theme";
+import { font, color, borderRadius, padding, fontSize, spacing, pressable, clickable } from "../../constants/theme";
 import { css } from "goober";
 
 type Variant = "primary" | "default" | "dotted" | "text";
@@ -10,14 +10,12 @@ type Props = {
   icon?: ComponentChild,
   variant?: Variant,
   danger?: boolean,
-  onClick: () => void,
+  onClick?: () => void,
   children: ComponentChildren,
   parent?: HTMLElement,
 };
 
 const buttonStyle = css({
-  "--fg": color.fg,
-  "--distantFg": color.distantFg,
   "--baseAccent": color.primary,
   "--hoverAccent": color.primaryHover,
   "--activeAccent": color.primaryActive,
@@ -27,21 +25,22 @@ const buttonStyle = css({
     "--activeAccent": color.dangerActive,
   },
 
+  fontFamily: font,
   outline: "none",
   lineHeight: 1,
   cursor: "pointer",
   textAlign: "center",
-  fontSize: "1rem",
+  fontSize: fontSize.md,
 
   "&.primary": {
     padding: padding.md,
     borderRadius: borderRadius.md,
-    color: "var(--distantFg)",
+    color: color.distantFg,
     background: "var(--baseAccent)",
     border: "1px solid var(--baseAccent)",
     ...pressable,
     "&:hover": {
-      color: "var(--distantFg)",
+      color: color.distantFg,
       background: "var(--hoverAccent)",
       border: "1px solid var(--hoverAccent)",
     },
@@ -50,7 +49,7 @@ const buttonStyle = css({
   "&.default": {
     padding: padding.md,
     borderRadius: borderRadius.md,
-    color: "var(--fg)",
+    color: color.fg,
     background: "transparent",
     border: "1px solid currentColor",
     ...pressable,
@@ -62,7 +61,7 @@ const buttonStyle = css({
   "&.dotted": {
     padding: padding.md,
     borderRadius: borderRadius.md,
-    color: "var(--fg)",
+    color: color.fg,
     background: "transparent",
     border: "1px dashed currentColor",
     ...clickable("var(--activeAccent)"),
@@ -74,7 +73,7 @@ const buttonStyle = css({
   "&.text": {
     padding: 0,
     borderRadius: 0,
-    color: "var(--fg)",
+    color: color.fg,
     background: "transparent",
     border: "none",
     borderBottom: "1px dotted currentColor",
@@ -90,11 +89,13 @@ const iconStyle = css({
   fontSize: fontSize.smallIcon,
   lineHeight: 0,
   marginRight: spacing.minimal,
+  verticalAlign: "-0.05em",
 });
 
 const Button = ({
   icon,
   children,
+  size = "normal",
   variant = "default",
   danger = false,
   onClick,

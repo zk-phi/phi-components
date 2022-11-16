@@ -1,3 +1,5 @@
+export const font = "'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif";
+
 export const color = {
   fg:        "#333333",
   distantFg: "#ffffff",
@@ -15,16 +17,20 @@ export const borderRadius = {
 };
 
 export const padding = {
-  md: "0.75rem 1rem",
+  minimal: "4px",
+  sm: "5.6px 7.84px", // 0.4em 0.5em @14px
+  md: "10.5px 14px",  // 0.75em 1em @14px
 };
 
 export const spacing = {
-  minimal: "0.25rem",
-  inline: "0.375rem",
+  minimal: "3.5px",  // 0.25em @14px
+  inline: "5.25px ", // 0.375em @14px
 };
 
 export const fontSize = {
   smallIcon: "16px",
+  md: "14px",
+  icon: "26px",
 };
 
 export const pressable = {
