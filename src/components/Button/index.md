@@ -1,15 +1,25 @@
 # Button
-## Demo
-### Shape variants
 
-`default`
+A generic button component.
+
+## Demo
+
+<script setup>
+import { ref } from "vue";
+const count = ref(0);
+</script>
 
 <figure>
-  <phi-button>
+  <phi-button @click="count++">
     <span slot="icon">🍺</span>
     Cheers!
   </phi-button>
+  <span v-if="count">
+    🍻 x {{ count }}
+  </span>
 </figure>
+
+### Type Variants
 
 `primary` for the MOST important button in the screen, like "submit" button.
 
@@ -23,8 +33,7 @@
 
 <figure>
   <phi-button variant="dotted">
-    <span slot="icon">➕</span>
-    Add item
+    + Add item
   </phi-button>
 </figure>
 
@@ -37,7 +46,7 @@
   </phi-button>
 </figure>
 
-### Color variants
+### Color Variants
 
 `danger` for destructive actions.
 
