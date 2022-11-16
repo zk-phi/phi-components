@@ -1,10 +1,13 @@
 # phi-components
 
-A component library by zk-phi.
+A **WIP** component library.
+
+### Goals
 
 - reasonably lightweight
 - builds fast
 - framework agnostic (available as both Web Components and Preact components)
+- supports dark mode out of the box
 
 ### Design Principles
 
@@ -15,16 +18,22 @@ A component library by zk-phi.
   - All interactive elements are colored when hovered
   - All interactive elements look different when active
 
-### Technology overview
+### Technologies
 
 - Language: `Typescript`
 - Bundler: `Vite`
-- DOM Manipulation: `Preact`
+- DOM manipulation: `Preact`
 - Style injection: `Goober`
-- Web Components Wrapper: `preactement`
-- Documentation: `Vitepress`
+- Web Components wrapper: `preactement`
+- Documentation: `Vitepress` / `Vue`
 
 ### Limitations / notices
 
 - For Web Components, boolean attr values cannot be omitted like `<phi-button danger>`, but must be specified like `<phi-button danger=1>`
   - we may need to modify `preactement` package to fix this
+
+### Copyright
+
+Built with ♡ by zk-phi
+
+<small>Peace, Love, Unity, Respect 🫶</small>
