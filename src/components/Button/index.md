@@ -46,13 +46,23 @@ const count = ref(0);
   </phi-button>
 </figure>
 
+`icon` for icon-only buttons.
+
+<figure>
+  <phi-button variant="icon">
+    <phi-icon icon="effect" />
+  </phi-button>
+</figure>
+
 ### Color Variants
 
 `danger` for destructive actions.
 
 <figure>
   <phi-button danger>
-    <span slot="icon">☠️</span>
+    <span slot="icon">
+      <phi-icon icon="delete" />
+    </span>
     Delete
   </phi-button>
 </figure>

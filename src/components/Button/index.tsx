@@ -4,7 +4,7 @@ import { define } from "preactement";
 import { font, color, borderRadius, padding, fontSize, spacing, pressable, clickable } from "../../constants/theme";
 import { css } from "goober";
 
-type Variant = "primary" | "default" | "dotted" | "text";
+type Variant = "primary" | "default" | "dotted" | "text" | "icon";
 
 type Props = {
   icon?: ComponentChild,
@@ -77,6 +77,21 @@ const buttonStyle = css({
     background: "transparent",
     border: "none",
     borderBottom: "1px dotted currentColor",
+    ...clickable("var(--activeAccent)"),
+    "&:hover:not(:active)": {
+      color: "var(--baseAccent)",
+    },
+  },
+
+  "&.icon": {
+    color: color.border,
+    display: "inline-block",
+    padding: padding.minimal,
+    fontSize: fontSize.icon,
+    lineHeight: 1,
+    background: "transparent",
+    border: "none",
+    borderRadius: "50%",
     ...clickable("var(--activeAccent)"),
     "&:hover:not(:active)": {
       color: "var(--baseAccent)",
