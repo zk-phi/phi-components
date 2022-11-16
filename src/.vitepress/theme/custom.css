@@ -1,3 +1,11 @@
+:root {
+  --vp-c-brand-lighter: #ffc04a; /* okhsl(80, 100, 82) */
+  --vp-c-brand-light:   #ffb81c; /* okhsl(80, 100, 80) */
+  --vp-c-brand:         #eeaa00; /* okhsl(80, 100, 75) */
+  --vp-c-brand-dark:    #de9e00; /* okhsl(80, 100, 70) */
+  --vp-c-brand-darker:  #cd9200; /* okhsl(80, 100, 65) */
+}
+
 figure {
   padding: 1.25rem 1.5rem;
   border: 1px solid var(--vp-c-divider-light);
