@@ -51,7 +51,7 @@ const count = ref(0);
 `danger` for destructive actions.
 
 <figure>
-  <phi-button danger=1>
+  <phi-button danger>
     <span slot="icon">☠️</span>
     Delete
   </phi-button>
@@ -68,16 +68,16 @@ const count = ref(0);
 
 ### Attributes
 
-- `variant`: String (optional)
-- `danger`: Boolean (optional)
+- `variant`: `"primary" | "default" | "dotted" | "text"`
+- `danger`: `""`
 
 ### Slots
 
-- `icon` (optional)
+- `icon`
 
-### Interface
+### Events
 
-- `onclick`: Function
+- `click`
 
 ## Preact
 
@@ -89,7 +89,7 @@ const count = ref(0);
 
 ### Props
 
-- `icon`: Node (optional)
-- `variant`: String (optional)
-- `danger`: Boolean (optional)
-- `onClick`: Function
+- `variant`: `"primary" | "default" | "dotted" | "text"`
+- `danger`: `boolean`
+- `icon`: `ComponentChild`
+- `onClick`: `() => void`

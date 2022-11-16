@@ -9,7 +9,7 @@ type Variant = "primary" | "default" | "dotted" | "text";
 type Props = {
   icon?: ComponentChild,
   variant?: Variant,
-  danger?: boolean,
+  danger?: boolean | "",
   onClick?: () => void,
   children: ComponentChildren,
   parent?: HTMLElement,
@@ -100,9 +100,8 @@ const Button = ({
   danger = false,
   onClick,
 }: Props) => {
-  const pressable = variant !== "text" && variant !== "dotted";
-  const clickable = !pressable;
-  const className = classNames([buttonStyle, variant, { danger, pressable, clickable }]);
+  const isDanger = danger || danger === "";
+  const className = classNames([buttonStyle, variant, { danger: isDanger }]);
   return (
     <button class={ className } onClick={ onClick }>
       { icon && <span class={ iconStyle }>{ icon }</span> }
