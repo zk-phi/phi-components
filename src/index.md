@@ -8,6 +8,7 @@ A **WIP** component library.
 - builds fast
 - framework agnostic (available as both Web Components and Preact components)
 - supports dark mode out of the box
+- form elements works just like form elements
 
 ### Design Principles
 
@@ -26,11 +27,6 @@ A **WIP** component library.
 - Style injection: `Goober`
 - Web Components wrapper: `preactement`
 - Documentation: `Vitepress` / `Vue`
-
-### Limitations / notices
-
-- For Web Components, boolean attr values cannot be omitted like `<phi-button danger>`, but must be specified like `<phi-button danger=1>`
-  - we may need to modify `preactement` package to fix this
 
 ### Copyright
 
