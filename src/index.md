@@ -28,6 +28,19 @@ A **WIP** component library.
 - Web Components wrapper: `preactement`
 - Documentation: `Vitepress` / `Vue`
 
+### Todos
+
+- theming (including dark-mode support)
+  - https://stackoverflow.com/questions/59621784/how-to-detect-prefers-color-scheme-change-in-javascript
+
+- add sourcemap and typedecl files
+  - https://ja.vitejs.dev/config/build-options.html#build-sourcemap
+  - https://zenn.dev/drop_table_user/articles/7b043bef6cec29
+
+- configure package / bundler options
+
+- add more components
+
 ### Copyright
 
 Icons are taken from `Material DesignIcons` (c) Google.
