@@ -1,7 +1,8 @@
 import Path from "path";
 import { defineConfig } from "vite";
+import { visualizer } from "rollup-plugin-visualizer";
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   root: "src",
   esbuild: {
     jsxFactory: "h",
@@ -15,5 +16,15 @@ export default defineConfig({
       name: "PhiComponents",
       fileName: (format) => `phi-components.${format}.js`,
     },
+    rollupOptions: {
+      plugins: [
+        mode === "analyze" && visualizer({
+          open: true,
+          filename: "dist/stats.html",
+          gzipSize: true,
+          brotliSize: true,
+        }),
+      ],
+    },
   },
-});
+}));

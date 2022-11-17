@@ -9,6 +9,7 @@
     "build": "npm run build:doc && npm run build:module",
     "build:module": "vite build",
     "build:doc": "vitepress build",
+    "analyze": "vite build --mode analyze",
     "dev": "vitepress dev",
     "serve": "vitepress serve",
     "check": "tsc --noEmit"
@@ -20,6 +21,7 @@
     "preactement": "zk-phi/component-elements#2ba7d8d31c7bee9eb47a7dbdb7e5354ba772fea3"
   },
   "devDependencies": {
+    "rollup-plugin-visualizer": "^5.8.3",
     "typescript": "^4.6.3",
     "vite": "^2.9.1",
     "vitepress": "^1.0.0-alpha.29"
