@@ -1,7 +1,6 @@
 # Installation
-## Web Components
-
-- Browser
+## Browser
+### UMD
 
 ```html
 <script src="path/to/phi-components.umd.js"></script>
@@ -10,7 +9,7 @@ PhiComponents.register();
 </script>
 ```
 
-- Browser (ES Modules)
+### ES Modules
 
 ```html
 <script type="module">
@@ -19,7 +18,9 @@ register();
 </script>
 ```
 
-- Node
+## Node
+
+### Web Components
 
 ```javascript
 import { register } from "phi-components";
@@ -34,7 +35,7 @@ Note that you may need to bypass registration during SSR.
 +}
 ```
 
-## Preact components
+### Preact components
 
 ```javascript
 // Raw Preact components are also exported
