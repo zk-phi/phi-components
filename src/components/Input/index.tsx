@@ -2,7 +2,7 @@ import { useCallback, useEffect } from "preact/hooks";
 import classNames from "classnames";
 import { define } from "preactement";
 import { useInputValue } from "../../utils/useInputValue";
-import { font, color, borderRadius, padding, spacing, boxShadow, fontSize } from "../../constants/theme";
+import { font, color, borderRadius, padding, spacing, boxShadow, fontSize, lineHeight } from "../../constants/theme";
 import { css } from "goober";
 
 type Size = "normal" | "small";
@@ -24,7 +24,7 @@ const style = css({
   fontFamily: font,
   padding: padding.md,
   fontSize: fontSize.md,
-  lineHeight: 1,
+  lineHeight: lineHeight.md,
   color: color.fg,
   backgroundColor: color.bg,
   border: `1px solid ${color.border}`,

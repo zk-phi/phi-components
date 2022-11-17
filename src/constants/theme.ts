@@ -39,6 +39,10 @@ export const fontSize = {
   icon: "26px",
 };
 
+export const lineHeight = {
+  md: "16px",
+};
+
 export const pressable = {
   boxShadow: "0 1px rgba(0, 0, 0, 0.1)",
   "&:active": {

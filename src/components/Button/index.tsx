@@ -1,7 +1,7 @@
 import { ComponentChildren, ComponentChild } from "preact";
 import classNames from "classnames";
 import { define } from "preactement";
-import { font, color, borderRadius, padding, fontSize, spacing, pressable, clickable } from "../../constants/theme";
+import { font, color, borderRadius, padding, fontSize, spacing, pressable, clickable, lineHeight } from "../../constants/theme";
 import { css } from "goober";
 
 type Variant = "primary" | "default" | "dotted" | "text" | "icon";
@@ -27,7 +27,7 @@ const buttonStyle = css({
 
   fontFamily: font,
   outline: "none",
-  lineHeight: 1,
+  lineHeight: lineHeight.md,
   cursor: "pointer",
   textAlign: "center",
   fontSize: fontSize.md,
