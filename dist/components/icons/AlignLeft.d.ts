@@ -1,2 +1,5 @@
-declare const AlignLeft: () => JSX.Element;
+declare type Props = {
+    class: string;
+};
+declare const AlignLeft: (props: Props) => JSX.Element;
 export default AlignLeft;

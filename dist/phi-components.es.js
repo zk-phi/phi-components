@@ -511,6 +511,9 @@ const fontSize = {
   md: "14px",
   icon: "26px"
 };
+const lineHeight = {
+  md: "16px"
+};
 const pressable = {
   boxShadow: "0 1px rgba(0, 0, 0, 0.1)",
   "&:active": {
@@ -583,7 +586,7 @@ const buttonStyle = u$1({
   },
   fontFamily: font,
   outline: "none",
-  lineHeight: 1,
+  lineHeight: lineHeight.md,
   cursor: "pointer",
   textAlign: "center",
   fontSize: fontSize.md,
@@ -649,7 +652,7 @@ const buttonStyle = u$1({
     }
   })
 });
-const iconStyle$g = u$1({
+const iconStyle$1 = u$1({
   display: "inline-block",
   fontSize: fontSize.smallIcon,
   lineHeight: 0,
@@ -669,7 +672,7 @@ const Button = ({
     class: className,
     onClick
   }, icon && /* @__PURE__ */ v$1("span", {
-    class: iconStyle$g
+    class: iconStyle$1
   }, icon), children);
 };
 const register$3 = () => {
@@ -788,7 +791,7 @@ const style = u$1({
   fontFamily: font,
   padding: padding.md,
   fontSize: fontSize.md,
-  lineHeight: 1,
+  lineHeight: lineHeight.md,
   color: color.fg,
   backgroundColor: color.bg,
   border: `1px solid ${color.border}`,
@@ -851,15 +854,8 @@ const register$2 = () => {
     formAssociated: true
   });
 };
-const iconStyle$f = u$1({
-  display: "inline",
-  width: "auto",
-  height: "1em",
-  verticalAlign: "-0.11em",
-  fill: "currentColor"
-});
-const Text = () => /* @__PURE__ */ v$1("svg", {
-  class: iconStyle$f,
+const Text = (props) => /* @__PURE__ */ v$1("svg", {
+  class: props.class,
   xmlns: "http://www.w3.org/2000/svg",
   height: "24",
   viewBox: "0 0 24 24",
@@ -870,15 +866,8 @@ const Text = () => /* @__PURE__ */ v$1("svg", {
 }), /* @__PURE__ */ v$1("path", {
   d: "M2.5 4v3h5v12h3V7h5V4h-13zm19 5h-9v3h3v7h3v-7h3V9z"
 }));
-const iconStyle$e = u$1({
-  display: "inline",
-  width: "auto",
-  height: "1em",
-  verticalAlign: "-0.11em",
-  fill: "currentColor"
-});
-const AlignCenter = () => /* @__PURE__ */ v$1("svg", {
-  class: iconStyle$e,
+const AlignCenter = (props) => /* @__PURE__ */ v$1("svg", {
+  class: props.class,
   xmlns: "http://www.w3.org/2000/svg",
   height: "24",
   viewBox: "0 0 24 24",
@@ -889,15 +878,8 @@ const AlignCenter = () => /* @__PURE__ */ v$1("svg", {
 }), /* @__PURE__ */ v$1("path", {
   d: "M7 15v2h10v-2H7zm-4 6h18v-2H3v2zm0-8h18v-2H3v2zm4-6v2h10V7H7zM3 3v2h18V3H3z"
 }));
-const iconStyle$d = u$1({
-  display: "inline",
-  width: "auto",
-  height: "1em",
-  verticalAlign: "-0.11em",
-  fill: "currentColor"
-});
-const AlignJustify = () => /* @__PURE__ */ v$1("svg", {
-  class: iconStyle$d,
+const AlignJustify = (props) => /* @__PURE__ */ v$1("svg", {
+  class: props.class,
   xmlns: "http://www.w3.org/2000/svg",
   height: "24",
   viewBox: "0 0 24 24",
@@ -908,15 +890,8 @@ const AlignJustify = () => /* @__PURE__ */ v$1("svg", {
 }), /* @__PURE__ */ v$1("path", {
   d: "M3 21h18v-2H3v2zm0-4h18v-2H3v2zm0-4h18v-2H3v2zm0-4h18V7H3v2zm0-6v2h18V3H3z"
 }));
-const iconStyle$c = u$1({
-  display: "inline",
-  width: "auto",
-  height: "1em",
-  verticalAlign: "-0.11em",
-  fill: "currentColor"
-});
-const AlignLeft = () => /* @__PURE__ */ v$1("svg", {
-  class: iconStyle$c,
+const AlignLeft = (props) => /* @__PURE__ */ v$1("svg", {
+  class: props.class,
   xmlns: "http://www.w3.org/2000/svg",
   height: "24",
   viewBox: "0 0 24 24",
@@ -927,15 +902,8 @@ const AlignLeft = () => /* @__PURE__ */ v$1("svg", {
 }), /* @__PURE__ */ v$1("path", {
   d: "M15 15H3v2h12v-2zm0-8H3v2h12V7zM3 13h18v-2H3v2zm0 8h18v-2H3v2zM3 3v2h18V3H3z"
 }));
-const iconStyle$b = u$1({
-  display: "inline",
-  width: "auto",
-  height: "1em",
-  verticalAlign: "-0.11em",
-  fill: "currentColor"
-});
-const AlignRight = () => /* @__PURE__ */ v$1("svg", {
-  class: iconStyle$b,
+const AlignRight = (props) => /* @__PURE__ */ v$1("svg", {
+  class: props.class,
   xmlns: "http://www.w3.org/2000/svg",
   height: "24",
   viewBox: "0 0 24 24",
@@ -946,15 +914,8 @@ const AlignRight = () => /* @__PURE__ */ v$1("svg", {
 }), /* @__PURE__ */ v$1("path", {
   d: "M3 21h18v-2H3v2zm6-4h12v-2H9v2zm-6-4h18v-2H3v2zm6-4h12V7H9v2zM3 3v2h18V3H3z"
 }));
-const iconStyle$a = u$1({
-  display: "inline",
-  width: "auto",
-  height: "1em",
-  verticalAlign: "-0.11em",
-  fill: "currentColor"
-});
-const Back = () => /* @__PURE__ */ v$1("svg", {
-  class: iconStyle$a,
+const Back = (props) => /* @__PURE__ */ v$1("svg", {
+  class: props.class,
   xmlns: "http://www.w3.org/2000/svg",
   "enable-background": "new 0 0 24 24",
   height: "24",
@@ -967,15 +928,8 @@ const Back = () => /* @__PURE__ */ v$1("svg", {
 }), /* @__PURE__ */ v$1("g", null, /* @__PURE__ */ v$1("polygon", {
   points: "17.77,3.77 16,2 6,12 16,22 17.77,20.23 9.54,12"
 })));
-const iconStyle$9 = u$1({
-  display: "inline",
-  width: "auto",
-  height: "1em",
-  verticalAlign: "-0.11em",
-  fill: "currentColor"
-});
-const Check = () => /* @__PURE__ */ v$1("svg", {
-  class: iconStyle$9,
+const Check = (props) => /* @__PURE__ */ v$1("svg", {
+  class: props.class,
   xmlns: "http://www.w3.org/2000/svg",
   height: "24",
   viewBox: "0 0 24 24",
@@ -986,15 +940,8 @@ const Check = () => /* @__PURE__ */ v$1("svg", {
 }), /* @__PURE__ */ v$1("path", {
   d: "M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
 }));
-const iconStyle$8 = u$1({
-  display: "inline",
-  width: "auto",
-  height: "1em",
-  verticalAlign: "-0.11em",
-  fill: "currentColor"
-});
-const Decrement = () => /* @__PURE__ */ v$1("svg", {
-  class: iconStyle$8,
+const Decrement = (props) => /* @__PURE__ */ v$1("svg", {
+  class: props.class,
   xmlns: "http://www.w3.org/2000/svg",
   height: "24",
   viewBox: "0 0 24 24",
@@ -1005,15 +952,8 @@ const Decrement = () => /* @__PURE__ */ v$1("svg", {
 }), /* @__PURE__ */ v$1("path", {
   d: "M19 13H5v-2h14v2z"
 }));
-const iconStyle$7 = u$1({
-  display: "inline",
-  width: "auto",
-  height: "1em",
-  verticalAlign: "-0.11em",
-  fill: "currentColor"
-});
-const Delete = () => /* @__PURE__ */ v$1("svg", {
-  class: iconStyle$7,
+const Delete = (props) => /* @__PURE__ */ v$1("svg", {
+  class: props.class,
   xmlns: "http://www.w3.org/2000/svg",
   height: "24",
   viewBox: "0 0 24 24",
@@ -1024,15 +964,8 @@ const Delete = () => /* @__PURE__ */ v$1("svg", {
 }), /* @__PURE__ */ v$1("path", {
   d: "M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
 }));
-const iconStyle$6 = u$1({
-  display: "inline",
-  width: "auto",
-  height: "1em",
-  verticalAlign: "-0.11em",
-  fill: "currentColor"
-});
-const Effect = () => /* @__PURE__ */ v$1("svg", {
-  class: iconStyle$6,
+const Effect = (props) => /* @__PURE__ */ v$1("svg", {
+  class: props.class,
   xmlns: "http://www.w3.org/2000/svg",
   "enable-background": "new 0 0 24 24",
   height: "24",
@@ -1052,15 +985,8 @@ const Effect = () => /* @__PURE__ */ v$1("svg", {
 }), /* @__PURE__ */ v$1("path", {
   d: "M17.71,9.12l-2.83-2.83C14.68,6.1,14.43,6,14.17,6c-0.26,0-0.51,0.1-0.71,0.29L2.29,17.46c-0.39,0.39-0.39,1.02,0,1.41 l2.83,2.83C5.32,21.9,5.57,22,5.83,22s0.51-0.1,0.71-0.29l11.17-11.17C18.1,10.15,18.1,9.51,17.71,9.12z M14.17,8.42l1.41,1.41 L14.41,11L13,9.59L14.17,8.42z M5.83,19.59l-1.41-1.41L11.59,11L13,12.41L5.83,19.59z"
 }))));
-const iconStyle$5 = u$1({
-  display: "inline",
-  width: "auto",
-  height: "1em",
-  verticalAlign: "-0.11em",
-  fill: "currentColor"
-});
-const Emoji = () => /* @__PURE__ */ v$1("svg", {
-  class: iconStyle$5,
+const Emoji = (props) => /* @__PURE__ */ v$1("svg", {
+  class: props.class,
   xmlns: "http://www.w3.org/2000/svg",
   height: "24",
   viewBox: "0 0 24 24",
@@ -1071,15 +997,8 @@ const Emoji = () => /* @__PURE__ */ v$1("svg", {
 }), /* @__PURE__ */ v$1("path", {
   d: "M10.25 13c0 .69-.56 1.25-1.25 1.25S7.75 13.69 7.75 13s.56-1.25 1.25-1.25 1.25.56 1.25 1.25zM15 11.75c-.69 0-1.25.56-1.25 1.25s.56 1.25 1.25 1.25 1.25-.56 1.25-1.25-.56-1.25-1.25-1.25zm7 .25c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2s10 4.48 10 10zM10.66 4.12C12.06 6.44 14.6 8 17.5 8c.46 0 .91-.05 1.34-.12C17.44 5.56 14.9 4 12 4c-.46 0-.91.05-1.34.12zM4.42 9.47c1.71-.97 3.03-2.55 3.66-4.44C6.37 6 5.05 7.58 4.42 9.47zM20 12c0-.78-.12-1.53-.33-2.24-.7.15-1.42.24-2.17.24-3.13 0-5.92-1.44-7.76-3.69C8.69 8.87 6.6 10.88 4 11.86c.01.04 0 .09 0 .14 0 4.41 3.59 8 8 8s8-3.59 8-8z"
 }));
-const iconStyle$4 = u$1({
-  display: "inline",
-  width: "auto",
-  height: "1em",
-  verticalAlign: "-0.11em",
-  fill: "currentColor"
-});
-const File = () => /* @__PURE__ */ v$1("svg", {
-  class: iconStyle$4,
+const File = (props) => /* @__PURE__ */ v$1("svg", {
+  class: props.class,
   xmlns: "http://www.w3.org/2000/svg",
   height: "24",
   viewBox: "0 0 24 24",
@@ -1090,15 +1009,8 @@ const File = () => /* @__PURE__ */ v$1("svg", {
 }), /* @__PURE__ */ v$1("path", {
   d: "M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"
 }));
-const iconStyle$3 = u$1({
-  display: "inline",
-  width: "auto",
-  height: "1em",
-  verticalAlign: "-0.11em",
-  fill: "currentColor"
-});
-const Image = () => /* @__PURE__ */ v$1("svg", {
-  class: iconStyle$3,
+const Image = (props) => /* @__PURE__ */ v$1("svg", {
+  class: props.class,
   xmlns: "http://www.w3.org/2000/svg",
   height: "24",
   viewBox: "0 0 24 24",
@@ -1109,15 +1021,8 @@ const Image = () => /* @__PURE__ */ v$1("svg", {
 }), /* @__PURE__ */ v$1("path", {
   d: "M20 4v12H8V4h12m0-2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 9.67l1.69 2.26 2.48-3.1L19 15H9zM2 6v14c0 1.1.9 2 2 2h14v-2H4V6H2z"
 }));
-const iconStyle$2 = u$1({
-  display: "inline",
-  width: "auto",
-  height: "1em",
-  verticalAlign: "-0.11em",
-  fill: "currentColor"
-});
-const Increment = () => /* @__PURE__ */ v$1("svg", {
-  class: iconStyle$2,
+const Increment = (props) => /* @__PURE__ */ v$1("svg", {
+  class: props.class,
   xmlns: "http://www.w3.org/2000/svg",
   height: "24",
   viewBox: "0 0 24 24",
@@ -1128,15 +1033,8 @@ const Increment = () => /* @__PURE__ */ v$1("svg", {
 }), /* @__PURE__ */ v$1("path", {
   d: "M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
 }));
-const iconStyle$1 = u$1({
-  display: "inline",
-  width: "auto",
-  height: "1em",
-  verticalAlign: "-0.11em",
-  fill: "currentColor"
-});
-const CheckRadio = () => /* @__PURE__ */ v$1("svg", {
-  class: iconStyle$1,
+const CheckRadio = (props) => /* @__PURE__ */ v$1("svg", {
+  class: props.class,
   xmlns: "http://www.w3.org/2000/svg",
   height: "24",
   viewBox: "0 0 24 24",
@@ -1146,15 +1044,8 @@ const CheckRadio = () => /* @__PURE__ */ v$1("svg", {
   cy: "12",
   r: "7"
 }));
-const iconStyle = u$1({
-  display: "inline",
-  width: "auto",
-  height: "1em",
-  verticalAlign: "-0.11em",
-  fill: "currentColor"
-});
-const Save = () => /* @__PURE__ */ v$1("svg", {
-  class: iconStyle,
+const Save = (props) => /* @__PURE__ */ v$1("svg", {
+  class: props.class,
   xmlns: "http://www.w3.org/2000/svg",
   height: "24",
   viewBox: "0 0 24 24",
@@ -1165,6 +1056,13 @@ const Save = () => /* @__PURE__ */ v$1("svg", {
 }), /* @__PURE__ */ v$1("path", {
   d: "M19 12v7H5v-7H3v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2zm-6 .67l2.59-2.58L17 11.5l-5 5-5-5 1.41-1.41L11 12.67V3h2v9.67z"
 }));
+const iconStyle = u$1({
+  display: "inline",
+  width: "auto",
+  height: "1em",
+  verticalAlign: "-0.11em",
+  fill: "currentColor"
+});
 const icons = {
   "text": Text,
   "align-center": AlignCenter,
@@ -1185,7 +1083,9 @@ const icons = {
 };
 const Icon = ({ icon }) => {
   const Component = icons[icon];
-  return /* @__PURE__ */ v$1(Component, null);
+  return /* @__PURE__ */ v$1(Component, {
+    class: iconStyle
+  });
 };
 const register$1 = () => {
   h("phi-icon", () => Icon, {

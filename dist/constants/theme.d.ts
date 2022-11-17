@@ -32,6 +32,9 @@ export declare const fontSize: {
     md: string;
     icon: string;
 };
+export declare const lineHeight: {
+    md: string;
+};
 export declare const pressable: {
     boxShadow: string;
     "&:active": {
