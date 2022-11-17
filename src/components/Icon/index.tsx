@@ -1,5 +1,6 @@
 import { FunctionComponent } from "preact";
 import { define } from "preactement";
+import { css } from "goober";
 import Text from "../icons/Text";
 import AlignCenter from "../icons/AlignCenter";
 import AlignJustify from "../icons/AlignJustify";
@@ -17,11 +18,23 @@ import Increment from "../icons/Increment";
 import CheckRadio from "../icons/CheckRadio";
 import Save from "../icons/Save";
 
+type IconProps = {
+  class: string;
+};
+
 type Props = {
   icon: string;
 };
 
-const icons: Record<string, FunctionComponent<{}>> = {
+const iconStyle = css({
+  display: "inline",
+  width: "auto",
+  height: "1em",
+  verticalAlign: "-0.11em",
+  fill: "currentColor",
+});
+
+const icons: Record<string, FunctionComponent<IconProps>> = {
   "text": Text,
   "align-center": AlignCenter,
   "align-justify": AlignJustify,
@@ -42,7 +55,7 @@ const icons: Record<string, FunctionComponent<{}>> = {
 
 const Icon = ({ icon }: Props) => {
   const Component = icons[icon];
-  return <Component />;
+  return <Component class={ iconStyle } />;
 };
 
 export const register = () => {

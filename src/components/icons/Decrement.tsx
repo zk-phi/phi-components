@@ -1,15 +1,9 @@
-import { css } from "goober";
+type Props = {
+  class: string,
+};
 
-const iconStyle = css({
-  display: "inline",
-  width: "auto",
-  height: "1em",
-  verticalAlign: "-0.11em",
-  fill: "currentColor",
-});
-
-const Decrement = () => (
-  <svg class={ iconStyle } xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+const Decrement = (props: Props) => (
+  <svg class={ props.class } xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
     <path d="M0 0h24v24H0V0z" fill="none"/>
     <path d="M19 13H5v-2h14v2z"/>
   </svg>

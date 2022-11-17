@@ -1,15 +1,9 @@
-import { css } from "goober";
+type Props = {
+  class: string,
+};
 
-const iconStyle = css({
-  display: "inline",
-  width: "auto",
-  height: "1em",
-  verticalAlign: "-0.11em",
-  fill: "currentColor",
-});
-
-const Effect = () => (
-  <svg class={ iconStyle } xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24">
+const Effect = (props: Props) => (
+  <svg class={ props.class } xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24">
     <g>
       <rect fill="none" height="24" width="24" x="0"/>
     </g>
