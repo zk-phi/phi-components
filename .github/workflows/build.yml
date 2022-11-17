@@ -46,7 +46,7 @@ jobs:
           git config --local user.email "_"
           git config --local user.name "Github Actions"
           git fetch origin master
-          git checkout master -- package.json
+          git checkout origin/master -- package.json
           git add dist package.json
           git commit -m "Update build artifacts"
           git push origin release
