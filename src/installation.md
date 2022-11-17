@@ -19,8 +19,13 @@ register();
 ```
 
 ## Node
+### Install
 
-### Web Components
+``` shell
+npm install "zk-phi/phi-components#release"
+```
+
+### Import as Web Components
 
 ```javascript
 import { register } from "phi-components";
@@ -35,7 +40,7 @@ Note that you may need to bypass registration during SSR.
 +}
 ```
 
-### Preact components
+### Import as Preact components
 
 ```javascript
 // Raw Preact components are also exported
