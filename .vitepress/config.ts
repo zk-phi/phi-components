@@ -6,6 +6,7 @@ export default defineConfig({
   title: "phi-components",
   srcDir: Path.resolve("src"),
   outDir: Path.resolve("doc"),
+  base: "/phi-components/",
   vue: {
     template: {
       compilerOptions: {
