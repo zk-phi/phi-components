@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  build-doc:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -20,7 +20,44 @@ jobs:
           key: node_modules-${{ hashFiles('package-lock.json') }}
       - run: npm ci --legacy-peer-deps
         if: steps.cache.outputs.cache-hit != 'true'
-      - run: npm run build:doc
+      - run: npm run build
+      - uses: actions/upload-artifact@v2
+        with:
+          name: module
+          path: dist
+      - uses: actions/upload-artifact@v2
+        with:
+          name: doc
+          path: doc
+
+  deploy-module:
+    runs-on: ubuntu-latest
+    needs:
+      - build
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: 'release'
+      - uses: actions/download-artifact@v2
+        with:
+          name: module
+          path: dist
+      - run: |
+          git config --local user.email "_"
+          git config --local user.name "Github Actions"
+          git add dist
+          git commit -m "Update build artifacts"
+          git push origin release
+
+  deploy-doc:
+    runs-on: ubuntu-latest
+    needs:
+      - build
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: doc
+          path: doc
       - uses: peaceiris/actions-gh-pages@v3.8.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
