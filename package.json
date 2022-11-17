@@ -16,7 +16,7 @@
     "build": "npm run build:doc && npm run build:module",
     "build:module": "tsc && vite build",
     "build:doc": "vitepress build",
-    "analyze": "tsc && vite build --mode analyze",
+    "analyze": "vite build --mode analyze",
     "dev": "vitepress dev",
     "serve": "vitepress serve",
     "check": "tsc --noEmit"
