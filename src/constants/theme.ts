@@ -47,7 +47,7 @@ export const pressable = {
   },
 };
 
-export const clickable = (color) => ({
+export const clickable = (color: string) => ({
   "&:active": {
     color: color,
     backgroundColor: "rgba(238, 170, 0, 0.1)", // #ea0 10%

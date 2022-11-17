@@ -110,7 +110,6 @@ const iconStyle = css({
 const Button = ({
   icon,
   children,
-  size = "normal",
   variant = "default",
   danger = false,
   onClick,

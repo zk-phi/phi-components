@@ -1,3 +1,4 @@
+import { FunctionComponent } from "preact";
 import { define } from "preactement";
 import Text from "../icons/Text";
 import AlignCenter from "../icons/AlignCenter";
@@ -20,7 +21,7 @@ type Props = {
   icon: string;
 };
 
-const icons = {
+const icons: Record<string, FunctionComponent<{}>> = {
   "text": Text,
   "align-center": AlignCenter,
   "align-justify": AlignJustify,

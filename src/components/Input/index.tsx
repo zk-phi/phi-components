@@ -2,7 +2,7 @@ import { useCallback, useEffect } from "preact/hooks";
 import classNames from "classnames";
 import { define } from "preactement";
 import { useInputValue } from "../../utils/useInputValue";
-import { font, color, borderRadius, padding, fontSize, spacing, boxShadow, fontSize } from "../../constants/theme";
+import { font, color, borderRadius, padding, spacing, boxShadow, fontSize } from "../../constants/theme";
 import { css } from "goober";
 
 type Size = "normal" | "small";
@@ -73,13 +73,15 @@ const Input = ({
 }: Props) => {
   const isError = error || error === "";
   const className = classNames([style, size, { error: isError }]);
-  const handleInputValue = useInputValue(parent, value);
+  const handleInputValue = useInputValue<string>(parent, value);
 
-  const onInput = useCallback(e => {
-    if (onChange) {
-      onChange(e.target.value);
+  const onInput = useCallback((e: Event) => {
+    if (e.target instanceof HTMLInputElement) {
+      if (onChange) {
+        onChange(e.target.value);
+      }
+      handleInputValue(e.target.value, e);
     }
-    handleInputValue(e.target.value, e);
   }, [onChange, handleInputValue]);
 
   return (
