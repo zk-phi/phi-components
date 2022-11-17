@@ -17,7 +17,7 @@
     "classnames": "^2.3.2",
     "goober": "^2.1.8",
     "preact": "^10.7.0",
-    "preactement": "zk-phi/component-elements#eca8dee2fafa4e529acb2921a61c1812de0d1441"
+    "preactement": "zk-phi/component-elements#2ba7d8d31c7bee9eb47a7dbdb7e5354ba772fea3"
   },
   "devDependencies": {
     "typescript": "^4.6.3",
