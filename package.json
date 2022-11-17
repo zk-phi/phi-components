@@ -8,9 +8,9 @@
   "scripts": {
     "build": "npm run build:doc && npm run build:module",
     "build:module": "vite build",
-    "build:doc": "vitepress build src",
-    "dev": "vitepress dev src",
-    "serve": "vitepress serve src",
+    "build:doc": "vitepress build",
+    "dev": "vitepress dev",
+    "serve": "vitepress serve",
     "check": "tsc --noEmit"
   },
   "dependencies": {

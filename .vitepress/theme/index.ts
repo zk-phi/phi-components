@@ -1,5 +1,5 @@
 import Theme from "vitepress/theme";
-import { register } from "../../main.ts";
+import { register } from "../../src/main";
 import "./custom.css";
 
 // skip registration during SSR
