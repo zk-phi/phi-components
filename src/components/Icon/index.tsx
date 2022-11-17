@@ -44,7 +44,7 @@ const Icon = ({ icon }: Props) => {
   return <Component />;
 };
 
-Icon.register = () => {
+export const register = () => {
   define("phi-icon", () => Icon, {
     attributes: ["icon"],
   });

@@ -87,7 +87,7 @@ const Input = ({
   );
 };
 
-Input.register = () => {
+export const register = () => {
   define("phi-input", () => Input, {
     attributes: ["value", "size", "error"],
     formAssociated: true,

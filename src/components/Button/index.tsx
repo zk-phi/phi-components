@@ -125,7 +125,7 @@ const Button = ({
   );
 };
 
-Button.register = () => {
+export const register = () => {
   define("phi-button", () => Button, {
     attributes: ["variant", "danger"],
   });
