@@ -11,6 +11,9 @@
     "esModuleInterop": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "jsxImportSource": "preact"
+    "jsxImportSource": "preact",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "dist"
   }
 }

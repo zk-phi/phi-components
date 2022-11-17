@@ -5,6 +5,7 @@
   ],
   "main": "./dist/phi-components.umd.js",
   "module": "./dist/phi-components.es.js",
+  "types": "./dist/main.d.ts",
   "exports": {
     ".": {
       "import": "./dist/phi-components.es.js",
@@ -13,9 +14,9 @@
   },
   "scripts": {
     "build": "npm run build:doc && npm run build:module",
-    "build:module": "vite build",
+    "build:module": "tsc && vite build",
     "build:doc": "vitepress build",
-    "analyze": "vite build --mode analyze",
+    "analyze": "tsc && vite build --mode analyze",
     "dev": "vitepress dev",
     "serve": "vitepress serve",
     "check": "tsc --noEmit"
