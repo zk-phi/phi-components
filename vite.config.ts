@@ -16,6 +16,7 @@ export default defineConfig(({ mode }) => ({
       name: "PhiComponents",
       fileName: (format) => `phi-components.${format}.js`,
     },
+    sourcemap: true,
     rollupOptions: {
       plugins: [
         mode === "analyze" && visualizer({
