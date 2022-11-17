@@ -5,6 +5,12 @@
   ],
   "main": "./dist/phi-components.umd.js",
   "module": "./dist/phi-components.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/phi-components.es.js",
+      "require": "./dist/phi-components.umd.js"
+    }
+  },
   "scripts": {
     "build": "npm run build:doc && npm run build:module",
     "build:module": "vite build",
