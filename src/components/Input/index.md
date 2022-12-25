@@ -61,6 +61,8 @@ const value = ref("abrakadabra");
 
 Also works as expected with `<form>` and `<input type="submit">`.
 
+You may need to polyfill ElementInternals to support this usecase on Safari.
+
 ## Preact
 
 ```js
