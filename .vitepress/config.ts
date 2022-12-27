@@ -26,6 +26,7 @@ export default defineConfig({
       text: "Getting Started",
       items: [
         { text: "Installation", link: "/installation" },
+        { text: "Notes on form elements", link: "/formelements" },
       ],
     }, {
       text: "Components",

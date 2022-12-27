@@ -35,6 +35,8 @@ A **WIP** component library.
 
 - add more components
 
+- support setting `value` prop from outside
+
 ### Copyright
 
 Icons are taken from `Material DesignIcons` (c) Google.
