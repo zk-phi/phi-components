@@ -73,7 +73,7 @@ const Input = ({
 }: Props) => {
   const isError = error || error === "";
   const className = classNames([style, size, { error: isError }]);
-  const handleInputValue = useInputValue<string>(parent, value);
+  const [currentValue, handleInputValue] = useInputValue<string>(parent, value);
 
   const onInput = useCallback((e: Event) => {
     if (e.target instanceof HTMLInputElement) {
@@ -85,7 +85,7 @@ const Input = ({
   }, [onChange, handleInputValue]);
 
   return (
-    <input type="text" class={ className } value={ value } onInput={ onInput } />
+    <input type="text" class={ className } value={ currentValue } onInput={ onInput } />
   );
 };
 

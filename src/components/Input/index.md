@@ -7,11 +7,15 @@ A text input works just like `<input type='text'>`.
 <script setup>
 import { ref } from "vue";
 const value = ref("abrakadabra");
+const reset = () => value.value = "abrakadabra";
 </script>
 
 <figure>
   <phi-input :value="value" @input="value = $event.target.value" />
-  <p>Input value = {{ value }}</p>
+  <p>
+    Input value = {{ value }}
+    (<button @click="reset">reset</button>)
+  </p>
 </figure>
 
 ### Size variants
