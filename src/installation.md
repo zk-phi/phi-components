@@ -1,15 +1,18 @@
 # Installation
 ## Browser
+### Download
 
 Pre-built version is available in the `release` branch of this repository.
 
 https://github.com/zk-phi/phi-components/tree/release
 
-You may also use CDNs to load the library directly from.
+You may also use CDNs, instead of hosting your own.
 
 ```html
 <script src="https://cdn.jsdelivr.net/gh/zk-phi/phi-components@release/dist/phi-components.umd.js"></script>
 ```
+
+### Build from source
 
 If you want to build this library from the source, clone this repository
 
@@ -19,9 +22,9 @@ git clone https://github.com/zk-phi/phi-components.git
 
 and run `npm install` then `npm run build:module`.
 
-### UMD (*.umd.js)
+### UMD build (*.umd.js)
 
-`PhiComponents` is defined when loaded.
+Load with `script` tag, and call `PhiComponents.register` to register all components.
 
 ```html
 <script src="path/to/phi-components.umd.js"></script>
@@ -30,9 +33,9 @@ PhiComponents.register();
 </script>
 ```
 
-### ES Modules (*.es.js)
+### ES Modules build (*.es.js)
 
-You may also `import` the library explicitly as an ESM.
+Import `register` from the module, and call it to register all components.
 
 ```html
 <script type="module">
@@ -42,6 +45,7 @@ register();
 ```
 
 ## Node
+### Install
 
 Just install `release` branch of this repository as a package.
 
@@ -49,22 +53,18 @@ Just install `release` branch of this repository as a package.
 npm install "zk-phi/phi-components#release"
 ```
 
-### Import as Web Components
+### as Web Components
+
+Import and call `register` to register all components.
 
 ```javascript
 import { register } from "phi-components";
 register();
 ```
 
-Note that you may need to skip registration during SSR.
+### as Preact components
 
-```diff
-+if (typeof window !== "undefined") {
-   register();
-+}
-```
-
-### Import as Preact components
+Import individual components from `phi-components`.
 
 ```javascript
 // Raw Preact components are also exported

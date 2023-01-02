@@ -4,7 +4,7 @@ A **WIP** component library.
 
 ### Goals
 
-- reasonably lightweight
+- reasonably light
 - builds fast
 - framework agnostic (available as both Web Components and Preact components)
 - supports dark mode out of the box
@@ -14,10 +14,10 @@ A **WIP** component library.
 
 - Happy, positive and warm vibe
 - Not too fancy, meeting wide range of purposes
-- No animations, yes interactions
-  - All interactive elements are always distinguishable from plain texts, without need to hover
+- No animations, but interactions
+  - All interactive elements are always distinguishable from plain texts
   - All interactive elements are colored when hovered
-  - All interactive elements look different when active
+  - All interactive elements look different when pressed
 
 ### Technologies
 
@@ -26,7 +26,7 @@ A **WIP** component library.
 - DOM manipulation: `Preact`
 - Style injection: `Goober`
 - Web Components wrapper: `preactement`
-- Documentation: `Vitepress` / `Vue`
+- Documentation: `Vitepress`
 
 ### Todos
 
@@ -34,8 +34,6 @@ A **WIP** component library.
   - https://stackoverflow.com/questions/59621784/how-to-detect-prefers-color-scheme-change-in-javascript
 
 - add more components
-
-- support setting `value` prop from outside
 
 ### Copyright
 

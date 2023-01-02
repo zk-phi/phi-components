@@ -2,8 +2,6 @@
 
 An icon component.
 
-## Demo
-
 <figure>
   <ul>
     <li>back <phi-icon icon="back" /></li>
@@ -25,22 +23,24 @@ An icon component.
   </ul>
 </figure>
 
-## Web Components
+## Usage
+
+### Web Components
 
 ```html
 <phi-icon icon="text" />
 ```
 
-### Attributes
+#### Attributes
 
 - `icon`: `string`
 
-## Preact
+### Preact
 
 ```js
 <Icon icon="text" />
 ```
 
-### Props
+#### Props
 
 - `icon`: `string`

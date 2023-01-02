@@ -2,24 +2,14 @@
 
 A generic button component.
 
-## Demo
-
-<script setup>
-import { ref } from "vue";
-const count = ref(0);
-</script>
-
 <figure>
-  <phi-button @click="count++">
-    <span slot="icon">🍺</span>
-    Cheers!
+  <phi-button>
+    Button
   </phi-button>
-  <span v-if="count">
-    🍻 x {{ count }}
-  </span>
 </figure>
 
-### Type Variants
+## Variants
+### Style Variants
 
 `primary` for the MOST important button in the screen, like "submit" button.
 
@@ -67,37 +57,72 @@ const count = ref(0);
   </phi-button>
 </figure>
 
-## Web Components
+## Usage
+
+<script setup>
+import "./demo";
+import { ref } from "vue";
+const count = ref(0);
+</script>
+
+### Web Components (+ Vue)
+
+<figure>
+  <phi-button @click="count++" :danger="count >= 10">
+    <span slot="icon">🍺</span>
+    Cheers!
+  </phi-button>
+  <span v-if="count">
+    🍻 x {{ count }}
+  </span>
+</figure>
 
 ```html
-<phi-button onclick="alert('Clicked!')">
-  <span slot="icon">😊</span>
-  I'm a button
+<script setup>
+import { ref } from "vue";
+const count = ref(0);
+</script>
+
+<phi-button @click="count++" :danger="count >= 10">
+   <span slot="icon">🍺</span>
+   Cheers!
 </phi-button>
+<span v-if="count">🍻 x {{ count }}</span>
 ```
 
-### Attributes
+#### Attributes
 
 - `variant`: `"primary" | "default" | "dotted" | "text"`
-- `danger`: `""`
+- `danger`: `boolean`
 
-### Slots
+#### Slots
 
 - `icon`
 
-### Events
+#### Events
 
 - `click`
 
-## Preact
+### Preact
+
+<figure>
+  <phi-button-demo />
+</figure>
 
 ```js
-<Button icon={ "😊" } onClick={ () => alert('Clicked!') }>
-  I'm a button
-</Button>
+const Demo = () => {
+  const [count, setCount] = useState(0);
+  const incCount = useCallback(() => setCount(count => count + 1), [setCount]);
+  return <>
+    <Button icon={ "🍺" } onClick={ incCount } danger={ count >= 10 }>
+      Cheers!
+    </Button>
+    { !!count && <span> 🍻 x { count }</span> }
+  </>;
+};
 ```
 
-### Props
+#### Props
 
 - `variant`: `"primary" | "default" | "dotted" | "text"`
 - `danger`: `boolean`

@@ -2,75 +2,98 @@
 
 A text input works just like `<input type='text'>`.
 
-## Demo
-
-<script setup>
-import { ref } from "vue";
-const value = ref("abrakadabra");
-const reset = () => value.value = "abrakadabra";
-</script>
-
 <figure>
-  <phi-input :value="value" @input="value = $event.target.value" />
-  <p>
-    Input value = {{ value }}
-    (<button @click="reset">reset</button>)
-  </p>
+  <phi-input value="abrakadabra" />
 </figure>
 
-### Size variants
+## Variants
+### Size Variants
 
-`small` for inputs in popovers.
+`small` for nested forms (like popovers):
 
 <figure>
   <phi-input size="small" value="abrakadabra" />
 </figure>
 
-### Color variants
+### Color Variants
 
-`error` for invalid inputs.
+`error` for invalid inputs:
 
 <figure>
   <phi-input error value="adracabadra" />
 </figure>
 
-## Web Components
+## Usage
+
+<script setup>
+import "./demo";
+import { ref } from "vue";
+const value = ref("abrakadabra");
+</script>
+
+### Web Components (+ Vue)
+
+<figure>
+  <phi-input
+    :value="value"
+    @input="value = $event.target.value"
+    :error="value !== 'abrakadabra'" />
+  <p>
+    Input value = {{ value }}
+    (<button @click="value = 'abrakadabra'">reset</button>)
+  </p>
+</figure>
 
 ```html
-<phi-input id="input" value="abrakadabra" oninput="handler()" />
+<script setup>
+import { ref } from "vue";
+const value = ref("abrakadabra");
+</script>
+
+<phi-input
+  :value="value"
+  @input="value = $event.target.value"
+  :error="value !== 'abrakadabra'" />
+<p>
+   value = {{ value }}
+   (<button @click="value = 'abrakadabra">reset</button>)
+</p>
 ```
 
-### Attributes
+#### Attributes
 
 - `value`: `string`
 - `size`: `"normal" | "small"`
 - `error`: `boolean`
 
-### Events
-
-- `input`
-
-### Fields
+#### Props
 
 - `value`: `string`
 
-### Form compatiblity
+#### Events
 
-```html
-<form method="post">
-  <phi-input name="magic_word" value="abrakadabra" />
-  <input type="submit" />
-</form>
-```
+- `input`
 
-Also works as expected with `<form>` and `<input type="submit">`.
+### Preact
 
-You may need to polyfill ElementInternals to support this usecase on Safari.
-
-## Preact
+<figure>
+  <phi-input-demo />
+</figure>
 
 ```js
-<Input value={ magicWord } onInput={ setMagicWord } />
+const Demo = () => {
+  const [value, setValue] = useState("abrakadabra");
+  return <>
+    <Input
+        value={ value }
+        onChange={ setValue }
+        error={ value !== "abrakadabra" } />
+    <p>
+      value: { value }
+      (<button onClick={ () => setValue("abrakadabra") }>reset</button>)
+    </p>
+  </>;
+};
 ```
 
 ### Props
