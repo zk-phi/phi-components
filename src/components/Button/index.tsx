@@ -114,7 +114,7 @@ const Button = ({
   danger = false,
   onClick,
 }: Props) => {
-  const isDanger = danger || danger === "";
+  const isDanger = (danger && danger !== "false") || danger === "";
   const className = classNames([buttonStyle, variant, { danger: isDanger }]);
   return (
     <button class={ className } onClick={ onClick }>

@@ -71,7 +71,7 @@ const Input = ({
   onChange,
   parent,
 }: Props) => {
-  const isError = error || error === "";
+  const isError = (error && error !== "false") || error === "";
   const className = classNames([style, size, { error: isError }]);
   const [currentValue, handleInputValue] = useInputValue<string>(parent, value);
 
