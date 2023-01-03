@@ -5,6 +5,12 @@ export const color = {
   distantFg: "#ffffff",
   bg:        "#ffffff",
   border:    "#aaaaaa",
+  dark: {
+    fg:        "#eeeeee",
+    distantFg: "#222222",
+    bg:        "#222222",
+    border:    "#777777",
+  },
   primaryActive: "#de9e00", // okhsl(80, 100, 70)
   primary:       "#eeaa00", // okhsl(80, 100, 75)
   primaryHover:  "#ffb81c", // okhsl(80, 100, 80)
@@ -45,7 +51,7 @@ export const lineHeight = {
 
 export const pressable = {
   boxShadow: "0 1px rgba(0, 0, 0, 0.1)",
-  "&:active": {
+  "&:active, &:active": {
     boxShadow: "none",
     transform: "translateY(1px)",
   },

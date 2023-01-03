@@ -2,9 +2,10 @@ import Theme from "vitepress/theme";
 import { register } from "../../src/main";
 import "./custom.css";
 
-// skip registration during SSR
-if (typeof window !==  "undefined") {
-  register();
+register();
+
+if (document) {
+  document.documentElement.classList.add("nodark");
 }
 
 export default Theme;

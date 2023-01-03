@@ -2,6 +2,7 @@ import { ComponentChildren, ComponentChild } from "preact";
 import classNames from "classnames";
 import { define } from "preactement";
 import { font, color, borderRadius, padding, fontSize, spacing, pressable, clickable, lineHeight } from "../../constants/theme";
+import { isDark } from "../../utils/isDark";
 import { css } from "goober";
 
 type Variant = "primary" | "default" | "dotted" | "text" | "icon";
@@ -19,10 +20,18 @@ const buttonStyle = css({
   "--baseAccent": color.primary,
   "--hoverAccent": color.primaryHover,
   "--activeAccent": color.primaryActive,
+  "--fg": color.fg,
+  "--distantFg": color.distantFg,
+  "--border": color.border,
   "&.danger": {
     "--baseAccent": color.danger,
     "--hoverAccent": color.dangerHover,
     "--activeAccent": color.dangerActive,
+  },
+  "&.dark": {
+    "--fg": color.dark.fg,
+    "--distantFg": color.dark.distantFg,
+    "--border": color.dark.border,
   },
 
   fontFamily: font,
@@ -35,12 +44,12 @@ const buttonStyle = css({
   "&.primary": {
     padding: padding.md,
     borderRadius: borderRadius.md,
-    color: color.distantFg,
+    color: "var(--distantFg)",
     background: "var(--baseAccent)",
     border: "1px solid var(--baseAccent)",
     ...pressable,
     "&:hover": {
-      color: color.distantFg,
+      color: "var(--distantFg)",
       background: "var(--hoverAccent)",
       border: "1px solid var(--hoverAccent)",
     },
@@ -49,7 +58,7 @@ const buttonStyle = css({
   "&.default": {
     padding: padding.md,
     borderRadius: borderRadius.md,
-    color: color.fg,
+    color: "var(--fg)",
     background: "transparent",
     border: "1px solid currentColor",
     ...pressable,
@@ -61,7 +70,7 @@ const buttonStyle = css({
   "&.dotted": {
     padding: padding.md,
     borderRadius: borderRadius.md,
-    color: color.fg,
+    color: "var(--fg)",
     background: "transparent",
     border: "1px dashed currentColor",
     ...clickable("var(--activeAccent)"),
@@ -73,7 +82,7 @@ const buttonStyle = css({
   "&.text": {
     padding: 0,
     borderRadius: 0,
-    color: color.fg,
+    color: "var(--fg)",
     background: "transparent",
     border: "none",
     borderBottom: "1px dotted currentColor",
@@ -84,7 +93,7 @@ const buttonStyle = css({
   },
 
   "&.icon": {
-    color: color.border,
+    color: "var(--border)",
     display: "inline-block",
     padding: padding.minimal,
     fontSize: fontSize.icon,
@@ -115,7 +124,7 @@ const Button = ({
   onClick,
 }: Props) => {
   const isDanger = (danger && danger !== "false") || danger === "";
-  const className = classNames([buttonStyle, variant, { danger: isDanger }]);
+  const className = classNames([buttonStyle, variant, { danger: isDanger, dark: isDark.value }]);
   return (
     <button class={ className } onClick={ onClick }>
       { icon && <span class={ iconStyle }>{ icon }</span> }

@@ -3,6 +3,7 @@ import classNames from "classnames";
 import { define } from "preactement";
 import { useInputValue } from "../../utils/useInputValue";
 import { font, color, borderRadius, padding, spacing, boxShadow, fontSize, lineHeight } from "../../constants/theme";
+import { isDark } from "../../utils/isDark";
 import { css } from "goober";
 
 type Size = "normal" | "small";
@@ -19,15 +20,23 @@ const style = css({
   "--baseAccent": color.primary,
   "--hoverAccent": color.primaryHover,
   "--activeAccent": color.primaryActive,
+  "--border": color.border,
+  "--bg": color.bg,
+  "--fg": color.fg,
   "--boxShadow": boxShadow.primary,
+  "&.dark": {
+    "--bg": color.dark.bg,
+    "--fg": color.dark.fg,
+    "--border": color.dark.border,
+  },
 
   fontFamily: font,
   padding: padding.md,
   fontSize: fontSize.md,
   lineHeight: lineHeight.md,
-  color: color.fg,
-  backgroundColor: color.bg,
-  border: `1px solid ${color.border}`,
+  color: "var(--fg)",
+  backgroundColor: "var(--bg)",
+  border: `1px solid var(--border)`,
   borderRadius: borderRadius.md,
   outline: "none",
 
@@ -72,7 +81,7 @@ const Input = ({
   parent,
 }: Props) => {
   const isError = (error && error !== "false") || error === "";
-  const className = classNames([style, size, { error: isError }]);
+  const className = classNames([style, size, { error: isError, dark: isDark.value }]);
   const [currentValue, handleInputValue] = useInputValue<string>(parent, value);
 
   const onInput = useCallback((e: Event) => {

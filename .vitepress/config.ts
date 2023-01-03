@@ -26,8 +26,13 @@ export default defineConfig({
       text: "Getting Started",
       items: [
         { text: "Installation", link: "/installation" },
-        { text: "Form elements usage", link: "/formelements" },
-        { text: "Boolean attributes", link: "/boolean" },
+      ],
+    }, {
+      text: "Usage",
+      items: [
+        { text: "Form elements", link: "/usage/formelements" },
+        { text: "Boolean attributes", link: "/usage/boolean" },
+        { text: "Dark mode detection", link: "/usage/darkmode" },
       ],
     }, {
       text: "Components",

@@ -28,12 +28,9 @@ A **WIP** component library.
 - Web Components wrapper: `preactement`
 - Documentation: `Vitepress`
 
-### Todos
+### Todo
 
-- theming (including dark-mode support)
-  - https://stackoverflow.com/questions/59621784/how-to-detect-prefers-color-scheme-change-in-javascript
-
-- add more components
+- Fix shadows in dark mode
 
 ### Copyright
 
