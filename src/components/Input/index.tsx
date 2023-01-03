@@ -10,7 +10,7 @@ type Size = "normal" | "small";
 type Props = {
   value?: string,
   size?: Size,
-  error?: boolean | "",
+  error?: boolean | string,
   onChange?: (value: string) => void,
   parent?: HTMLElement,
 };
