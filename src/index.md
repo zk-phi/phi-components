@@ -1,6 +1,6 @@
 # phi-components
 
-A **WIP** component library.
+A **WIP** component library for my hobby projects.
 
 ### Goals
 
@@ -12,12 +12,14 @@ A **WIP** component library.
 
 ### Design Principles
 
-- Happy, positive and warm vibe
+- Positive, warm and peaceful vibe
 - Not too fancy, meeting wide range of purposes
-- No animations, but interactions
+- Nearly-zero animations, but full of interactions
   - All interactive elements are always distinguishable from plain texts
   - All interactive elements are colored when hovered
-  - All interactive elements look different when pressed
+  - All interactive elements look differently when pressed
+  - Animations can ONLY be used to help user to track what's happening
+    - i.e. when element (dis)appears or moves
 
 ### Technologies
 
@@ -27,10 +29,6 @@ A **WIP** component library.
 - Style injection: `Goober`
 - Web Components wrapper: `preactement`
 - Documentation: `Vitepress`
-
-### Todo
-
-- Fix shadows in dark mode
 
 ### Copyright
 
