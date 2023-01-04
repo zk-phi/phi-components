@@ -1,6 +1,5 @@
 import { ComponentChildren, ComponentChild } from "preact";
 import { useMemo } from "preact/hooks";
-import classNames from "classnames";
 import { define } from "preactement";
 import theme from "../../constants/theme";
 import { isDark } from "../../utils/isDark";
@@ -17,7 +16,7 @@ type Props = {
   parent?: HTMLElement,
 };
 
-const buttonStyle = (isDanger: boolean, isDark: boolean) => {
+const buttonStyle = (isDanger: boolean, isDark: boolean, variant: Variant) => {
   const themeVariant = isDark ? "dark" : "light";
   const colorVariant = isDanger ? "danger" : "neutral";
   const color = theme.color[themeVariant];
@@ -31,7 +30,7 @@ const buttonStyle = (isDanger: boolean, isDark: boolean) => {
     textAlign: "center",
     fontSize: theme.font.size.md,
 
-    "&.primary": {
+    ...(variant === "primary" ? {
       padding: theme.spacing.padding.md,
       lineHeight: theme.font.lineHeight.md,
       borderRadius: theme.borderRadius.md,
@@ -50,9 +49,9 @@ const buttonStyle = (isDanger: boolean, isDark: boolean) => {
         boxShadow: "none",
         transform: "none",
       },
-    },
+    } : {}),
 
-    "&.default": {
+    ...(variant === "default" ? {
       padding: theme.spacing.padding.md,
       lineHeight: theme.font.lineHeight.md,
       borderRadius: theme.borderRadius.md,
@@ -72,9 +71,9 @@ const buttonStyle = (isDanger: boolean, isDark: boolean) => {
         boxShadow: "none",
         transform: "none",
       },
-    },
+    } : {}),
 
-    "&.dotted": {
+    ...(variant === "dotted" ? {
       padding: theme.spacing.padding.md,
       lineHeight: theme.font.lineHeight.md,
       borderRadius: theme.borderRadius.md,
@@ -88,9 +87,9 @@ const buttonStyle = (isDanger: boolean, isDark: boolean) => {
         color: accent.active,
         backgroundColor: accent.bg,
       },
-    },
+    } : {}),
 
-    "&.text": {
+    ...(variant === "text" ? {
       padding: 0,
       lineHeight: theme.font.lineHeight.md,
       borderRadius: 0,
@@ -105,9 +104,9 @@ const buttonStyle = (isDanger: boolean, isDark: boolean) => {
         color: accent.active,
         backgroundColor: accent.bg,
       },
-    },
+    } : {}),
 
-    "&.icon": {
+    ...(variant === "icon" ? {
       color: color.border,
       display: "inline-block",
       padding: theme.spacing.padding.minimal,
@@ -123,7 +122,7 @@ const buttonStyle = (isDanger: boolean, isDark: boolean) => {
         color: accent.active,
         backgroundColor: accent.bg,
       },
-    },
+    } : {}),
   });
 };
 
@@ -143,10 +142,10 @@ const Button = ({
   onClick,
 }: Props) => {
   const isDanger = (danger && danger !== "false") || danger === "";
-  const className = useMemo(() => classNames([
-    buttonStyle(isDanger, isDark.value),
-    variant,
-  ]), [isDanger, isDark.value]);
+  const className = useMemo(
+    () => buttonStyle(isDanger, isDark.value, variant),
+    [isDanger, isDark.value, variant],
+  );
   return (
     <button class={ className } onClick={ onClick }>
       { icon && <span class={ iconStyle }>{ icon }</span> }
