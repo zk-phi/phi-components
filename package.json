@@ -20,11 +20,8 @@
     "dev": "vitepress dev",
     "serve": "vitepress serve"
   },
-  "dependencies": {
-    "@preact/signals": "^1.1.3"
-  },
   "devDependencies": {
-    "classnames": "^2.3.2",
+    "@preact/signals": "^1.1.3",
     "goober": "^2.1.8",
     "preact": "^10.7.0",
     "preactement": "zk-phi/component-elements#2ba7d8d31c7bee9eb47a7dbdb7e5354ba772fea3",
