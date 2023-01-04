@@ -1,18 +1,17 @@
 # Dark-mode detection
 
-This library renders in dark-mode when
+This library renders in dark-mode,
 
-- the user enables dark-mode globally in their system, and the root `html` element does not have `nodark` class
+- if the user enables dark-mode globally in his system, and the root `html` element does NOT have `nodark` class
 
-or
+OR
 
-- the root `html` element has `dark` class
+- if the root `html` element has `dark` class
 
 | `prefers-color-scheme` | `dark` class | `nodark` class | Dark mode |
 | ---------------------- | ------------ | -------------- | --------- |
+| *                      | Yes          | *              | Yes       |
 | unspecified            | No           | *              | No        |
-| unspecified            | Yes          | *              | Yes       |
 | `light`                | No           | *              | No        |
-| `light`                | Yes          | *              | Yes       |
-| `dark`                 | *            | No             | Yes       |
-| `dark`                 | *            | Yes            | No        |
+| `dark`                 | No           | No             | Yes       |
+| `dark`                 | No           | Yes            | No        |

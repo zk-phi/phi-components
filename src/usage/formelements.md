@@ -1,60 +1,51 @@
 # Form elements
 
-Most form elements (unless noted) support all these interfaecs.
+Most form elements (unless noted) work just like normal `input` elements.
 
-## Web Components
-### `value` attribute to set initial value
+## as Web Components
 
-You may specify `value` attribute in your HTML, to specify initial value for the input.
+- You may set initial value via `value` attribute
 
-```html
-<phi-input value="initial value" />
-```
+  ```html
+  <phi-input value="initial value" />
+  ```
 
-### `value` prop to get current value
+- You may get current value from `value` prop
 
-You may retrieve current value of the input via `.value` prop.
+  ```js
+  const alertValue = () => alert(input.value);
+  ```
 
-```js
-const alertValue = () => alert(input.value);
-```
+- You may update input value from outside via `value` prop
 
-### `value` prop to update input value
+  ```js
+  const resetValue = () => input.value = "";
+  ```
 
-You may also set `value` prop to update input value from outside.
+- You may subscribe `input` event to watch user inputs
 
-```js
-const resetValue = () => input.value = "";
-```
+  ```html
+  <phi-input oninput="handleInput" />
+  ```
 
-### `input` event to watch user inputs
+  ```js
+  input.addEventListener("input", handleInput);
+  ```
 
-You may subscribe `input` event to watch user inputs.
+- You may put `name` attribute to integrate with the enclosing `<form>` element
 
-```html
-<phi-input oninput="handleInput" />
-```
+  ```html
+  <form method="POST">
+    <phi-input name="field_name" />
+    <input type="submit" value="Send" />
+  </form>
+  ```
 
-```js
-input.addEventListener("input", handleInput);
-```
+  Note that you may need to polyfill `ElementInternals` to support this interface on Safari.
 
-### `name` field to integrate with enclosing `<form>` tags
+## as Preact component
 
-You may give `name` to send its value from the enclosing `<form>`.
-
-```html
-<form method="POST">
-  <phi-input name="field_name" />
-  <input type="submit" value="Send" />
-</form>
-```
-
-Note that you may need to polyfill `ElementInternals` to support this interface on Safari.
-
-## Preact
-
-Use `value` prop to set value, and `onChange` to subscribe.
+- Use `value` prop to set value, and `onChange` to subscribe changes
 
 ```js
 const Demo = () => {

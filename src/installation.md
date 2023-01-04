@@ -1,41 +1,39 @@
 # Installation
-## Browser
-### Download
+## Quick Start
 
-Pre-built version is available in the `release` branch of this repository.
-
-https://github.com/zk-phi/phi-components/tree/release
-
-You may also use CDNs, instead of hosting your own.
+Just add a `script` tag,
 
 ```html
 <script src="https://cdn.jsdelivr.net/gh/zk-phi/phi-components@release/dist/phi-components.umd.js"></script>
 ```
 
-### Build from source
-
-If you want to build this library from the source, clone this repository
-
-``` shell
-git clone https://github.com/zk-phi/phi-components.git
-```
-
-and run `npm install` then `npm run build:module`.
-
-### UMD build (*.umd.js)
-
-Load with `script` tag, and call `PhiComponents.register` to register all components.
+and register all components by calling `PhiComponents.register()`.
 
 ```html
-<script src="path/to/phi-components.umd.js"></script>
 <script>
 PhiComponents.register();
 </script>
 ```
 
-### ES Modules build (*.es.js)
+## Hosting your own
 
-Import `register` from the module, and call it to register all components.
+Pre-built version is available in the `release` branch of this repository.
+
+https://github.com/zk-phi/phi-components/tree/release
+
+You may also build from the source as follows.
+
+``` shell
+git clone https://github.com/zk-phi/phi-components.git
+npm install
+npm run build:module
+```
+
+## ES Modules version
+
+ESM version is also available as `*.es.js` (instead of `*.umd.js`).
+
+Use `import` statement to load `register` function.
 
 ```html
 <script type="module">
@@ -44,27 +42,22 @@ register();
 </script>
 ```
 
-## Node
-### Install
+## Including in your bundles
 
-Just install `release` branch of this repository as a package.
+If you are using a bundler to build your application and you want to include this library in your bundle, install `release` branch of this repository as a package,
 
 ``` shell
 npm install "zk-phi/phi-components#release"
 ```
 
-### as Web Components
-
-Import and call `register` to register all components.
+and import from you application.
 
 ```javascript
 import { register } from "phi-components";
 register();
 ```
 
-### as Preact components
-
-Import individual components from `phi-components`.
+You may also import raw Preact components, which may be useful if you are building your app with Preact.
 
 ```javascript
 // Raw Preact components are also exported
