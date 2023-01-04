@@ -16,7 +16,7 @@
 // 14/16 ... e0 (7/8)
 // 15/16 ... f0
 
-const palette = {
+const _palette = {
   light:{
     neutral: {
       lighter: "#ffb81c", // okhsl(80, 100, 80)
@@ -43,6 +43,15 @@ const palette = {
   },
 };
 
+const _fontFamilies = [
+  "'Helvetica Neue'",
+  "Arial",
+  "'Hiragino Kaku Gothic ProN'",
+  "'Hiragino Sans'",
+  "Meiryo",
+  "sans-serif",
+];
+
 const color = {
   light: {
     bg:        "#ffffffff",
@@ -50,16 +59,16 @@ const color = {
     fg:        "#000000d0", // #323232
     border:    "#00000040", // #b2b2b2
     neutral: {
-      bg:      `${palette.light.neutral.base}20`,
-      hover:   palette.light.neutral.lighter,
-      default: palette.light.neutral.base,
-      active:  palette.light.neutral.darker,
+      bg:      `${_palette.light.neutral.base}20`,
+      hover:   _palette.light.neutral.lighter,
+      default: _palette.light.neutral.base,
+      active:  _palette.light.neutral.darker,
     },
     danger: {
-      bg:      `${palette.light.danger.base}20`,
-      hover:   palette.light.danger.lighter,
-      default: palette.light.danger.base,
-      active:  palette.light.danger.darker,
+      bg:      `${_palette.light.danger.base}20`,
+      hover:   _palette.light.danger.lighter,
+      default: _palette.light.danger.base,
+      active:  _palette.light.danger.darker,
     },
   },
   dark: {
@@ -68,16 +77,16 @@ const color = {
     fg:        "#ffffffd0", // #d4d4d4
     border:    "#ffffff40", // #656565
     neutral: {
-      bg:      `${palette.dark.neutral.base}20`,
-      hover:   palette.dark.neutral.darker,
-      default: palette.dark.neutral.base,
-      active:  palette.dark.neutral.lighter,
+      bg:      `${_palette.dark.neutral.base}20`,
+      hover:   _palette.dark.neutral.darker,
+      default: _palette.dark.neutral.base,
+      active:  _palette.dark.neutral.lighter,
     },
     danger: {
-      bg:      `${palette.dark.danger.base}20`,
-      hover:   palette.dark.danger.darker,
-      default: palette.dark.danger.base,
-      active:  palette.dark.danger.lighter,
+      bg:      `${_palette.dark.danger.base}20`,
+      hover:   _palette.dark.danger.darker,
+      default: _palette.dark.danger.base,
+      active:  _palette.dark.danger.lighter,
     },
   },
 };
@@ -87,66 +96,64 @@ const boxShadow = {
     pressable: {
       default: "0 1px #00000040",
       neutral: {
-        default: `0 1px #00000020, 0 1px ${palette.light.neutral.base}`,
-        hover:   `0 1px #00000020, 0 1px ${palette.light.neutral.lighter}`,
+        default: `0 1px #00000020, 0 1px ${_palette.light.neutral.base}`,
+        hover:   `0 1px #00000020, 0 1px ${_palette.light.neutral.lighter}`,
       },
       danger: {
-        default: `0 1px #00000020, 0 1px ${palette.light.danger.base}`,
-        hover:   `0 1px #00000020, 0 1px ${palette.light.danger.lighter}`,
+        default: `0 1px #00000020, 0 1px ${_palette.light.danger.base}`,
+        hover:   `0 1px #00000020, 0 1px ${_palette.light.danger.lighter}`,
       },
     },
     focus: {
-      neutral: `0 0 0 2px ${palette.light.neutral.base}30`,
-      danger:  `0 0 0 2px ${palette.light.danger.base}30`,
+      neutral: `0 0 0 2px ${_palette.light.neutral.base}30`,
+      danger:  `0 0 0 2px ${_palette.light.danger.base}30`,
     },
   },
   dark: {
     pressable: {
       default: "0 1px #ffffff80",
       neutral: {
-        default: `0 1px #00000040, 0 1px ${palette.dark.neutral.base}`,
-        hover:   `0 1px #00000040, 0 1px ${palette.dark.neutral.darker}`,
+        default: `0 1px #00000040, 0 1px ${_palette.dark.neutral.base}`,
+        hover:   `0 1px #00000040, 0 1px ${_palette.dark.neutral.darker}`,
       },
       danger: {
-        default: `0 1px #00000040, 0 1px ${palette.dark.danger.base}`,
-        hover:   `0 1px #00000040, 0 1px ${palette.dark.danger.darker}`,
+        default: `0 1px #00000040, 0 1px ${_palette.dark.danger.base}`,
+        hover:   `0 1px #00000040, 0 1px ${_palette.dark.danger.darker}`,
       },
     },
     focus: {
-      neutral: `0 0 0 2px ${palette.dark.neutral.base}30`,
-      danger:  `0 0 0 2px ${palette.dark.danger.base}30`,
+      neutral: `0 0 0 2px ${_palette.dark.neutral.base}30`,
+      danger:  `0 0 0 2px ${_palette.dark.danger.base}30`,
     },
   },
 };
 
-export default {
-  color,
-  boxShadow,
+const font = {
+  family: _fontFamilies.join(", "),
+  size: {
+    smallIcon: "16px",
+    md: "14px",
+    icon: "26px",
+  },
+  lineHeight: {
+    md: "16px",
+  },
 };
 
-export const font = "'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif";
-
-export const borderRadius = {
+const borderRadius = {
   md: "8px",
 };
 
-export const padding = {
-  minimal: "4px",
-  sm: "5.6px 7.84px", // 0.4em 0.5em @14px
-  md: "10.5px 14px",  // 0.75em 1em @14px
+const spacing = {
+  padding: {
+    minimal: "4px",
+    sm: "5.6px 7.84px", // 0.4em 0.5em @14px
+    md: "10.5px 14px",  // 0.75em 1em @14px
+  },
+  margin: {
+    minimal: "3.5px",  // 0.25em @14px
+    inline: "5.25px ", // 0.375em @14px
+  },
 };
 
-export const spacing = {
-  minimal: "3.5px",  // 0.25em @14px
-  inline: "5.25px ", // 0.375em @14px
-};
-
-export const fontSize = {
-  smallIcon: "16px",
-  md: "14px",
-  icon: "26px",
-};
-
-export const lineHeight = {
-  md: "16px",
-};
+export default { color, boxShadow, font, borderRadius, spacing };

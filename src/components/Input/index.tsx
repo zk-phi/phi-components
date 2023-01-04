@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo } from "preact/hooks";
 import { define } from "preactement";
 import { useInputValue } from "../../utils/useInputValue";
-import theme, { font, borderRadius, padding, spacing, fontSize, lineHeight } from "../../constants/theme";
+import theme from "../../constants/theme";
 import { isDark } from "../../utils/isDark";
 import { css } from "goober";
 
@@ -23,14 +23,14 @@ const style = (isError: boolean, isDark: boolean, size: Size) => {
   const boxShadow = theme.boxShadow[themeVariant].focus[accentVariant];
 
   return css({
-    fontFamily: font,
-    padding: size === "small" ? padding.sm : padding.md,
-    fontSize: fontSize.md,
-    lineHeight: lineHeight.md,
+    fontFamily: theme.font.family,
+    padding: size === "small" ? theme.spacing.padding.sm : theme.spacing.padding.md,
+    fontSize: theme.font.size.md,
+    lineHeight: theme.font.lineHeight.md,
     color: isError ? accent.default : color.fg,
     backgroundColor: color.bg,
     border: `1px solid ${isError ? accent.default : color.border}`,
-    borderRadius: borderRadius.md,
+    borderRadius: theme.borderRadius.md,
     outline: "none",
 
     "&:focus": {

@@ -2,7 +2,7 @@ import { ComponentChildren, ComponentChild } from "preact";
 import { useMemo } from "preact/hooks";
 import classNames from "classnames";
 import { define } from "preactement";
-import theme, { font, borderRadius, padding, fontSize, spacing, lineHeight } from "../../constants/theme";
+import theme from "../../constants/theme";
 import { isDark } from "../../utils/isDark";
 import { css } from "goober";
 
@@ -25,16 +25,16 @@ const buttonStyle = (isDanger: boolean, isDark: boolean) => {
   const pressableShadow = theme.boxShadow[themeVariant].pressable;
 
   return css({
-    fontFamily: font,
+    fontFamily: theme.font.family,
     outline: "none",
     cursor: "pointer",
     textAlign: "center",
-    fontSize: fontSize.md,
+    fontSize: theme.font.size.md,
 
     "&.primary": {
-      padding: padding.md,
-      lineHeight: lineHeight.md,
-      borderRadius: borderRadius.md,
+      padding: theme.spacing.padding.md,
+      lineHeight: theme.font.lineHeight.md,
+      borderRadius: theme.borderRadius.md,
       color: color.distantFg,
       background: accent.default,
       border: `1px solid ${accent.default}`,
@@ -53,9 +53,9 @@ const buttonStyle = (isDanger: boolean, isDark: boolean) => {
     },
 
     "&.default": {
-      padding: padding.md,
-      lineHeight: lineHeight.md,
-      borderRadius: borderRadius.md,
+      padding: theme.spacing.padding.md,
+      lineHeight: theme.font.lineHeight.md,
+      borderRadius: theme.borderRadius.md,
       color: color.fg,
       background: "transparent",
       border: `1px solid ${color.fg}`,
@@ -75,9 +75,9 @@ const buttonStyle = (isDanger: boolean, isDark: boolean) => {
     },
 
     "&.dotted": {
-      padding: padding.md,
-      lineHeight: lineHeight.md,
-      borderRadius: borderRadius.md,
+      padding: theme.spacing.padding.md,
+      lineHeight: theme.font.lineHeight.md,
+      borderRadius: theme.borderRadius.md,
       color: color.fg,
       background: "transparent",
       border: `1px dashed currentColor`,
@@ -92,7 +92,7 @@ const buttonStyle = (isDanger: boolean, isDark: boolean) => {
 
     "&.text": {
       padding: 0,
-      lineHeight: lineHeight.md,
+      lineHeight: theme.font.lineHeight.md,
       borderRadius: 0,
       color: color.fg,
       background: "transparent",
@@ -110,8 +110,8 @@ const buttonStyle = (isDanger: boolean, isDark: boolean) => {
     "&.icon": {
       color: color.border,
       display: "inline-block",
-      padding: padding.minimal,
-      fontSize: fontSize.icon,
+      padding: theme.spacing.padding.minimal,
+      fontSize: theme.font.size.icon,
       lineHeight: 1,
       background: "transparent",
       border: "none",
@@ -129,9 +129,9 @@ const buttonStyle = (isDanger: boolean, isDark: boolean) => {
 
 const iconStyle = css({
   display: "inline-block",
-  fontSize: fontSize.smallIcon,
+  fontSize: theme.font.size.smallIcon,
   lineHeight: 0,
-  marginRight: spacing.minimal,
+  marginRight: theme.spacing.margin.minimal,
   verticalAlign: "-0.05em",
 });
 
