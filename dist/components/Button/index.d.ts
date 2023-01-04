@@ -3,7 +3,7 @@ declare type Variant = "primary" | "default" | "dotted" | "text" | "icon";
 declare type Props = {
     icon?: ComponentChild;
     variant?: Variant;
-    danger?: boolean | "";
+    danger?: boolean | string;
     onClick?: () => void;
     children: ComponentChildren;
     parent?: HTMLElement;

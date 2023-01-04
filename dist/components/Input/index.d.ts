@@ -2,7 +2,7 @@ declare type Size = "normal" | "small";
 declare type Props = {
     value?: string;
     size?: Size;
-    error?: boolean | "";
+    error?: boolean | string;
     onChange?: (value: string) => void;
     parent?: HTMLElement;
 };

@@ -1,50 +1,108 @@
-export declare const font = "'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif";
-export declare const color: {
-    fg: string;
-    distantFg: string;
-    bg: string;
-    border: string;
-    primaryActive: string;
-    primary: string;
-    primaryHover: string;
-    dangerActive: string;
-    danger: string;
-    dangerHover: string;
+export declare const globalStyles: (isDark: boolean) => {
+    fontFamily: string;
+    fontSize: string;
+    color: string;
+    backgroundColor: string;
 };
-export declare const boxShadow: {
-    primary: string;
-    danger: string;
-};
-export declare const borderRadius: {
-    md: string;
-};
-export declare const padding: {
-    minimal: string;
-    sm: string;
-    md: string;
-};
-export declare const spacing: {
-    minimal: string;
-    inline: string;
-};
-export declare const fontSize: {
-    smallIcon: string;
-    md: string;
-    icon: string;
-};
-export declare const lineHeight: {
-    md: string;
-};
-export declare const pressable: {
-    boxShadow: string;
-    "&:active": {
-        boxShadow: string;
-        transform: string;
+declare const _default: {
+    color: {
+        light: {
+            bg: string;
+            distantFg: string;
+            fg: string;
+            border: string;
+            neutral: {
+                bg: string;
+                hover: string;
+                default: string;
+                active: string;
+            };
+            danger: {
+                bg: string;
+                hover: string;
+                default: string;
+                active: string;
+            };
+        };
+        dark: {
+            bg: string;
+            distantFg: string;
+            fg: string;
+            border: string;
+            neutral: {
+                bg: string;
+                hover: string;
+                default: string;
+                active: string;
+            };
+            danger: {
+                bg: string;
+                hover: string;
+                default: string;
+                active: string;
+            };
+        };
+    };
+    boxShadow: {
+        light: {
+            pressable: {
+                default: string;
+                neutral: {
+                    default: string;
+                    hover: string;
+                };
+                danger: {
+                    default: string;
+                    hover: string;
+                };
+            };
+            focus: {
+                neutral: string;
+                danger: string;
+            };
+        };
+        dark: {
+            pressable: {
+                default: string;
+                neutral: {
+                    default: string;
+                    hover: string;
+                };
+                danger: {
+                    default: string;
+                    hover: string;
+                };
+            };
+            focus: {
+                neutral: string;
+                danger: string;
+            };
+        };
+    };
+    font: {
+        family: string;
+        size: {
+            smallIcon: string;
+            md: string;
+            icon: string;
+        };
+        lineHeight: {
+            md: string;
+        };
+    };
+    borderRadius: {
+        md: string;
+    };
+    spacing: {
+        padding: {
+            minimal: string;
+            sm: string;
+            md: string;
+        };
+        margin: {
+            minimal: string;
+            inline: string;
+        };
     };
 };
-export declare const clickable: (color: string) => {
-    "&:active": {
-        color: string;
-        backgroundColor: string;
-    };
-};
+export default _default;
