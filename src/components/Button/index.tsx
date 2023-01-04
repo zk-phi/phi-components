@@ -2,7 +2,7 @@ import { ComponentChildren, ComponentChild } from "preact";
 import { useMemo } from "preact/hooks";
 import classNames from "classnames";
 import { define } from "preactement";
-import theme, { font, borderRadius, padding, fontSize, spacing, clickable, lineHeight } from "../../constants/theme";
+import theme, { font, borderRadius, padding, fontSize, spacing, lineHeight } from "../../constants/theme";
 import { isDark } from "../../utils/isDark";
 import { css } from "goober";
 
@@ -18,9 +18,11 @@ type Props = {
 };
 
 const buttonStyle = (isDanger: boolean, isDark: boolean) => {
-  const color = theme.color[isDark ? "dark" : "light"];
-  const accent = color.accent[isDanger ? "danger" : "neutral"];
-  const pressableShadow = theme.boxShadow.pressable[isDark ? "dark" : "light"];
+  const themeVariant = isDark ? "dark" : "light";
+  const colorVariant = isDanger ? "danger" : "neutral";
+  const color = theme.color[themeVariant];
+  const accent = color[colorVariant];
+  const pressableShadow = theme.boxShadow[themeVariant].pressable;
 
   return css({
     fontFamily: font,
@@ -36,15 +38,17 @@ const buttonStyle = (isDanger: boolean, isDark: boolean) => {
       color: color.distantFg,
       background: accent.default,
       border: `1px solid ${accent.default}`,
-      boxShadow: pressableShadow,
+      boxShadow: pressableShadow[colorVariant].default,
+      transform: "translateY(-1px)",
       "&:hover": {
         color: color.distantFg,
         background: accent.hover,
-        border: `1px solid ${accent.hover}`,
+        borderColor: accent.hover,
+        boxShadow: pressableShadow[colorVariant].hover,
       },
       "&:active": {
         boxShadow: "none",
-        transform: "translateY(1px)",
+        transform: "none",
       },
     },
 
@@ -55,14 +59,18 @@ const buttonStyle = (isDanger: boolean, isDark: boolean) => {
       color: color.fg,
       background: "transparent",
       border: `1px solid ${color.fg}`,
-      boxShadow: pressableShadow,
+      boxShadow: pressableShadow.default,
+      transform: "translateY(-1px)",
       "&:hover": {
         color: accent.default,
         border: `1px solid ${accent.default}`,
+        boxShadow: pressableShadow[colorVariant].default,
       },
       "&:active": {
+        color: accent.active,
+        border: `1px solid ${accent.active}`,
         boxShadow: "none",
-        transform: "translateY(1px)",
+        transform: "none",
       },
     },
 
@@ -73,9 +81,12 @@ const buttonStyle = (isDanger: boolean, isDark: boolean) => {
       color: color.fg,
       background: "transparent",
       border: `1px dashed currentColor`,
-      ...clickable(accent.active),
       "&:hover:not(:active)": {
         color: accent.default,
+      },
+      "&:active": {
+        color: accent.active,
+        backgroundColor: accent.bg,
       },
     },
 
@@ -87,9 +98,12 @@ const buttonStyle = (isDanger: boolean, isDark: boolean) => {
       background: "transparent",
       border: "none",
       borderBottom: `1px dotted currentColor`,
-      ...clickable(accent.active),
       "&:hover:not(:active)": {
         color: accent.default,
+      },
+      "&:active": {
+        color: accent.active,
+        backgroundColor: accent.bg,
       },
     },
 
@@ -102,9 +116,12 @@ const buttonStyle = (isDanger: boolean, isDark: boolean) => {
       background: "transparent",
       border: "none",
       borderRadius: "50%",
-      ...clickable(accent.active),
       "&:hover:not(:active)": {
         color: accent.default,
+      },
+      "&:active": {
+        color: accent.active,
+        backgroundColor: accent.bg,
       },
     },
   });

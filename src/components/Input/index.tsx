@@ -16,10 +16,11 @@ type Props = {
 };
 
 const style = (isError: boolean, isDark: boolean, size: Size) => {
+  const themeVariant = isDark ? "dark" : "light";
   const accentVariant = isError ? "danger" : "neutral";
-  const color = theme.color[isDark ? "dark" : "light"];
-  const accent = color.accent[accentVariant];
-  const boxShadow = theme.boxShadow.focus[accentVariant];
+  const color = theme.color[themeVariant];
+  const accent = color[accentVariant];
+  const boxShadow = theme.boxShadow[themeVariant].focus[accentVariant];
 
   return css({
     fontFamily: font,
