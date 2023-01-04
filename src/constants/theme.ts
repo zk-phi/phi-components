@@ -51,7 +51,10 @@ export const lineHeight = {
 
 export const pressable = {
   boxShadow: "0 1px rgba(0, 0, 0, 0.1)",
-  "&:active, &:active": {
+  "&.dark": {
+    boxShadow: "0 1px rgba(255, 255, 255, 0.3)",
+  },
+  "&:active, &.dark:active": {
     boxShadow: "none",
     transform: "translateY(1px)",
   },
