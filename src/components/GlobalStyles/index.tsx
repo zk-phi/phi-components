@@ -3,18 +3,20 @@ import { css } from "goober";
 import { globalStyles } from "../../constants/theme";
 import { define } from "preactement";
 import { isDark } from "../../utils/isDark";
+import { isSSR } from "../../utils/isSSR";
 
 const GlobalStyles = () => {
-  const [lastClassName, setLastClassName] = useState(
-    css(globalStyles(isDark.value)),
-  );
-
-  useEffect(() => {
-    const newClassName = css(globalStyles(isDark.value));
-    document.documentElement.classList.remove(lastClassName);
-    document.documentElement.classList.add(newClassName);
-    setLastClassName(newClassName);
-  }, [isDark.value]);
+  if (!isSSR) {
+    const [lastClassName, setLastClassName] = useState(
+      css(globalStyles(isDark.value)),
+    );
+    useEffect(() => {
+      const newClassName = css(globalStyles(isDark.value));
+      document.documentElement.classList.remove(lastClassName);
+      document.documentElement.classList.add(newClassName);
+      setLastClassName(newClassName);
+    }, [isDark.value]);
+  }
 
   return null;
 };
