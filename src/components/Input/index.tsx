@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useMemo } from "preact/hooks";
-import classNames from "classnames";
 import { define } from "preactement";
 import { useInputValue } from "../../utils/useInputValue";
 import theme, { font, borderRadius, padding, spacing, fontSize, lineHeight } from "../../constants/theme";
@@ -16,7 +15,7 @@ type Props = {
   parent?: HTMLElement,
 };
 
-const style = (isError: boolean, isDark: boolean) => {
+const style = (isError: boolean, isDark: boolean, size: Size) => {
   const accentVariant = isError ? "danger" : "neutral";
   const color = theme.color[isDark ? "dark" : "light"];
   const accent = color.accent[accentVariant];
@@ -24,7 +23,7 @@ const style = (isError: boolean, isDark: boolean) => {
 
   return css({
     fontFamily: font,
-    padding: padding.md,
+    padding: size === "small" ? padding.sm : padding.md,
     fontSize: fontSize.md,
     lineHeight: lineHeight.md,
     color: isError ? accent.default : color.fg,
@@ -48,10 +47,6 @@ const style = (isError: boolean, isDark: boolean) => {
     "&:active": {
       borderColor: accent.active,
     },
-
-    "&.small": {
-      padding: padding.sm,
-    },
   });
 };
 
@@ -63,10 +58,10 @@ const Input = ({
   parent,
 }: Props) => {
   const isError = (error && error !== "false") || error === "";
-  const className = useMemo(() => classNames([
-    style(isError, isDark.value),
-    size,
-  ]), [isError, isDark.value]);
+  const className = useMemo(
+    () => style(isError, isDark.value, size),
+    [isError, isDark.value, size],
+  );
   const [currentValue, handleInputValue] = useInputValue<string>(parent, value);
 
   const onInput = useCallback((e: Event) => {
