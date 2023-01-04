@@ -1,5 +1,3 @@
-<phi-global-styles />
-
 # GlobalStyles
 
 Apply very basic CSS (including fonts, background/foreground colors) globally.
