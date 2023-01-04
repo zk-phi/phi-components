@@ -1,7 +1,8 @@
 import { ComponentChildren, ComponentChild } from "preact";
+import { useMemo } from "preact/hooks";
 import classNames from "classnames";
 import { define } from "preactement";
-import { font, color, borderRadius, padding, fontSize, spacing, pressable, clickable, lineHeight } from "../../constants/theme";
+import theme, { font, borderRadius, padding, fontSize, spacing, clickable, lineHeight } from "../../constants/theme";
 import { isDark } from "../../utils/isDark";
 import { css } from "goober";
 
@@ -16,97 +17,98 @@ type Props = {
   parent?: HTMLElement,
 };
 
-const buttonStyle = css({
-  "--baseAccent": color.primary,
-  "--hoverAccent": color.primaryHover,
-  "--activeAccent": color.primaryActive,
-  "--fg": color.fg,
-  "--distantFg": color.distantFg,
-  "--border": color.border,
-  "&.danger": {
-    "--baseAccent": color.danger,
-    "--hoverAccent": color.dangerHover,
-    "--activeAccent": color.dangerActive,
-  },
-  "&.dark": {
-    "--fg": color.dark.fg,
-    "--distantFg": color.dark.distantFg,
-    "--border": color.dark.border,
-  },
+const buttonStyle = (isDanger: boolean, isDark: boolean) => {
+  const color = theme.color[isDark ? "dark" : "light"];
+  const accent = color.accent[isDanger ? "danger" : "neutral"];
+  const pressableShadow = theme.boxShadow.pressable[isDark ? "dark" : "light"];
 
-  fontFamily: font,
-  outline: "none",
-  lineHeight: lineHeight.md,
-  cursor: "pointer",
-  textAlign: "center",
-  fontSize: fontSize.md,
+  return css({
+    fontFamily: font,
+    outline: "none",
+    cursor: "pointer",
+    textAlign: "center",
+    fontSize: fontSize.md,
 
-  "&.primary": {
-    padding: padding.md,
-    borderRadius: borderRadius.md,
-    color: "var(--distantFg)",
-    background: "var(--baseAccent)",
-    border: "1px solid var(--baseAccent)",
-    ...pressable,
-    "&:hover": {
-      color: "var(--distantFg)",
-      background: "var(--hoverAccent)",
-      border: "1px solid var(--hoverAccent)",
+    "&.primary": {
+      padding: padding.md,
+      lineHeight: lineHeight.md,
+      borderRadius: borderRadius.md,
+      color: color.distantFg,
+      background: accent.default,
+      border: `1px solid ${accent.default}`,
+      boxShadow: pressableShadow,
+      "&:hover": {
+        color: color.distantFg,
+        background: accent.hover,
+        border: `1px solid ${accent.hover}`,
+      },
+      "&:active": {
+        boxShadow: "none",
+        transform: "translateY(1px)",
+      },
     },
-  },
 
-  "&.default": {
-    padding: padding.md,
-    borderRadius: borderRadius.md,
-    color: "var(--fg)",
-    background: "transparent",
-    border: "1px solid currentColor",
-    ...pressable,
-    "&:hover": {
-      color: "var(--baseAccent)",
+    "&.default": {
+      padding: padding.md,
+      lineHeight: lineHeight.md,
+      borderRadius: borderRadius.md,
+      color: color.fg,
+      background: "transparent",
+      border: `1px solid ${color.fg}`,
+      boxShadow: pressableShadow,
+      "&:hover": {
+        color: accent.default,
+        border: `1px solid ${accent.default}`,
+      },
+      "&:active": {
+        boxShadow: "none",
+        transform: "translateY(1px)",
+      },
     },
-  },
 
-  "&.dotted": {
-    padding: padding.md,
-    borderRadius: borderRadius.md,
-    color: "var(--fg)",
-    background: "transparent",
-    border: "1px dashed currentColor",
-    ...clickable("var(--activeAccent)"),
-    "&:hover:not(:active)": {
-      color: "var(--baseAccent)",
+    "&.dotted": {
+      padding: padding.md,
+      lineHeight: lineHeight.md,
+      borderRadius: borderRadius.md,
+      color: color.fg,
+      background: "transparent",
+      border: `1px dashed currentColor`,
+      ...clickable(accent.active),
+      "&:hover:not(:active)": {
+        color: accent.default,
+      },
     },
-  },
 
-  "&.text": {
-    padding: 0,
-    borderRadius: 0,
-    color: "var(--fg)",
-    background: "transparent",
-    border: "none",
-    borderBottom: "1px dotted currentColor",
-    ...clickable("var(--activeAccent)"),
-    "&:hover:not(:active)": {
-      color: "var(--baseAccent)",
+    "&.text": {
+      padding: 0,
+      lineHeight: lineHeight.md,
+      borderRadius: 0,
+      color: color.fg,
+      background: "transparent",
+      border: "none",
+      borderBottom: `1px dotted currentColor`,
+      ...clickable(accent.active),
+      "&:hover:not(:active)": {
+        color: accent.default,
+      },
     },
-  },
 
-  "&.icon": {
-    color: "var(--border)",
-    display: "inline-block",
-    padding: padding.minimal,
-    fontSize: fontSize.icon,
-    lineHeight: 1,
-    background: "transparent",
-    border: "none",
-    borderRadius: "50%",
-    ...clickable("var(--activeAccent)"),
-    "&:hover:not(:active)": {
-      color: "var(--baseAccent)",
+    "&.icon": {
+      color: color.border,
+      display: "inline-block",
+      padding: padding.minimal,
+      fontSize: fontSize.icon,
+      lineHeight: 1,
+      background: "transparent",
+      border: "none",
+      borderRadius: "50%",
+      ...clickable(accent.active),
+      "&:hover:not(:active)": {
+        color: accent.default,
+      },
     },
-  },
-});
+  });
+};
 
 const iconStyle = css({
   display: "inline-block",
@@ -124,7 +126,10 @@ const Button = ({
   onClick,
 }: Props) => {
   const isDanger = (danger && danger !== "false") || danger === "";
-  const className = classNames([buttonStyle, variant, { danger: isDanger, dark: isDark.value }]);
+  const className = useMemo(() => classNames([
+    buttonStyle(isDanger, isDark.value),
+    variant,
+  ]), [isDanger, isDark.value]);
   return (
     <button class={ className } onClick={ onClick }>
       { icon && <span class={ iconStyle }>{ icon }</span> }

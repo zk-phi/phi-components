@@ -1,28 +1,55 @@
-export const font = "'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif";
-
-export const color = {
-  fg:        "#333333",
-  distantFg: "#ffffff",
-  bg:        "#ffffff",
-  border:    "#aaaaaa",
-  dark: {
-    fg:        "#eeeeee",
-    distantFg: "#222222",
-    bg:        "#222222",
-    border:    "#777777",
+export default {
+  color: {
+    light: {
+      bg:        "#ffffff",
+      distantFg: "#ffffff",
+      fg:        "rgba(0, 0, 0, 0.8)", // #333333
+      border:    "rgba(0, 0, 0, 0.3)", // #b2b2b2
+      accent: {
+        neutral: {
+          hover:   "#ffb81c", // okhsl(80, 100, 80)
+          default: "#eeaa00", // okhsl(80, 100, 75)
+          active:  "#de9e00", // okhsl(80, 100, 70)
+        },
+        danger: {
+          hover:   "#fa837e", // okhsl(24, 90, 70)
+          default: "#f76b68", // okhsl(24, 90, 65)
+          active:  "#f15252", // okhsl(24, 90, 60)
+        },
+      },
+    },
+    dark: {
+      bg:        "#222222",
+      distantFg: "#222222",
+      fg:        "rgba(255, 255, 255, 0.8)", // #d3d3d3
+      border:    "rgba(255, 255, 255, 0.3)", // #646464
+      accent: {
+        neutral: {
+          hover:   "#c79431", // okhsl(80, 80, 65)
+          default: "#d7a139", // okhsl(80, 80, 70)
+          active:  "#e6af47", // okhsl(80, 80, 75)
+        },
+        danger: {
+          hover:   "#d94e4d", // okhsl(24, 80, 55)
+          default: "#e65f5c", // okhsl(24, 80, 60)
+          active:  "#ee736e", // okhsl(24, 80, 65)
+        },
+      },
+    },
   },
-  primaryActive: "#de9e00", // okhsl(80, 100, 70)
-  primary:       "#eeaa00", // okhsl(80, 100, 75)
-  primaryHover:  "#ffb81c", // okhsl(80, 100, 80)
-  dangerActive: "#ff3a45", // okhsl(24, 100, 60)
-  danger:       "#ff6261", // okhsl(24, 100, 65)
-  dangerHover:  "#ff7f7a", // okhsl(24, 100, 70)
+  boxShadow: {
+    pressable: {
+      light: "0 1px rgba(0, 0, 0, 0.1)",
+      dark: "0 1px rgba(255, 255, 255, 0.3)",
+    },
+    focus: {
+      neutral: "0 0 0 2px rgba(238, 170, 0, 0.2)",
+      danger:  "0 0 0 2px rgba(255, 98, 97, 0.2)",
+    },
+  },
 };
 
-export const boxShadow = {
-  primary: "0 0 0 2px rgba(238, 170, 0, 0.2)",
-  danger:  "0 0 0 2px rgba(255, 98, 97, 0.2)",
-};
+export const font = "'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif";
 
 export const borderRadius = {
   md: "8px",
@@ -47,17 +74,6 @@ export const fontSize = {
 
 export const lineHeight = {
   md: "16px",
-};
-
-export const pressable = {
-  boxShadow: "0 1px rgba(0, 0, 0, 0.1)",
-  "&.dark": {
-    boxShadow: "0 1px rgba(255, 255, 255, 0.3)",
-  },
-  "&:active, &.dark:active": {
-    boxShadow: "none",
-    transform: "translateY(1px)",
-  },
 };
 
 export const clickable = (color: string) => ({

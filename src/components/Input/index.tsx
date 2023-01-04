@@ -1,8 +1,8 @@
-import { useCallback, useEffect } from "preact/hooks";
+import { useCallback, useEffect, useMemo } from "preact/hooks";
 import classNames from "classnames";
 import { define } from "preactement";
 import { useInputValue } from "../../utils/useInputValue";
-import { font, color, borderRadius, padding, spacing, boxShadow, fontSize, lineHeight } from "../../constants/theme";
+import theme, { font, borderRadius, padding, spacing, fontSize, lineHeight } from "../../constants/theme";
 import { isDark } from "../../utils/isDark";
 import { css } from "goober";
 
@@ -16,62 +16,44 @@ type Props = {
   parent?: HTMLElement,
 };
 
-const style = css({
-  "--baseAccent": color.primary,
-  "--hoverAccent": color.primaryHover,
-  "--activeAccent": color.primaryActive,
-  "--border": color.border,
-  "--bg": color.bg,
-  "--fg": color.fg,
-  "--boxShadow": boxShadow.primary,
-  "&.dark": {
-    "--bg": color.dark.bg,
-    "--fg": color.dark.fg,
-    "--border": color.dark.border,
-  },
+const style = (isError: boolean, isDark: boolean) => {
+  const accentVariant = isError ? "danger" : "neutral";
+  const color = theme.color[isDark ? "dark" : "light"];
+  const accent = color.accent[accentVariant];
+  const boxShadow = theme.boxShadow.focus[accentVariant];
 
-  fontFamily: font,
-  padding: padding.md,
-  fontSize: fontSize.md,
-  lineHeight: lineHeight.md,
-  color: "var(--fg)",
-  backgroundColor: "var(--bg)",
-  border: `1px solid var(--border)`,
-  borderRadius: borderRadius.md,
-  outline: "none",
+  return css({
+    fontFamily: font,
+    padding: padding.md,
+    fontSize: fontSize.md,
+    lineHeight: lineHeight.md,
+    color: isError ? accent.default : color.fg,
+    backgroundColor: color.bg,
+    border: `1px solid ${isError ? accent.default : color.border}`,
+    borderRadius: borderRadius.md,
+    outline: "none",
 
-  "&.error": {
-    "--baseAccent": color.danger,
-    "--hoverAccent": color.dangerHover,
-    "--activeAccent": color.dangerActive,
-    "--boxShadow": boxShadow.danger,
-    color: "var(--baseAccent)",
-  },
+    "&:focus": {
+      boxShadow: boxShadow,
+    },
 
-  "&:focus": {
-    boxShadow: "var(--boxShadow)",
-  },
+    "&:hover": {
+      borderColor: accent.hover,
+    },
 
-  "&:hover": {
-    borderColor: "var(--hoverAccent)",
-  },
+    "&:focus:not(:hover)": {
+      borderColor: accent.default,
+    },
 
-  "&.error:not(:hover)": {
-    borderColor: "var(--baseAccent)",
-  },
+    "&:active": {
+      borderColor: accent.active,
+    },
 
-  "&:focus:not(:hover)": {
-    borderColor: "var(--baseAccent)",
-  },
-
-  "&:active": {
-    borderColor: "var(--activeAccent)",
-  },
-
-  "&.small": {
-    padding: padding.sm,
-  },
-});
+    "&.small": {
+      padding: padding.sm,
+    },
+  });
+};
 
 const Input = ({
   value = "",
@@ -81,7 +63,10 @@ const Input = ({
   parent,
 }: Props) => {
   const isError = (error && error !== "false") || error === "";
-  const className = classNames([style, size, { error: isError, dark: isDark.value }]);
+  const className = useMemo(() => classNames([
+    style(isError, isDark.value),
+    size,
+  ]), [isError, isDark.value]);
   const [currentValue, handleInputValue] = useInputValue<string>(parent, value);
 
   const onInput = useCallback((e: Event) => {
