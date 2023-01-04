@@ -37,6 +37,7 @@ export default defineConfig({
     }, {
       text: "Components",
       items: [
+        { text: "GlobalStyles", link: "/components/GlobalStyles/" },
         { text: "Button", link: "/components/Button/" },
         { text: "Input", link: "/components/Input/" },
         { text: "Icon", link: "/components/Icon/" },

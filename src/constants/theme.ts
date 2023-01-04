@@ -156,4 +156,14 @@ const spacing = {
   },
 };
 
+export const globalStyles = (isDark: boolean) => {
+  const themeVariant = isDark ? "dark" : "light";
+  return {
+    fontFamily: _fontFamilies.join(", "),
+    fontSize: "14px",
+    color: color[themeVariant].fg,
+    backgroundColor: color[themeVariant].bg,
+  };
+};
+
 export default { color, boxShadow, font, borderRadius, spacing };
