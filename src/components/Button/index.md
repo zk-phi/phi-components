@@ -9,13 +9,16 @@ A generic button component.
 </figure>
 
 ## Variants
-### Style Variants
 
 `primary` for the MOST important button in the screen, like "submit" button.
 
 <figure>
   <phi-button variant="primary">
     Submit
+  </phi-button>
+  &nbsp;
+  <phi-button danger variant="primary">
+    Danger
   </phi-button>
 </figure>
 
@@ -24,6 +27,10 @@ A generic button component.
 <figure>
   <phi-button variant="dotted">
     + Add item
+  </phi-button>
+  &nbsp;
+  <phi-button danger variant="dotted">
+    + Danger
   </phi-button>
 </figure>
 
@@ -34,6 +41,11 @@ A generic button component.
     <span slot="icon">📕</span>
     Read more
   </phi-button>
+  &nbsp;
+  <phi-button danger variant="text">
+    <span slot="icon">💀</span>
+    Danger
+  </phi-button>
 </figure>
 
 `icon` for icon-only buttons.
@@ -42,18 +54,9 @@ A generic button component.
   <phi-button variant="icon">
     <phi-icon icon="effect" />
   </phi-button>
-</figure>
-
-### Color Variants
-
-`danger` for destructive actions.
-
-<figure>
-  <phi-button danger>
-    <span slot="icon">
-      <phi-icon icon="delete" />
-    </span>
-    Delete
+  &nbsp;
+  <phi-button danger variant="icon">
+    <phi-icon icon="delete" />
   </phi-button>
 </figure>
 
