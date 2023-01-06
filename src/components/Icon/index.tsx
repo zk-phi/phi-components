@@ -55,7 +55,7 @@ const icons: Record<string, FunctionComponent<IconProps>> = {
 
 const Icon = ({ icon }: Props) => {
   const Component = icons[icon];
-  return <Component class={ iconStyle } />;
+  return Component ? <Component class={ iconStyle } /> : null;
 };
 
 export const register = () => {
