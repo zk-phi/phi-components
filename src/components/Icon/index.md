@@ -33,7 +33,24 @@ An icon component.
 
 #### Attributes
 
-- `icon`: `string`
+| Name   | Type     | Default    | Description       |
+|--------|----------|------------|-------------------|
+| `icon` | `string` | (required) | Switch icon image |
+
+#### Slots
+
+| Name | Description |
+|------|-------------|
+
+#### Props
+
+| Name | Description |
+|------|-------------|
+
+#### Events
+
+| Name | Description |
+|------|-------------|
 
 ### Preact
 
@@ -43,4 +60,6 @@ An icon component.
 
 #### Props
 
-- `icon`: `string`
+| Name   | Type     | Default    | Description       |
+|--------|----------|------------|-------------------|
+| `icon` | `string` | (required) | Switch icon image |

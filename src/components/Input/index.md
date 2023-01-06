@@ -62,17 +62,28 @@ const value = ref("abrakadabra");
 
 #### Attributes
 
-- `value`: `string`
-- `size`: `"normal" | "small"`
-- `error`: `boolean`
+| Name    | Type      | Default    | Description                              |
+|---------|-----------|------------|------------------------------------------|
+| `value` | `string`  | `""`       | Set initial value / update current value |
+| `size`  | `string`  | `"normal"` | Switch size variants                     |
+| `error` | `boolean` | `"false"`  | Enable error color variant               |
+
+#### Slots
+
+| Name | Description |
+|------|-------------|
 
 #### Props
 
-- `value`: `string`
+| Name    | Type     | Description        |
+|---------|----------|--------------------|
+| `value` | `string` | Get / update value |
 
 #### Events
 
-- `input`
+| Name    | Description              |
+|---------|--------------------------|
+| `input` | Triggered on user inputs |
 
 ### Preact
 
@@ -96,9 +107,11 @@ const Demo = () => {
 };
 ```
 
-### Props
+#### Props
 
-- `value`: `string`
-- `onInput`: `string -> void`
-- `size`: `string`
-- `error`: `boolean`
+| Name       | Type             | Default    | Description                |
+|------------|------------------|------------|----------------------------|
+| `value`    | `string`         | (required) | Set current value          |
+| `onChange` | `string => void` |            | Subscribe current value    |
+| `size`     | `string`         | `"normal"` | Switch size variants       |
+| `error`    | `boolean`        | `false`    | Enable error color variant |

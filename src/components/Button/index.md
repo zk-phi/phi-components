@@ -95,16 +95,27 @@ const count = ref(0);
 
 #### Attributes
 
-- `variant`: `"primary" | "default" | "dotted" | "text"`
-- `danger`: `boolean`
+| Name      | Type      | Default     | Description                |
+|-----------|-----------|-------------|----------------------------|
+| `variant` | `string`  | `"default"` | Switch style variants      |
+| `danger`  | `boolean` | `"false"`   | Enable error color variant |
 
 #### Slots
 
-- `icon`
+| Name   | Description                           |
+|--------|---------------------------------------|
+| `icon` | Icon displayed before the button text |
+
+#### Props
+
+| Name | Type | Description |
+|------|------|-------------|
 
 #### Events
 
-- `click`
+| Name    | Description            |
+|---------|------------------------|
+| `click` | Triggered when clicked |
 
 ### Preact
 
@@ -127,7 +138,9 @@ const Demo = () => {
 
 #### Props
 
-- `variant`: `"primary" | "default" | "dotted" | "text"`
-- `danger`: `boolean`
-- `icon`: `ComponentChild`
-- `onClick`: `() => void`
+| Name      | Type             | Default     | Description                           |
+|-----------|------------------|-------------|---------------------------------------|
+| `variant` | `string`         | `"default"` | Switch style variants                 |
+| `danger`  | `boolean`        | `false`     | Enable error color variant            |
+| `icon`    | `ComponentChild` |             | Icon displayed before the button text |
+| `onClick` | `() => void`     |             | Called when clicked                   |

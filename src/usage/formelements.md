@@ -47,9 +47,9 @@ Most form elements (unless noted) work just like normal `input` elements.
 
 - Use `value` prop to set value, and `onChange` to subscribe changes
 
-```js
-const Demo = () => {
-  const [value, setValue] = useState("");
-  return <Input value={ value } onChange={ setValue } />;
-};
-```
+  ```js
+  const Demo = () => {
+    const [value, setValue] = useState("");
+    return <Input value={ value } onChange={ setValue } />;
+  };
+  ```

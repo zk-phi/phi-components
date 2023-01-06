@@ -9,6 +9,26 @@ Apply very basic CSS (including fonts, background/foreground colors) globally.
 <phi-global-styles />
 ```
 
+#### Attributes
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+
+#### Slots
+
+| Name | Description |
+|------|-------------|
+
+#### Props
+
+| Name | Type | Description |
+|------|------|-------------|
+
+#### Events
+
+| Name | Description |
+|------|-------------|
+
 ### Preact
 
 ```js
@@ -19,3 +39,8 @@ const App = () => (
   </>
 );
 ```
+
+#### Props
+
+| Name | Type | Description |
+|------|------|-------------|
