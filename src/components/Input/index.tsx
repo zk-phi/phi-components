@@ -82,7 +82,7 @@ const Input = ({
     () => style(error, isDark.value, size),
     [error, isDark.value, size],
   );
-  const [currentValue, handleInputValue] = useInputValue<string>(parent, value);
+  const [currentValue, handleInputValue] = useInputValue<string>(parent, "value", value);
 
   const onInput = useCallback((e: Event) => {
     if (e.target instanceof HTMLInputElement) {

@@ -8,8 +8,8 @@ type ExtendedElementInternals<T> = ElementInternals & { setFormValue?: (value: T
 // Magic hook to make components behave like input elements.
 export const useInputValue = <T>(
   parent: HTMLElement | undefined,
+  fieldName: string,
   attrValue: T,
-  fieldName = "value",
 ) => {
   const [currentValue, setCurrentValue] = useProp<T>(parent, fieldName, attrValue);
 
