@@ -1,23 +1,43 @@
 import { useCallback, useEffect, useMemo } from "preact/hooks";
 import { define } from "preactement";
 import { useInputValue } from "../../utils/useInputValue";
+import { withAttrConverter } from "../../utils/withAttrConverter";
 import theme from "../../constants/theme";
 import { isDark } from "../../utils/isDark";
 import { css } from "goober";
 
 type Size = "normal" | "small";
 
-type Props = {
+type Attrs = {
   value?: string,
-  size?: Size,
-  error?: boolean | string,
-  onChange?: (value: string) => void,
+  size?: string,
+  error?: string,
   parent?: HTMLElement,
 };
 
-const style = (isError: boolean, isDark: boolean, size: Size) => {
+type Props = {
+  value: string,
+  onChange?: (value: string) => void,
+  size?: Size,
+  error?: boolean,
+  parent?: HTMLElement,
+};
+
+const convertAttrs: ((attrs: Attrs) => Props) = ({
+  value = "",
+  size,
+  error,
+  parent,
+}) => ({
+  value,
+  size: size === "small" ? "small" : "normal",
+  error: (error && error !== "false") || error === "",
+  parent,
+});
+
+const style = (error: boolean, isDark: boolean, size: Size) => {
   const themeVariant = isDark ? "dark" : "light";
-  const accentVariant = isError ? "danger" : "neutral";
+  const accentVariant = error ? "danger" : "neutral";
   const color = theme.color[themeVariant];
   const accent = color[accentVariant];
   const boxShadow = theme.boxShadow[themeVariant].focus[accentVariant];
@@ -27,9 +47,9 @@ const style = (isError: boolean, isDark: boolean, size: Size) => {
     padding: size === "small" ? theme.spacing.padding.sm : theme.spacing.padding.md,
     fontSize: theme.font.size.md,
     lineHeight: theme.font.lineHeight.md,
-    color: isError ? accent.default : color.fg,
+    color: error ? accent.default : color.fg,
     backgroundColor: color.bg,
-    border: `1px solid ${isError ? accent.default : color.border}`,
+    border: `1px solid ${error ? accent.default : color.border}`,
     borderRadius: theme.borderRadius.md,
     outline: "none",
 
@@ -58,10 +78,9 @@ const Input = ({
   onChange,
   parent,
 }: Props) => {
-  const isError = (error && error !== "false") || error === "";
   const className = useMemo(
-    () => style(isError, isDark.value, size),
-    [isError, isDark.value, size],
+    () => style(error, isDark.value, size),
+    [error, isDark.value, size],
   );
   const [currentValue, handleInputValue] = useInputValue<string>(parent, value);
 
@@ -79,8 +98,9 @@ const Input = ({
   );
 };
 
+const WCInput = withAttrConverter<Attrs, Props>(Input, convertAttrs);
 export const register = () => {
-  define("phi-input", () => Input, {
+  define("phi-input", () => WCInput, {
     attributes: ["value", "size", "error"],
     formAssociated: true,
   });
