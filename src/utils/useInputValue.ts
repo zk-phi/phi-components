@@ -6,13 +6,12 @@ import { useState, useMemo, useCallback, useEffect } from "preact/hooks";
 type ExtendedElementInternals<T> = ElementInternals & { setFormValue?: (value: T) => void };
 
 // Magic hook to make components behave like input elements.
-export const useInputValue = <T>(parent: HTMLElement | undefined, initValue: T) => {
-  const [currentValue, setCurrentValue] = useProp<T>(parent, "value");
-
-  // update prop on attr change
-  useEffect(() => {
-    setCurrentValue(initValue);
-  }, [initValue]);
+export const useInputValue = <T>(
+  parent: HTMLElement | undefined,
+  attrValue: T,
+  fieldName = "value",
+) => {
+  const [currentValue, setCurrentValue] = useProp<T>(parent, fieldName, attrValue);
 
   const internals = useMemo(() => {
     return parent?.attachInternals?.();

@@ -4,9 +4,11 @@ import { useState, useEffect, useMemo, useCallback } from "preact/hooks";
 type HTMLElementWithProps = HTMLElement & { __props: Record<string, any> };
 
 // Like useState, but the value is visible and updatable as an element prop.
-export const useProp = <T>(parent: HTMLElement | undefined, name: string) => {
+// When optional attrValue is specified, the value is mirrored to prop on change.
+export const useProp = <T>(parent: HTMLElement | undefined, name: string, attrValue?: T) => {
   // Initial value is inherited from the current prop value.
   const [value, setValue] = useState<T | undefined>(parent ? (parent as any)[name] : undefined);
+  const [preferProp, setPreferProp] = useState<boolean>(value != null);
 
   useEffect(() => {
     if (parent) {
@@ -20,6 +22,7 @@ export const useProp = <T>(parent: HTMLElement | undefined, name: string) => {
         set: (value) => {
           obj.__props[name] = value;
           setValue(value);
+          setPreferProp(true);
         },
       });
     }
@@ -32,6 +35,12 @@ export const useProp = <T>(parent: HTMLElement | undefined, name: string) => {
     }
     setValue(value);
   }, [setValue, parent, name]);
+
+  useEffect(() => {
+    if (!preferProp) {
+      setter(attrValue);
+    }
+  }, [preferProp, setter, attrValue]);
 
   // without this, returned value is inferred as (T | undefined | (T | undefined) => void)[].
   const ret: [T | undefined, (v: T | undefined) => void] = [value, setter];
