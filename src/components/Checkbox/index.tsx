@@ -112,7 +112,7 @@ const Checkbox = <S, T extends CheckboxValue<S>>({
   );
 };
 
-const WCCheckbox = <S, T extends CheckboxValue<S>>({
+const WCCheckbox = ({
   checked,
   value,
   children,
@@ -126,10 +126,8 @@ const WCCheckbox = <S, T extends CheckboxValue<S>>({
     checked
   ), [checked]);
 
-  const [currentValue] = useProp<T>(parent, "value", value);
-  const [currentChecked, handleInputValue] = useInputValue<S>(parent, "checked", normalizedChecked);
-
-  console.log(currentChecked, currentValue);
+  const [currentValue] = useProp(parent, "value", value);
+  const [currentChecked, handleInputValue] = useInputValue(parent, "checked", normalizedChecked);
 
   return (
     <Checkbox checked={ currentChecked } value={ currentValue } onChange={ handleInputValue }>

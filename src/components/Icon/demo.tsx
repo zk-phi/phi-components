@@ -1,5 +1,5 @@
 import { define } from "preactement";
-import Icon from "./index.tsx";
+import Icon from "./index";
 
 const Demo = () => (
   <Icon icon="text" />
