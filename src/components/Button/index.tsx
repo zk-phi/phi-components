@@ -73,8 +73,6 @@ const buttonStyle = (danger: boolean, isDark: boolean, variant: Variant) => {
         boxShadow: pressableShadow[colorVariant].default,
       },
       "&:active": {
-        color: accent.active,
-        border: `1px solid ${accent.active}`,
         boxShadow: "none",
         transform: "none",
       },

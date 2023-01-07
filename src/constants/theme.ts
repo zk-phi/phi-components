@@ -21,12 +21,12 @@ const _palette = {
     neutral: {
       lighter: "#ffb81c", // okhsl(80, 100, 80)
       base:    "#eeaa00", // okhsl(80, 100, 75)
-      darker:  "#de9e00", // okhsl(80, 100, 70)
+      darker:  "#cd9200", // okhsl(80, 100, 65)
     },
     danger: {
       lighter: "#fa837e", // okhsl(24, 90, 70)
       base:    "#f76b68", // okhsl(24, 90, 65)
-      darker:  "#f15252", // okhsl(24, 90, 60)
+      darker:  "#e53c42", // okhsl(24, 90, 55)
     },
   },
   dark: {
@@ -36,9 +36,9 @@ const _palette = {
       darker:  "#c79431", // okhsl(80, 80, 65)
     },
     danger: {
-      lighter: "#ee736e", // okhsl(24, 80, 65)
-      base:    "#e65f5c", // okhsl(24, 80, 60)
-      darker:  "#d94e4d", // okhsl(24, 80, 65)
+      lighter: "#f38882", // okhsl(24, 80, 70)
+      base:    "#ee736e", // okhsl(24, 80, 65)
+      darker:  "#e65f5c", // okhsl(24, 80, 60)
     },
   },
 };
