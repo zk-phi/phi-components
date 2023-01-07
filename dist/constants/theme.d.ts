@@ -91,6 +91,7 @@ declare const _default: {
         };
     };
     borderRadius: {
+        sm: string;
         md: string;
     };
     spacing: {

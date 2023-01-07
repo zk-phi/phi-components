@@ -387,152 +387,65 @@ function k(n2, t2) {
 function w$1(n2, t2) {
   return typeof t2 == "function" ? t2(n2) : t2;
 }
-var o$2;
-!function(t2) {
-  t2.Promise = "Error: Promises cannot be used for SSR", t2.Missing = "Error: Cannot find component in provided function", t2.Json = "Error: Invalid JSON string passed to component";
-}(o$2 || (o$2 = {}));
-const r$1 = (t2) => t2 && typeof t2.then == "function", s$3 = ["area", "base", "br", "col", "hr", "img", "input", "link", "meta", "source", "embed", "param", "track", "wbr"];
-function i$2(t2) {
-  const { tagName: e2 } = this, { formatProps: n2 } = this.__options;
-  let r2 = {};
-  try {
-    r2 = JSON.parse(t2);
-  } catch {
-    console.error(o$2.Json, `: <${e2.toLowerCase()}>`);
+let e$1 = { data: "" }, t$1 = (t2) => typeof window == "object" ? ((t2 ? t2.querySelector("#_goober") : window._goober) || Object.assign((t2 || document.head).appendChild(document.createElement("style")), { innerHTML: " ", id: "_goober" })).firstChild : t2 || e$1, l$3 = /(?:([\u0080-\uFFFF\w-%@]+) *:? *([^{;]+?);|([^;}{]*?) *{)|(}\s*)/g, a$2 = /\/\*[^]*?\*\/|\s\s+|\n/g, n$1 = (e2, t2) => {
+  let r2 = "", l2 = "", a2 = "";
+  for (let o2 in e2) {
+    let s2 = e2[o2];
+    o2[0] == "@" ? o2[1] == "i" ? r2 = o2 + " " + s2 + ";" : l2 += o2[1] == "f" ? n$1(s2, o2) : o2 + "{" + n$1(s2, o2[1] == "k" ? "" : t2) + "}" : typeof s2 == "object" ? l2 += n$1(s2, t2 ? t2.replace(/([^,])+/g, (e3) => o2.replace(/(^:.*)|([^,])+/g, (t3) => /&/.test(t3) ? t3.replace(/&/g, e3) : e3 ? e3 + " " + t3 : t3)) : o2) : s2 != null && (o2 = /^--/.test(o2) ? o2 : o2.replace(/[A-Z]/g, "-$&").toLowerCase(), a2 += n$1.p ? n$1.p(o2, s2) : o2 + ":" + s2 + ";");
   }
-  return n2 && (r2 = n2(r2)), r2;
-}
-function c$2(t2) {
-  const e2 = {};
-  if (!(t2 == null ? void 0 : t2.length))
-    return e2;
-  for (let n2 = t2.length - 1; n2 >= 0; n2--) {
-    const o2 = t2[n2];
-    e2[o2.name] = o2.value;
+  return r2 + (t2 && a2 ? t2 + "{" + a2 + "}" : a2) + l2;
+}, o$2 = {}, s$3 = (e2) => {
+  if (typeof e2 == "object") {
+    let t2 = "";
+    for (let r2 in e2)
+      t2 += r2 + s$3(e2[r2]);
+    return t2;
   }
   return e2;
+}, c$2 = (e2, t2, r2, c2, i2) => {
+  let u2 = s$3(e2), p2 = o$2[u2] || (o$2[u2] = ((e3) => {
+    let t3 = 0, r3 = 11;
+    for (; t3 < e3.length; )
+      r3 = 101 * r3 + e3.charCodeAt(t3++) >>> 0;
+    return "go" + r3;
+  })(u2));
+  if (!o$2[p2]) {
+    let t3 = u2 !== e2 ? e2 : ((e3) => {
+      let t4, r3 = [{}];
+      for (; t4 = l$3.exec(e3.replace(a$2, "")); )
+        t4[4] ? r3.shift() : t4[3] ? r3.unshift(r3[0][t4[3]] = r3[0][t4[3]] || {}) : r3[0][t4[1]] = t4[2];
+      return r3[0];
+    })(e2);
+    o$2[p2] = n$1(i2 ? { ["@keyframes " + p2]: t3 } : t3, r2 ? "" : "." + p2);
+  }
+  return ((e3, t3, r3) => {
+    t3.data.indexOf(e3) == -1 && (t3.data = r3 ? e3 + t3.data : t3.data + e3);
+  })(o$2[p2], t2, c2), p2;
+}, i$2 = (e2, t2, r2) => e2.reduce((e3, l2, a2) => {
+  let o2 = t2[a2];
+  if (o2 && o2.call) {
+    let e4 = o2(r2), t3 = e4 && e4.props && e4.props.className || /^go/.test(e4) && e4;
+    o2 = t3 ? "." + t3 : e4 && typeof e4 == "object" ? e4.props ? "" : n$1(e4, "") : e4 === false ? "" : e4;
+  }
+  return e3 + l2 + (o2 == null ? "" : o2);
+}, "");
+function u$2(e2) {
+  let r2 = this || {}, l2 = e2.call ? e2(r2.p) : e2;
+  return c$2(l2.unshift ? l2.raw ? i$2(l2, [].slice.call(arguments, 1), r2.p) : l2.reduce((e3, t2) => Object.assign(e3, t2 && t2.call ? t2(r2.p) : t2), {}) : l2, t$1(r2.target), r2.g, r2.o, r2.k);
 }
-function l$3(t2) {
-  const e2 = t2.trim().replace(/[\s_]/g, "-");
-  return e2.charAt(0).toLowerCase() + e2.slice(1).replace(/-([a-z])/g, ({ 1: t3 }) => t3.toUpperCase());
-}
-function a$2() {
-  const { attributes: t2 = [] } = this.__options;
-  return this.hasAttributes() ? function(t3, e2) {
-    const n2 = c$2(t3);
-    let o2 = {};
-    for (const t4 of Object.keys(n2))
-      (e2 == null ? void 0 : e2.indexOf(t4)) !== -1 && (o2[l$3(t4)] = n2[t4]);
-    return o2;
-  }(this.attributes, t2) : {};
-}
-function p$2() {
-  const t2 = function(t3) {
-    const e3 = `<!DOCTYPE html>
-<html><body>${t3}</body></html>`;
-    let n2;
-    try {
-      n2 = new DOMParser().parseFromString(e3, "text/html");
-    } catch {
-    }
-    if (n2)
-      return n2.body;
-  }(this.innerHTML);
-  if (!t2)
-    return;
-  const e2 = u$2.call(this, t2);
-  return () => e2;
-}
-function u$2(n2) {
-  var _a;
-  if (n2.nodeType === 3)
-    return ((_a = n2.textContent) == null ? void 0 : _a.trim()) || "";
-  if (n2.nodeType !== 1)
-    return null;
-  const o2 = String(n2.nodeName).toLowerCase(), r2 = Array.from(n2.childNodes), i2 = () => r2.map((t2) => u$2.call(this, t2)), _b = c$2(n2.attributes), { slot: a2 } = _b, p2 = __objRest(_b, ["slot"]);
-  return o2 === "script" ? null : o2 === "body" ? v$3(d$3, {}, i2()) : s$3.includes(o2) ? v$3(o2, p2) : a2 ? (this.__slots[l$3(a2)] = function(n3) {
-    return n3.every((t2) => typeof t2 == "string") ? n3.join(" ") : v$3(d$3, {}, n3);
-  }(i2()), null) : v$3(o2, p2, i2());
-}
-function h(e2, n2, s2 = {}) {
-  const { wrapComponent: i2 } = s2, c2 = typeof window == "undefined", l2 = function(t2) {
-    let e3 = t2.toLowerCase();
-    return e3.indexOf("-") < 0 && (e3 = "component-" + e3), e3;
-  }(e2);
-  if (!c2)
-    return void customElements.define(l2, function(t2, e3 = {}) {
-      var n3;
-      const { attributes: o2 = [], formAssociated: r2 = false } = e3;
-      if (typeof Reflect != "undefined" && Reflect.construct) {
-        const n4 = function() {
-          const o3 = Reflect.construct(HTMLElement, [], n4);
-          return o3.__mounted = false, o3.__component = t2, o3.__properties = {}, o3.__slots = {}, o3.__children = void 0, o3.__options = e3, o3;
-        };
-        return n4.observedAttributes = ["props", ...o2], n4.formAssociated = r2, n4.prototype = Object.create(HTMLElement.prototype), n4.prototype.constructor = n4, n4.prototype.connectedCallback = _$1, n4.prototype.attributeChangedCallback = d$2, n4.prototype.disconnectedCallback = f$1, n4;
-      }
-      return n3 = class extends HTMLElement {
-        constructor(...n4) {
-          super(...n4), this.__mounted = false, this.__component = t2, this.__properties = {}, this.__slots = {}, this.__children = void 0, this.__options = e3;
-        }
-        connectedCallback() {
-          _$1.call(this);
-        }
-        attributeChangedCallback() {
-          d$2.call(this, ...[].slice.call(arguments));
-        }
-        disconnectedCallback() {
-          f$1.call(this);
-        }
-      }, n3.observedAttributes = ["props", ...o2], n3.formAssociated = r2, n3;
-    }(n2, s2));
-  const a2 = n2();
-  if (r$1(a2))
-    throw new Error(`${o$2.Promise} : <${e2}>`);
-  let p2 = a2;
-  return i2 && (p2 = i2(a2)), (e3) => v$3(l2, { server: true }, [v$3("script", { type: "application/json", dangerouslySetInnerHTML: { __html: JSON.stringify(e3) } }), v$3(p2, e3)]);
-}
-function _$1() {
-  const e2 = a$2.call(this), n2 = this.getAttribute("props"), o2 = this.querySelector('[type="application/json"]'), s2 = i$2.call(this, n2 || (o2 == null ? void 0 : o2.innerHTML) || "{}");
-  o2 == null ? void 0 : o2.remove();
-  let c2 = this.__children;
-  this.__mounted || this.hasAttribute("server") || (c2 = v$3(p$2.call(this), {})), this.__properties = __spreadValues(__spreadValues(__spreadValues({}, this.__slots), s2), e2), this.__children = c2 || [], this.removeAttribute("server"), this.innerHTML = "";
-  const l2 = this.__component(), u2 = (t2) => m.call(this, t2);
-  var h2, _2;
-  r$1(l2) ? (h2 = l2, _2 = this.tagName, h2.then((t2) => function(t3, e3) {
-    let n3;
-    return typeof t3 == "function" ? t3 : (typeof t3 == "object" && (n3 = t3[o3 = e3, (o3 = o3.toLowerCase()).replace(/(^\w|-\w)/g, (t4) => t4.replace(/-/, "").toUpperCase())] || void 0), n3);
-    var o3;
-  }(t2, _2))).then(u2) : u2(l2);
-}
-function d$2(e2, o2, r2) {
-  if (!this.__mounted)
-    return;
-  r2 = r2 == null ? void 0 : r2;
-  let s2 = this.__properties;
-  e2 === "props" ? s2 = __spreadValues(__spreadValues({}, s2), i$2.call(this, r2)) : s2[l$3(e2)] = r2, this.__properties = s2, S(v$3(this.__instance, __spreadProps(__spreadValues({}, s2), { parent: this, children: this.__children })), this);
-}
-function f$1() {
-  S(null, this);
-}
-function m(e2) {
-  const { tagName: r2 } = this, { wrapComponent: s2 } = this.__options;
-  if (!e2)
-    return void console.error(o$2.Missing, `: <${r2.toLowerCase()}>`);
-  s2 && (e2 = s2(e2)), this.__instance = e2, this.__mounted = true;
-  const i2 = __spreadProps(__spreadValues({}, this.__properties), { parent: this, children: this.__children });
-  S(v$3(e2, i2), this);
-}
+u$2.bind({ g: 1 });
+u$2.bind({ k: 1 });
 const _palette = {
   light: {
     neutral: {
       lighter: "#ffb81c",
       base: "#eeaa00",
-      darker: "#de9e00"
+      darker: "#cd9200"
     },
     danger: {
       lighter: "#fa837e",
       base: "#f76b68",
-      darker: "#f15252"
+      darker: "#e53c42"
     }
   },
   dark: {
@@ -542,9 +455,9 @@ const _palette = {
       darker: "#c79431"
     },
     danger: {
-      lighter: "#ee736e",
-      base: "#e65f5c",
-      darker: "#d94e4d"
+      lighter: "#f38882",
+      base: "#ee736e",
+      darker: "#e65f5c"
     }
   }
 };
@@ -642,6 +555,7 @@ const font = {
   }
 };
 const borderRadius = {
+  sm: "4px",
   md: "8px"
 };
 const spacing = {
@@ -665,16 +579,151 @@ const globalStyles = (isDark2) => {
   };
 };
 var theme = { color, boxShadow, font, borderRadius, spacing };
-function i$1() {
+var o$1;
+!function(t2) {
+  t2.Promise = "Error: Promises cannot be used for SSR", t2.Missing = "Error: Cannot find component in provided function", t2.Json = "Error: Invalid JSON string passed to component";
+}(o$1 || (o$1 = {}));
+const r$1 = (t2) => t2 && typeof t2.then == "function", s$2 = ["area", "base", "br", "col", "hr", "img", "input", "link", "meta", "source", "embed", "param", "track", "wbr"];
+function i$1(t2) {
+  const { tagName: e2 } = this, { formatProps: n2 } = this.__options;
+  let r2 = {};
+  try {
+    r2 = JSON.parse(t2);
+  } catch {
+    console.error(o$1.Json, `: <${e2.toLowerCase()}>`);
+  }
+  return n2 && (r2 = n2(r2)), r2;
+}
+function c$1(t2) {
+  const e2 = {};
+  if (!(t2 == null ? void 0 : t2.length))
+    return e2;
+  for (let n2 = t2.length - 1; n2 >= 0; n2--) {
+    const o2 = t2[n2];
+    e2[o2.name] = o2.value;
+  }
+  return e2;
+}
+function l$2(t2) {
+  const e2 = t2.trim().replace(/[\s_]/g, "-");
+  return e2.charAt(0).toLowerCase() + e2.slice(1).replace(/-([a-z])/g, ({ 1: t3 }) => t3.toUpperCase());
+}
+function a$1() {
+  const { attributes: t2 = [] } = this.__options;
+  return this.hasAttributes() ? function(t3, e2) {
+    const n2 = c$1(t3);
+    let o2 = {};
+    for (const t4 of Object.keys(n2))
+      (e2 == null ? void 0 : e2.indexOf(t4)) !== -1 && (o2[l$2(t4)] = n2[t4]);
+    return o2;
+  }(this.attributes, t2) : {};
+}
+function p$2() {
+  const t2 = function(t3) {
+    const e3 = `<!DOCTYPE html>
+<html><body>${t3}</body></html>`;
+    let n2;
+    try {
+      n2 = new DOMParser().parseFromString(e3, "text/html");
+    } catch {
+    }
+    if (n2)
+      return n2.body;
+  }(this.innerHTML);
+  if (!t2)
+    return;
+  const e2 = u$1.call(this, t2);
+  return () => e2;
+}
+function u$1(n2) {
+  var _a;
+  if (n2.nodeType === 3)
+    return ((_a = n2.textContent) == null ? void 0 : _a.trim()) || "";
+  if (n2.nodeType !== 1)
+    return null;
+  const o2 = String(n2.nodeName).toLowerCase(), r2 = Array.from(n2.childNodes), i2 = () => r2.map((t2) => u$1.call(this, t2)), _b = c$1(n2.attributes), { slot: a2 } = _b, p2 = __objRest(_b, ["slot"]);
+  return o2 === "script" ? null : o2 === "body" ? v$3(d$3, {}, i2()) : s$2.includes(o2) ? v$3(o2, p2) : a2 ? (this.__slots[l$2(a2)] = function(n3) {
+    return n3.every((t2) => typeof t2 == "string") ? n3.join(" ") : v$3(d$3, {}, n3);
+  }(i2()), null) : v$3(o2, p2, i2());
+}
+function h(e2, n2, s2 = {}) {
+  const { wrapComponent: i2 } = s2, c2 = typeof window == "undefined", l2 = function(t2) {
+    let e3 = t2.toLowerCase();
+    return e3.indexOf("-") < 0 && (e3 = "component-" + e3), e3;
+  }(e2);
+  if (!c2)
+    return void customElements.define(l2, function(t2, e3 = {}) {
+      var n3;
+      const { attributes: o2 = [], formAssociated: r2 = false } = e3;
+      if (typeof Reflect != "undefined" && Reflect.construct) {
+        const n4 = function() {
+          const o3 = Reflect.construct(HTMLElement, [], n4);
+          return o3.__mounted = false, o3.__component = t2, o3.__properties = {}, o3.__slots = {}, o3.__children = void 0, o3.__options = e3, o3;
+        };
+        return n4.observedAttributes = ["props", ...o2], n4.formAssociated = r2, n4.prototype = Object.create(HTMLElement.prototype), n4.prototype.constructor = n4, n4.prototype.connectedCallback = _$1, n4.prototype.attributeChangedCallback = d$2, n4.prototype.disconnectedCallback = f$1, n4;
+      }
+      return n3 = class extends HTMLElement {
+        constructor(...n4) {
+          super(...n4), this.__mounted = false, this.__component = t2, this.__properties = {}, this.__slots = {}, this.__children = void 0, this.__options = e3;
+        }
+        connectedCallback() {
+          _$1.call(this);
+        }
+        attributeChangedCallback() {
+          d$2.call(this, ...[].slice.call(arguments));
+        }
+        disconnectedCallback() {
+          f$1.call(this);
+        }
+      }, n3.observedAttributes = ["props", ...o2], n3.formAssociated = r2, n3;
+    }(n2, s2));
+  const a2 = n2();
+  if (r$1(a2))
+    throw new Error(`${o$1.Promise} : <${e2}>`);
+  let p2 = a2;
+  return i2 && (p2 = i2(a2)), (e3) => v$3(l2, { server: true }, [v$3("script", { type: "application/json", dangerouslySetInnerHTML: { __html: JSON.stringify(e3) } }), v$3(p2, e3)]);
+}
+function _$1() {
+  const e2 = a$1.call(this), n2 = this.getAttribute("props"), o2 = this.querySelector('[type="application/json"]'), s2 = i$1.call(this, n2 || (o2 == null ? void 0 : o2.innerHTML) || "{}");
+  o2 == null ? void 0 : o2.remove();
+  let c2 = this.__children;
+  this.__mounted || this.hasAttribute("server") || (c2 = v$3(p$2.call(this), {})), this.__properties = __spreadValues(__spreadValues(__spreadValues({}, this.__slots), s2), e2), this.__children = c2 || [], this.removeAttribute("server"), this.innerHTML = "";
+  const l2 = this.__component(), u2 = (t2) => m.call(this, t2);
+  var h2, _2;
+  r$1(l2) ? (h2 = l2, _2 = this.tagName, h2.then((t2) => function(t3, e3) {
+    let n3;
+    return typeof t3 == "function" ? t3 : (typeof t3 == "object" && (n3 = t3[o3 = e3, (o3 = o3.toLowerCase()).replace(/(^\w|-\w)/g, (t4) => t4.replace(/-/, "").toUpperCase())] || void 0), n3);
+    var o3;
+  }(t2, _2))).then(u2) : u2(l2);
+}
+function d$2(e2, o2, r2) {
+  if (!this.__mounted)
+    return;
+  r2 = r2 == null ? void 0 : r2;
+  let s2 = this.__properties;
+  e2 === "props" ? s2 = __spreadValues(__spreadValues({}, s2), i$1.call(this, r2)) : s2[l$2(e2)] = r2, this.__properties = s2, S(v$3(this.__instance, __spreadProps(__spreadValues({}, s2), { parent: this, children: this.__children })), this);
+}
+function f$1() {
+  S(null, this);
+}
+function m(e2) {
+  const { tagName: r2 } = this, { wrapComponent: s2 } = this.__options;
+  if (!e2)
+    return void console.error(o$1.Missing, `: <${r2.toLowerCase()}>`);
+  s2 && (e2 = s2(e2)), this.__instance = e2, this.__mounted = true;
+  const i2 = __spreadProps(__spreadValues({}, this.__properties), { parent: this, children: this.__children });
+  S(v$3(e2, i2), this);
+}
+function i() {
   throw new Error("Cycle detected");
 }
-function t$1() {
-  if (!(s$2 > 1)) {
+function t() {
+  if (!(s$1 > 1)) {
     var i2, t2 = false;
     while (r !== void 0) {
       var h2 = r;
       r = void 0;
-      n$1++;
+      n++;
       while (h2 !== void 0) {
         var o2 = h2.o;
         h2.o = void 0;
@@ -691,24 +740,24 @@ function t$1() {
         h2 = o2;
       }
     }
-    n$1 = 0;
-    s$2--;
+    n = 0;
+    s$1--;
     if (t2)
       throw i2;
   } else
-    s$2--;
+    s$1--;
 }
-var o$1 = void 0, r = void 0, s$2 = 0, n$1 = 0, f = 0;
+var o = void 0, r = void 0, s$1 = 0, n = 0, f = 0;
 function v$1(i2) {
-  if (o$1 !== void 0) {
+  if (o !== void 0) {
     var t2 = i2.n;
-    if (t2 === void 0 || t2.t !== o$1) {
-      t2 = { i: 0, S: i2, p: o$1.s, n: void 0, t: o$1, e: void 0, x: void 0, r: t2 };
-      if (o$1.s !== void 0)
-        o$1.s.n = t2;
-      o$1.s = t2;
+    if (t2 === void 0 || t2.t !== o) {
+      t2 = { i: 0, S: i2, p: o.s, n: void 0, t: o, e: void 0, x: void 0, r: t2 };
+      if (o.s !== void 0)
+        o.s.n = t2;
+      o.s = t2;
       i2.n = t2;
-      if (32 & o$1.f)
+      if (32 & o.f)
         i2.S(t2);
       return t2;
     } else if (t2.i === -1) {
@@ -717,25 +766,25 @@ function v$1(i2) {
         t2.n.p = t2.p;
         if (t2.p !== void 0)
           t2.p.n = t2.n;
-        t2.p = o$1.s;
+        t2.p = o.s;
         t2.n = void 0;
-        o$1.s.n = t2;
-        o$1.s = t2;
+        o.s.n = t2;
+        o.s = t2;
       }
       return t2;
     }
   }
 }
-function e$1(i2) {
+function e(i2) {
   this.v = i2;
   this.i = 0;
   this.n = void 0;
   this.t = void 0;
 }
-e$1.prototype.h = function() {
+e.prototype.h = function() {
   return true;
 };
-e$1.prototype.S = function(i2) {
+e.prototype.S = function(i2) {
   if (this.t !== i2 && i2.e === void 0) {
     i2.x = this.t;
     if (this.t !== void 0)
@@ -743,7 +792,7 @@ e$1.prototype.S = function(i2) {
     this.t = i2;
   }
 };
-e$1.prototype.U = function(i2) {
+e.prototype.U = function(i2) {
   if (this.t !== void 0) {
     var t2 = i2.e, h2 = i2.x;
     if (t2 !== void 0) {
@@ -758,7 +807,7 @@ e$1.prototype.U = function(i2) {
       this.t = h2;
   }
 };
-e$1.prototype.subscribe = function(i2) {
+e.prototype.subscribe = function(i2) {
   var t2 = this;
   return p$1(function() {
     var h2 = t2.value, o2 = 32 & this.f;
@@ -770,38 +819,38 @@ e$1.prototype.subscribe = function(i2) {
     }
   });
 };
-e$1.prototype.valueOf = function() {
+e.prototype.valueOf = function() {
   return this.value;
 };
-e$1.prototype.toString = function() {
+e.prototype.toString = function() {
   return this.value + "";
 };
-e$1.prototype.peek = function() {
+e.prototype.peek = function() {
   return this.v;
 };
-Object.defineProperty(e$1.prototype, "value", { get: function() {
+Object.defineProperty(e.prototype, "value", { get: function() {
   var i2 = v$1(this);
   if (i2 !== void 0)
     i2.i = this.i;
   return this.v;
 }, set: function(h2) {
   if (h2 !== this.v) {
-    if (n$1 > 100)
-      i$1();
+    if (n > 100)
+      i();
     this.v = h2;
     this.i++;
     f++;
-    s$2++;
+    s$1++;
     try {
       for (var o2 = this.t; o2 !== void 0; o2 = o2.x)
         o2.t.N();
     } finally {
-      t$1();
+      t();
     }
   }
 } });
-function u$1(i2) {
-  return new e$1(i2);
+function u(i2) {
+  return new e(i2);
 }
 function d$1(i2) {
   for (var t2 = i2.s; t2 !== void 0; t2 = t2.n)
@@ -809,7 +858,7 @@ function d$1(i2) {
       return true;
   return false;
 }
-function c$1(i2) {
+function c(i2) {
   for (var t2 = i2.s; t2 !== void 0; t2 = t2.n) {
     var h2 = t2.S.n;
     if (h2 !== void 0)
@@ -822,7 +871,7 @@ function c$1(i2) {
     }
   }
 }
-function a$1(i2) {
+function a(i2) {
   var t2 = i2.s, h2 = void 0;
   while (t2 !== void 0) {
     var o2 = t2.p;
@@ -841,14 +890,14 @@ function a$1(i2) {
   }
   i2.s = h2;
 }
-function l$2(i2) {
-  e$1.call(this, void 0);
+function l$1(i2) {
+  e.call(this, void 0);
   this.x = i2;
   this.s = void 0;
   this.g = f - 1;
   this.f = 4;
 }
-(l$2.prototype = new e$1()).h = function() {
+(l$1.prototype = new e()).h = function() {
   this.f &= -3;
   if (1 & this.f)
     return false;
@@ -863,10 +912,10 @@ function l$2(i2) {
     this.f &= -2;
     return true;
   }
-  var i2 = o$1;
+  var i2 = o;
   try {
-    c$1(this);
-    o$1 = this;
+    c(this);
+    o = this;
     var t2 = this.x();
     if (16 & this.f || this.v !== t2 || this.i === 0) {
       this.v = t2;
@@ -878,22 +927,22 @@ function l$2(i2) {
     this.f |= 16;
     this.i++;
   }
-  o$1 = i2;
-  a$1(this);
+  o = i2;
+  a(this);
   this.f &= -2;
   return true;
 };
-l$2.prototype.S = function(i2) {
+l$1.prototype.S = function(i2) {
   if (this.t === void 0) {
     this.f |= 36;
     for (var t2 = this.s; t2 !== void 0; t2 = t2.n)
       t2.S.S(t2);
   }
-  e$1.prototype.S.call(this, i2);
+  e.prototype.S.call(this, i2);
 };
-l$2.prototype.U = function(i2) {
+l$1.prototype.U = function(i2) {
   if (this.t !== void 0) {
-    e$1.prototype.U.call(this, i2);
+    e.prototype.U.call(this, i2);
     if (this.t === void 0) {
       this.f &= -33;
       for (var t2 = this.s; t2 !== void 0; t2 = t2.n)
@@ -901,23 +950,23 @@ l$2.prototype.U = function(i2) {
     }
   }
 };
-l$2.prototype.N = function() {
+l$1.prototype.N = function() {
   if (!(2 & this.f)) {
     this.f |= 6;
     for (var i2 = this.t; i2 !== void 0; i2 = i2.x)
       i2.t.N();
   }
 };
-l$2.prototype.peek = function() {
+l$1.prototype.peek = function() {
   if (!this.h())
-    i$1();
+    i();
   if (16 & this.f)
     throw this.v;
   return this.v;
 };
-Object.defineProperty(l$2.prototype, "value", { get: function() {
+Object.defineProperty(l$1.prototype, "value", { get: function() {
   if (1 & this.f)
-    i$1();
+    i();
   var t2 = v$1(this);
   this.h();
   if (t2 !== void 0)
@@ -927,15 +976,15 @@ Object.defineProperty(l$2.prototype, "value", { get: function() {
   return this.v;
 } });
 function w(i2) {
-  return new l$2(i2);
+  return new l$1(i2);
 }
 function y(i2) {
   var h2 = i2.u;
   i2.u = void 0;
   if (typeof h2 == "function") {
-    s$2++;
-    var r2 = o$1;
-    o$1 = void 0;
+    s$1++;
+    var r2 = o;
+    o = void 0;
     try {
       h2();
     } catch (t2) {
@@ -944,8 +993,8 @@ function y(i2) {
       _(i2);
       throw t2;
     } finally {
-      o$1 = r2;
-      t$1();
+      o = r2;
+      t();
     }
   }
 }
@@ -957,14 +1006,14 @@ function _(i2) {
   y(i2);
 }
 function g(i2) {
-  if (o$1 !== this)
+  if (o !== this)
     throw new Error("Out-of-order effect");
-  a$1(this);
-  o$1 = i2;
+  a(this);
+  o = i2;
   this.f &= -2;
   if (8 & this.f)
     _(this);
-  t$1();
+  t();
 }
 function b(i2) {
   this.x = i2;
@@ -984,14 +1033,14 @@ b.prototype.c = function() {
 };
 b.prototype.S = function() {
   if (1 & this.f)
-    i$1();
+    i();
   this.f |= 1;
   this.f &= -9;
   y(this);
-  c$1(this);
-  s$2++;
-  var t2 = o$1;
-  o$1 = this;
+  c(this);
+  s$1++;
+  var t2 = o;
+  o = this;
   return g.bind(this, t2);
 };
 b.prototype.N = function() {
@@ -1017,11 +1066,11 @@ function p$1(i2) {
   return t2.d.bind(t2);
 }
 var v;
-function s$1(n2, i2) {
+function s(n2, i2) {
   l$5[n2] = i2.bind(null, l$5[n2] || function() {
   });
 }
-function l$1(n2) {
+function l(n2) {
   if (v)
     v();
   v = n2 && n2.S();
@@ -1047,27 +1096,27 @@ function d(n2) {
   return o2.value;
 }
 d.displayName = "_st";
-Object.defineProperties(e$1.prototype, { constructor: { configurable: true, value: void 0 }, type: { configurable: true, value: d }, props: { configurable: true, get: function() {
+Object.defineProperties(e.prototype, { constructor: { configurable: true, value: void 0 }, type: { configurable: true, value: d }, props: { configurable: true, get: function() {
   return { data: this };
 } }, __b: { configurable: true, value: 1 } });
-s$1("__b", function(n2, r2) {
+s("__b", function(n2, r2) {
   if (typeof r2.type == "string") {
     var i2, t2 = r2.props;
     for (var f2 in t2)
       if (f2 !== "children") {
-        var e2 = t2[f2];
-        if (e2 instanceof e$1) {
+        var e$12 = t2[f2];
+        if (e$12 instanceof e) {
           if (!i2)
             r2.__np = i2 = {};
-          i2[f2] = e2;
-          t2[f2] = e2.peek();
+          i2[f2] = e$12;
+          t2[f2] = e$12.peek();
         }
       }
   }
   n2(r2);
 });
-s$1("__r", function(n2, r2) {
-  l$1();
+s("__r", function(n2, r2) {
+  l();
   var i2, t2 = r2.__c;
   if (t2) {
     t2.__$f &= -2;
@@ -1084,15 +1133,15 @@ s$1("__r", function(n2, r2) {
         return r3;
       }();
   }
-  l$1(i2);
+  l(i2);
   n2(r2);
 });
-s$1("__e", function(n2, r2, i2, t2) {
-  l$1();
+s("__e", function(n2, r2, i2, t2) {
+  l();
   n2(r2, i2, t2);
 });
-s$1("diffed", function(n2, r2) {
-  l$1();
+s("diffed", function(n2, r2) {
+  l();
   var i2;
   if (typeof r2.type == "string" && (i2 = r2.__e)) {
     var t2 = r2.__np, f2 = r2.props;
@@ -1121,7 +1170,7 @@ s$1("diffed", function(n2, r2) {
   n2(r2);
 });
 function p(n2, r2, i2, t2) {
-  var f2 = r2 in n2 && n2.ownerSVGElement === void 0, o2 = u$1(i2);
+  var f2 = r2 in n2 && n2.ownerSVGElement === void 0, o2 = u(i2);
   return { o: function(n3, r3) {
     o2.value = n3;
     t2 = r3;
@@ -1138,7 +1187,7 @@ function p(n2, r2, i2, t2) {
     }
   }) };
 }
-s$1("unmount", function(n2, r2) {
+s("unmount", function(n2, r2) {
   if (typeof r2.type == "string") {
     var i2 = r2.__e;
     if (i2) {
@@ -1164,7 +1213,7 @@ s$1("unmount", function(n2, r2) {
   }
   n2(r2);
 });
-s$1("__h", function(n2, r2, i2, t2) {
+s("__h", function(n2, r2, i2, t2) {
   if (t2 < 3)
     r2.__$f |= 2;
   n2(r2, i2, t2);
@@ -1187,17 +1236,17 @@ _$3.prototype.shouldComponentUpdate = function(n2, r2) {
 };
 function useSignal(n2) {
   return _$2(function() {
-    return u$1(n2);
+    return u(n2);
   }, []);
 }
 const isSSR = typeof window == "undefined";
-const isDark = isSSR ? u$1(false) : (() => {
+const isDark = isSSR ? u(false) : (() => {
   const matchDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
-  const isDarkMode = u$1(matchDarkMode.matches);
+  const isDarkMode = u(matchDarkMode.matches);
   matchDarkMode.addEventListener("change", (e2) => isDarkMode.value = e2.matches);
   const rootElement = document.documentElement;
-  const hasDarkClass = u$1(rootElement.classList.contains("dark"));
-  const hasNodarkClass = u$1(rootElement.classList.contains("nodark"));
+  const hasDarkClass = u(rootElement.classList.contains("dark"));
+  const hasNodarkClass = u(rootElement.classList.contains("nodark"));
   const bodyObserver = new MutationObserver((mutationList, observer) => {
     mutationList.forEach((mutation) => {
       if (mutation.attributeName === "class") {
@@ -1209,61 +1258,28 @@ const isDark = isSSR ? u$1(false) : (() => {
   bodyObserver.observe(rootElement, { attributes: true });
   return w(() => isDarkMode.value && !hasNodarkClass.value || hasDarkClass.value);
 })();
-let e = { data: "" }, t = (t2) => typeof window == "object" ? ((t2 ? t2.querySelector("#_goober") : window._goober) || Object.assign((t2 || document.head).appendChild(document.createElement("style")), { innerHTML: " ", id: "_goober" })).firstChild : t2 || e, l = /(?:([\u0080-\uFFFF\w-%@]+) *:? *([^{;]+?);|([^;}{]*?) *{)|(}\s*)/g, a = /\/\*[^]*?\*\/|\s\s+|\n/g, n = (e2, t2) => {
-  let r2 = "", l2 = "", a2 = "";
-  for (let o2 in e2) {
-    let s2 = e2[o2];
-    o2[0] == "@" ? o2[1] == "i" ? r2 = o2 + " " + s2 + ";" : l2 += o2[1] == "f" ? n(s2, o2) : o2 + "{" + n(s2, o2[1] == "k" ? "" : t2) + "}" : typeof s2 == "object" ? l2 += n(s2, t2 ? t2.replace(/([^,])+/g, (e3) => o2.replace(/(^:.*)|([^,])+/g, (t3) => /&/.test(t3) ? t3.replace(/&/g, e3) : e3 ? e3 + " " + t3 : t3)) : o2) : s2 != null && (o2 = /^--/.test(o2) ? o2 : o2.replace(/[A-Z]/g, "-$&").toLowerCase(), a2 += n.p ? n.p(o2, s2) : o2 + ":" + s2 + ";");
+const GlobalStyles = () => {
+  if (!isSSR) {
+    const [lastClassName, setLastClassName] = m$1(u$2(globalStyles(isDark.value)));
+    y$1(() => {
+      const newClassName = u$2(globalStyles(isDark.value));
+      document.documentElement.classList.remove(lastClassName);
+      document.documentElement.classList.add(newClassName);
+      setLastClassName(newClassName);
+    }, [isDark.value]);
   }
-  return r2 + (t2 && a2 ? t2 + "{" + a2 + "}" : a2) + l2;
-}, o = {}, s = (e2) => {
-  if (typeof e2 == "object") {
-    let t2 = "";
-    for (let r2 in e2)
-      t2 += r2 + s(e2[r2]);
-    return t2;
-  }
-  return e2;
-}, c = (e2, t2, r2, c2, i2) => {
-  let u2 = s(e2), p2 = o[u2] || (o[u2] = ((e3) => {
-    let t3 = 0, r3 = 11;
-    for (; t3 < e3.length; )
-      r3 = 101 * r3 + e3.charCodeAt(t3++) >>> 0;
-    return "go" + r3;
-  })(u2));
-  if (!o[p2]) {
-    let t3 = u2 !== e2 ? e2 : ((e3) => {
-      let t4, r3 = [{}];
-      for (; t4 = l.exec(e3.replace(a, "")); )
-        t4[4] ? r3.shift() : t4[3] ? r3.unshift(r3[0][t4[3]] = r3[0][t4[3]] || {}) : r3[0][t4[1]] = t4[2];
-      return r3[0];
-    })(e2);
-    o[p2] = n(i2 ? { ["@keyframes " + p2]: t3 } : t3, r2 ? "" : "." + p2);
-  }
-  return ((e3, t3, r3) => {
-    t3.data.indexOf(e3) == -1 && (t3.data = r3 ? e3 + t3.data : t3.data + e3);
-  })(o[p2], t2, c2), p2;
-}, i = (e2, t2, r2) => e2.reduce((e3, l2, a2) => {
-  let o2 = t2[a2];
-  if (o2 && o2.call) {
-    let e4 = o2(r2), t3 = e4 && e4.props && e4.props.className || /^go/.test(e4) && e4;
-    o2 = t3 ? "." + t3 : e4 && typeof e4 == "object" ? e4.props ? "" : n(e4, "") : e4 === false ? "" : e4;
-  }
-  return e3 + l2 + (o2 == null ? "" : o2);
-}, "");
-function u(e2) {
-  let r2 = this || {}, l2 = e2.call ? e2(r2.p) : e2;
-  return c(l2.unshift ? l2.raw ? i(l2, [].slice.call(arguments, 1), r2.p) : l2.reduce((e3, t2) => Object.assign(e3, t2 && t2.call ? t2(r2.p) : t2), {}) : l2, t(r2.target), r2.g, r2.o, r2.k);
-}
-u.bind({ g: 1 });
-u.bind({ k: 1 });
-const buttonStyle = (isDanger, isDark2, variant) => {
+  return null;
+};
+const register$5 = () => {
+  h("phi-global-styles", () => GlobalStyles);
+};
+const buttonStyle = (danger, isDark2, variant) => {
   const themeVariant = isDark2 ? "dark" : "light";
-  const colorVariant = isDanger ? "danger" : "neutral";
+  const colorVariant = danger ? "danger" : "neutral";
   const color2 = theme.color[themeVariant];
   const accent = color2[colorVariant];
   const pressableShadow = theme.boxShadow[themeVariant].pressable;
-  return u(__spreadValues(__spreadValues(__spreadValues(__spreadValues(__spreadValues({
+  return u$2(__spreadValues(__spreadValues(__spreadValues(__spreadValues(__spreadValues({
     fontFamily: theme.font.family,
     outline: "none",
     cursor: "pointer",
@@ -1303,8 +1319,6 @@ const buttonStyle = (isDanger, isDark2, variant) => {
       boxShadow: pressableShadow[colorVariant].default
     },
     "&:active": {
-      color: accent.active,
-      border: `1px solid ${accent.active}`,
       boxShadow: "none",
       transform: "none"
     }
@@ -1355,7 +1369,7 @@ const buttonStyle = (isDanger, isDark2, variant) => {
     }
   } : {}));
 };
-const iconStyle$1 = u({
+const iconStyle$1 = u$2({
   display: "inline-block",
   fontSize: theme.font.size.smallIcon,
   lineHeight: 0,
@@ -1369,8 +1383,7 @@ const Button = ({
   danger = false,
   onClick
 }) => {
-  const isDanger = danger && danger !== "false" || danger === "";
-  const className = _$2(() => buttonStyle(isDanger, isDark.value, variant), [isDanger, isDark.value, variant]);
+  const className = _$2(() => buttonStyle(danger, isDark.value, variant), [danger, isDark.value, variant]);
   return /* @__PURE__ */ v$3("button", {
     class: className,
     onClick
@@ -1378,13 +1391,36 @@ const Button = ({
     class: iconStyle$1
   }, icon), children);
 };
+const WCButton = ({
+  icon,
+  variant,
+  danger,
+  children,
+  parent
+}) => {
+  const onClick = A((e2) => {
+    var _a;
+    if (parent) {
+      e2.stopPropagation();
+      (_a = parent == null ? void 0 : parent.dispatchEvent) == null ? void 0 : _a.call(parent, new Event("click"));
+    }
+  }, [parent]);
+  const normalizedVariant = _$2(() => variant === "primary" ? "primary" : variant === "dotted" ? "dotted" : variant === "text" ? "text" : variant === "icon" ? "icon" : "default", [variant]);
+  return /* @__PURE__ */ v$3(Button, {
+    icon,
+    variant: normalizedVariant,
+    danger: danger && danger !== "false" || danger === "",
+    onClick
+  }, children);
+};
 const register$4 = () => {
-  h("phi-button", () => Button, {
+  h("phi-button", () => WCButton, {
     attributes: ["variant", "danger"]
   });
 };
-const useProp = (parent, name) => {
+const useProp = (parent, name, attrValue) => {
   const [value, setValue] = m$1(parent ? parent[name] : void 0);
+  const [preferProp, setPreferProp] = m$1(value != null);
   y$1(() => {
     if (parent) {
       const obj = parent;
@@ -1397,6 +1433,7 @@ const useProp = (parent, name) => {
         set: (value2) => {
           obj.__props[name] = value2;
           setValue(value2);
+          setPreferProp(true);
         }
       });
     }
@@ -1408,14 +1445,16 @@ const useProp = (parent, name) => {
     }
     setValue(value2);
   }, [setValue, parent, name]);
+  y$1(() => {
+    if (!preferProp) {
+      setter(attrValue);
+    }
+  }, [preferProp, setter, attrValue]);
   const ret = [value, setter];
   return ret;
 };
-const useInputValue = (parent, initValue) => {
-  const [currentValue, setCurrentValue] = useProp(parent, "value");
-  y$1(() => {
-    setCurrentValue(initValue);
-  }, [initValue]);
+const useInputValue = (parent, fieldName, attrValue) => {
+  const [currentValue, setCurrentValue] = useProp(parent, fieldName, attrValue);
   const internals = _$2(() => {
     var _a;
     return (_a = parent == null ? void 0 : parent.attachInternals) == null ? void 0 : _a.call(parent);
@@ -1434,20 +1473,20 @@ const useInputValue = (parent, initValue) => {
   const ret = [currentValue, inputHandler];
   return ret;
 };
-const style = (isError, isDark2, size) => {
+const style$1 = (error, isDark2, size) => {
   const themeVariant = isDark2 ? "dark" : "light";
-  const accentVariant = isError ? "danger" : "neutral";
+  const accentVariant = error ? "danger" : "neutral";
   const color2 = theme.color[themeVariant];
   const accent = color2[accentVariant];
   const boxShadow2 = theme.boxShadow[themeVariant].focus[accentVariant];
-  return u({
+  return u$2({
     fontFamily: theme.font.family,
     padding: size === "small" ? theme.spacing.padding.sm : theme.spacing.padding.md,
     fontSize: theme.font.size.md,
     lineHeight: theme.font.lineHeight.md,
-    color: isError ? accent.default : color2.fg,
+    color: error ? accent.default : color2.fg,
     backgroundColor: color2.bg,
-    border: `1px solid ${isError ? accent.default : color2.border}`,
+    border: `1px solid ${error ? accent.default : color2.border}`,
     borderRadius: theme.borderRadius.md,
     outline: "none",
     "&:focus": {
@@ -1468,29 +1507,37 @@ const Input = ({
   value = "",
   size = "normal",
   error = false,
-  onChange,
-  parent
+  onChange
 }) => {
-  const isError = error && error !== "false" || error === "";
-  const className = _$2(() => style(isError, isDark.value, size), [isError, isDark.value, size]);
-  const [currentValue, handleInputValue] = useInputValue(parent, value);
+  const className = _$2(() => style$1(error, isDark.value, size), [error, isDark.value, size]);
   const onInput = A((e2) => {
     if (e2.target instanceof HTMLInputElement) {
-      if (onChange) {
-        onChange(e2.target.value);
-      }
-      handleInputValue(e2.target.value, e2);
+      onChange(e2.target.value, e2);
     }
-  }, [onChange, handleInputValue]);
+  }, [onChange]);
   return /* @__PURE__ */ v$3("input", {
     type: "text",
     class: className,
-    value: currentValue,
+    value,
     onInput
   });
 };
+const WCInput = ({
+  value = "",
+  size,
+  error,
+  parent
+}) => {
+  const [currentValue, handleInputValue] = useInputValue(parent, "value", value);
+  return /* @__PURE__ */ v$3(Input, {
+    value: currentValue,
+    size: size === "small" ? "small" : "normal",
+    error: error && error !== "false" || error === "",
+    onChange: handleInputValue
+  });
+};
 const register$3 = () => {
-  h("phi-input", () => Input, {
+  h("phi-input", () => WCInput, {
     attributes: ["value", "size", "error"],
     formAssociated: true
   });
@@ -1697,7 +1744,7 @@ const Save = (props) => /* @__PURE__ */ v$3("svg", {
 }), /* @__PURE__ */ v$3("path", {
   d: "M19 12v7H5v-7H3v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2zm-6 .67l2.59-2.58L17 11.5l-5 5-5-5 1.41-1.41L11 12.67V3h2v9.67z"
 }));
-const iconStyle = u({
+const iconStyle = u$2({
   display: "inline",
   width: "auto",
   height: "1em",
@@ -1724,35 +1771,106 @@ const icons = {
 };
 const Icon = ({ icon }) => {
   const Component = icons[icon];
-  return /* @__PURE__ */ v$3(Component, {
+  return Component ? /* @__PURE__ */ v$3(Component, {
     class: iconStyle
-  });
+  }) : null;
 };
 const register$2 = () => {
   h("phi-icon", () => Icon, {
     attributes: ["icon"]
   });
 };
-const GlobalStyles = () => {
-  if (!isSSR) {
-    const [lastClassName, setLastClassName] = m$1(u(globalStyles(isDark.value)));
-    y$1(() => {
-      const newClassName = u(globalStyles(isDark.value));
-      document.documentElement.classList.remove(lastClassName);
-      document.documentElement.classList.add(newClassName);
-      setLastClassName(newClassName);
-    }, [isDark.value]);
-  }
-  return null;
+const style = (isSelected, isRadio, isDark2) => {
+  const color2 = theme.color[isDark2 ? "dark" : "light"];
+  return u$2({
+    display: "inline-block",
+    padding: 0,
+    fontSize: theme.font.size.md,
+    lineHeight: 1,
+    color: color2.fg,
+    backgroundColor: "transparent",
+    cursor: "pointer",
+    border: 0,
+    "& > .check": {
+      display: "inline-block",
+      marginRight: theme.spacing.margin.inline,
+      color: isSelected ? color2.fg : "transparent",
+      backgroundColor: color2.bg,
+      border: `1px solid ${color2.border}`,
+      borderRadius: isRadio ? "50%" : theme.borderRadius.sm
+    },
+    "&:hover": {
+      color: color2.neutral.default,
+      "& > .check": {
+        borderColor: color2.neutral.default
+      }
+    },
+    "&:active": {
+      color: color2.neutral.active,
+      backgroundColor: color2.neutral.bg,
+      "& > .check": {
+        borderColor: color2.neutral.active
+      }
+    }
+  });
+};
+const Checkbox = ({
+  checked,
+  value,
+  onChange,
+  children
+}) => {
+  const isRadio = _$2(() => typeof checked !== "boolean" && !Array.isArray(checked), [checked]);
+  const isSelected = _$2(() => {
+    if (typeof checked === "boolean") {
+      return checked;
+    } else if (!Array.isArray(checked)) {
+      return checked === value;
+    } else {
+      return checked.findIndex((item) => item === value) !== -1;
+    }
+  }, [checked, value]);
+  const onClick = A((e2) => {
+    const nextChecked = typeof checked === "boolean" ? !checked : !Array.isArray(checked) ? value : isSelected ? checked.filter((item) => item !== value) : [...checked, value];
+    onChange(nextChecked, e2);
+  }, [checked, isSelected, value]);
+  const className = _$2(() => style(isSelected, isRadio, isDark.value), [isSelected, isRadio, isDark.value]);
+  return /* @__PURE__ */ v$3("button", {
+    className,
+    onClick
+  }, /* @__PURE__ */ v$3("span", {
+    className: "check"
+  }, /* @__PURE__ */ v$3(Icon, {
+    icon: isRadio ? "check-radio" : "check"
+  })), children);
+};
+const WCCheckbox = ({
+  checked,
+  value,
+  children,
+  parent
+}) => {
+  const normalizedChecked = _$2(() => checked == null ? false : checked === "" ? true : checked === "false" ? false : checked === "true" ? true : checked, [checked]);
+  const [currentValue] = useProp(parent, "value", value);
+  const [currentChecked, handleInputValue] = useInputValue(parent, "checked", normalizedChecked);
+  return /* @__PURE__ */ v$3(Checkbox, {
+    checked: currentChecked,
+    value: currentValue,
+    onChange: handleInputValue
+  }, children);
 };
 const register$1 = () => {
-  h("phi-global-styles", () => GlobalStyles);
+  h("phi-checkbox", () => WCCheckbox, {
+    attributes: ["checked", "value"],
+    formAssociated: true
+  });
 };
 const register = () => {
+  register$5();
   register$4();
   register$3();
-  register$2();
   register$1();
+  register$2();
 };
-export { Button, GlobalStyles, Icon, Input, register };
+export { Button, Checkbox, GlobalStyles, Icon, Input, register };
 //# sourceMappingURL=phi-components.es.js.map

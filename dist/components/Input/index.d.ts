@@ -1,11 +1,10 @@
 declare type Size = "normal" | "small";
 declare type Props = {
-    value?: string;
+    value: string;
+    onChange: (value: string, e: Event) => void;
     size?: Size;
-    error?: boolean | string;
-    onChange?: (value: string) => void;
-    parent?: HTMLElement;
+    error?: boolean;
 };
-declare const Input: ({ value, size, error, onChange, parent, }: Props) => JSX.Element;
+declare const Input: ({ value, size, error, onChange, }: Props) => JSX.Element;
 export declare const register: () => void;
 export default Input;
