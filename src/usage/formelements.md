@@ -22,6 +22,8 @@ Most form elements (unless noted) work just like normal `input` elements.
   const resetValue = () => input.value = "";
   ```
 
+  Once you update `value` prop from outside, setting `value` attribute no longer works.
+
 - You may subscribe `input` event to watch user inputs
 
   ```html

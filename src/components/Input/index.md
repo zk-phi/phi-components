@@ -6,6 +6,10 @@ A text input works just like `<input type='text'>`.
   <phi-input value="abrakadabra" />
 </figure>
 
+```html
+<phi-input value="abrakadabra" />
+```
+
 ## Variants
 ### Size Variants
 
@@ -15,6 +19,10 @@ A text input works just like `<input type='text'>`.
   <phi-input size="small" value="abrakadabra" />
 </figure>
 
+```html
+<phi-input size="small" value="abrakadabra" />
+```
+
 ### Color Variants
 
 `error` for invalid inputs:
@@ -22,6 +30,10 @@ A text input works just like `<input type='text'>`.
 <figure>
   <phi-input error value="adracabadra" />
 </figure>
+
+```html
+<phi-input error value="adracabadra" />
+```
 
 ## Usage
 
