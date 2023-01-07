@@ -140,7 +140,7 @@ const Demo = () => {
 
 | Name      | Type             | Default     | Description                           |
 |-----------|------------------|-------------|---------------------------------------|
+| `onClick` | `Event => void`  | (required)  | Called when clicked                   |
 | `variant` | `string`         | `"default"` | Switch style variants                 |
 | `danger`  | `boolean`        | `false`     | Enable error color variant            |
 | `icon`    | `ComponentChild` |             | Icon displayed before the button text |
-| `onClick` | `() => void`     |             | Called when clicked                   |

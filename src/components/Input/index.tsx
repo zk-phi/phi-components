@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useMemo } from "preact/hooks";
 import { define } from "preactement";
 import { useInputValue } from "../../utils/useInputValue";
-import { withAttrConverter } from "../../utils/withAttrConverter";
 import theme from "../../constants/theme";
 import { isDark } from "../../utils/isDark";
 import { css } from "goober";
@@ -17,23 +16,10 @@ type Attrs = {
 
 type Props = {
   value: string,
-  onChange?: (value: string) => void,
+  onChange: (value: string, e: Event) => void,
   size?: Size,
   error?: boolean,
-  parent?: HTMLElement,
 };
-
-const convertAttrs: ((attrs: Attrs) => Props) = ({
-  value = "",
-  size,
-  error,
-  parent,
-}) => ({
-  value,
-  size: size === "small" ? "small" : "normal",
-  error: (error && error !== "false") || error === "",
-  parent,
-});
 
 const style = (error: boolean, isDark: boolean, size: Size) => {
   const themeVariant = isDark ? "dark" : "light";
@@ -76,29 +62,39 @@ const Input = ({
   size = "normal",
   error = false,
   onChange,
-  parent,
 }: Props) => {
-  const className = useMemo(
-    () => style(error, isDark.value, size),
-    [error, isDark.value, size],
-  );
-  const [currentValue, handleInputValue] = useInputValue<string>(parent, "value", value);
+  const className = useMemo(() => (
+    style(error, isDark.value, size)
+  ), [error, isDark.value, size]);
 
   const onInput = useCallback((e: Event) => {
     if (e.target instanceof HTMLInputElement) {
-      if (onChange) {
-        onChange(e.target.value);
-      }
-      handleInputValue(e.target.value, e);
+      onChange(e.target.value, e);
     }
-  }, [onChange, handleInputValue]);
+  }, [onChange]);
 
   return (
-    <input type="text" class={ className } value={ currentValue } onInput={ onInput } />
+    <input type="text" class={ className } value={ value } onInput={ onInput } />
   );
 };
 
-const WCInput = withAttrConverter<Attrs, Props>(Input, convertAttrs);
+const WCInput = ({
+  value = "",
+  size,
+  error,
+  parent,
+}: Attrs) => {
+  const [currentValue, handleInputValue] = useInputValue<string>(parent, "value", value);
+
+  return (
+    <Input
+        value={ currentValue }
+        size={ size === "small" ? "small" : "normal" }
+        error={ (error && error !== "false") || error === "" }
+        onChange={ handleInputValue } />
+  );
+}
+
 export const register = () => {
   define("phi-input", () => WCInput, {
     attributes: ["value", "size", "error"],

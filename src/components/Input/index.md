@@ -121,9 +121,9 @@ const Demo = () => {
 
 #### Props
 
-| Name       | Type             | Default    | Description                |
-|------------|------------------|------------|----------------------------|
-| `value`    | `string`         | (required) | Set current value          |
-| `onChange` | `string => void` |            | Subscribe current value    |
-| `size`     | `string`         | `"normal"` | Switch size variants       |
-| `error`    | `boolean`        | `false`    | Enable error color variant |
+| Name       | Type                      | Default    | Description                |
+|------------|---------------------------|------------|----------------------------|
+| `value`    | `string`                  | (required) | Set current value          |
+| `onChange` | `(string, Event) => void` | (required) | Subscribe current value    |
+| `size`     | `string`                  | `"normal"` | Switch size variants       |
+| `error`    | `boolean`                 | `false`    | Enable error color variant |

@@ -1,49 +1,27 @@
 import { ComponentChildren, ComponentChild } from "preact";
-import { useMemo } from "preact/hooks";
+import { useMemo, useCallback } from "preact/hooks";
 import { define } from "preactement";
 import theme from "../../constants/theme";
 import { isDark } from "../../utils/isDark";
-import { withAttrConverter } from "../../utils/withAttrConverter";
 import { css } from "goober";
 
 type Variant = "primary" | "default" | "dotted" | "text" | "icon";
 
 type Attrs = {
+  children: ComponentChildren,
   icon?: ComponentChild,
   variant?: string,
   danger?: string,
-  children: ComponentChildren,
   parent?: HTMLElement,
 };
 
 type Props = {
+  onClick: (e: Event) => void,
+  children: ComponentChildren,
   icon?: ComponentChild,
   variant?: Variant,
   danger?: boolean,
-  onClick?: () => void,
-  children: ComponentChildren,
-  parent?: HTMLElement,
 };
-
-const convertAttrs: ((attrs: Attrs) => Props) = ({
-  icon,
-  variant,
-  danger,
-  children,
-  parent,
-}) => ({
-  icon,
-  variant: (
-    variant === "primary" ? "primary" :
-    variant === "dotted" ? "dotted" :
-    variant === "text" ? "text" :
-    variant === "icon" ? "icon" :
-    "default"
-  ),
-  danger: (danger && danger === "false") || danger === "",
-  children,
-  parent,
-});
 
 const buttonStyle = (danger: boolean, isDark: boolean, variant: Variant) => {
   const themeVariant = isDark ? "dark" : "light";
@@ -182,7 +160,39 @@ const Button = ({
   );
 };
 
-const WCButton = withAttrConverter<Attrs, Props>(Button, convertAttrs);
+const WCButton = ({
+  icon,
+  variant,
+  danger,
+  children,
+  parent,
+}: Attrs) => {
+  const onClick = useCallback((e: Event) => {
+    if (parent) {
+      e.stopPropagation();
+      parent?.dispatchEvent?.(new Event("click"));
+    }
+  }, [parent]);
+
+  const normalizedVariant = useMemo(() => (
+    variant === "primary" ? "primary" :
+    variant === "dotted" ? "dotted" :
+    variant === "text" ? "text" :
+    variant === "icon" ? "icon" :
+    "default"
+  ), [variant]);
+
+  return (
+    <Button
+        icon={ icon }
+        variant={ normalizedVariant }
+        danger={ (danger && danger === "false") || danger === "" }
+        onClick={ onClick }>
+      { children }
+    </Button>
+  );
+};
+
 export const register = () => {
   define("phi-button", () => WCButton, {
     attributes: ["variant", "danger"],
