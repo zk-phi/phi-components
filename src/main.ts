@@ -1,13 +1,22 @@
+import GlobalStyles, { register as registerGlobalStyles } from "./components/GlobalStyles";
 import Button, { register as registerButton } from "./components/Button";
 import Input, { register as registerInput } from "./components/Input";
+import Checkbox, { register as registerCheckbox } from "./components/Checkbox";
 import Icon, { register as registerIcon } from "./components/Icon";
-import GlobalStyles, { register as registerGlobalStyles } from "./components/GlobalStyles";
 
 const register = () => {
+  registerGlobalStyles();
   registerButton();
   registerInput();
+  registerCheckbox();
   registerIcon();
-  registerGlobalStyles();
 };
 
-export { Button, Input, Icon, GlobalStyles,  register };
+export {
+  GlobalStyles,
+  Button,
+  Input,
+  Checkbox,
+  Icon,
+  register,
+};

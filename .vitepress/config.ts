@@ -40,6 +40,7 @@ export default defineConfig({
         { text: "GlobalStyles", link: "/components/GlobalStyles/" },
         { text: "Button", link: "/components/Button/" },
         { text: "Input", link: "/components/Input/" },
+        { text: "Checkbox", link: "/components/Checkbox/" },
         { text: "Icon", link: "/components/Icon/" },
       ],
     }

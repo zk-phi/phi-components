@@ -12,3 +12,7 @@ figure {
   border: 1px solid var(--vp-c-divider-light);
   border-radius: 6px;
 }
+
+h4 {
+  margin-top: 16px;
+}
