@@ -96,7 +96,7 @@ const Checkbox = <S, T extends CheckboxValue<S>>({
       [...checked, value!]
     );
     onChange(nextChecked, e);
-  });
+  }, [checked, isSelected, value]);
 
   const className = useMemo(() => (
     style(isSelected, isRadio, isDark.value)
