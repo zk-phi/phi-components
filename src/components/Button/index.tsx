@@ -186,7 +186,7 @@ const WCButton = ({
     <Button
         icon={ icon }
         variant={ normalizedVariant }
-        danger={ (danger && danger === "false") || danger === "" }
+        danger={ (danger && danger !== "false") || danger === "" }
         onClick={ onClick }>
       { children }
     </Button>
