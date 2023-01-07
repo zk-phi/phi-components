@@ -25,7 +25,15 @@ An icon component.
 
 ## Usage
 
+<script setup>
+import "./demo.tsx";
+</script>
+
 ### Web Components
+
+<figure>
+  <phi-icon icon="text" />
+</figure>
 
 ```html
 <phi-icon icon="text" />
@@ -44,8 +52,8 @@ An icon component.
 
 #### Props
 
-| Name | Description |
-|------|-------------|
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
 
 #### Events
 
@@ -54,12 +62,16 @@ An icon component.
 
 ### Preact
 
+<figure>
+  <phi-icon-demo />
+</figure>
+
 ```js
 <Icon icon="text" />
 ```
 
 #### Props
 
-| Name   | Type     | Default    | Description       |
-|--------|----------|------------|-------------------|
-| `icon` | `string` | (required) | Switch icon image |
+| Name   | Type     | Default    |
+|--------|----------|------------|
+| `icon` | `string` | (required) |

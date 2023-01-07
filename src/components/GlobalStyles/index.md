@@ -21,8 +21,8 @@ Apply very basic CSS (including fonts, background/foreground colors) globally.
 
 #### Props
 
-| Name | Type | Description |
-|------|------|-------------|
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
 
 #### Events
 
@@ -42,5 +42,5 @@ const App = () => (
 
 #### Props
 
-| Name | Type | Description |
-|------|------|-------------|
+| Name | Type | Default |
+|------|------|---------|

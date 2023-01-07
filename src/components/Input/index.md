@@ -87,9 +87,9 @@ const value = ref("abrakadabra");
 
 #### Props
 
-| Name    | Type     | Description        |
-|---------|----------|--------------------|
-| `value` | `string` | Get / update value |
+| Name    | Type     | Default | Description                |
+|---------|----------|---------|----------------------------|
+| `value` | `string` | `""`    | Get / update current value |
 
 #### Events
 
@@ -121,9 +121,9 @@ const Demo = () => {
 
 #### Props
 
-| Name       | Type                      | Default    | Description                |
-|------------|---------------------------|------------|----------------------------|
-| `value`    | `string`                  | (required) | Set current value          |
-| `onChange` | `(string, Event) => void` | (required) | Subscribe current value    |
-| `size`     | `string`                  | `"normal"` | Switch size variants       |
-| `error`    | `boolean`                 | `false`    | Enable error color variant |
+| Name       | Type                      | Default    |
+|------------|---------------------------|------------|
+| `value`    | `string`                  | (required) |
+| `onChange` | `(string, Event) => void` | (required) |
+| `size`     | `string`                  | `"normal"` |
+| `error`    | `boolean`                 | `false`    |
