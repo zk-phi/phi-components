@@ -1,0 +1,1 @@
+import{_ as t,o as d,c as e,f as o}from"./app.9ad3b021.js";const p=JSON.parse('{"title":"Dark-mode detection","description":"","frontmatter":{},"headers":[],"relativePath":"usage/darkmode.md"}'),a={name:"usage/darkmode.md"},r=o("",6),c=[r];function s(n,i,l,h,_,m){return d(),e("div",null,c)}const u=t(a,[["render",s]]);export{p as __pageData,u as default};
