@@ -36,13 +36,20 @@ export default defineConfig({
       ],
     }, {
       text: "Components",
-      items: [
-        { text: "GlobalStyles", link: "/components/GlobalStyles/" },
-        { text: "Button", link: "/components/Button/" },
-        { text: "Input", link: "/components/Input/" },
-        { text: "Checkbox", link: "/components/Checkbox/" },
-        { text: "Icon", link: "/components/Icon/" },
-      ],
-    }
+      items: [{
+        text: "Form",
+        items: [
+          { text: "Button", link: "/components/Button/" },
+          { text: "Input", link: "/components/Input/" },
+          { text: "Checkbox", link: "/components/Checkbox/" },
+        ],
+      }, {
+        text: "Other",
+        items: [
+          { text: "GlobalStyles", link: "/components/GlobalStyles/" },
+          { text: "Icon", link: "/components/Icon/" },
+        ],
+      }],
+    },
   ]},
 });
