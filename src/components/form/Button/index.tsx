@@ -3,7 +3,7 @@ import { useMemo, useCallback } from "preact/hooks";
 import { define } from "preactement";
 import theme from "../../../constants/theme";
 import { isDark } from "../../../utils/isDark";
-import { css } from "goober";
+import { css, glob } from "goober";
 
 type Variant = "primary" | "default" | "dotted" | "text" | "icon";
 
@@ -36,6 +36,7 @@ const buttonStyle = (danger: boolean, isDark: boolean, variant: Variant) => {
     cursor: "pointer",
     textAlign: "center",
     fontSize: theme.font.size.md,
+    userSelect: "none",
 
     ...(variant === "primary" ? {
       padding: theme.spacing.padding.md,
@@ -135,7 +136,7 @@ const iconStyle = css({
   display: "inline-block",
   fontSize: theme.font.size.smallIcon,
   lineHeight: 0,
-  marginRight: theme.spacing.margin.minimal,
+  marginRight: theme.spacing.margin.sm,
   verticalAlign: "-0.05em",
 });
 
@@ -194,6 +195,11 @@ const WCButton = ({
 export const register = () => {
   define("phi-button", () => WCButton, {
     attributes: ["variant", "danger"],
+  });
+  glob({
+    "phi-button": {
+      display: "inline-block",
+    },
   });
 };
 

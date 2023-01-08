@@ -6,7 +6,7 @@ import { useInputValue } from "../../../utils/useInputValue";
 import Icon from "../../other/Icon";
 import theme from "../../../constants/theme";
 import { isDark } from "../../../utils/isDark";
-import { css } from "goober";
+import { css, glob } from "goober";
 
 type CheckboxValue<T> =
   T extends boolean ? any :
@@ -27,10 +27,9 @@ type Props<T> = {
   value?: CheckboxValue<T>,
 };
 
-const style = (isSelected: boolean, isRadio: boolean, isDark: boolean ) => {
+const style = (isSelected: boolean, isRadio: boolean, isDark: boolean) => {
   const color = theme.color[isDark ? "dark" : "light"];
   return css({
-    display: "inline-block",
     padding: 0,
     fontSize: theme.font.size.md,
     lineHeight: 1,
@@ -141,6 +140,11 @@ export const register = () => {
   define("phi-checkbox", () => WCCheckbox, {
     attributes: ["checked", "value"],
     formAssociated: true,
+  });
+  glob({
+    "phi-checkbox": {
+      display: "inline-block",
+    },
   });
 };
 

@@ -3,7 +3,7 @@ import { define } from "preactement";
 import { useInputValue } from "../../../utils/useInputValue";
 import theme from "../../../constants/theme";
 import { isDark } from "../../../utils/isDark";
-import { css } from "goober";
+import { css, glob } from "goober";
 
 type Size = "normal" | "small";
 
@@ -99,6 +99,11 @@ export const register = () => {
   define("phi-input", () => WCInput, {
     attributes: ["value", "size", "error"],
     formAssociated: true,
+  });
+  glob({
+    "phi-input": {
+      display: "inline-block",
+    },
   });
 };
 

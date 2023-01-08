@@ -152,8 +152,8 @@ const spacing = {
     md: "10.5px 14px",  // 0.75em 1em @14px
   },
   margin: {
-    minimal: "3.5px",  // 0.25em @14px
     inline: "5.25px ", // 0.375em @14px
+    sm: "3.5px", // 0.25em @14px
   },
 };
 
