@@ -20,11 +20,11 @@ type Attrs = {
   parent?: HTMLElement,
 };
 
-type Props<S, T extends CheckboxValue<S>> = {
-  checked: S,
-  onChange: (checked: S, e: Event) => void,
+type Props<T> = {
+  checked: T,
+  onChange: (checked: T, e: Event) => void,
   children: ComponentChildren,
-  value?: T,
+  value?: CheckboxValue<T>,
 };
 
 const style = (isSelected: boolean, isRadio: boolean, isDark: boolean ) => {
@@ -65,12 +65,12 @@ const style = (isSelected: boolean, isRadio: boolean, isDark: boolean ) => {
   });
 };
 
-const Checkbox = <S, T extends CheckboxValue<S>>({
+const Checkbox = <T,>({
   checked,
   value,
   onChange,
   children,
-}: Props<S, T>) => {
+}: Props<T>) => {
   const isRadio = useMemo(() => (
     typeof checked !== "boolean" && !Array.isArray(checked)
   ), [checked]);
@@ -88,8 +88,9 @@ const Checkbox = <S, T extends CheckboxValue<S>>({
   const onClick = useCallback((e: Event) => {
     // @ts-ignore
     // I don't know why but typescript does not understand that
-    // "S is boolean when (typeof checked === 'boolean') is true".
-    const nextChecked: S = (
+    // "T is boolean when (typeof checked === 'boolean') is true"
+    // for an example.
+    const nextChecked: T = (
       typeof checked === "boolean" ? !checked :
       !Array.isArray(checked) ? value! :
       isSelected ? checked.filter((item) => item !== value!) :
