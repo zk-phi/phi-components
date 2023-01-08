@@ -1,8 +1,8 @@
 import { ComponentChildren, ComponentChild } from "preact";
 import { useMemo, useCallback } from "preact/hooks";
 import { define } from "preactement";
-import theme from "../../constants/theme";
-import { isDark } from "../../utils/isDark";
+import theme from "../../../constants/theme";
+import { isDark } from "../../../utils/isDark";
 import { css } from "goober";
 
 type Variant = "primary" | "default" | "dotted" | "text" | "icon";

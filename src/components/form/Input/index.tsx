@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useMemo } from "preact/hooks";
 import { define } from "preactement";
-import { useInputValue } from "../../utils/useInputValue";
-import theme from "../../constants/theme";
-import { isDark } from "../../utils/isDark";
+import { useInputValue } from "../../../utils/useInputValue";
+import theme from "../../../constants/theme";
+import { isDark } from "../../../utils/isDark";
 import { css } from "goober";
 
 type Size = "normal" | "small";

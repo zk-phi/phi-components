@@ -1,9 +1,9 @@
 import { useState, useEffect } from "preact/hooks";
-import { css } from "goober";
-import { globalStyles } from "../../constants/theme";
 import { define } from "preactement";
-import { isDark } from "../../utils/isDark";
-import { isSSR } from "../../utils/isSSR";
+import { css } from "goober";
+import { globalStyles } from "../../../constants/theme";
+import { isDark } from "../../../utils/isDark";
+import { isSSR } from "../../../utils/isSSR";
 
 const GlobalStyles = () => {
   if (!isSSR) {

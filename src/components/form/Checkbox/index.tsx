@@ -1,11 +1,11 @@
 import { ComponentChildren } from "preact";
 import { useMemo, useCallback } from "preact/hooks";
 import { define } from "preactement";
-import { useProp } from "../../utils/useProp";
-import { useInputValue } from "../../utils/useInputValue";
-import Icon from "../Icon";
-import theme from "../../constants/theme";
-import { isDark } from "../../utils/isDark";
+import { useProp } from "../../../utils/useProp";
+import { useInputValue } from "../../../utils/useInputValue";
+import Icon from "../../other/Icon";
+import theme from "../../../constants/theme";
+import { isDark } from "../../../utils/isDark";
 import { css } from "goober";
 
 type CheckboxValue<T> =
