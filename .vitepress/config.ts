@@ -37,6 +37,12 @@ export default defineConfig({
     }, {
       text: "Components",
       items: [{
+        text: "Layout",
+        items: [
+          { text: "VSpace", link: "/components/layout/VSpace/" },
+          { text: "Center", link: "/components/layout/Center/" },
+        ],
+      }, {
         text: "Form",
         items: [
           { text: "Button", link: "/components/form/Button/" },
@@ -48,6 +54,7 @@ export default defineConfig({
         items: [
           { text: "GlobalStyles", link: "/components/other/GlobalStyles/" },
           { text: "Icon", link: "/components/other/Icon/" },
+          { text: "Popover", link: "/components/other/Popover/" },
         ],
       }],
     },

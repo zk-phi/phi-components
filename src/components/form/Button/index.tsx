@@ -31,6 +31,7 @@ const buttonStyle = (danger: boolean, isDark: boolean, variant: Variant) => {
   const pressableShadow = theme.boxShadow[themeVariant].pressable;
 
   return css({
+    width: "100%",
     fontFamily: theme.font.family,
     outline: "none",
     cursor: "pointer",

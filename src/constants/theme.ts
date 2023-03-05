@@ -72,10 +72,11 @@ const color = {
     },
   },
   dark: {
-    bg:        "#222222ff",
-    distantFg: "#222222ff",
-    fg:        "#ffffffd0", // #d4d4d4
-    border:    "#ffffff40", // #656565
+    bg:         "#222222ff",
+    distantFg:  "#222222ff",
+    elevatedBg: "#444444ff",
+    fg:         "#ffffffd0", // #d4d4d4
+    border:     "#ffffff40", // #656565
     neutral: {
       bg:      `${_palette.dark.neutral.base}20`,
       hover:   _palette.dark.neutral.darker,
@@ -108,6 +109,7 @@ const boxShadow = {
       neutral: `0 0 0 2px ${_palette.light.neutral.base}30`,
       danger:  `0 0 0 2px ${_palette.light.danger.base}30`,
     },
+    elevated: "#00000020 0 10px 20px, #00000030 0 6px 6px",
   },
   dark: {
     pressable: {
@@ -154,6 +156,9 @@ const spacing = {
   margin: {
     inline: "5.25px ", // 0.375em @14px
     sm: "3.5px", // 0.25em @14px
+    md: "7px", // 0.5em @14px
+    lg: "14px", // 1em @14px
+    xl: "24.5px", // 1.75em @14px
   },
 };
 

@@ -144,6 +144,7 @@ export const register = () => {
   glob({
     "phi-checkbox": {
       display: "inline-block",
+      textAlign: "center",
     },
   });
 };

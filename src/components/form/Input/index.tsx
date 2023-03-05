@@ -29,6 +29,7 @@ const style = (error: boolean, isDark: boolean, size: Size) => {
   const boxShadow = theme.boxShadow[themeVariant].focus[accentVariant];
 
   return css({
+    width: "100%",
     fontFamily: theme.font.family,
     padding: size === "small" ? theme.spacing.padding.sm : theme.spacing.padding.md,
     fontSize: theme.font.size.md,
