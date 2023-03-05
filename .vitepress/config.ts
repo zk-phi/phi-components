@@ -4,7 +4,7 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   lang: "ja-JP",
   title: "phi-components",
-  srcDir: Path.resolve("src"),
+  srcDir: Path.resolve("src_atomico"),
   outDir: Path.resolve("doc"),
   base: "/phi-components/",
   vue: {
@@ -18,7 +18,7 @@ export default defineConfig({
     esbuild: {
       jsxFactory: "h",
       jsxFragment: "Fragment",
-      jsxInject: `import { h, Fragment } from "preact"`,
+      jsxInject: `import { h, Fragment } from "atomico"`,
     },
   },
   themeConfig: {
