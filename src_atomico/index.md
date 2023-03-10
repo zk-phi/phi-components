@@ -37,3 +37,6 @@ Icons are taken from `Material DesignIcons` (c) Google.
 Built with ♡ by zk-phi
 
 <small>Peace, Love, Unity, Respect 🫶</small>
+
+atomico も props が勝手にパースされるところとかビミョいんだよなあそうだわ思い出した
+あと context の api が謎。 store で代用できそうなのでそこはまあまだいいけど。

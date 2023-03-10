@@ -1,8 +1,8 @@
 import { ComponentChildren, ComponentChild } from "preact";
-import { useMemo, useCallback } from "preact/hooks";
-import { define } from "preactement";
 import theme from "../../../constants/theme";
-import { isDark } from "../../../utils/isDark";
+import { isDarkStore } from "../../../utils/isDarkStore";
+import { useMemo, useCallback } from "atomico";
+import { useStore } from "@atomico/store";
 import { css, glob } from "goober";
 
 type Variant = "primary" | "default" | "dotted" | "text" | "icon";
@@ -148,9 +148,10 @@ const Button = ({
   danger = false,
   onClick,
 }: Props) => {
+  const isDark = useStore(isDarkStore);
   const className = useMemo(
-    () => buttonStyle(danger, isDark.value, variant),
-    [danger, isDark.value, variant],
+    () => buttonStyle(danger, isDark, variant),
+    [danger, isDark, variant],
   );
   return (
     <button class={ className } onClick={ onClick }>
@@ -193,15 +194,15 @@ const WCButton = ({
   );
 };
 
-export const register = () => {
-  define("phi-button", () => WCButton, {
-    attributes: ["variant", "danger"],
-  });
-  glob({
-    "phi-button": {
-      display: "inline-block",
-    },
-  });
-};
+// export const register = () => {
+//   define("phi-button", () => WCButton, {
+//     attributes: ["variant", "danger"],
+//   });
+//   glob({
+//     "phi-button": {
+//       display: "inline-block",
+//     },
+//   });
+// };
 
 export default Button;
