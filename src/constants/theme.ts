@@ -1,5 +1,6 @@
 // okhsl color picker -> https://bottosson.github.io/misc/colorpicker/
 
+// OPACITIES
 //  1/16 ... 10
 //  2/16 ... 20 (1/8)
 //  3/16 ... 30

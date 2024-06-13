@@ -20,6 +20,11 @@ export default defineConfig({
       jsxFragment: "Fragment",
       jsxInject: `import { h, Fragment } from "preact"`,
     },
+    server: {
+      fs: {
+        allow: "/",
+      },
+    },
   },
   themeConfig: {
     sidebar: [{

@@ -5,7 +5,6 @@ A container that renders contents stacked vertically.
 ## Usage
 
 <script setup>
-import "https://esm.sh/formilk";
 import { ref } from "vue";
 import "./demo.tsx";
 const sizes = ["inline", "sm", "md", "lg", "xl"];
@@ -27,19 +26,11 @@ formilk の web components を vue で使ってみたいね、使えるなら at
 
 → いけたわ、たぶん preactement が children をクリアしてしまうのが問題
 
-中身 formilk 外見 phi-components だとダメで、中身 phi-components 外見 formilk だといける
+中身 formilk 外身 phi-components だとダメで、中身 phi-components 外身 formilk だといける
 
-formilk でも v-model は使えなさそうで、結局 :value @input pair になりそうなので、そしたら attr 周りとかそんながんばらんでもいいかな
+formilk でも v-model は使えなさそうで、結局 :value @input pair になりそうなので、だったら attr 周りとかそんながんばらんでもいいかな まあそれは別の話か
 
 <figure>
-<fm-tabs>
-<fm-label v-for="option in sizes">
-  <span>{{ option }}</span>
-  <fm-input-checkbox :checked="option === size" @input="size = option"/>
-</fm-label>
-{{size}}
-</fm-tabs>
-
   <phi-vspace size="md" align="stretch">
     <phi-input value="foo" />
     <phi-input value="bar" />
