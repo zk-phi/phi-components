@@ -15,7 +15,7 @@ const style = css({
   justifyContent: "center",
 });
 
-const Center = ({ width, height, containerStyle, containerClass, children }: Props) => {
+const Center = ({ containerStyle, containerClass, children }: Props) => {
   const className = useMemo(() => `${style} ${containerClass}`, [containerClass]);
   return (
     <div className={ className } style={ containerStyle }>

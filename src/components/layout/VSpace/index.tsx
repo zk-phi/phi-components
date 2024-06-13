@@ -16,6 +16,7 @@ type Props = {
 type Attrs = {
   size?: string,
   align?: string,
+  children: ComponentChildren,
 };
 
 const style = (size: MarginSize, align: Align) => css({

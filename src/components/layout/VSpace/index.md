@@ -5,7 +5,7 @@ A container that renders contents stacked vertically.
 ## Usage
 
 <script setup>
-import "https://esm.sh/formilk";
+// import "https://esm.sh/formilk";
 import { ref } from "vue";
 import "./demo.tsx";
 const sizes = ["inline", "sm", "md", "lg", "xl"];
