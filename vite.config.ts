@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => ({
   esbuild: {
     jsxFactory: "h",
     jsxFragment: "Fragment",
-    jsxInject: `import { h, Fragment } from "preact"`,
+    jsxInject: `import { h, Fragment } from "atomico"`,
   },
   build: {
     outDir: Path.resolve("dist"),
