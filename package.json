@@ -22,6 +22,7 @@
     "serve": "vitepress serve"
   },
   "devDependencies": {
+    "atomico": "1.79.x",
     "@preact/signals": "^1.1.3",
     "goober": "2.1.x",
     "preact": "^10.7.0",
