@@ -1,0 +1,1 @@
+import JSX = atomico.JSX;

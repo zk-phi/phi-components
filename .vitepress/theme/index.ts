@@ -1,11 +1,8 @@
 import Theme from "vitepress/theme";
-import { register } from "../../src/main";
-import { isSSR } from "../../src/utils/isSSR";
 import "./custom.css";
 
-register();
-
-if (!isSSR) {
+if (!import.meta.env.SSR) {
+  import("../../src_atomico/main").then((module) => module.register());
   document.documentElement.classList.add("nodark");
 }
 

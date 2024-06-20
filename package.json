@@ -15,8 +15,9 @@
   },
   "scripts": {
     "build": "npm run build:doc && npm run build:module",
-    "build:module": "rm -r dist && tsc && vite build",
-    "build:doc": "rm -r doc && vitepress build",
+    "build:module": "tsc && vite build",
+    "build:doc": "vitepress build",
+    "clean": "rm -r doc && rm -r dist",
     "analyze": "vite build --mode analyze",
     "dev": "vitepress dev",
     "serve": "vitepress serve"

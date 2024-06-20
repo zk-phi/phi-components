@@ -1,0 +1,110 @@
+:host {
+  display: inline-block;
+  --button-color-hover:   var(--color-brand-light);
+  --button-color-neutral: var(--color-brand);
+  --button-color-active:  var(--color-brand-dark);
+  --button-color-bg:      var(--color-brand-bg);
+  --button-shadow-primary-neutral: var(--shadow-pressable-brand);
+  --button-shadow-primary-hover:   var(--shadow-pressable-brand-hover);
+}
+
+.danger {
+  --button-color-hover:   var(--color-danger-light);
+  --button-color-neutral: var(--color-danger);
+  --button-color-active:  var(--color-danger-dark);
+  --button-color-bg:      var(--color-danger-bg);
+  --button-shadow-primary-neutral: var(--shadow-pressable-danger);
+  --button-shadow-primary-hover:   var(--shadow-pressable-danger-hover);
+}
+
+.button {
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  user-select: none;
+}
+
+.primary {
+  color: var(--color-distant-fg);
+  background: var(--button-color-neutral);
+  border: 1px solid var(--button-color-neutral);
+  box-shadow: var(--button-shadow-primary-neutral);
+  padding: var(--text-padding-md);
+  border-radius: var(--radius-md);
+  transform: translateY(-1px);
+}
+.primary:hover {
+  background: var(--button-color-hover);
+  border-color: var(--button-color-hover);
+}
+.primary:hover:not(:active) {
+  box-shadow: var(--button-shadow-primary-hover);
+}
+.primary:active {
+  box-shadow: none;
+  transform: none;
+}
+
+.default {
+  padding: var(--text-padding-md);
+  border-radius: var(--radius-md);
+  transform: translateY(-1px);
+  color: var(--color-fg);
+  background: transparent;
+  border: 1px solid var(--color-fg);
+  box-shadow: var(--shadow-pressable);
+}
+.default:hover {
+  color: var(--button-color-neutral);
+  border-color: var(--button-color-neutral);
+  box-shadow: var(--button-shadow-primary-neutral);
+}
+.default:active {
+  box-shadow: none;
+  transform: none;
+}
+
+.dotted {
+  padding: var(--text-padding-md);
+  border-radius: var(--radius-md);
+  color: var(--color-fg);
+  background: transparent;
+  border: 1px dashed var(--color-fg);
+}
+.dotted:hover:not(:active) {
+  color: var(--button-color-neutral);
+  border-color: var(--button-color-neutral);
+}
+.dotted:active {
+  color: var(--button-color-active);
+  border-color: : var(--button-color-active);
+  background: var(--button-color-bg);
+}
+
+.text {
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px dotted var(--color-fg);
+  color: var(--color-fg);
+  background: transparent;
+}
+.text:hover:not(:active) {
+  color: var(--button-color-neutral);
+  border-color: var(--button-color-neutral);
+}
+.text:active {
+  color: var(--button-color-active);
+  border-color: : var(--button-color-active);
+  background: var(--button-color-bg);
+}
+
+.button-icon {
+  display: inline-block;
+  font-size: var(--font-size-icon-small);
+  line-height: 0;
+  vertical-align: var(--ideographic-baseline);
+}
+.button-icon::slotted {
+  margin-right: var(--spacing-sm);
+}
