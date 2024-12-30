@@ -15,8 +15,49 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+export const Default: Story = {
+  args: {
+    children: "ボタン",
+    icon: "〓",
+  },
+};
+
 export const Primary: Story = {
   args: {
     children: "ボタン",
+    variant: "primary",
+    icon: "〓",
+  },
+};
+
+export const Dotted: Story = {
+  args: {
+    children: "ボタン",
+    variant: "dotted",
+    icon: "〓",
+  },
+};
+
+export const Text: Story = {
+  args: {
+    children: "ボタン",
+    variant: "text",
+    icon: "〓",
+  },
+};
+
+export const Icon: Story = {
+  args: {
+    children: "〓",
+    variant: "icon",
+  },
+};
+
+export const Danger: Story = {
+  args: {
+    children: "ボタン",
+    variant: "primary",
+    danger: true,
+    icon: "〓",
   },
 };
