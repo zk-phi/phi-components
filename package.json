@@ -1,0 +1,25 @@
+{
+  "name": "phi-components",
+  "type": "module",
+  "source": "src/index.ts",
+  "main": "dist/phi-components.cjs",
+  "umd:main": "dist/phi-components.umd.js",
+  "module": "dist/phi-components.mjs",
+  "esmodule": "dist/phi-components.modern.js",
+  "types": "dist/phi-components.d.ts",
+  "scripts": {
+    "dev": "microbundle watch",
+    "build": "microbundle --visualize"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.2",
+    "better-typescript-lib": "^2.10.0",
+    "microbundle": "^0.15.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5.7.2"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0"
+  }
+}
