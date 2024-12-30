@@ -1,3 +1,30 @@
 .phi-button {
-  background: white;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  user-select: none;
+  font-size: var(--phi-fontsize-base);
+
+  padding: var(--phi-spacing-padding-md);
+  line-height: var(--phi-line-height-md);
+  border-radius: var(--phi-radius-md);
+
+  transform: translateY(-1px);
+
+  &.primary {
+    color: var(--phi-color-distant-fg);
+    background-color: var(--phi-color-neutral-default);
+    border: 1px solid var(--phi-color-neutral-default);
+    box-shadow: var(--phi-shadow-pressable-neutral-default);
+    &:hover {
+      color: var(--phi-color-distant-fg);
+      background-color: var(--phi-color-neutral-hover);
+      border-color: var(--phi-color-neutral-hover);
+      box-shadow: var(--phi-shadow-pressable-neutral-hover);
+    }
+    &:active {
+      box-shadow: none;
+      transform: none;
+    }
+  }
 }

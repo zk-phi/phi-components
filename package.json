@@ -9,15 +9,27 @@
   "types": "dist/phi-components.d.ts",
   "scripts": {
     "dev": "microbundle watch",
-    "build": "microbundle --visualize"
+    "build": "microbundle --visualize",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.3",
+    "@storybook/addon-essentials": "^8.4.7",
+    "@storybook/addon-interactions": "^8.4.7",
+    "@storybook/addon-onboarding": "^8.4.7",
+    "@storybook/blocks": "^8.4.7",
+    "@storybook/react": "^8.4.7",
+    "@storybook/react-vite": "^8.4.7",
+    "@storybook/test": "^8.4.7",
     "@types/react": "^19.0.2",
     "better-typescript-lib": "^2.10.0",
     "microbundle": "^0.15.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "typescript": "^5.7.2"
+    "storybook": "^8.4.7",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.6"
   },
   "peerDependencies": {
     "react": "^19.0.0"
