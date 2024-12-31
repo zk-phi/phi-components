@@ -1,12 +1,4 @@
 {
-  "include": [
-    "src",
-    "node_modules/microbundle/index.d.ts"
-  ],
-  "exclude": [
-    "dist",
-    "node_modules"
-  ],
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
