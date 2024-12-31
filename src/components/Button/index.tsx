@@ -9,7 +9,7 @@ const Button = ({
   children,
 }: {
   danger?: boolean,
-  variant: "default" | "primary" | "dotted" | "text" | "icon",
+  variant: "default" | "primary" | "dotted" | "icon",
   onClick: () => void,
   icon?: React.ReactNode,
   children: React.ReactNode,

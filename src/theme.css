@@ -1,21 +1,42 @@
 /* okhsl color picker -> https://bottosson.github.io/misc/colorpicker/ */
 
-/*
+/* opacity:
+ *
  *  1/16 ... 10
  *  2/16 ... 20 (1/8)
  *  3/16 ... 30
  *  4/16 ... 40 (1/4)
  *  5/16 ... 50
- *  6/16 ... 60
+ *  6/16 ... 60 (3/8)
  *  7/16 ... 70
  *  8/16 ... 80 (1/2)
  *  9/16 ... 90
- * 10/16 ... a0
+ * 10/16 ... a0 (5/8)
  * 11/16 ... b0
  * 12/16 ... c0 (3/4)
  * 13/16 ... d0
  * 14/16 ... e0 (7/8)
  * 15/16 ... f0
+ */
+
+/* size:
+ *
+ *  1/8 ...  1.25px
+ *  2/8 ...  3.50px (1/4)
+ *  3/8 ...  5.25px
+ *  4/8 ...  7.00px (1/2)
+ *  5/8 ...  8.75px
+ *  6/8 ... 10.50px (3/4)
+ *  7/8 ... 12.25px
+ *  8/8 ... 14.00px (1)
+ *  9/8 ... 15.75px
+ * 10/8 ... 17.50px (5/4)
+ * 11/8 ... 19.25px
+ * 12/8 ... 21.00px (3/2)
+ * 13/8 ... 22.75px
+ * 14/8 ... 24.50px (7/4)
+ * 15/8 ... 26.25px
+ * 16/8 ... 28.00px (2)
  */
 
 :root {
@@ -65,18 +86,14 @@
     0 0 0 2px var(--phi-color-palette-danger-outline);
 
   --phi-fontsize-md: 14px;
-  --phi-fontsize-icon-sm: 16px;
-  --phi-fontsize-icon-md: 26px;
-  --phi-line-height-md: 16px;
+  --phi-fontsize-icon-md: 17.5px;
+  --phi-fontsize-icon-lg: 26.25px;
 
-  --phi-radius-sm: 4px;
-  --phi-radius-md: 8px;
+  --phi-radius-md: 8.75px;
 
-  --phi-spacing-padding-minimal: 4px;
-  --phi-spacing-padding-sm: 5.6px 7.84px; /* 0.4em 0.5em @14px */
-  --phi-spacing-padding-md: 10.5px 14px;  /* 0.75em 1em @14px */
-  --phi-spacing-margin-inline: 5.25px;    /* 0.375em @14px */
-  --phi-spacing-margin-sm: 3.5px;         /* 0.25em @14px */
+  --phi-spacing-padding-sm: calc(5.25px - 1px);
+  --phi-spacing-padding-md: calc(14px - 1px);
+  --phi-spacing-margin-inline: 5.25px;
 }
 
 @media (prefers-color-scheme: dark) {

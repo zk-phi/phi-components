@@ -1,0 +1,29 @@
+.phi-icon-button {
+  --phi-color-accent-default: var(--phi-color-neutral-default);
+  --phi-color-accent-active:  var(--phi-color-neutral-active);
+  --phi-color-accent-bg:      var(--phi-color-neutral-bg);
+  &.danger {
+    --phi-color-accent-default: var(--phi-color-danger-default);
+    --phi-color-accent-active:  var(--phi-color-danger-active);
+    --phi-color-accent-bg:      var(--phi-color-danger-bg);
+  }
+
+  display: inline-block;
+  padding: var(--phi-spacing-padding-sm);
+  font-size: var(--phi-fontsize-icon-lg);
+  line-height: 1em;
+  border-radius: 50%;
+
+  user-select: none;
+  cursor: pointer;
+
+  color: var(--phi-color-border);
+  background-color: transparent;
+  &:hover:not(:active) {
+    color: var(--phi-color-accent-default);
+  }
+  &:active {
+    color: var(--phi-color-accent-active);
+    background-color: var(--phi-color-accent-bg);
+  }
+}

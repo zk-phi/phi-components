@@ -1,63 +1,49 @@
+import React from "react";
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import Button from '.';
+import Comopnent from '.';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
   title: 'Inputs/Button',
-  component: Button,
+  component: Comopnent,
   tags: ['autodocs'],
   args: {
     onClick: fn()
   },
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof Component>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: "ボタン",
-    icon: "〓",
+    children: "Cheers!",
+    icon: "🍺",
   },
 };
 
 export const Primary: Story = {
   args: {
-    children: "ボタン",
+    children: "Save",
+    icon: "💾",
     variant: "primary",
-    icon: "〓",
   },
 };
 
 export const Dotted: Story = {
   args: {
-    children: "ボタン",
+    children: "Add New",
     variant: "dotted",
-    icon: "〓",
-  },
-};
-
-export const Text: Story = {
-  args: {
-    children: "ボタン",
-    variant: "text",
-    icon: "〓",
-  },
-};
-
-export const Icon: Story = {
-  args: {
-    children: "〓",
-    variant: "icon",
+    icon: "＋",
   },
 };
 
 export const Danger: Story = {
   args: {
-    children: "ボタン",
+    children: "Trash",
     variant: "primary",
     danger: true,
-    icon: "〓",
+    icon: "🗑️",
   },
 };

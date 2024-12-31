@@ -14,31 +14,16 @@
     --phi-shadow-pressable-accent-hover:   var(--phi-shadow-pressable-danger-hover);
   }
 
-  outline: none;
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--phi-fontsize-md);
+  height: calc(var(--phi-fontsize-md) * 3);
+  padding: 0 var(--phi-spacing-padding-md);
+  gap: var(--phi-spacing-margin-inline);
+  border-radius: var(--phi-radius-md);
+
   cursor: pointer;
-  text-align: center;
   user-select: none;
-  font-size: var(--phi-fontsize-base);
-
-  &.primary, &.default, &.dotted {
-    padding: var(--phi-spacing-padding-md);
-    line-height: var(--phi-line-height-md);
-    border-radius: var(--phi-radius-md);
-  }
-
-  &.text {
-    padding: 0;
-    line-height: var(--phi-line-height-md);
-    border-radius: 0;
-  }
-
-  &.icon {
-    display: inline-block;
-    padding: var(--phi-spacing-padding-minimal);
-    font-size: var(--phi-fontsize-icon-md);
-    line-height: 1;
-    border-radius: 50%;
-  }
 
   &.primary {
     color: var(--phi-color-distant-fg);
@@ -76,22 +61,8 @@
 
   &.dotted {
     color: var(--phi-color-fg);
-    border: 1px dashed currentColor;
-  }
-
-  &.text {
-    color: var(--phi-color-fg);
-    border: none;
-    border-bottom: 1px dotted currentColor;
-  }
-
-  &.icon {
-    color: var(--phi-color-border);
-    border: none;
-  }
-
-  &.dotted, &.text, &.icon {
     background-color: transparent;
+    border: 1px dashed currentColor;
     &:hover:not(:active) {
       color: var(--phi-color-accent-default);
     }
@@ -103,9 +74,7 @@
 
   .attach-icon {
     display: inline-block;
-    font-size: var(--phi-fontsize-icon-sm);
-    line-height: 0;
-    margin-right: var(--phi-spacing-margin-sm);
-    vertical-align: "-0.05em";
+    font-size: var(--phi-fontsize-icon-md);
+    line-height: 1em;
   }
 }
