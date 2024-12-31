@@ -10,4 +10,5 @@ body {
 
   background-color: var(--phi-color-bg);
   color: var(--phi-color-fg);
+  line-height: 1.25em;
 }
