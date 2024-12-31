@@ -21,3 +21,10 @@ export const Default: Story = {
     children: "＋",
   },
 };
+
+export const Danger: Story = {
+  args: {
+    children: "＋",
+    danger: true,
+  },
+};

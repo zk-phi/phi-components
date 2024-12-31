@@ -18,6 +18,13 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: "👆 ボタン",
+    children: "👆 Click me",
+  },
+};
+
+export const Danger: Story = {
+  args: {
+    children: "💀 Don't click me",
+    danger: true,
   },
 };
