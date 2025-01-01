@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import Comopnent from '.';
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
   title: 'Inputs/Button',
   component: Comopnent,
@@ -23,6 +22,10 @@ export const Default: Story = {
   },
 };
 
+/**
+ * `primary` variant is suitable for most significant buttons in the screen,
+ * which usually update resources, trigger heavy computation, etc.
+ */
 export const Primary: Story = {
   args: {
     children: "Save",
@@ -31,6 +34,10 @@ export const Primary: Story = {
   },
 };
 
+/**
+ * `dotted` variant is suitable for kinda "add" buttons,
+ * that are usually replaced with the added resource when pressed.
+ */
 export const Dotted: Story = {
   args: {
     children: "Add New",
@@ -39,6 +46,19 @@ export const Dotted: Story = {
   },
 };
 
+/**
+ * You may mark some buttons as `danger`-ous,
+ * to make them look different from others.
+ *
+ * If you are using CSS-only installation, add `danger` class to buttons:
+ *
+ * ```html
+ * <button class="phi-button primary danger">
+ *   <span class="icon">🗑️</span>
+ *   Trash
+ * </button>
+ * ```
+ */
 export const Danger: Story = {
   args: {
     children: "Trash",

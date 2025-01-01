@@ -72,7 +72,7 @@
     }
   }
 
-  .attach-icon {
+  > .icon {
     display: inline-block;
     font-size: var(--phi-fontsize-icon-md);
     line-height: 1em;

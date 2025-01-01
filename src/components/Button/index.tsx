@@ -1,6 +1,26 @@
 import * as React from "react";
 import "./index.css";
 
+/**
+ * Basic button components with some variants.
+ *
+ * Usage (CSS-only installation):
+ *
+ * ```html
+ * <button class="phi-button default" onclick="handleclick">
+ *   <span class="icon">🍺</span>
+ *   Cheers!
+ * </button>
+ * ```
+ *
+ * Usage (as a React component):
+ *
+ * ```html
+ * <Button variant="default" onClick={clickHandler} icon="🍺">
+ *   Cheers!
+ * </Button>
+ * ```
+ */
 const Button = ({
   onClick,
   danger,
@@ -18,7 +38,7 @@ const Button = ({
       className={`phi-button ${variant} ${danger ? 'danger' : ''}`}
       onClick={onClick}
   >
-    {icon && <span className="attach-icon">{icon}</span>}
+    {icon && <span className="icon">{icon}</span>}
     {children}
   </button>
 );

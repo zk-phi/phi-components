@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import Comopnent from '.';
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
   title: 'Inputs/IconButton',
   component: Comopnent,
@@ -22,6 +21,18 @@ export const Default: Story = {
   },
 };
 
+/**
+ * You may mark some buttons as `danger`-ous,
+ * to make them look different from others.
+ *
+ * If you are using CSS-only installation, add `danger` class to buttons:
+ *
+ * ```html
+ * <button class="phi-icon-button danger">
+ *   ＋
+ * </button>
+ * ```
+ */
 export const Danger: Story = {
   args: {
     children: "＋",
