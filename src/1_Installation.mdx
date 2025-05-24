@@ -1,0 +1,41 @@
+# Installation
+
+You may add `phi-components` to your project in two ways.
+
+## As a Pure-CSS design system
+
+Just copy `dist/contrib/destyle.css` and `dist/index.css` to your project, and load it.
+
+``` html
+<link rel="stylesheet" href="index.css" />
+```
+
+## As a Preact components package
+
+Add this package to your project:
+
+``` json
+{
+  "dependencies": {
+    "phi-components": "zk-phi/phi-components#<commit-or-branch-id>"
+  }
+}
+```
+
+and apply the CSS.
+
+``` typescript
+import "phi-components/dist/index.css";
+```
+
+Then import any component you want.
+
+``` typescript
+import { Button } from "phi-components";
+```
+
+## NOTICE
+
+`phi-components` includes `destyle.css` to normalize browser default styles, which may affect existing app.
+
+It's not recommended to mix different design systems together in a project.
