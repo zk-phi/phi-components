@@ -1,4 +1,4 @@
-import * as React from "react";
+import type { ComponentChildren } from "preact";
 import "./index.css";
 
 /**
@@ -27,7 +27,7 @@ const TextButton = ({
 }: {
   danger?: boolean,
   onClick: () => void,
-  children: React.ReactNode,
+  children: ComponentChildren,
 }) => (
   <button
       className={`phi-text-button ${danger ? 'danger' : ''}`}

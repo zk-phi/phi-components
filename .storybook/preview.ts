@@ -1,4 +1,4 @@
-import type { Preview } from "@storybook/react";
+import type { Preview } from "@storybook/preact"
 import "../src/theme.css";
 import "../src/base.css";
 import "../contrib/destyle.min.css";
@@ -7,8 +7,8 @@ const preview: Preview = {
   parameters: {
     controls: {
       matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/i,
+       color: /(background|color)$/i,
+       date: /Date$/i,
       },
     },
   },

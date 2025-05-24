@@ -1,4 +1,4 @@
-import * as React from "react";
+import type { ComponentChildren } from "preact";
 import "./index.css";
 
 /**
@@ -31,8 +31,8 @@ const Button = ({
   danger?: boolean,
   variant: "default" | "primary" | "dotted" | "icon",
   onClick: () => void,
-  icon?: React.ReactNode,
-  children: React.ReactNode,
+  icon?: ComponentChildren,
+  children: ComponentChildren,
 }) => (
   <button
       className={`phi-button ${variant} ${danger ? 'danger' : ''}`}

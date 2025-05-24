@@ -1,12 +1,11 @@
-import React from "react";
-import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
-import Comopnent from '.';
+import type { Meta, StoryObj } from "@storybook/preact";
+import { fn } from "@storybook/test";
+import Comopnent from ".";
 
 const meta = {
-  title: 'Inputs/IconButton',
+  title: "Inputs/IconButton",
   component: Comopnent,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   args: {
     onClick: fn()
   },
