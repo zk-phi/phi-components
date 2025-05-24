@@ -17,7 +17,7 @@ export default defineConfig({
       formats: ["es", "umd"], // default の設定と同じ
     },
     rollupOptions: {
-      external: ["preact"],
+      external: ["preact", "preact/jsx-runtime"],
     },
   },
 })
