@@ -1,21 +1,45 @@
-import { jsxs as o, jsx as r } from "preact/jsx-runtime";
-const l = ({
-  onClick: s,
+import { jsxs as c, jsx as s } from "preact/jsx-runtime";
+const r = ({
+  onClick: t,
   danger: n,
-  variant: a = "default",
-  icon: t,
+  variant: o = "default",
+  icon: a,
   children: e
-}) => /* @__PURE__ */ o(
+}) => /* @__PURE__ */ c(
   "button",
   {
-    className: `phi-button ${a} ${n ? "danger" : ""}`,
-    onClick: s,
+    className: `phi-button ${o} ${n ? "danger" : ""}`,
+    onClick: t,
     children: [
-      t && /* @__PURE__ */ r("span", { className: "icon", children: t }),
+      a && /* @__PURE__ */ s("span", { className: "icon", children: a }),
       e
     ]
   }
+), i = ({
+  onClick: t,
+  danger: n,
+  children: o
+}) => /* @__PURE__ */ s(
+  "button",
+  {
+    className: `phi-icon-button ${n ? "danger" : ""}`,
+    onClick: t,
+    children: o
+  }
+), l = ({
+  onClick: t,
+  danger: n,
+  children: o
+}) => /* @__PURE__ */ s(
+  "button",
+  {
+    className: `phi-text-button ${n ? "danger" : ""}`,
+    onClick: t,
+    children: o
+  }
 );
 export {
-  l as Button
+  r as Button,
+  i as IconButton,
+  l as TextButton
 };
