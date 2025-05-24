@@ -2,7 +2,16 @@
   "name": "phi-components",
   "version": "0.0.1",
   "type": "module",
-  "main": "dist/index.js",
+  "files": ["dist"],
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    },
+    "./style.css": "./dist/index.css"
+  },
   "scripts": {
     "dev": "storybook dev -p 6006",
     "build": "vite build && tsc",

@@ -3,11 +3,30 @@
 You may add `phi-components` to your project in two ways.
 
 ## As a Pure-CSS design system
+### Load via link tag
 
-Just copy `dist/contrib/destyle.css` and `dist/index.css` to your project, and load it.
+Just copy `dist/index.css` to your project, and load it.
 
 ``` html
 <link rel="stylesheet" href="index.css" />
+```
+
+### Import into your bundle
+
+Add this package to your project:
+
+``` json
+{
+  "dependencies": {
+    "phi-components": "zk-phi/phi-components#<commit-or-branch-id>"
+  }
+}
+```
+
+and apply the CSS.
+
+``` typescript
+import "phi-components/style.css";
 ```
 
 ## As a Preact components package
@@ -25,7 +44,7 @@ Add this package to your project:
 and apply the CSS.
 
 ``` typescript
-import "phi-components/dist/index.css";
+import "phi-components/style.css";
 ```
 
 Then import any component you want.

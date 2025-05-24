@@ -14,7 +14,7 @@ export default defineConfig({
       entry: "src/index.ts",
       name: "phi-components",
       fileName: "index",
-      formats: ["es", "umd"], // default の設定と同じ
+      formats: ["es", "umd"],
     },
     rollupOptions: {
       external: ["preact", "preact/jsx-runtime"],
