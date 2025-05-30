@@ -38,7 +38,8 @@
     "storybook": "^8.6.14",
     "typescript": "^5.8.3",
     "vite": "^6.3.5",
-    "vite-bundle-analyzer": "^0.21.0"
+    "vite-bundle-analyzer": "^0.21.0",
+    "vite-plugin-dts": "^4.5.4"
   },
   "peerDependencies": {
     "preact": "^10.26.5"
