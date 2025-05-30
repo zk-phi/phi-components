@@ -6,13 +6,15 @@
     "dist"
   ],
   "main": "./dist/preact.umd.cjs",
-  "module": "./dist/preact.js",
+  "types": "./dist/src/preact.d.ts",
   "exports": {
     "./preact": {
+      "types": "./dist/src/preact.d.ts",
       "import": "./dist/preact.js",
       "require": "./dist/preact.umd.cjs"
     },
     "./custom-elements": {
+      "types": "./dist/src/custom-elements.d.ts",
       "import": "./dist/custom-elements.js",
       "require": "./dist/custom-elements.umd.cjs"
     },

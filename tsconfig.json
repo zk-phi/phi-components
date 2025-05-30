@@ -10,12 +10,7 @@
     "skipLibCheck": true,
     /* jsx */
     "jsx": "react-jsx",
-    "jsxImportSource": "preact",
-    /* declaration */
-    "emitDeclarationOnly": true,
-    "declaration": true,
-    "declarationMap": true,
-    "declarationDir": "dist"
+    "jsxImportSource": "preact"
   },
   "exclude": ["**/*.stories.*", "vite.config.ts"]
 }
