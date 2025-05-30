@@ -3,7 +3,7 @@ import { fn } from "@storybook/test";
 import Comopnent from ".";
 
 const meta = {
-  title: "Inputs/TextButton",
+  title: "Stories/IconButton",
   component: Comopnent,
   tags: ["autodocs"],
   args: {
@@ -16,13 +16,25 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: "👆 Click me",
+    children: "＋",
   },
 };
 
+/**
+ * You may mark some buttons as `danger`-ous,
+ * to make them look different from others.
+ *
+ * If you are using CSS-only installation, add `danger` class to buttons:
+ *
+ * ```html
+ * <button class="phi-icon-button danger">
+ *   ＋
+ * </button>
+ * ```
+ */
 export const Danger: Story = {
   args: {
-    children: "💀 Don't click me",
+    children: "＋",
     danger: true,
   },
 };

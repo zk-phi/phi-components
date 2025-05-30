@@ -3,7 +3,7 @@ import { fn } from "@storybook/test";
 import Comopnent from ".";
 
 const meta = {
-  title: "Inputs/Button",
+  title: "Stories/Button",
   component: Comopnent,
   tags: ["autodocs"],
   args: {
