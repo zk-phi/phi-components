@@ -1,6 +1,6 @@
 import { h, cloneElement, render, hydrate } from 'preact';
 
-export default function register(Component, tagName, propNames, options) {
+function makeCustomElement = (Component, propNames, options) => {
   function PreactElement() {
 		const inst = Reflect.construct(HTMLElement, [], PreactElement);
 		inst._vdomComponent = Component;
@@ -49,10 +49,13 @@ export default function register(Component, tagName, propNames, options) {
 		});
 	});
 
-	return customElements.define(
-		tagName || Component.tagName || Component.displayName || Component.name,
-		PreactElement
-	);
+  return PreactElement;
+};
+
+export default function register(Component, tagName, propNames, options) {
+  const element = makeCustomElement(Component, propNames, options);
+  const tag = tagName || Component.tagName || Component.displayName || Component.name;
+  return customElements.define(tag, element);
 }
 
 function ContextProvider(props) {
