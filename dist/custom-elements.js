@@ -361,3 +361,4 @@ const be = (...t) => {
 export {
   Ne as default
 };
+//# sourceMappingURL=custom-elements.js.map

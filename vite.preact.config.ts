@@ -13,6 +13,7 @@ export default defineConfig({
   ],
   build: {
     outDir: "dist",
+    sourcemap: true,
     lib: {
       entry: "src/preact.ts",
       name: "phiComponents",
