@@ -1,4 +1,4 @@
-body {
+body, :host {
   font-family:
     'Helvetica Neue',
     Arial,
