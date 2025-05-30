@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/preact";
 import { fn } from "@storybook/test";
-import Comopnent from ".";
+import Comopnent from "./component";
 
 const meta = {
   title: "Stories/Button",

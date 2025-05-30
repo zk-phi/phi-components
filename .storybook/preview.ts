@@ -1,5 +1,5 @@
 import type { Preview } from "@storybook/preact"
-import register from "../src/web-components";
+import register from "../src/custom-elements";
 import "../src/style";
 
 register();
