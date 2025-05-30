@@ -15,7 +15,7 @@ export default defineConfig({
     outDir: "dist",
     lib: {
       entry: "src/preact.ts",
-      name: "phi-components",
+      name: "phiComponents",
       fileName: "preact",
       cssFileName: "style",
       formats: ["es", "umd"],

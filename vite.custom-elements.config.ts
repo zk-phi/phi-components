@@ -16,7 +16,7 @@ export default defineConfig({
     emptyOutDir: false,
     lib: {
       entry: "src/custom-elements.ts",
-      name: "phi-components",
+      name: "phiComponents",
       fileName: "custom-elements",
       formats: ["es", "umd"],
     },
