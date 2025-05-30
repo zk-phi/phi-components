@@ -1,0 +1,39 @@
+import { Markdown } from "@storybook/addon-docs/blocks";
+
+# Button
+## Preact usage
+
+see [Stories/Button](?path=/docs/stories-button--docs) for working examples.
+
+## Custom Element usage
+
+{
+  <phi-button variant="default">
+    <span slot="icon">🍺</span>
+    Cheers!
+  </phi-button>
+}
+
+
+``` html
+<phi-button variant="default">
+  <span slot="icon">🍺</span>
+  Cheers!
+</phi-button>
+```
+
+## CSS-only usage
+
+{
+  <button class="phi-button default">
+    <span class="icon">🍺</span>
+    Cheers!
+  </button>
+}
+
+``` html
+<button class="phi-button default">
+  <span class="icon">🍺</span>
+  <span>Cheers!</span>
+</button>
+```
