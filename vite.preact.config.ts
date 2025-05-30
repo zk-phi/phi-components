@@ -6,7 +6,10 @@ import { analyzer } from "vite-bundle-analyzer";
 export default defineConfig({
   plugins: [
     preact(),
-    analyzer(),
+    analyzer({
+      analyzerMode: "static",
+      fileName: "stats.preact.html",
+    }),
   ],
   build: {
     outDir: "dist",
@@ -14,7 +17,7 @@ export default defineConfig({
       entry: "src/preact.ts",
       name: "phi-components",
       fileName: "preact",
-      cssFileName: "style"
+      cssFileName: "style",
       formats: ["es", "umd"],
     },
     rollupOptions: {
