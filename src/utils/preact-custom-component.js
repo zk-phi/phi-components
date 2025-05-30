@@ -21,11 +21,7 @@ const makeCustomElement = (Component, propNames, options) => {
     constructor () {
       super();
       /* options.shadow が有効なら attachShadow する */
-      this._root = options && options.shadow ? (
-        this.attachShadow({ mode: options.mode || 'open' })
-      ) : (
-        this
-      );
+      this._root = this.attachShadow({ mode: options.mode || 'open' });
       if (options.adoptedStyleSheets) {
         this._root.adoptedStyleSheets = options.adoptedStyleSheets;
       }
