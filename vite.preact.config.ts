@@ -11,9 +11,10 @@ export default defineConfig({
   build: {
     outDir: "dist",
     lib: {
-      entry: "src/index.ts",
+      entry: "src/preact.ts",
       name: "phi-components",
-      fileName: "index",
+      fileName: "preact",
+      cssFileName: "style"
       formats: ["es", "umd"],
     },
     rollupOptions: {
