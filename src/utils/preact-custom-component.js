@@ -12,6 +12,9 @@ const makeCustomElement = (Component, propNames, options) => {
     ) : (
       instance
     );
+    if (options.adoptedStyleSheets) {
+      instance._root.adoptedStyleSheets = options.adoptedStyleSheets;
+    }
     return instance;
   }
   PreactElement.prototype = Object.create(HTMLElement.prototype);
