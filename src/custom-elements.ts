@@ -1,4 +1,4 @@
-import registerButton from "./components/inputs/Button/element";
+import registerButton from "./components/inputs/Button/custom-element";
 
 const registerAll = () => {
   registerButton();
