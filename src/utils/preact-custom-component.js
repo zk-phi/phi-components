@@ -74,42 +74,32 @@ export function register(Component, tagName, propNames, options) {
   return customElements.define(tag, element);
 }
 
-/* 渡ってきた context を ".getChildContext" で取れるようにする Preact Component っぽい。
- * props は子要素の Component にそのまま委譲している */
-function ContextProvider ({ context, children, ...props }) {
-  this.getChildContext = () => context;
-  /* 子コンポーネントを、引数を {...props} として再レンダする */
-  return cloneElement(children, props);
-}
-
 /* 初回レンダリングで呼ばれる関数 */
 function connectedCallback() {
-  /* 独自イベントを発射してみて、拾ってくれるのを待つっぽい。
-   * このイベントを拾うのは "Slot" コンポーネント */
-  const event = new CustomEvent('_preact', {
-    detail: {},
-    bubbles: true,
-    cancelable: true,
-  });
-  this.dispatchEvent(event);
-  /* Slot 側がセットした値をここで回収してるっぽい */
-  const context = event.detail.context;
+  /* HTML から attrs を読み取って、それを prop として コンポーネントを初回レンダーする */
+  const { attributes, childNodes } = this;
+  const props = {};
+  for (let i = 0; i < attributes.length; i++) {
+    if (attributes[i].name !== "slot") {
+      props[attributes[i].name] = attributes[i].value;
+      props[toCamelCase(attributes[i].name)] = attributes[i].value;
+    }
+  }
+  for (let i = 0; i < childNodes.length; i++) {
+    /* 子要素が slot attr を持っている場合、 children ではなく該当する prop に渡す
+     * たとえば <span slot="message">Hello </span> は chidlren ではなく message に渡る */
+    const slotName = childNodes[i].slot;
+    if (slotName) {
+      props[slotName] = h(Slot, { name: slotName }, null);
+    }
+  }
 
-  /* Slot から渡ってきた context から ContextProvider を作って、
-   * その下に Component (の VDom) を描画する
-   *
-   *   <ContextProvider context={context} props={this._initialProps}>
-   *     <Component />
-   *   </ContextProvider>
-   *
-   * Component に直接 prop が渡されてないけど、ContextProvider に props を委譲する機構が入っている。
-   * props 更新の処理を簡単にするために、ルート要素に props を持たせたい為だと思われる。
-   */
-  this._vdom = h(
-    ContextProvider,
-    { ...this._initialProps, context },
-    toVdom(this, this._Component)
-  );
+  let vdom = h(this._Component, props, h(Slot, {}, null));
+  /* instantiate された後にセットされた props を反映する */
+  if (this._initialProps) {
+    vdom = cloneElement(vdom, this._initialProps);
+  }
+  this._vdom = vdom;
   /* "hydrate" attr をセットしておくと hydrate してくれるっぽい。おそらく SSR 用途
    * Readme に説明がないのでちょっとわからない。誰が "hydrate" をセットしてくれるんだろう
    *
@@ -154,82 +144,6 @@ function disconnectedCallback() {
 
 /* ------------ ここまで読んだ */
 
-/**
- * Pass an event listener to each `<slot>` that "forwards" the current
- * context value to the rendered child. The child will trigger a custom
- * event, where will add the context value to. Because events work
- * synchronously, the child can immediately pull of the value right
- * after having fired the event.
- */
 function Slot (props, context /* こいつは VNode */) {
-  const ref = (r) => {
-    if (!r) {
-      this.ref.removeEventListener('_preact', this._listener);
-    } else {
-      this.ref = r;
-      if (!this._listener) {
-        this._listener = (event) => {
-          event.stopPropagation();
-          event.detail.context = context;
-        };
-        r.addEventListener('_preact', this._listener);
-      }
-    }
-  };
-  return h('slot', { ...props, ref });
-}
-
-/* 「element の位置に nodeName (Component またはタグ名) を描画した時の VDom」を再現するっぽい？
- *
- * たとえば
- *
- *   <my-component>
- *     <span>hoge</span>
- *   </my-component>
- *
- * から
- *
- *   <MyComponent children={[<span>hoge</span>]} />
- *
- * に相当する VDom を作る？
- */
-function toVdom (element, nodeName /* 再帰する時は null になるっぽい */) {
-  /* TextNode */
-  if (element.nodeType === 3) {
-    return element.data;
-  }
-
-  /* 要素以外の謎ノード（コメント、DOCTYPE 宣言、etc） */
-  if (element.nodeType !== 1) {
-    return null
-  };
-
-  /* このノードの (slot 以外の) attr を props にまとめる */
-  let props = {};
-  const a = element.attributes; /* Attr の配列っぽい何か（厳密には NamedMap） */
-  for (let i = a.length; i--; ) {
-    if (a[i].name !== 'slot') {
-      props[a[i].name] = a[i].value;
-      props[toCamelCase(a[i].name)] = a[i].value;
-    }
-  }
-
-  /* 子要素たちを VDom 化する */
-  let children = [];
-  const cn = element.childNodes; /* Node の配列っぽい何か（厳密には NodeList） */
-  for (let i = cn.length; i--; ) {
-    const vnode = toVdom(cn[i], null);
-    /* 子要素が slot attr を持っている場合、 children ではなく該当する prop に渡す
-     * たとえば <span slot="message">Hello </span> は chidlren ではなく message に渡る */
-    const name = cn[i].slot;
-    if (name) {
-      props[name] = h(Slot, { name }, vnode);
-    } else {
-      children[i] = vnode;
-    }
-  }
-
-  // Only wrap the topmost node with a slot
-  const wrappedChildren = nodeName ? h(Slot, null, children) : children;
-  return h(nodeName || element.nodeName.toLowerCase(), props, wrappedChildren);
+  return h('slot', { ...props });
 }
