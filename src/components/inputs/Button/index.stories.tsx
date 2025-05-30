@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/preact";
 import { fn } from "@storybook/test";
-import Comopnent from "./component";
+import Component from "./preact";
 
 const meta = {
   title: "Stories/Button",
-  component: Comopnent,
+  component: Component,
   tags: ["autodocs"],
   args: {
     onClick: fn()
