@@ -1,5 +1,4 @@
 import type { ComponentChildren } from "preact";
-import "./index.css";
 
 /**
  * Icon-only less-significant buttons.

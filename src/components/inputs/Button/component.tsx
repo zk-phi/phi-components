@@ -1,5 +1,4 @@
 import type { ComponentChildren } from "preact";
-import "./index.css";
 
 /**
  * Basic button components with some variants.

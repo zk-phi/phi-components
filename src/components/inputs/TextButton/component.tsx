@@ -1,5 +1,4 @@
 import type { ComponentChildren } from "preact";
-import "./index.css";
 
 /**
  * Buttons that look like link texts. Suitable when creating in-text buttons.
