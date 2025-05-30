@@ -2,7 +2,9 @@
   "name": "phi-components",
   "version": "0.0.1",
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/preact.umd.cjs",
   "module": "./dist/preact.js",
   "exports": {
@@ -10,11 +12,18 @@
       "import": "./dist/preact.js",
       "require": "./dist/preact.umd.cjs"
     },
+    "./custom-elements": {
+      "import": "./dist/custom-elements.js",
+      "require": "./dist/custom-elements.umd.cjs"
+    },
     "./style.css": "./dist/style.css"
   },
   "scripts": {
     "dev": "storybook dev -p 6006",
-    "build": "vite build --config ./vite.preact.config.ts && tsc",
+    "build": "yarn run build:preact && yarn run build:custom-elements",
+    "build:preact": "vite build --config ./vite.preact.config.ts",
+    "build:custom-elements": "vite build --config ./vite.custom-elements.config.ts",
+    "check": "tsc --noEmit",
     "build-storybook": "storybook build"
   },
   "devDependencies": {
