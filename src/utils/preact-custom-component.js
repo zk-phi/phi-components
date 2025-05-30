@@ -1,7 +1,7 @@
 import { h, cloneElement, render, hydrate } from 'preact';
 
 /* Preact コンポーネントから CustomElement を生やす処理の本体 */
-function makeCustomElement = (Component, propNames, options) => {
+const makeCustomElement = (Component, propNames, options) => {
   function PreactElement () {
     /* コンポーネントを入れる CustomElement のインスタンスを生やす */
     const instance = Reflect.construct(HTMLElement, [], PreactElement);
@@ -65,7 +65,7 @@ function makeCustomElement = (Component, propNames, options) => {
 };
 
 /* CustomElement を (makeCustomElement で) 生やして、登録する */
-export default function register(Component, tagName, propNames, options) {
+export function register(Component, tagName, propNames, options) {
   const element = makeCustomElement(Component, propNames, options);
   const tag = tagName || Component.tagName || Component.displayName || Component.name;
   return customElements.define(tag, element);
