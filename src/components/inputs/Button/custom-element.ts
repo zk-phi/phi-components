@@ -2,7 +2,7 @@ import Button from ".";
 import { register } from "../../../utils/preact-custom-component";
 import { instantiateStyleSheet } from "../../../utils/stylesheet";
 import { boolean, string } from "../../../utils/attributeTypes";
-import globalStyles from "../../../style/baseStyleSheet";
+import globalStyles from "../../../style";
 import buttonStyles from "./style.css?inline";
 
 const style = instantiateStyleSheet(buttonStyles);

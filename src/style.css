@@ -39,6 +39,8 @@
  * 16/8 ... 28.00px (2)
  */
 
+@import "../contrib/destyle.min.css";
+
 :root, :host {
   --phi-color-palette-neutral-lighter: #ffb81cff; /* okhsl(80, 100, 80) */
   --phi-color-palette-neutral-base:    #eeaa00ff; /* okhsl(80, 100, 75) */
@@ -120,4 +122,19 @@
     --phi-color-danger-hover:   var(--phi-color-palette-danger-darker);
     --phi-color-danger-active:  var(--phi-color-palette-danger-lighter);
   }
+}
+
+body, :host {
+  font-family:
+    'Helvetica Neue',
+    Arial,
+    'Hiragino Kaku Gothic ProN',
+    'Hiragino Sans',
+    Meiryo,
+    sans-serif;
+  font-size: var(--phi-fontsize-md);
+
+  background-color: var(--phi-color-bg);
+  color: var(--phi-color-fg);
+  line-height: 1.25em;
 }
