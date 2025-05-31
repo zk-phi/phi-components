@@ -1,10 +1,9 @@
-type AttrValue = null | string | boolean | number;
-type Parser<T> = (v: AttrValue) => T;
+import type { AttributeParser } from "./preact-custom-component";
 
-export const parseBooleanAttribute: Parser<boolean> = val => (
+export const parseBooleanAttribute: AttributeParser<boolean> = val => (
   (val && val !== "false") || val === ""
 );
 
-export const normalizeStringAttribute: Parser<string> = val => (
-  val.toString()
+export const normalizeStringAttribute: AttributeParser<string | null> = val => (
+  val == null ? "" : val.toString()
 );
