@@ -1,4 +1,4 @@
-import Button from "./component";
+import Button from ".";
 import { register } from "../../../utils/preact-custom-component";
 import { instantiateStyleSheet } from "../../../utils/stylesheet";
 import { boolean, string } from "../../../utils/attributeTypes";
