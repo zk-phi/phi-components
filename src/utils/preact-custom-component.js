@@ -17,6 +17,7 @@ function isPrimitive (obj) {
 const makeCustomElement = (Component, propNames, options) => {
   class PreactElement extends HTMLElement {
     static observedAttributes = propNames;
+    static formAssociated = !!options.formAssociated;
 
     constructor () {
       super();
@@ -24,6 +25,9 @@ const makeCustomElement = (Component, propNames, options) => {
       this._root = this.attachShadow({ mode: options.mode || 'open' });
       if (options.adoptedStyleSheets) {
         this._root.adoptedStyleSheets = options.adoptedStyleSheets;
+      }
+      if (options.formAssociated) {
+        this._internals = this.attachInternals();
       }
     }
 
@@ -73,6 +77,7 @@ const makeCustomElement = (Component, propNames, options) => {
 
   /* DOM props と Preact props の同期 */
   propNames.forEach((name) => {
+    const formAssociated = name === options.formAssociated;
     Object.defineProperty(PreactElement.prototype, name, {
       get() {
         return this._vdom.props[name];
@@ -89,6 +94,10 @@ const makeCustomElement = (Component, propNames, options) => {
         /* 更新された prop を Attribute にも reflect する (primitive な値の場合のみ) */
         if (isPrimitive(v)) {
           this.setAttribute(name, v);
+        }
+        /* 更新された prop を form にも反映する */
+        if (formAssociated && this._internals) {
+          this._internals.setFormValue(v);
         }
       },
     });
