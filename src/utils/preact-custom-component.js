@@ -38,16 +38,12 @@ const makeCustomElement = (Component, propNames, options) => {
           props[toCamelCase(attributes[i].name)] = attributes[i].value;
         }
       }
-      for (let i = 0; i < childNodes.length; i++) {
-        /* 子要素が slot attr を持っている場合、対応する prop に Slot を渡す */
-        const slotName = childNodes[i].slot;
-        if (slotName) {
-          props[slotName] = h(Slot, { name: slotName }, null);
-        }
-      }
       /* instantiate された後、初回レンダーまでに変更された props を反映する */
       if (this._initialProps) {
         Object.assign(props, this._initialProps);
+      }
+      if (options.slots) {
+        options.slots.forEach(name => props[name] = h(Slot, { name }, null));
       }
 
       this._vdom = h(Component, props, h(Slot, {}, null));

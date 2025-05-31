@@ -10,5 +10,5 @@ export default () => register(
   Button,
   "phi-button",
   ["onClick", "danger", "variant", "icon", "children"],
-  { shadow: true, adoptedStyleSheets: [globalStyles, style] },
+  { shadow: true, adoptedStyleSheets: [globalStyles, style], slots: ["icon"] },
 );
