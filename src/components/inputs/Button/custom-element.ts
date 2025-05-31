@@ -1,10 +1,7 @@
 import Button from "./component";
 import { register } from "../../../utils/preact-custom-component";
 import { instantiateStyleSheet } from "../../../utils/stylesheet";
-import {
-  parseBooleanAttribute,
-  normalizeStringAttribute,
-} from "../../../utils/attributeParsers";
+import { boolean, string } from "../../../utils/attributeTypes";
 import globalStyles from "../../../style/baseStyleSheet";
 import buttonStyles from "./style.css?inline";
 
@@ -20,8 +17,8 @@ export default () => register(Button, "phi-button", {
   properties: ["onClick", "danger", "variant"],
   // Attribute parsers to get initial props passed to the Preact component
   attributes: {
-    danger: parseBooleanAttribute,
-    variant: normalizeStringAttribute,
+    danger: boolean,
+    variant: string,
   },
   // // DOM property which is associate with the enclosing form (for input elements)
   // formAssociated: "value"
