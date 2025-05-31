@@ -1,5 +1,5 @@
-import { AttributeParser } from './preact-custom-component';
-export declare const boolean: AttributeParser<boolean>;
-export declare const string: AttributeParser<string>;
-export declare const number: AttributeParser<number>;
-export declare const any: AttributeParser<AttributeValue>;
+import { AttributeConfig, AttributeValue } from './preact-custom-component';
+export declare const boolean: AttributeConfig<boolean>;
+export declare const string: AttributeConfig<string>;
+export declare const number: AttributeConfig<number>;
+export declare const any: AttributeConfig<AttributeValue>;
