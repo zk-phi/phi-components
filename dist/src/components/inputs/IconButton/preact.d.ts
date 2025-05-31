@@ -1,2 +1,2 @@
-import { default as IconButton } from './component';
+import { default as IconButton } from '.';
 export default IconButton;

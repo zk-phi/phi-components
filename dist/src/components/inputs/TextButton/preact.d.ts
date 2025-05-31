@@ -1,2 +1,2 @@
-import { default as TextButton } from './component';
+import { default as TextButton } from '.';
 export default TextButton;

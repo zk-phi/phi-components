@@ -3,16 +3,12 @@ type PreactComponent = FunctionComponent<any> | ComponentClass<any> | Functional
 export type AttributeValue = null | string | boolean | number;
 export type AttributeParser<T> = (a: AttributeValue) => T;
 export type AttributeUnparser<T> = (p: T) => AttributeValue;
-export type AttributeConfig<T> = AttributeParser<T> | {
-    parse: AttributeParser<T>;
-    reflect: AttributeUnparser<T>;
-};
 type Options = {
     adoptedStyleSheets?: CSSStyleSheet[];
     slots?: string[];
     properties?: string[];
     formAssociated?: string;
-    attributes?: Record<string, AttributeConfig<any>>;
+    attributes?: Record<string, AttributeParser<any>>;
 };
 export declare const makeCustomElement: (Component: PreactComponent, options: Options) => {
     new (): {
@@ -20,8 +16,9 @@ export declare const makeCustomElement: (Component: PreactComponent, options: Op
         _vdom: VNode<{}> | null;
         _initialProps: Record<string, any>;
         _internals: ElementInternals | null;
-        updateProp(name: string, value: any): void;
-        parseAttribute(name: string, rawValue: any, prepend?: boolean): void;
+        _dirtyProps: Record<string, boolean>;
+        updateProp(name: string, value: any, markAsDirty: boolean): void;
+        parseAttribute(name: string, rawValue: any): void;
         connectedCallback(): void;
         disconnectedCallback(): void;
         attributeChangedCallback(name: string, _: any, newValue: any): void;
