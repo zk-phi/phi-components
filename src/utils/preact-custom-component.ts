@@ -101,11 +101,10 @@ const makeCustomElement = (Component: PreactComponent, options: Options) => {
       for (let i = 0; i < attributes.length; i++) {
         this.parseAttribute(attributes[i].name, attributes[i].value, true);
       }
-      const initialProps = this._initialProps ?? {};
-      const slots = Object.fromEntries(
-        (options.slots ?? []).map(name => [name, h(Slot, { name }, null)])
-      );
-      const props = { $element: this, ...initialProps, ...slots };
+      const props = this._initialProps ?? {};
+      (options.slots ?? []).forEach(name => {
+        props[name] = h(Slot, { name }, null)
+      });
       this._vdom = h(Component, props, h(Slot, { name: undefined }, null));
       // TODO: I don't know how this works (just copy-pasted from preact-custom-component)
       (this.hasAttribute('hydrate') ? hydrate : render)(this._vdom, this._root);
