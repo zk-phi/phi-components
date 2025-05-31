@@ -1,16 +1,17 @@
 import { h, cloneElement, render, hydrate } from 'preact';
 
-function toCamelCase(str) {
-  return str.replace(/-(\w)/g, (_, c) => (c ? c.toUpperCase() : ''));
-}
 
-function Slot (props) {
-  return h('slot', { ...props });
-}
+const toCamelCase = (str) => (
+  str.replace(/-(\w)/g, (_, c) => (c ? c.toUpperCase() : ''))
+);
 
-function isPrimitive (obj) {
-  const type = typeof v;
-  return v == null || type === 'string' || type === 'boolean' || type === 'number';
+const Slot = (props) => (
+  h('slot', { ...props })
+);
+
+const isPrimitive = (obj) => {
+  const type = typeof obj;
+  return obj == null || type === 'string' || type === 'boolean' || type === 'number';
 }
 
 /* Preact コンポーネントから CustomElement を生やす処理の本体 */
@@ -76,8 +77,8 @@ const makeCustomElement = (Component, propNames, options) => {
   }
 
   /* DOM props と Preact props の同期 */
-  propNames.forEach((name) => {
-    const formAssociated = name === options.formAssociated;
+  propNames.forEach(name => {
+    const isAssociatedField = name === options.formAssociated;
     Object.defineProperty(PreactElement.prototype, name, {
       get() {
         return this._vdom.props[name];
@@ -96,7 +97,7 @@ const makeCustomElement = (Component, propNames, options) => {
           this.setAttribute(name, v);
         }
         /* 更新された prop を form にも反映する */
-        if (formAssociated && this._internals) {
+        if (isAssociatedField && this._internals) {
           this._internals.setFormValue(v);
         }
       },
