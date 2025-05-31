@@ -22,8 +22,8 @@ const makeCustomElement = (Component, propNames, options) => {
 
     constructor () {
       super();
-      /* options.shadow が有効なら attachShadow する */
-      this._root = this.attachShadow({ mode: options.mode || 'open' });
+      // This library assumes that the ShadowDOM feature is always enabled
+      this._root = this.attachShadow({ mode: "open" });
       if (options.adoptedStyleSheets) {
         this._root.adoptedStyleSheets = options.adoptedStyleSheets;
       }
