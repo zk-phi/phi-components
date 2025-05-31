@@ -101,7 +101,7 @@ const makeCustomElement = (Component, options) => {
   return PreactElement;
 };
 
-export function register(Component, tagName, propNames, options) {
-  const element = makeCustomElement(Component, propNames, options);
+export function register(Component, tagName, options) {
+  const element = makeCustomElement(Component, options);
   return customElements.define(tagName, element);
 }
