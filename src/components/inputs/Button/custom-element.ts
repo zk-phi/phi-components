@@ -23,4 +23,6 @@ export default () => register(Button, "phi-button", {
     danger: parseBooleanAttribute,
     variant: normalizeStringAttribute,
   },
+  // // DOM property which is associate with the enclosing form (for input elements)
+  // formAssociated: "value"
 });
