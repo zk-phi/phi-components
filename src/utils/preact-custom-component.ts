@@ -18,16 +18,12 @@ export type AttributeValue = null | string | boolean | number;
 export type AttributeParser<T> = (a: AttributeValue) => T;
 export type AttributeUnparser<T> = (p: T) => AttributeValue;
 
-export type AttributeConfig<T> =
-  AttributeParser<T> |
-  { parse: AttributeParser<T>, reflect: AttributeUnparser<T> };
-
 type Options = {
   adoptedStyleSheets?: CSSStyleSheet[],
   slots?: string[],
   properties?: string[],
   formAssociated?: string,
-  attributes?: Record<string, AttributeConfig<any>>,
+  attributes?: Record<string, AttributeParser<any>>,
 };
 
 const toCamelCase = (str: string) => (
@@ -84,13 +80,10 @@ export const makeCustomElement = (Component: PreactComponent, options: Options) 
         return;
       }
       if (options.attributes?.[name]) {
-        const config = options.attributes[name];
-        const parser = ("parse" in config) ? config.parse : config;
-        if (parser) {
-          // Attributes value defaults to null, but Preact props value defaults to undef.
-          // So we convert here for usability.
-          this.updateProp(name, parser(rawValue ?? undefined));
-        }
+        const parser = options.attributes[name];
+        // Attributes value defaults to null, but Preact props value defaults to undef.
+        // So we convert here for usability.
+        this.updateProp(name, parser(rawValue ?? undefined));
       }
     }
 
@@ -124,16 +117,12 @@ export const makeCustomElement = (Component: PreactComponent, options: Options) 
   (options.properties ?? []).forEach(name => {
     const isAssociatedField = name === options.formAssociated;
     const config = options.attributes?.[name];
-    const unparser = config && ("reflect" in config) && config.reflect;
     Object.defineProperty(PreactElement.prototype, name, {
       get () {
         return this._vdom.props[name];
       },
       set (v) {
         this.updateProp(name, v);
-        if (unparser) {
-          this.setAttribute(name, unparser(v));
-        }
         if (isAssociatedField && this._internals) {
           this._internals.setFormValue(v);
         }
