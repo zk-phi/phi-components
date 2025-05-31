@@ -38,7 +38,7 @@ const Slot = (props: { name?: string }) => (
   h("slot", props)
 );
 
-const makeCustomElement = (Component: PreactComponent, options: Options) => {
+export const makeCustomElement = (Component: PreactComponent, options: Options) => {
   class PreactElement extends HTMLElement {
     static observedAttributes = Object.keys(options.attributes ?? {});
     static formAssociated = !!options.formAssociated;
@@ -144,7 +144,7 @@ const makeCustomElement = (Component: PreactComponent, options: Options) => {
   return PreactElement;
 };
 
-export function register(Component: PreactComponent, tagName: string, options: Options) {
+export const register = (Component: PreactComponent, tagName: string, options: Options) => {
   const element = makeCustomElement(Component, options);
   return customElements.define(tagName, element);
-}
+};
