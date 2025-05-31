@@ -1,6 +1,5 @@
 import { h, cloneElement, render, hydrate } from 'preact';
 
-
 const toCamelCase = (str) => (
   str.replace(/-(\w)/g, (_, c) => (c ? c.toUpperCase() : ''))
 );
@@ -8,11 +7,6 @@ const toCamelCase = (str) => (
 const Slot = (props) => (
   h('slot', { ...props })
 );
-
-const isPrimitive = (obj) => {
-  const type = typeof obj;
-  return obj == null || type === 'string' || type === 'boolean' || type === 'number';
-}
 
 const makeCustomElement = (Component, options) => {
   class PreactElement extends HTMLElement {
