@@ -99,7 +99,7 @@ export const makeCustomElement = (Component: PreactComponent, options: Options) 
       // Parse attributes.
       // Results are accumulated in `this._initialProps` by `updateProp`.
       for (let i = 0; i < attributes.length; i++) {
-        this.parseAttribute(attributes[i].name, attributes[i].value, true);
+        this.parseAttribute(attributes[i].name, attributes[i].value);
       }
       const props = this._initialProps ?? {};
       (options.slots ?? []).forEach(name => {
