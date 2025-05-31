@@ -31,7 +31,7 @@ const makeCustomElement = (Component, propNames, options) => {
     connectedCallback () {
       /* HTML から attrs を読み取って、それを prop として コンポーネントを初回レンダー */
       const { attributes, childNodes } = this;
-      const props = {};
+      const props = { $element: this };
       for (let i = 0; i < attributes.length; i++) {
         if (attributes[i].name !== "slot") {
           props[attributes[i].name] = attributes[i].value;
