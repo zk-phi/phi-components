@@ -104,6 +104,5 @@ const makeCustomElement = (Component, propNames, options) => {
 /* CustomElement を (makeCustomElement で) 生やして、登録する */
 export function register(Component, tagName, propNames, options) {
   const element = makeCustomElement(Component, propNames, options);
-  const tag = tagName || Component.tagName || Component.displayName || Component.name;
-  return customElements.define(tag, element);
+  return customElements.define(tagName, element);
 }
