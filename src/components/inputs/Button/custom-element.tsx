@@ -1,7 +1,10 @@
+import { useEffect } from "preact/hooks";
 import type { ComponentChildren } from "preact";
-import type { Signal } from "@preact/signals";
-
-import { register, type AttributeValue } from "../../../utils/preact-custom-component";
+import {
+  register,
+  type AttributeValue,
+  type SignalLike,
+} from "../../../utils/preact-custom-component";
 import { boolean } from "../../../utils/attributeTypes";
 
 import { instantiateStyleSheet } from "../../../utils/stylesheet";
@@ -21,8 +24,8 @@ const parseVariant = (value: AttributeValue): Variant => {
 }
 
 const WCButton = ({ danger, variant, icon, children }: {
-  danger: Signal<boolean>,
-  variant: Signal<Variant>,
+  danger: SignalLike<boolean>,
+  variant: SignalLike<Variant>,
   icon: ComponentChildren,
   children: ComponentChildren,
 }) => {
