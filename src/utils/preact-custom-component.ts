@@ -1,5 +1,6 @@
 import {
   h,
+  cloneElement,
   render,
   hydrate,
   type FunctionComponent,
@@ -7,9 +8,9 @@ import {
   type FunctionalComponent,
   type VNode,
 } from "preact";
-import { signal, type Signal } from "@preact/signals";
 
 export type AttributeValue = null | string | boolean | number;
+export type SignalLike<T> = { value: T };
 
 // ----
 
@@ -35,6 +36,7 @@ type Options = {
 };
 
 type AttributeChangeHandler = (v: AttributeValue) => void;
+type InternalProp<T> = { _dirty: boolean, value: T };
 
 // ----
 
@@ -91,7 +93,6 @@ export const makeCustomElement = (
     _vdom;
     _internals;
     _props;
-    _dirtyProps;
     _attributeChangeHooks;
 
     constructor () {
@@ -101,8 +102,7 @@ export const makeCustomElement = (
       this._root.adoptedStyleSheets = sheets;
       this._vdom = null as (VNode | null);
       this._internals = formAssociatedField ? this.attachInternals() : null;
-      this._props = {} as Record<string, Signal<any>>;
-      this._dirtyProps = {} as Record<string, boolean>;
+      this._props = {} as Record<string, InternalProp<any>>;
       this._attributeChangeHooks = {} as Record<string, AttributeChangeHandler[]>;
       properties.forEach(prop => this.registerProperty(prop));
     }
@@ -118,13 +118,15 @@ export const makeCustomElement = (
       const getter = () => this._props[name].value;
       const setter = (value: T, markAsDirty: boolean) => {
         if (value !== this._props[name].value) {
-          this._props[name].value = value;
-          if (markAsDirty) {
-            this._dirtyProps[name] = true;
-          }
+          this._props[name] = {
+            get value () { return value; },
+            set value (v: T) { setter(v, true); },
+            _dirty: markAsDirty || this._props[name]._dirty,
+          };
           if (isAssociatedField && this._internals) {
             this._internals.setFormValue(serializeFormValue(value));
           }
+          this.rerender();
         }
       };
       Object.defineProperty(this, name, {
@@ -137,16 +139,26 @@ export const makeCustomElement = (
       ) : (
         this.parseAttribute(options.attribute)
       );
-      const exposedSetter = (value: T) => setter(value, true);
-      this._props[name] = signal(initialValue);
+      this._props[name] = {
+        get value () { return initialValue; },
+        set value (v: T) { setter(v, true); },
+        _dirty: false,
+      };
 
       if ("attribute" in options) {
         const onAttributeChange = (newValue: AttributeValue) => {
-          if (!this._dirtyProps[name]) {
+          if (!this._props[name]?._dirty) {
             setter(options.attribute.type(newValue), false);
           }
         };
         pushOrNew(this._attributeChangeHooks, name, onAttributeChange);
+      }
+    }
+
+    rerender () {
+      if (this._vdom) {
+        this._vdom = cloneElement(this._vdom, this._props);
+        render(this._vdom, this._root);
       }
     }
 
