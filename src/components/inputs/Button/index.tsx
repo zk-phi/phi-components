@@ -1,5 +1,7 @@
 import type { ComponentChildren } from "preact";
 
+export type Variant = "default" | "primary" | "dotted" | "icon";
+
 /**
  * Basic button components with some variants.
  *
@@ -28,8 +30,8 @@ const Button = ({
   children,
 }: {
   danger?: boolean,
-  variant: "default" | "primary" | "dotted" | "icon",
-  onClick: () => void,
+  variant: Variant,
+  onClick?: () => void,
   icon?: ComponentChildren,
   children: ComponentChildren,
 }) => (
