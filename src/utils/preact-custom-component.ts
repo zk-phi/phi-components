@@ -16,7 +16,6 @@ type PreactComponent =
 
 export type AttributeValue = null | string | boolean | number;
 export type AttributeParser<T> = (a: AttributeValue) => T;
-export type AttributeUnparser<T> = (p: T) => AttributeValue;
 
 type Options = {
   adoptedStyleSheets?: CSSStyleSheet[],
