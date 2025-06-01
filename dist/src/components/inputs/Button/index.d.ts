@@ -1,4 +1,5 @@
 import { ComponentChildren } from 'preact';
+export type Variant = "default" | "primary" | "dotted" | "icon";
 /**
  * Basic button components with some variants.
  *
@@ -21,8 +22,8 @@ import { ComponentChildren } from 'preact';
  */
 declare const Button: ({ onClick, danger, variant, icon, children, }: {
     danger?: boolean;
-    variant: "default" | "primary" | "dotted" | "icon";
-    onClick: () => void;
+    variant: Variant;
+    onClick?: () => void;
     icon?: ComponentChildren;
     children: ComponentChildren;
 }) => import("preact").JSX.Element;
