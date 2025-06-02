@@ -1,7 +1,7 @@
 var fe = Object.defineProperty;
 var be = (t, e, r) => e in t ? fe(t, e, { enumerable: !0, configurable: !0, writable: !0, value: r }) : t[e] = r;
 var x = (t, e, r) => be(t, typeof e != "symbol" ? e + "" : e, r);
-var D, g, re, S, Q, oe, ne, ae, q, V, B, j = {}, ie = [], ge = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i, O = Array.isArray;
+var D, g, re, S, Q, oe, ne, ae, q, W, V, j = {}, ie = [], ge = /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i, O = Array.isArray;
 function k(t, e) {
   for (var r in e) t[r] = e[r];
   return t;
@@ -95,7 +95,7 @@ function N(t, e, r, a, i) {
     if (typeof a == "string" && (t.style.cssText = a = ""), a) for (e in a) r && e in r || Z(t.style, e, "");
     if (r) for (e in r) a && r[e] == a[e] || Z(t.style, e, r[e]);
   }
-  else if (e[0] == "o" && e[1] == "n") n = e != (e = e.replace(ae, "$1")), l = e.toLowerCase(), e = l in t || e == "onFocusOut" || e == "onFocusIn" ? l.slice(2) : e.slice(2), t.l || (t.l = {}), t.l[e + n] = r, r ? a ? r.u = a.u : (r.u = q, t.addEventListener(e, n ? B : V, n)) : t.removeEventListener(e, n ? B : V, n);
+  else if (e[0] == "o" && e[1] == "n") n = e != (e = e.replace(ae, "$1")), l = e.toLowerCase(), e = l in t || e == "onFocusOut" || e == "onFocusIn" ? l.slice(2) : e.slice(2), t.l || (t.l = {}), t.l[e + n] = r, r ? a ? r.u = a.u : (r.u = q, t.addEventListener(e, n ? V : W, n)) : t.removeEventListener(e, n ? V : W, n);
   else {
     if (i == "http://www.w3.org/2000/svg") e = e.replace(/xlink(H|:h)/, "h").replace(/sName$/, "s");
     else if (e != "width" && e != "height" && e != "href" && e != "list" && e != "form" && e != "tabIndex" && e != "download" && e != "rowSpan" && e != "colSpan" && e != "role" && e != "popover" && e in t) try {
@@ -117,7 +117,7 @@ function ee(t) {
   };
 }
 function Y(t, e, r, a, i, n, l, s, c, p) {
-  var h, o, d, _, u, m, v, f, b, C, w, F, z, K, L, A, W, y = e.type;
+  var h, o, d, _, u, m, v, f, b, C, w, F, z, K, L, A, R, y = e.type;
   if (e.constructor != null) return null;
   128 & r.__u && (c = !!(32 & r.__u), n = [s = e.__e = r.__e]), (h = g.__b) && h(e);
   e: if (typeof y == "function") try {
@@ -145,7 +145,7 @@ function Y(t, e, r, a, i, n, l, s, c, p) {
     if (e.__v = null, c || n != null) if (E.then) {
       for (e.__u |= c ? 160 : 128; s && s.nodeType == 8 && s.nextSibling; ) s = s.nextSibling;
       n[n.indexOf(s)] = null, e.__e = s;
-    } else for (W = n.length; W--; ) G(n[W]);
+    } else for (R = n.length; R--; ) G(n[R]);
     else e.__e = r.__e, e.__k = r.__k;
     g.__e(E, e, r);
   }
@@ -248,9 +248,9 @@ D = ie.slice, g = { __e: function(t, e, r, a) {
   this.__v && (this.__e = !0, t && this.__h.push(t), X(this));
 }, U.prototype.render = I, S = [], oe = typeof Promise == "function" ? Promise.prototype.then.bind(Promise.resolve()) : setTimeout, ne = function(t, e) {
   return t.__v.__b - e.__v.__b;
-}, H.__r = 0, ae = /(PointerCapture)$|Capture$/i, q = 0, V = ee(!1), B = ee(!0);
+}, H.__r = 0, ae = /(PointerCapture)$|Capture$/i, q = 0, W = ee(!1), V = ee(!0);
 var xe = 0;
-function R(t, e, r, a, i, n) {
+function B(t, e, r, a, i, n) {
   e || (e = {});
   var l, s, c = e;
   if ("ref" in c) for (s in c = {}, e) s == "ref" ? l = e[s] : c[s] = e[s];
@@ -277,9 +277,10 @@ const te = (t) => M("slot", t), Se = (t) => {
     constructor() {
       super();
       x(this, "_root");
-      x(this, "_vdom");
+      x(this, "_vdom", null);
       x(this, "_internals");
       x(this, "_props");
+      x(this, "_frameRequested", !1);
       this._root = this.attachShadow({ mode: "open" }), this._root.adoptedStyleSheets = i, this._vdom = null, this._internals = s ? this.attachInternals() : null;
       const d = this;
       this._props = Object.fromEntries(
@@ -305,7 +306,9 @@ const te = (t) => M("slot", t), Se = (t) => {
       this._props[d]._value !== _ && (this._props[d]._value = _, u && (this._props[d]._dirty = !0), s === d && this._internals && this._internals.setFormValue(Se(_)), this.rerender());
     }
     rerender() {
-      this._vdom && (this._vdom = we(this._vdom, this._props), $(this._vdom, this._root));
+      this._frameRequested || requestAnimationFrame(() => {
+        this._vdom && (this._frameRequested = !1, this._vdom = we(this._vdom, this._props), $(this._vdom, this._root));
+      });
     }
     connectedCallback() {
       const d = Object.fromEntries(
@@ -341,20 +344,20 @@ const te = (t) => M("slot", t), Se = (t) => {
   variant: r = "default",
   icon: a,
   children: i
-}) => /* @__PURE__ */ R(
+}) => /* @__PURE__ */ B(
   "button",
   {
     className: `phi-button ${r} ${e ? "danger" : ""}`,
     onClick: t,
     children: [
-      a && /* @__PURE__ */ R("span", { className: "icon", children: a }),
+      a && /* @__PURE__ */ B("span", { className: "icon", children: a }),
       i
     ]
   }
 ), je = ue(Me), De = (t) => {
   const e = (t == null ? void 0 : t.toString()) ?? "";
   return e === "default" || e === "primary" || e === "dotted" || e === "icon" ? e : "default";
-}, Fe = ({ danger: t, variant: e, icon: r, children: a }) => /* @__PURE__ */ R(Te, { icon: r, danger: t.value, variant: e.value, children: a }), Le = () => Ce(Fe, "phi-button", {
+}, Fe = ({ danger: t, variant: e, icon: r, children: a }) => /* @__PURE__ */ B(Te, { icon: r, danger: t.value, variant: e.value, children: a }), Le = () => Ce(Fe, "phi-button", {
   // Add styles to the ShadowDOM
   adoptedStyleSheets: [Ee, je],
   // Create slots and pass to Preact component through its properties
