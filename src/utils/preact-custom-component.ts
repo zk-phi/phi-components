@@ -81,6 +81,7 @@ export const makeCustomElement = (
   class CustomElement extends HTMLElement {
     static observedAttributes = observedAttributes;
     static formAssociated = !!formAssociatedField;
+    _frameRequested = false;
     _root;
     _vdom;
     _internals;
@@ -129,9 +130,14 @@ export const makeCustomElement = (
     }
 
     rerender () {
-      if (this._vdom) {
-        this._vdom = cloneElement(this._vdom, this._props);
-        render(this._vdom, this._root);
+      if (!this._frameRequested) {
+        requestAnimationFrame(() => {
+          if (this._vdom) {
+            this._frameRequested = false;
+            this._vdom = cloneElement(this._vdom, this._props);
+            render(this._vdom, this._root);
+          }
+        });
       }
     }
 
