@@ -1,6 +1,6 @@
 import type { ComponentChildren } from "preact";
 
-export type Variant = "default" | "primary" | "dotted" | "icon";
+export type Variant = "default" | "primary" | "dotted";
 
 /**
  * Basic button components with some variants.
