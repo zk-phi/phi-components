@@ -81,11 +81,11 @@ export const makeCustomElement = (
   class CustomElement extends HTMLElement {
     static observedAttributes = observedAttributes;
     static formAssociated = !!formAssociatedField;
+    _root: ShadowRoot;
+    _vdom: VNode | null = null;
+    _internals: ElementInternals | null;
+    _props: Record<string, InternalProp<any>>;
     _frameRequested = false;
-    _root;
-    _vdom;
-    _internals;
-    _props;
 
     constructor () {
       super();
