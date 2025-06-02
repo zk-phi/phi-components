@@ -1,28 +1,102 @@
-import { Markdown } from "@storybook/addon-docs/blocks";
+import { Markdown } from "@storybook/blocks";
+import Example from "../../../../.storybook/components/Example";
 import Button from "./preact";
 
 # Button
-## Preact usage
 
+A generic button component.
+
+## Variants
+### Style variants
+#### `default` variant
+
+The default variant that fits most usecases.
+
+<Example>
 {
-  <Button icon="🍺">
+  <Button icon="🍺" variant="default">
     Cheers!
   </Button>
 }
+</Example>
+
+#### `primary` variant
+
+Suitable for the most significant button in the screen, that usually sends information (i.e. "submit" button).
+
+{
+  <Example>
+    <Button icon="📩" variant="primary">
+      Send
+    </Button>
+  </Example>
+}
+
+#### `dotted` variant
+
+Dotted button usually implies that something will replace the button when pressed. Usually used for "+ Add" button.
+
+{
+  <Example>
+    <Button icon="＋" variant="dotted">
+      Add item here
+    </Button>
+  </Example>
+}
+
+### Color variants
+#### `danger` color
+
+Suitable for irreversible actions (that usually cause data loss), so that users should be thoughtful before pressing the button.
+
+{
+  <Example>
+    <Button icon="🗑️" variant="primary" danger>
+      Delete
+    </Button>
+  </Example>
+}
+
+## Working examples
+### Preact
+
+{
+  <Example>
+    <Button icon="🍺" onClick={() => alert("Clicked!")}>
+      Cheers!
+    </Button>
+  </Example>
+}
 
 ``` jsx
-<Button icon="🍺">
+<Button icon="🍺" onClick={() => alert("Clicked!")}>
   Cheers!
 </Button>
 ```
 
-## Custom Element usage
+#### Supported properties
+
+<Markdown>
+{`
+| Property     | Type                         | Default     | Description                        |
+|--------------|------------------------------|-------------|------------------------------------|
+| \`onClick\`  | \`() => void\`               | (required)  | A handler function called on click |
+| \`danger\`   | \`boolean\`                  | \`false\`   | Toggle danger color variant        |
+| \`variant\`  | \`default\|primary\|dotted\` | \`default\` | Switch style variants              |
+| \`icon\`     | \`ComponentChildren\`        |             | An icon DOM element                |
+| \`children\` | \`ComponentChildren\`        |             | Button text                        |
+`}
+</Markdown>
+
+### Custom Element
 
 {
-  <phi-button variant="default">
-    <span slot="icon">🍺</span>
-    Cheers!
-  </phi-button>
+  <Example>
+    <phi-button variant="default">
+      <span slot="icon">🍺</span>
+      Cheers!
+    </phi-button>
+  </Example>
 }
 
 
@@ -33,13 +107,15 @@ import Button from "./preact";
 </phi-button>
 ```
 
-## CSS-only usage
+### Pure-CSS
 
 {
-  <button class="phi-button default">
-    <span class="icon">🍺</span>
-    Cheers!
-  </button>
+  <Example>
+    <button class="phi-button default">
+      <span class="icon">🍺</span>
+      Cheers!
+    </button>
+  </Example>
 }
 
 ``` html
