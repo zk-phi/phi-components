@@ -1,2 +1,5 @@
-declare const registerAll: () => void;
-export default registerAll;
+declare const register: {
+    (): void;
+    button: () => void;
+};
+export default register;
