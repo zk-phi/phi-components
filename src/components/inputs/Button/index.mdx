@@ -6,7 +6,7 @@ import Button from "./preact";
 
 A generic button component.
 
-## Variants
+## Examples
 ### Style variants
 #### `default` variant
 
@@ -57,19 +57,21 @@ Suitable for irreversible actions (that usually cause data loss), so that users 
   </Example>
 }
 
-## Working examples
+## Usage
 ### Preact
 
 {
   <Example>
-    <Button icon="🍺" onClick={() => alert("Clicked!")}>
+    <Button icon="🍺">
       Cheers!
     </Button>
   </Example>
 }
 
 ``` jsx
-<Button icon="🍺" onClick={() => alert("Clicked!")}>
+import { Button } from "phi-components";
+
+<Button icon="🍺">
   Cheers!
 </Button>
 ```
@@ -99,13 +101,38 @@ Suitable for irreversible actions (that usually cause data loss), so that users 
   </Example>
 }
 
+``` jsx
+import register from "phi-components/custom-element"
+register();
 
-``` html
 <phi-button variant="default">
   <span slot="icon">🍺</span>
   Cheers!
 </phi-button>
 ```
+
+#### Supported fields
+
+<Markdown>
+{`
+| Slot        | Category             |
+|-------------|----------------------|
+| \`onClick\` | Property             |
+| \`danger\`  | Property / Attribute |
+| \`variant\` | Property / Attribute |
+| \`icon\`    | Slot                 |
+`}
+</Markdown>
+
+#### Supported events
+
+<Markdown>
+{`
+| Event     |
+|-----------|
+| \`click\` |
+`}
+</Markdown>
 
 ### Pure-CSS
 
