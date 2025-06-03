@@ -23,7 +23,7 @@ export type Variant = "default" | "primary" | "dotted";
 declare const Button: ({ onClick, danger, variant, icon, children, }: {
     danger?: boolean;
     variant: Variant;
-    onClick?: () => void;
+    onClick: () => void;
     icon?: ComponentChildren;
     children: ComponentChildren;
 }) => import("preact").JSX.Element;
