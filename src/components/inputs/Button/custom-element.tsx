@@ -1,3 +1,4 @@
+import { useCallback } from "preact/hooks"
 import type { ComponentChildren } from "preact";
 import {
   register,
@@ -21,29 +22,30 @@ const parseVariant = (value: AttributeValue): Variant => {
   return "default";
 }
 
-const WCButton = ({ danger, variant, icon, onClick, children }: {
+const WCButton = ({ $el, danger, variant, icon, onClick, children }: {
+  $el: HTMLElement,
   danger: SignalLike<boolean>,
   variant: SignalLike<Variant>,
   onClick: SignalLike<() => void | undefined>
   icon: ComponentChildren,
   children: ComponentChildren,
 }) => {
+  const handler = useCallback((e: MouseEvent) => {
+    $el.dispatchEvent(new Event("click", { bubbles: true }));
+    onClick.value?.();
+    e.preventDefault();
+  }, [$el, onClick.value]);
+
   return (
-    <Button icon={icon} danger={danger.value} variant={variant.value}>
+    <Button icon={icon} danger={danger.value} variant={variant.value} onClick={handler}>
       {children}
     </Button>
   );
 }
 
 export default () => register(WCButton, "phi-button", {
-  // Add styles to the ShadowDOM
   adoptedStyleSheets: [baseStyles, style],
-  // Create slots and pass to Preact component through its properties
-  // eg. When set `["icon"]`, then `<slot name="icon" />` is passed through the `name` prop
   slots: ["icon"],
-  // List of states, that are both accessible from the Preact component,
-  // and from the vanilla JS world.
-  // Initial values will be retrieved from each corresponding attributes.
   properties: [{
     name: "danger",
     attribute: { name: "danger", type: boolean }
