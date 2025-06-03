@@ -1,4 +1,4 @@
-import Button from ".";
+import Component from ".";
 import "./style.css";
 
-export default Button;
+export default Component;

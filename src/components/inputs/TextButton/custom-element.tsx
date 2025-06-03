@@ -1,33 +1,19 @@
 import { useCallback } from "preact/hooks"
 import type { ComponentChildren } from "preact";
-import {
-  register,
-  type AttributeValue,
-  type SignalLike,
-} from "../../../utils/preact-custom-component";
+import { register, type SignalLike } from "../../../utils/preact-custom-component";
 import { boolean } from "../../../utils/attributeTypes";
 
 import { instantiateStyleSheet } from "../../../utils/stylesheet";
 import baseSheet from "../../../baseStyles";
 import style from "./style.css?inline";
-import Component, { type Variant } from ".";
+import Component from ".";
 
 const sheet = instantiateStyleSheet(style);
 
-const parseVariant = (value: AttributeValue): Variant => {
-  const string = value?.toString() ?? "";
-  if (string === "default" || string === "primary" || string === "dotted") {
-    return string;
-  }
-  return "default";
-}
-
-const WCComponent = ({ $el, danger, variant, icon, onClick, children }: {
+const WCComponent = ({ $el, danger, onClick, children }: {
   $el: HTMLElement,
   danger: SignalLike<boolean>,
-  variant: SignalLike<Variant>,
   onClick: SignalLike<() => void | undefined>
-  icon: ComponentChildren,
   children: ComponentChildren,
 }) => {
   const handler = useCallback(() => {
@@ -36,21 +22,17 @@ const WCComponent = ({ $el, danger, variant, icon, onClick, children }: {
   }, [$el, onClick.value]);
 
   return (
-    <Component icon={icon} danger={danger.value} variant={variant.value} onClick={handler}>
+    <Component danger={danger.value} onClick={handler}>
       {children}
     </Component>
   );
 }
 
-export default () => register(WCComponent, "phi-button", {
+export default () => register(WCComponent, "phi-text-button", {
   adoptedStyleSheets: [baseSheet, sheet],
-  slots: ["icon"],
   properties: [{
     name: "danger",
     attribute: { name: "danger", type: boolean }
-  }, {
-    name: "variant",
-    attribute: { name: "variant", type: parseVariant }
   }, {
     name: "onClick",
     initialValue: undefined,

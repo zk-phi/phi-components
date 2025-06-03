@@ -1,3 +1,4 @@
+import { useCallback } from "preact/hooks";
 import type { ComponentChildren } from "preact";
 
 export type Variant = "default" | "primary" | "dotted";
@@ -31,17 +32,25 @@ const Button = ({
 }: {
   danger?: boolean,
   variant: Variant,
-  onClick?: () => void,
+  onClick: () => void,
   icon?: ComponentChildren,
   children: ComponentChildren,
-}) => (
-  <button
-      className={`phi-button ${variant} ${danger ? 'danger' : ''}`}
-      onClick={onClick}
-  >
-    {icon && <span className="icon">{icon}</span>}
-    {children}
-  </button>
-);
+}) => {
+  const handler = useCallback((e: MouseEvent) => {
+    onClick();
+    e.preventDefault();
+    e.stopPropagation();
+  }, [onClick]);
+
+  return (
+    <button
+        className={`phi-button ${variant} ${danger ? 'danger' : ''}`}
+        onClick={handler}
+    >
+      {icon && <span className="icon">{icon}</span>}
+      {children}
+    </button>
+  );
+};
 
 export default Button;

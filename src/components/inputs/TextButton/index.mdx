@@ -1,0 +1,120 @@
+import { Markdown } from "@storybook/blocks";
+import Example from "../../../../.storybook/components/Example";
+import TextButton from "./preact";
+
+# TextButton
+
+An in-text button component, that looks like links.
+
+## Examples
+### Color variants
+#### default color
+
+{
+  <Example>
+    Please <TextButton>
+      👆 Click me
+    </TextButton> man
+  </Example>
+}
+
+#### `danger` color
+
+Suitable for buttons which users should be thoughtful before pressing.
+
+{
+  <Example>
+    <TextButton danger>
+      💀 Don't click me
+    </TextButton> bro
+  </Example>
+}
+
+## Usage
+### Preact
+
+{
+  <Example>
+    <TextButton danger>
+      💀 Don't click me
+    </TextButton>
+  </Example>
+}
+
+``` jsx
+import { TextButton } from "phi-components";
+
+<TextButton danger>
+💀 Don't click me
+</TextButton>
+```
+
+#### Supported properties
+
+<Markdown>
+{`
+| Property     | Type                  | Default    | Description                        |
+|--------------|-----------------------|------------|------------------------------------|
+| \`onClick\`  | \`() => void\`        | (required) | A handler function called on click |
+| \`danger\`   | \`boolean\`           | \`false\`  | Toggle danger color variant        |
+| \`children\` | \`ComponentChildren\` |            | Icon elementent                    |
+`}
+</Markdown>
+
+### Custom Element
+
+{
+  <Example>
+    <phi-text-button danger>
+      💀 Don't click me
+    </phi-text-button>
+  </Example>
+}
+
+``` jsx
+import register from "phi-components/custom-element"
+register();
+
+<phi-text-button danger>
+  💀 Don't click me
+</phi-text-button>
+```
+
+#### Supported fields
+
+<Markdown>
+{`
+| Slot        | Category    | Type                      | Default       |
+|-------------|-------------|---------------------------|---------------|
+| \`onClick\` | Prop        | \`() => void\|undefined\` | \`undefined\` |
+| \`danger\`  | Prop / Attr | \`boolean\`               | \`false\`     |
+`}
+</Markdown>
+
+#### Supported events
+
+Following events are confirmed to work as expected. Some other events may also work.
+
+<Markdown>
+{`
+| Event     | Description           |
+|-----------|-----------------------|
+| \`click\` | Emitted on user click |
+`}
+</Markdown>
+
+### Pure-CSS
+
+{
+  <Example>
+    <button class="phi-text-button danger">
+      💀 Don't click me
+    </button>
+  </Example>
+}
+
+``` html
+<button class="phi-text-button danger">
+  💀 Don't click me
+</button>
+```

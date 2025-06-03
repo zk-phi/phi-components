@@ -1,3 +1,4 @@
+import { useCallback } from "preact/hooks";
 import type { ComponentChildren } from "preact";
 
 /**
@@ -29,13 +30,21 @@ const IconButton = ({
   danger?: boolean,
   onClick: () => void,
   children: ComponentChildren,
-}) => (
-  <button
-      className={`phi-icon-button ${danger ? 'danger' : ''}`}
-      onClick={onClick}
-  >
-    {children}
-  </button>
-);
+}) => {
+  const handler = useCallback((e: MouseEvent) => {
+    onClick();
+    e.preventDefault();
+    e.stopPropagation();
+  }, [onClick]);
+
+  return (
+    <button
+        className={`phi-icon-button ${danger ? 'danger' : ''}`}
+        onClick={handler}
+    >
+      {children}
+    </button>
+  );
+};
 
 export default IconButton;
