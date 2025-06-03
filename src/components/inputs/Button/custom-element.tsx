@@ -21,9 +21,10 @@ const parseVariant = (value: AttributeValue): Variant => {
   return "default";
 }
 
-const WCButton = ({ danger, variant, icon, children }: {
+const WCButton = ({ danger, variant, icon, onClick, children }: {
   danger: SignalLike<boolean>,
   variant: SignalLike<Variant>,
+  onClick: SignalLike<() => void | undefined>
   icon: ComponentChildren,
   children: ComponentChildren,
 }) => {
@@ -49,5 +50,8 @@ export default () => register(WCButton, "phi-button", {
   }, {
     name: "variant",
     attribute: { name: "variant", type: parseVariant }
-  }]
+  }, {
+    name: "onClick",
+    initialValue: undefined,
+  }],
 });
