@@ -2,12 +2,10 @@ import registerButton from "./components/inputs/Button/custom-element";
 import "./style.css";
 import "../contrib/destyle.min.css";
 
-const registerAll = () => {
+const register = () => {
   registerButton();
 };
 
-export {
-  registerButton
-};
+register.button = registerButton;
 
-export default registerAll;
+export default register;
