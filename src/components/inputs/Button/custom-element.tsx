@@ -7,7 +7,7 @@ import {
 import { boolean } from "../../../utils/attributeTypes";
 
 import { instantiateStyleSheet } from "../../../utils/stylesheet";
-import resetStyles from "../../../destyle";
+import baseStyles from "../../../baseStyles";
 import buttonStyles from "./style.css?inline";
 import Button, { type Variant } from ".";
 
@@ -37,7 +37,7 @@ const WCButton = ({ danger, variant, icon, onClick, children }: {
 
 export default () => register(WCButton, "phi-button", {
   // Add styles to the ShadowDOM
-  adoptedStyleSheets: [resetStyles, style],
+  adoptedStyleSheets: [baseStyles, style],
   // Create slots and pass to Preact component through its properties
   // eg. When set `["icon"]`, then `<slot name="icon" />` is passed through the `name` prop
   slots: ["icon"],

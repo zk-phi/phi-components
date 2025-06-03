@@ -1,6 +1,6 @@
 import registerButton from "./components/inputs/Button/custom-element";
-import "./style.css";
-import "../contrib/destyle.min.css";
+import "./theme.css";
+import "./base.css";
 
 const register = () => {
   registerButton();

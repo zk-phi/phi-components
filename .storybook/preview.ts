@@ -1,6 +1,7 @@
 import type { Preview } from "@storybook/preact"
 import register from "../src/custom-elements";
-import "../src/style.css";
+import "../src/theme.css";
+import "../src/base.css";
 import "./style.css";
 
 register();
