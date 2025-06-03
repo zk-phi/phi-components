@@ -39,8 +39,6 @@
  * 16/8 ... 28.00px (2)
  */
 
-@import "../contrib/destyle.min.css";
-
 :root, :host {
   --phi-color-palette-neutral-lighter: #ffb81cff; /* okhsl(80, 100, 80) */
   --phi-color-palette-neutral-base:    #eeaa00ff; /* okhsl(80, 100, 75) */
