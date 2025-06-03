@@ -15,8 +15,7 @@ const style = instantiateStyleSheet(buttonStyles);
 
 const parseVariant = (value: AttributeValue): Variant => {
   const string = value?.toString() ?? "";
-  if (string === "default" || string === "primary" ||
-      string === "dotted" || string === "icon") {
+  if (string === "default" || string === "primary" || string === "dotted") {
     return string;
   }
   return "default";
