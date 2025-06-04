@@ -22,7 +22,8 @@
     "./custom-elements/style.css": "./dist/custom-elements.css"
   },
   "scripts": {
-    "dev": "storybook dev -p 6006",
+    "dev": "vitepress dev",
+    "dev-storybook": "storybook dev -p 6006",
     "build": "yarn run build:preact && yarn run build:custom-elements",
     "build:preact": "vite build --config ./vite.preact.config.ts",
     "build:custom-elements": "vite build --config ./vite.custom-elements.config.ts",
@@ -42,7 +43,8 @@
     "typescript": "^5.8.3",
     "vite": "^6.3.5",
     "vite-bundle-analyzer": "^0.21.0",
-    "vite-plugin-dts": "^4.5.4"
+    "vite-plugin-dts": "^4.5.4",
+    "vitepress": "^1.6.3"
   },
   "peerDependencies": {
     "preact": "^10.26.5"
