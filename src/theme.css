@@ -97,7 +97,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  body:not(.light) {
+  html:not(.light) {
     --phi-color-palette-neutral-lighter: #e6af47ff; /* okhsl(80, 80, 75) */
     --phi-color-palette-neutral-base:    #d7a139ff; /* okhsl(80, 80, 70) */
     --phi-color-palette-neutral-darker:  #c79431ff; /* okhsl(80, 80, 65) */
@@ -122,7 +122,7 @@
   }
 }
 
-body.dark:not(.light) {
+html.dark:not(.light) {
   --phi-color-palette-neutral-lighter: #e6af47ff; /* okhsl(80, 80, 75) */
   --phi-color-palette-neutral-base:    #d7a139ff; /* okhsl(80, 80, 70) */
   --phi-color-palette-neutral-darker:  #c79431ff; /* okhsl(80, 80, 65) */

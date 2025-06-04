@@ -147,8 +147,7 @@ export const makeCustomElement = (
       );
       const props = { $el: this, ...this._props, ...vSlots };
       this._vdom = h(Component, props, h(Slot, { name: undefined }, null));
-      // TODO: I don't know how this works (just copy-pasted from preact-custom-component)
-      (this.hasAttribute('hydrate') ? hydrate : render)(this._vdom, this._root);
+      render(this._vdom, this._root);
     }
 
     disconnectedCallback () {

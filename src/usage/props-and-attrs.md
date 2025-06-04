@@ -1,7 +1,4 @@
-# Element properties and attributes
-
--- and UI libraries (Web Components tips)
-
+# Properties and attributes
 ## Attributes
 
 Attributes are values given to elements, usually via the HTML document.

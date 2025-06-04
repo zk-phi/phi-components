@@ -64,15 +64,6 @@ Then call `registerPhiComponents` to register components.
 </script>
 ```
 
-You may also register components individually.
-
-``` html
-<script src="./phi-components.umd.js"></script>
-<script>
-  registerPhiComponents.button();
-</script>
-```
-
 ### 2-b. ES Modules (without package manager)
 
 Copy `dist/custom-elements.js` and `dist/custom-elements.css` to your project,
@@ -97,15 +88,6 @@ Then import and call the exported function to register components.
 </script>
 ```
 
-You may also register components individually.
-
-``` html
-<script type="module">
-  import register from "./phi-components.js";
-  register.button();
-</script>
-```
-
 ### 2-c. With package manager
 
 Add this package to your project.
@@ -124,14 +106,6 @@ Then import CSS and register components.
 import registerPhiComponents from "phi-components/custom-elements";
 import "phi-components/custom-elements/style.css";
 registerPhiComponents();
-```
-
-You may also register components individually.
-
-``` typescript
-import register from "phi-components/custom-elements";
-import "phi-components/custom-elements/style.css";
-register.button();
 ```
 
 ## 3. As a Preact components library

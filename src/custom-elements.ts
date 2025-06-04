@@ -5,13 +5,11 @@ import "./theme.css";
 import "./base.css";
 
 const register = () => {
-  registerButton();
-  registerIconButton();
-  registerTextButton();
+  if (typeof window !== "undefined") {
+    registerButton();
+    registerIconButton();
+    registerTextButton();
+  }
 };
-
-register.button = registerButton;
-register.iconButton = registerIconButton;
-register.textButton = registerTextButton;
 
 export default register;
