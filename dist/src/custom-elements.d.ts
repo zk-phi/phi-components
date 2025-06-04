@@ -1,7 +1,2 @@
-declare const register: {
-    (): void;
-    button: () => void;
-    iconButton: () => void;
-    textButton: () => void;
-};
+declare const register: () => void;
 export default register;

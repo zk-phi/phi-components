@@ -1,2 +1,2 @@
-declare const baseStyleSheet: CSSStyleSheet;
+declare const baseStyleSheet: CSSStyleSheet | null;
 export default baseStyleSheet;

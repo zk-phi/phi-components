@@ -1,1 +1,1 @@
-export declare const instantiateStyleSheet: (...styles: string[]) => CSSStyleSheet;
+export declare const instantiateStyleSheet: (...styles: string[]) => CSSStyleSheet | null;
