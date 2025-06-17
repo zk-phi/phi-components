@@ -84,8 +84,10 @@ The default variant that fits most usecases.
 
 <figure>
   <phi-button variant="default">
-    <span slot="icon">🍺</span>
-    Cheers!
+    <span slot="icon">
+      <phi-icon icon="file" />
+    </span>
+    Open file
   </phi-button>
 </figure>
 
@@ -95,8 +97,10 @@ Suitable for the most significant button in the screen, that usually sends infor
 
 <figure>
   <phi-button variant="primary">
-    <span slot="icon">📩</span>
-    Send
+    <span slot="icon">
+      <phi-icon icon="check" />
+    </span>
+    Confirm
   </phi-button>
 </figure>
 
@@ -106,7 +110,9 @@ Dotted button usually implies that something will replace the button when presse
 
 <figure>
   <phi-button variant="dotted">
-    <span slot="icon">＋</span>
+    <span slot="icon">
+      <phi-icon icon="increment" />
+    </span>
     Add item here
   </phi-button>
 </figure>
@@ -118,7 +124,9 @@ Suitable for irreversible actions (that usually cause data loss), so that users 
 
 <figure>
   <phi-button variant="primary" danger>
-    <span slot="icon">🗑️</span>
+    <span slot="icon">
+      <phi-icon icon="delete" />
+    </span>
     Delete
   </phi-button>
 </figure>

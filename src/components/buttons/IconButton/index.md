@@ -4,13 +4,9 @@ An icon-only button component.
 
 ## Examples
 
-<script setup>
-const click = () => alert("item added !");
-</script>
-
 <figure>
-  <phi-icon-button @click="click">
-    ＋
+  <phi-icon-button>
+    <phi-icon icon="increment" />
   </phi-icon-button>
 </figure>
 
@@ -21,7 +17,7 @@ const click = useCallback(() => alert("item added !"), []);
 
 return (
   <IconButton onClick={click}>
-    ＋
+    <Icon icon="increment" />
   </IconButton>
 );
 ```
@@ -34,7 +30,7 @@ const click = () => alert("item added !");
 </script>
 
 <phi-icon-button @click="click">
-  ＋
+  <phi-icon icon="increment" />
 </phi-icon-button>
 ```
 
@@ -58,7 +54,7 @@ document.getElementById("button").addEventListener("click", onClick);
 
 <figure>
   <phi-icon-button>
-    ＋
+    <phi-icon icon="increment" />
   </phi-icon-button>
 </figure>
 
@@ -68,7 +64,7 @@ Suitable for buttons which users should be thoughtful before pressing.
 
 <figure>
   <phi-icon-button danger>
-    ＋
+    <phi-icon icon="delete" />
   </phi-icon-button>
 </figure>
 

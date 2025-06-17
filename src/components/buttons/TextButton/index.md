@@ -4,12 +4,8 @@ An in-text button component, that looks like links.
 
 ## Examples
 
-<script setup>
-const click = () => alert("you did it !");
-</script>
-
 <figure>
-  Please <phi-text-button @click="click">
+  Please <phi-text-button>
     👆 Click me
   </phi-text-button>
 </figure>

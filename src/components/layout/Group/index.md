@@ -7,10 +7,14 @@ Align elements horizontally.
 <figure>
   <phi-group>
     <phi-button>
-      <span slot="icon">＜</span>
+      <span slot="icon">
+        <phi-icon icon="back" />
+      </span>
     </phi-button>
     <phi-button>
-      <span slot="icon">＞</span>
+      <span slot="icon">
+        <phi-icon icon="next" />
+      </span>
     </phi-button>
   </phi-group>
 </figure>
@@ -19,8 +23,8 @@ Align elements horizontally.
 
 ``` jsx
 <Group>
-  <Button icon="＜" />
-  <Button icon="＞" />
+  <Button icon={<Icon icon="back" />} />
+  <Button icon={<Icon icon="next" />} />
 </Group>
 ```
 
@@ -29,10 +33,14 @@ Align elements horizontally.
 ``` html
 <phi-group>
   <phi-button>
-    <span slot="icon">＜</span>
+    <span slot="icon">
+      <phi-icon icon="back" />
+    </span>
   </phi-button>
   <phi-button>
-    <span slot="icon">＞</span>
+    <span slot="icon">
+      <phi-icon icon="next" />
+    </span>
   </phi-button>
 </phi-group>
 ```
@@ -57,11 +65,15 @@ You may put `style="flex-grow: 1"` to some children to control widths.
 <figure>
   <phi-group>
     <phi-button>
-      <span slot="icon">❌</span>
+      <span slot="icon">
+        <phi-icon icon="back" />
+      </span>
       Cancel
     </phi-button>
     <phi-button style="flex-grow: 1" variant="primary">
-      <span slot="icon">✅</span>
+      <span slot="icon">
+        <phi-icon icon="check" />
+      </span>
       Complete
     </phi-button>
   </phi-group>
@@ -69,9 +81,12 @@ You may put `style="flex-grow: 1"` to some children to control widths.
 
 ``` jsx
 <Group>
-  <Button icon="＜" style="flex-grow: 1" />
-  <Button icon="＞" style="flex-grow: 1" />
-  <Button icon="❗" danger>Reset</Button>
+  <Button icon={<Icon icon="back" />}>
+    Cancel
+  </Button>
+  <Button icon={<Icon icon="check" />} style="flex-grow: 1">
+    Complete
+  </Button>
 </Group>
 ```
 
@@ -81,10 +96,14 @@ You may put `style="flex-grow: 1"` to some children to control widths.
 <figure>
   <phi-group align="left">
     <phi-button>
-      <span slot="icon">＜</span>
+      <span slot="icon">
+        <phi-icon icon="back" />
+      </span>
     </phi-button>
     <phi-button>
-      <span slot="icon">＞</span>
+      <span slot="icon">
+        <phi-icon icon="next" />
+      </span>
     </phi-button>
   </phi-group>
 </figure>
@@ -110,11 +129,15 @@ You may put `style="flex-grow: 1"` to some children to control widths.
 <figure>
   <phi-group align="right">
     <phi-button>
-      <span slot="icon">❌</span>
+      <span slot="icon">
+        <phi-icon icon="back" />
+      </span>
       Cancel
     </phi-button>
     <phi-button variant="primary">
-      <span slot="icon">📩</span>
+      <span slot="icon">
+        <phi-icon icon="check" />
+      </span>
       Send
     </phi-button>
   </phi-group>
@@ -125,11 +148,15 @@ You may put `style="flex-grow: 1"` to some children to control widths.
 <figure>
   <phi-group align="space-between">
     <phi-button>
-      <span slot="icon">＜</span>
+      <span slot="icon">
+        <phi-icon icon="back" />
+      </span>
       Back
     </phi-button>
     <phi-button>
-      <span slot="icon">＞</span>
+      <span slot="icon">
+        <phi-icon icon="next" />
+      </span>
       Next
     </phi-button>
   </phi-group>
@@ -143,10 +170,14 @@ Suitable to align normal elements.
 <figure>
   <phi-group size="md">
     <phi-button>
-      <span slot="icon">＜</span>
+      <span slot="icon">
+        <phi-icon icon="back" />
+      </span>
     </phi-button>
     <phi-button>
-      <span slot="icon">＞</span>
+      <span slot="icon">
+        <phi-icon icon="next" />
+      </span>
     </phi-button>
   </phi-group>
 </figure>

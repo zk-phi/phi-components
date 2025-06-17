@@ -7,11 +7,15 @@ Align elements vertically.
 <figure>
   <phi-stack>
     <phi-button>
-      <span slot="icon">❌</span>
+      <span slot="icon">
+        <phi-icon icon="back" />
+      </span>
       Cancel
     </phi-button>
     <phi-button variant="primary">
-      <span slot="icon">✅</span>
+      <span slot="icon">
+        <phi-icon icon="check" />
+      </span>
       Confirm
     </phi-button>
   </phi-stack>
@@ -21,10 +25,10 @@ Align elements vertically.
 
 ``` jsx
 <Stack>
-  <Button icon="❌">
+  <Button icon={<Icon icon="back" />}>
     Cancel
   </Button>
-  <Button icon="✅">
+  <Button icon={<Icon icon="check" />}>
     Confirm
   </Button>
 </Stack>
@@ -35,11 +39,15 @@ Align elements vertically.
 ``` html
 <phi-stack>
   <phi-button>
-    <span slot="icon">❌</span>
+    <span slot="icon">
+      <phi-icon icon="back" />
+    </span>
     Cancel
   </phi-button>
   <phi-button variant="primary">
-    <span slot="icon">✅</span>
+    <span slot="icon">
+      <phi-icon icon="check" />
+    </span>
     Confirm
   </phi-button>
 </phi-stack>
@@ -68,11 +76,15 @@ Suitable to align normal elements.
 <figure>
   <phi-stack size="md">
     <phi-button>
-      <span slot="icon">❌</span>
+      <span slot="icon">
+        <phi-icon icon="back" />
+      </span>
       Cancel
     </phi-button>
     <phi-button variant="primary">
-      <span slot="icon">✅</span>
+      <span slot="icon">
+        <phi-icon icon="check" />
+      </span>
       Confirm
     </phi-button>
   </phi-stack>
