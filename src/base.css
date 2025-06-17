@@ -160,7 +160,12 @@ html.dark:not(.light) {
   --phi-color-danger-active:  var(--phi-color-palette-danger-lighter);
 }
 
+/* enable use of "rem" unit. */
 html {
+  font-size: 14px;
+}
+
+body {
   font-family:
     'Helvetica Neue',
     Arial,
