@@ -1,4 +1,4 @@
-import type { AttributeValue } from "./preact-custom-component";
+import type { AttributeValue } from "./makeCustomElement";
 
 export const boolean = (val: AttributeValue): boolean => (
   (val && val !== "false" && val !== "0") || val === ""
@@ -15,3 +15,11 @@ export const number = (val: AttributeValue): number => (
 export const raw = (val: AttributeValue): AttributeValue => (
   val
 );
+
+export const oneof = <T>(deflt: string, others: string[]) => {
+  const items = [deflt, ...others];
+  return (val: AttributeValue): string => {
+    const string = val?.toString() ?? "";
+    return items.find(item => item === string) ?? deflt;
+  };
+};

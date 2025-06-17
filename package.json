@@ -22,7 +22,7 @@
     "./custom-elements/style.css": "./dist/custom-elements.css"
   },
   "scripts": {
-    "dev": "vitepress dev",
+    "dev": "concurrently 'vitepress dev' 'tsc --noEmit --watch'",
     "serve": "vitepress preview",
     "build": "yarn run build:preact && yarn run build:custom-elements",
     "build:preact": "vite build --config ./vite.preact.config.ts",
@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.10.1",
+    "concurrently": "^9.1.2",
     "preact": "^10.26.5",
     "typescript": "^5.8.3",
     "vite": "^6.3.5",

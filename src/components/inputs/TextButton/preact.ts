@@ -1,4 +1,4 @@
-import TextButton from ".";
+import Component from ".";
 import "./style.css";
 
-export default TextButton;
+export default Component;

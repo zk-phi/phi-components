@@ -14,8 +14,10 @@
     --phi-shadow-pressable-accent-hover:   var(--phi-shadow-pressable-danger-hover);
   }
 
-  display: inline-flex;
+  display: flex;
+  width: 100%;
   align-items: center;
+  justify-content: center;
   font-size: var(--phi-fontsize-md);
   height: calc(var(--phi-fontsize-md) * 3);
   padding: 0 var(--phi-spacing-padding-md);

@@ -85,15 +85,18 @@
   --phi-shadow-focus-danger:
     0 0 0 2px var(--phi-color-palette-danger-outline);
 
-  --phi-fontsize-md: 14px;
-  --phi-fontsize-icon-md: 17.5px;
+  --phi-fontsize-md: 14.00px;
+  --phi-fontsize-icon-md: 17.50px;
   --phi-fontsize-icon-lg: 26.25px;
 
   --phi-radius-md: 8.75px;
 
   --phi-spacing-padding-sm: calc(5.25px - 1px);
   --phi-spacing-padding-md: calc(14px - 1px);
+
   --phi-spacing-margin-inline: 5.25px;
+  --phi-spacing-margin-sm: 3.50px;
+  --phi-spacing-margin-md: 7.00px;
 }
 
 @media (prefers-color-scheme: dark) {

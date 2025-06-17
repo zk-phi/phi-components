@@ -32,6 +32,11 @@ export default defineConfig({
           { text: "IconButton", link: "/components/inputs/IconButton/" },
           { text: "TextButton", link: "/components/inputs/TextButton/" },
         ],
+      }, {
+        text: "Layout",
+        items: [
+          { text: "Group", link: "/components/layout/Group/" },
+        ],
       }],
     },
   ]},

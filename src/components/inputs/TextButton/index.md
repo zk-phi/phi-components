@@ -3,8 +3,58 @@
 An in-text button component, that looks like links.
 
 ## Examples
-### Color variants
-#### default color
+
+<script setup>
+const click = () => alert("you did it !");
+</script>
+
+<figure>
+  Please <phi-text-button @click="click">
+    👆 Click me
+  </phi-text-button>
+</figure>
+
+### Preact
+
+``` jsx
+const click = useCallback(() => alert("you did it !", []));
+
+return (
+  Please <TextButton onClick={click}>
+    👆 Click me
+  </TextButton>
+);
+```
+
+### Vue.js x Custom Element
+
+``` html
+<script setup>
+const click = () => alert("you did it !");
+</script>
+
+Please <phi-text-button @click="click">
+  👆 Click me
+</phi-text-button>
+```
+
+### Vanilla JS x CSS
+
+``` html
+Please <button id="button" class="phi-text-button">
+  👆 Click me
+</button>
+
+<script>
+function onClick () {
+  alert("you did it !");
+}
+document.getElementById("button").addEventListener("click", onClick);
+</script>
+```
+
+## Color variants
+### default color
 
 <figure>
   Please <phi-text-button>
@@ -12,54 +62,34 @@ An in-text button component, that looks like links.
   </phi-text-button>
 </figure>
 
-#### `danger` color
+### `danger` color
 
 Suitable for buttons which users should be thoughtful before pressing.
 
 <figure>
-  You should not <phi-text-button danger>
+  You probably should not <phi-text-button danger>
     💀 Click this
   </phi-text-button>
 </figure>
 
-## Usage
+## Reference
 ### Preact
+#### Properties
 
-``` jsx
-import { TextButton } from "phi-components";
-
-<TextButton danger>
-💀 Don't click me
-</TextButton>
-```
-
-#### Supported properties
-
-| Property   | Type                | Default    | Description                        |
-|------------|---------------------|------------|------------------------------------|
-| `onClick`  | `() => void`        | (required) | A handler function called on click |
-| `danger`   | `boolean`           | `false`    | Toggle danger color variant        |
-| `children` | `ComponentChildren` |            | Icon elementent                    |
+| Property   | Type                | Default | Description                        |
+|------------|---------------------|---------|------------------------------------|
+| `onClick`  | `() => void`        | empty   | A handler function called on click |
+| `danger`   | `boolean`           | `false` | Toggle danger color variant        |
+| `children` | `ComponentChildren` | empty   | Icon elementent                    |
 
 ### Custom Element
+#### Props / Attrs
 
-``` jsx
-import register from "phi-components/custom-element"
-register();
+| Slot     | Category    | Type      | Default |
+|----------|-------------|-----------|---------|
+| `danger` | Prop / Attr | `boolean` | `false` |
 
-<phi-text-button danger>
-  💀 Don't click me
-</phi-text-button>
-```
-
-#### Supported fields
-
-| Slot      | Category    | Type                    | Default     |
-|-----------|-------------|-------------------------|-------------|
-| `onClick` | Prop        | `() => void\|undefined` | `undefined` |
-| `danger`  | Prop / Attr | `boolean`               | `false`     |
-
-#### Supported events
+#### Events
 
 Following events are confirmed to work as expected. Some other events may also work.
 
@@ -69,8 +99,7 @@ Following events are confirmed to work as expected. Some other events may also w
 
 ### Pure-CSS
 
-``` html
-<button class="phi-text-button danger">
-  💀 Don't click me
-</button>
-```
+| Class             |                |
+|-------------------|----------------|
+| `phi-text-button` | Core styles    |
+| `danger`          | Color variants |

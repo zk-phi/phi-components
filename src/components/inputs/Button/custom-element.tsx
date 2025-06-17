@@ -2,45 +2,30 @@ import { useCallback } from "preact/hooks"
 import type { ComponentChildren } from "preact";
 import {
   register,
-  type AttributeValue,
+  boolean,
+  oneof,
+  instantiateStyleSheet,
   type SignalLike,
-} from "../../../utils/preact-custom-component";
-import { boolean } from "../../../utils/attributeTypes";
+} from "../../../preact-web-components";
+import Component, { type Variant } from ".";
 
-import { instantiateStyleSheet } from "../../../utils/stylesheet";
 import baseSheet from "../../../baseStyles";
 import style from "./style.css?inline";
-import Component, { type Variant } from ".";
 
 const sheet = instantiateStyleSheet(style);
 
-const parseVariant = (value: AttributeValue): Variant => {
-  const string = value?.toString() ?? "";
-  if (string === "default" || string === "primary" || string === "dotted") {
-    return string;
-  }
-  return "default";
-}
-
-const WCComponent = ({ $el, danger, variant, icon, onClick, children }: {
+const WCComponent = ({ $el, danger, variant, icon, children }: {
   $el: HTMLElement,
   danger: SignalLike<boolean>,
   variant: SignalLike<Variant>,
-  onClick: SignalLike<() => void | undefined>
   icon: ComponentChildren,
   children: ComponentChildren,
-}) => {
-  const handler = useCallback(() => {
-    $el.dispatchEvent(new Event("click", { bubbles: true }));
-    onClick.value?.();
-  }, [$el, onClick.value]);
+}) => (
+  <Component icon={icon} danger={danger.value} variant={variant.value}>
+    {children}
+  </Component>
+);
 
-  return (
-    <Component icon={icon} danger={danger.value} variant={variant.value} onClick={handler}>
-      {children}
-    </Component>
-  );
-}
 
 export default () => register(WCComponent, "phi-button", {
   adoptedStyleSheets: [baseSheet, sheet],
@@ -50,9 +35,6 @@ export default () => register(WCComponent, "phi-button", {
     attribute: { name: "danger", type: boolean }
   }, {
     name: "variant",
-    attribute: { name: "variant", type: parseVariant }
-  }, {
-    name: "onClick",
-    initialValue: undefined,
+    attribute: { name: "variant", type: oneof("default", ["primary", "dotted"]) }
   }],
 });

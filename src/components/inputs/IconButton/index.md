@@ -3,8 +3,58 @@
 An icon-only button component.
 
 ## Examples
-### Color variants
-#### default color
+
+<script setup>
+const click = () => alert("item added !");
+</script>
+
+<figure>
+  <phi-icon-button @click="click">
+    ＋
+  </phi-icon-button>
+</figure>
+
+### Preact
+
+``` jsx
+const click = useCallback(() => alert("item added !"), []);
+
+return (
+  <IconButton onClick={click}>
+    ＋
+  </IconButton>
+);
+```
+
+### Vue.js x Custom Element
+
+``` html
+<script setup>
+const click = () => alert("item added !");
+</script>
+
+<phi-icon-button @click="click">
+  ＋
+</phi-icon-button>
+```
+
+### Vanilla JS x CSS
+
+``` html
+<button id="button" class="phi-icon-button">
+  ＋
+</button>
+
+<script>
+function onClick () {
+  alert("item added !");
+}
+document.getElementById("button").addEventListener("click", onClick);
+</script>
+```
+
+## Color variants
+### default color
 
 <figure>
   <phi-icon-button>
@@ -12,7 +62,7 @@ An icon-only button component.
   </phi-icon-button>
 </figure>
 
-#### `danger` color
+### `danger` color
 
 Suitable for buttons which users should be thoughtful before pressing.
 
@@ -22,44 +72,24 @@ Suitable for buttons which users should be thoughtful before pressing.
   </phi-icon-button>
 </figure>
 
-## Usage
+## Reference
 ### Preact
+#### Properties
 
-``` jsx
-import { IconButton } from "phi-components";
-
-<IconButton danger>
-  ＋
-</IconButton>
-```
-
-#### Supported properties
-
-| Property   | Type                | Default    | Description                        |
-|------------|---------------------|------------|------------------------------------|
-| `onClick`  | `() => void`        | (required) | A handler function called on click |
-| `danger`   | `boolean`           | `false`    | Toggle danger color variant        |
-| `children` | `ComponentChildren` |            | Icon elementent                    |
+| Property   | Type                | Default | Description                        |
+|------------|---------------------|---------|------------------------------------|
+| `onClick`  | `() => void`        | empty   | A handler function called on click |
+| `danger`   | `boolean`           | `false` | Toggle danger color variant        |
+| `children` | `ComponentChildren` | empty   | Icon elementent                    |
 
 ### Custom Element
+#### Props / Attrs
 
-``` jsx
-import register from "phi-components/custom-element"
-register();
+| Slot     | Category  | Type      | Default |
+|----------|-----------|-----------|---------|
+| `danger` | Prop/Attr | `boolean` | `false` |
 
-<phi-icon-button danger>
-  ＋
-</phi-icon-button>
-```
-
-#### Supported fields
-
-| Slot      | Category  | Type        | Default    |             |
-|-----------|-----------|-------------|------------|-------------|
-| `onClick` | Prop      | `() => void | undefined` | `undefined` |
-| `danger`  | Prop/Attr | `boolean`   | `false`    |             |
-
-#### Supported events
+#### Events
 
 Following events are confirmed to work as expected. Some other events may also work.
 
@@ -68,9 +98,9 @@ Following events are confirmed to work as expected. Some other events may also w
 | `click` | Emitted on user click |
 
 ### Pure-CSS
+#### Classes
 
-``` html
-<button class="phi-icon-button danger">
-  ＋
-</button>
-```
+| Class             |                |
+|-------------------|----------------|
+| `phi-icon-button` | Core styles    |
+| `danger`          | Color variants |

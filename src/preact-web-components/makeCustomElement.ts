@@ -14,7 +14,7 @@ export type SignalLike<T> = { value: T };
 
 // ----
 
-type PreactComponent =
+export type PreactComponent =
   FunctionComponent<any> |
   ComponentClass<any> |
   FunctionalComponent<any>;
@@ -29,8 +29,8 @@ type PropertyConfig<T> = (
   { attribute: AttributeConfig<T> } | { initialValue: T }
 );
 
-type Options = {
-  adoptedStyleSheets?: CSSStyleSheet[],
+export type Options = {
+  adoptedStyleSheets?: (CSSStyleSheet | null)[],
   slots?: string[],
   properties?: PropertyConfig<any>[],
 };
@@ -69,7 +69,7 @@ export const makeCustomElement = (
 ) => {
   const properties = options?.properties ?? [];
   const slots = options?.slots ?? [];
-  const sheets = options?.adoptedStyleSheets ?? [];
+  const sheets = options?.adoptedStyleSheets?.filter(s => !!s) ?? [];
   const attributes = Object.fromEntries(
     properties.filter(prop => "attribute" in prop).map(prop => (
       [prop.attribute.name, { prop: prop.name, parser: prop.attribute.type }]
@@ -175,13 +175,4 @@ export const makeCustomElement = (
   ));
 
   return CustomElement;
-};
-
-export const register = (
-  Component: PreactComponent,
-  tagName: string,
-  options?: Options,
-) => {
-  const element = makeCustomElement(Component, options);
-  return customElements.define(tagName, element);
 };
