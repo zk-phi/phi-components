@@ -7,8 +7,6 @@ import {
   type SignalLike,
 } from "../../../preact-web-components";
 import Component from ".";
-
-import baseSheet from "../../../baseStyles";
 import style from "./style.css?inline";
 
 const sheet = instantiateStyleSheet(style);
@@ -21,7 +19,7 @@ const WCComponent = ({ icon }: {
 
 
 export default () => register(WCComponent, "phi-icon", {
-  adoptedStyleSheets: [baseSheet, sheet],
+  adoptedStyleSheets: [sheet],
   properties: [{
     name: "icon",
     attribute: { name: "icon", type: string }

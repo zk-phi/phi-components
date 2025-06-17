@@ -8,8 +8,6 @@ import {
   type SignalLike,
 } from "../../../preact-web-components";
 import Component, { type Variant } from ".";
-
-import baseSheet from "../../../baseStyles";
 import style from "./style.css?inline";
 
 const sheet = instantiateStyleSheet(style);
@@ -28,7 +26,7 @@ const WCComponent = ({ $el, danger, variant, icon, children }: {
 
 
 export default () => register(WCComponent, "phi-button", {
-  adoptedStyleSheets: [baseSheet, sheet],
+  adoptedStyleSheets: [sheet],
   slots: ["icon"],
   properties: [{
     name: "danger",

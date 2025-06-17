@@ -4,7 +4,6 @@ import registerTextButton from "./components/buttons/TextButton/custom-element";
 import registerGroup from "./components/layout/Group/custom-element";
 import registerStack from "./components/layout/Stack/custom-element";
 import registerIcon from "./components/others/Icon/custom-element";
-import "./theme.css";
 import "./base.css";
 
 const register = () => {

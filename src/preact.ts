@@ -5,4 +5,3 @@ export { default as Group } from "./components/layout/Group/preact";
 export { default as Stack } from "./components/layout/Stack/preact";
 export { default as Icon } from "./components/others/Icon/preact";
 import "./base.css";
-import "./theme.css";
