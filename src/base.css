@@ -1,5 +1,12 @@
 @import "../contrib/destyle.min.css";
 
+/*
+ * NOTE:
+ * These styles below seep (cascade) into shadow roots,
+ * so we need to load this CSS just once for the global root element.
+ * (unlike reset CSS that need to be applied for each shadow roots)
+ */
+
 /* okhsl color picker -> https://bottosson.github.io/misc/colorpicker/ */
 
 /* opacity:
