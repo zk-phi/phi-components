@@ -4,11 +4,6 @@ Align elements horizontally.
 
 ## Example
 
-<script setup>
-import { ref } from "vue";
-const count = ref(0);
-</script>
-
 <figure>
   <phi-group>
     <phi-button>

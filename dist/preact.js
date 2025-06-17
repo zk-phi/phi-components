@@ -1,5 +1,5 @@
 import { jsxs as c, jsx as s } from "preact/jsx-runtime";
-const u = ({
+const m = ({
   onClick: t,
   danger: n,
   variant: o = "default",
@@ -8,19 +8,20 @@ const u = ({
 }) => /* @__PURE__ */ c("button", { className: `phi-button ${o} ${n ? "danger" : ""}`, onClick: t, children: [
   a && /* @__PURE__ */ s("span", { className: "icon", children: a }),
   e
-] }), m = ({
+] }), u = ({
   onClick: t,
   danger: n,
   children: o
-}) => /* @__PURE__ */ s("button", { className: `phi-icon-button ${n ? "danger" : ""}`, onClick: t, children: o }), r = ({
+}) => /* @__PURE__ */ s("button", { className: `phi-icon-button ${n ? "danger" : ""}`, onClick: t, children: o }), i = ({
   onClick: t,
   danger: n,
   children: o
-}) => /* @__PURE__ */ s("button", { className: `phi-text-button ${n ? "danger" : ""}`, onClick: t, children: o }), i = ({ size: t, align: n, children: o }) => /* @__PURE__ */ s("div", { className: `phi-group ${t} ${n}`, children: o });
+}) => /* @__PURE__ */ s("button", { className: `phi-text-button ${n ? "danger" : ""}`, onClick: t, children: o }), $ = ({ size: t, align: n, children: o }) => /* @__PURE__ */ s("div", { className: `phi-group ${t} ${n}`, children: o }), r = ({ size: t, children: n }) => /* @__PURE__ */ s("div", { className: `phi-stack ${t}`, children: n });
 export {
-  u as Button,
-  i as Group,
-  m as IconButton,
-  r as TextButton
+  m as Button,
+  $ as Group,
+  u as IconButton,
+  r as Stack,
+  i as TextButton
 };
 //# sourceMappingURL=preact.js.map

@@ -36,6 +36,7 @@ export default defineConfig({
         text: "Layout",
         items: [
           { text: "Group", link: "/components/layout/Group/" },
+          { text: "Stack", link: "/components/layout/Stack/" },
         ],
       }],
     },

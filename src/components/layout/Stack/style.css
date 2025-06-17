@@ -1,0 +1,13 @@
+.phi-stack {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+
+  &.md {
+    gap: var(--phi-spacing-margin-md);
+  }
+
+  &.sm {
+    gap: var(--phi-spacing-margin-sm);
+  }
+}
