@@ -1,6 +1,6 @@
-import registerButton from "./components/inputs/Button/custom-element";
-import registerIconButton from "./components/inputs/IconButton/custom-element";
-import registerTextButton from "./components/inputs/TextButton/custom-element";
+import registerButton from "./components/buttons/Button/custom-element";
+import registerIconButton from "./components/buttons/IconButton/custom-element";
+import registerTextButton from "./components/buttons/TextButton/custom-element";
 import registerGroup from "./components/layout/Group/custom-element";
 import registerStack from "./components/layout/Stack/custom-element";
 import "./theme.css";

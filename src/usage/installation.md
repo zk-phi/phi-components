@@ -29,8 +29,8 @@ import "phi-components/style.css";
 
 Copy `dist/style.css` to your project,
 
-```terminal
-$ wget https://raw.githubusercontent.com/zk-phi/phi-components/refs/heads/master/dist/style.css -O styles.css
+```sh
+wget https://raw.githubusercontent.com/zk-phi/phi-components/refs/heads/master/dist/style.css -O styles.css
 ```
 
 and load it.
@@ -44,9 +44,9 @@ and load it.
 
 Copy `dist/custom-elements.umd.js` and `dist/custom-elements.css` to your project,
 
-```terminal
-$ wget https://raw.githubusercontent.com/zk-phi/phi-components/refs/heads/master/dist/custom-elements.umd.js -O phi-components.umd.js
-$ wget https://raw.githubusercontent.com/zk-phi/phi-components/refs/heads/master/dist/custom-elements.css -O styles.css
+```sh
+wget https://raw.githubusercontent.com/zk-phi/phi-components/refs/heads/master/dist/custom-elements.umd.js -O phi-components.umd.js
+wget https://raw.githubusercontent.com/zk-phi/phi-components/refs/heads/master/dist/custom-elements.css -O styles.css
 ```
 
 and load the CSS.
@@ -68,9 +68,9 @@ Then call `registerPhiComponents` to register components.
 
 Copy `dist/custom-elements.js` and `dist/custom-elements.css` to your project,
 
-```terminal
-$ wget https://raw.githubusercontent.com/zk-phi/phi-components/refs/heads/master/dist/custom-elements.js -O phi-components.js
-$ wget https://raw.githubusercontent.com/zk-phi/phi-components/refs/heads/master/dist/custom-elements.css -O styles.css
+```sh
+wget https://raw.githubusercontent.com/zk-phi/phi-components/refs/heads/master/dist/custom-elements.js -O phi-components.js
+wget https://raw.githubusercontent.com/zk-phi/phi-components/refs/heads/master/dist/custom-elements.css -O styles.css
 ```
 
 and load the CSS.

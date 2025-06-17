@@ -24,13 +24,18 @@ export default defineConfig({
         { text: "Dark mode", link: "/usage/darkmode" },
       ],
     }, {
+      text: "Principles",
+      items: [
+        { text: "サービス人格", link: "/principles/characteristics" },
+      ],
+    }, {
       text: "Components",
       items: [{
-        text: "Inputs",
+        text: "Buttons",
         items: [
-          { text: "Button", link: "/components/inputs/Button/" },
-          { text: "IconButton", link: "/components/inputs/IconButton/" },
-          { text: "TextButton", link: "/components/inputs/TextButton/" },
+          { text: "Button", link: "/components/buttons/Button/" },
+          { text: "IconButton", link: "/components/buttons/IconButton/" },
+          { text: "TextButton", link: "/components/buttons/TextButton/" },
         ],
       }, {
         text: "Layout",
