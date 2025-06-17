@@ -43,6 +43,11 @@ export default defineConfig({
           { text: "Group", link: "/components/layout/Group/" },
           { text: "Stack", link: "/components/layout/Stack/" },
         ],
+      }, {
+        text: "Others",
+        items: [
+          { text: "Icon", link: "/components/others/Icon/" },
+        ],
       }],
     },
   ]},

@@ -1,20 +1,19 @@
 # phi-components
 
-A WIP Preact/CSS component library for my hobby projects.
+A WIP component library for my hobby projects.
 
 ## Goals
 
-- Comes with simple, developer-friendly interface
+- Comes with developer-friendly interface
 - Reasonably light
-- Builds reasonably fast
-- Framework-agnostic (available in different levels: CSS-only, WebComponents, Preact)
+- Framework-agnostic (available in different levels: Pure-CSS, WebComponents, Preact)
 - Supports dark mode out of the box
 - Form elements works just as expected
 
 ## Design Principles
 
 - Positive, warm and peaceful vibe
-- Not too fancy, but not too formal, meeting wide range of purposes
+- Not too gorgeous, but not too formal, meeting wide range of purposes
 - Nearly-zero animations, but full of interactions
   - All interactive elements are ALWAYS distinguishable from plain texts
   - All interactive elements are colored when hovered

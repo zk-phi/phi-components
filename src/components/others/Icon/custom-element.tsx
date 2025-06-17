@@ -1,0 +1,29 @@
+import { useCallback } from "preact/hooks"
+import type { ComponentChildren } from "preact";
+import {
+  register,
+  string,
+  instantiateStyleSheet,
+  type SignalLike,
+} from "../../../preact-web-components";
+import Component from ".";
+
+import baseSheet from "../../../baseStyles";
+import style from "./style.css?inline";
+
+const sheet = instantiateStyleSheet(style);
+
+const WCComponent = ({ icon }: {
+  icon: SignalLike<string>,
+}) => (
+  <Component icon={icon.value} />
+);
+
+
+export default () => register(WCComponent, "phi-icon", {
+  adoptedStyleSheets: [baseSheet, sheet],
+  properties: [{
+    name: "icon",
+    attribute: { name: "icon", type: string }
+  }],
+});
