@@ -1,4 +1,3 @@
-import { useCallback } from "preact/hooks"
 import type { ComponentChildren } from "preact";
 import {
   register,
@@ -13,7 +12,7 @@ import style from "./style.css?inline";
 
 const sheet = instantiateStyleSheet(style);
 
-const WCComponent = ({ $el, danger, variant, icon, children }: {
+const WCComponent = ({ danger, variant, icon, children }: {
   $el: HTMLElement,
   danger: SignalLike<boolean>,
   variant: SignalLike<Variant>,
