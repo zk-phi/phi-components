@@ -3,7 +3,7 @@ export type AttributeValue = null | string | boolean | number;
 export type SignalLike<T> = {
     value: T;
 };
-type PreactComponent = FunctionComponent<any> | ComponentClass<any> | FunctionalComponent<any>;
+export type PreactComponent = FunctionComponent<any> | ComponentClass<any> | FunctionalComponent<any>;
 type AttributeConfig<T> = {
     name: string;
     type: (value: AttributeValue) => T;
@@ -16,8 +16,8 @@ type PropertyConfig<T> = ({
 } | {
     initialValue: T;
 });
-type Options = {
-    adoptedStyleSheets?: CSSStyleSheet[];
+export type Options = {
+    adoptedStyleSheets?: (CSSStyleSheet | null)[];
     slots?: string[];
     properties?: PropertyConfig<any>[];
 };
@@ -381,5 +381,4 @@ export declare const makeCustomElement: (Component: PreactComponent, options?: O
     observedAttributes: string[];
     formAssociated: boolean;
 };
-export declare const register: (Component: PreactComponent, tagName: string, options?: Options) => void;
 export {};
