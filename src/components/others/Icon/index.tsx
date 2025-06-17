@@ -5,6 +5,7 @@ import AlignJustify from "./icons/AlignJustify";
 import AlignLeft from "./icons/AlignLeft";
 import AlignRight from "./icons/AlignRight";
 import Back from "./icons/Back";
+import Next from "./icons/Next";
 import Check from "./icons/Check";
 import Decrement from "./icons/Decrement";
 import Delete from "./icons/Delete";
@@ -25,6 +26,7 @@ const icons: Record<string, FunctionComponent<Empty>> = {
   "align-left": AlignLeft,
   "align-right": AlignRight,
   "back": Back,
+  "next": Next,
   "check": Check,
   "check-radio": CheckRadio,
   "decrement": Decrement,

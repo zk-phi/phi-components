@@ -7,6 +7,7 @@ An icon component.
 <figure>
   <ul>
     <li>back: <phi-icon icon="back" /></li>
+    <li>next: <phi-icon icon="next" /></li>
     <li>align-center: <phi-icon icon="align-center" /></li>
     <li>align-left: <phi-icon icon="align-left" /></li>
     <li>align-justify: <phi-icon icon="align-justify" /></li>
