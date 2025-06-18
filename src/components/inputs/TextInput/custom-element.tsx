@@ -8,15 +8,16 @@ import {
   instantiateStyleSheet,
   type SignalLike,
 } from "../../../preact-web-components";
-import Component from ".";
+import Component, { type Size } from ".";
 import destyle from "../../../destyle";
 import style from "./style.css?inline";
 
 const sheet = instantiateStyleSheet(style);
 
-const WCComponent = ({ $el, placeholder, value, error }: {
+const WCComponent = ({ $el, placeholder, size, value, error }: {
   $el: HTMLElement,
   value: SignalLike<string>,
+  size: SignalLike<Size>,
   placeholder: SignalLike<string>,
   error: SignalLike<boolean>,
 }) => {
@@ -33,6 +34,7 @@ const WCComponent = ({ $el, placeholder, value, error }: {
     <Component
         placeholder={placeholder.value}
         value={value.value}
+        size={size.value}
         error={error.value}
         onInput={handler} />
   );
@@ -47,6 +49,9 @@ export default () => register(WCComponent, "phi-text-input", {
   }, {
     name: "placeholder",
     attribute: { name: "placeholder", type: string },
+  }, {
+    name: "size",
+    attribute: { name: "size", type: oneof("md", ["sm"]) },
   }, {
     name: "error",
     attribute: { name: "error", type: boolean },

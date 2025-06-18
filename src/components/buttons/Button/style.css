@@ -19,7 +19,7 @@
   align-items: center;
   justify-content: center;
   font-size: var(--phi-fontsize-md);
-  height: var(--phi-size-input);
+  height: var(--phi-size-input-md);
   padding: 0 var(--phi-spacing-padding-md);
   gap: var(--phi-spacing-horizontal-space);
   border-radius: var(--phi-radius-md);

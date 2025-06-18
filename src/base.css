@@ -107,13 +107,14 @@
 
   /* Sizes */
 
+  --phi-lineheight: 1.250rem;
   --phi-fontsize-md: 1.000rem;
   --phi-fontsize-icon-md: 1.250rem;
   --phi-fontsize-icon-lg: 1.875rem;
   --phi-fontsize-checkbox: 1.125rem;
-  --phi-lineheight: 1.250rem;
   --phi-size-icon-button: 2.500rem;
-  --phi-size-input: 3.000rem;
+  --phi-size-input-sm: 2.000rem;
+  --phi-size-input-md: 3.000rem;
 
   /* Shapes */
 
@@ -122,7 +123,7 @@
 
   /* Spacings */
 
-  --phi-spacing-padding-sm: 0.375rem;
+  --phi-spacing-padding-sm: 0.625rem;
   --phi-spacing-padding-md: 1.000rem;
 
   --phi-spacing-margin-sm: 0.250rem;

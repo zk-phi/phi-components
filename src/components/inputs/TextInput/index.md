@@ -63,7 +63,7 @@ const value = ref("");
 <input
   id="input"
   type="text"
-  class="phi-text-input"
+  class="phi-text-input md"
   placeholder="Jot something down" />
 <div id="value" style="margin-top: 0.5em">
   Value: ""
@@ -90,16 +90,24 @@ document.getElementById("input").addEventListener("input", onInput);
   <phi-text-input value="An invalid input" error />
 </figure>
 
+## Size variants
+### `sm` variant
+
+<figure>
+  <phi-text-input size="sm" value="A smaller text input" />
+</figure>
+
 ## Reference
 ### Preact
 #### Properties
 
-| Property      | Type                | Default    | Description                               |
-|---------------|---------------------|------------|-------------------------------------------|
-| `value`       | `string`            | (required) | Input value                               |
-| `placeholder` | `string`            | `""`       | Placeholder string                        |
-| `error`       | `boolean`           | `false`    | Whether input value is invalid or not     |
-| `onInput`     | `string => void`    | `false`    | A handler function called on input change |
+| Property      | Type             | Default    | Description                               |
+|---------------|------------------|------------|-------------------------------------------|
+| `value`       | `string`         | (required) | Input value                               |
+| `size`        | `md\|sm`         | `"md"`     | Select size variants                      |
+| `placeholder` | `string`         | `""`       | Placeholder string                        |
+| `error`       | `boolean`        | `false`    | Toggle error variant                      |
+| `onInput`     | `string => void` | `false`    | A handler function called on input change |
 
 ### Custom Element
 #### Props / Attrs
@@ -107,6 +115,7 @@ document.getElementById("input").addEventListener("input", onInput);
 | Slot          | Category  | Type      | Default |
 |---------------|-----------|-----------|---------|
 | `value`       | Prop/Attr | `string`  | `""`    |
+| `size`        | Prop/Attr | `md\|sm`  | `"md"`  |
 | `placeholder` | Prop/Attr | `string`  | `""`    |
 | `error`       | Prop/Attr | `boolean` | `false` |
 
@@ -124,4 +133,5 @@ Following events are confirmed to work as expected. Some other events may also w
 | Class      |                |
 |------------|----------------|
 | `phi-text` | Core styles    |
+| `md`, `sm` | Size variants  |
 | `error`    | State variants |

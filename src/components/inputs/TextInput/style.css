@@ -17,13 +17,21 @@
 
   display: block;
   width: 100%;
-  height: var(--phi-size-input);
-  padding: 0 var(--phi-spacing-padding-md);
   border-radius: var(--phi-radius-md);
 
   color: var(--text-color);
   background: var(--phi-color-bg);
   border: 1px solid var(--border-color);
+
+  &.md {
+    height: var(--phi-size-input-md);
+    padding: 0 var(--phi-spacing-padding-md);
+  }
+
+  &.sm {
+    height: var(--phi-size-input-sm);
+    padding: 0 var(--phi-spacing-padding-sm);
+  }
 
   &::placeholder {
     color: var(--phi-color-border);
