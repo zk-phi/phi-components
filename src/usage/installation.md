@@ -2,11 +2,11 @@
 
 You may add `phi-components` to your project in three different levels:
 
-1. as a CSS-only design system
-2. as a framework-agnostic custom elements (Web Components)
-3. as a Preact components
+1. As a pure-CSS design system
+2. As a framework-agnostic custom element library
+3. As a Preact components library
 
-## 1. As a CSS-only design system
+## 1. As a pure-CSS design system
 ### With package manager
 
 Add this package to your project:
