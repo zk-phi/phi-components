@@ -1,6 +1,6 @@
 # Option
 
-Visually the same as Checkbox, but receives multiple selections.
+Visually the same as `Checkbox` component, but supports multiple selections.
 
 ## Examples
 
@@ -81,3 +81,42 @@ const checked = ref(["P", "L", "U", "R"]);
   Value: {{checked.join(", ")}}
 </div>
 ```
+
+### Pure-CSS
+
+Unsupported.
+
+Use `Checkbox` component for pure-CSS checkbox.
+
+## Reference
+### Preact
+#### Properties
+
+| Property   | Type                | Default    | Description                               |
+|------------|---------------------|------------|-------------------------------------------|
+| `checked`  | `T[]`               | (required) | List of checked options                   |
+| `value`    | `T`                 | (required) | Value of THIS option                      |
+| `onChange` | `T[] => void`       | empty      | A handler function called on value change |
+| `children` | `ComponentChildren` | empty      | Label text                                |
+
+### Custom Element
+#### Props / Attrs
+
+| Slot      | Category | Type                     | Default |
+|-----------|----------|--------------------------|---------|
+| `checked` | Attr     | comma-separated `string` | `""`    |
+| `value`   | Attr     | `string`                 | `""`    |
+| `checked` | Prop     | `T[]`                    | `[]`    |
+| `value`   | Prop     | `T`                      | `""`    |
+
+#### Events
+
+Following events are confirmed to work as expected. Some other events may also work.
+
+| Event    | Description             |
+|----------|-------------------------|
+| `change` | Emitted on value change |
+
+### Pure-CSS
+
+Unsupported.

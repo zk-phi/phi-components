@@ -1,6 +1,6 @@
 # Icon
 
-An icon component.
+An icon component. You should use each icon for the purpose that its name suggests.
 
 ## Examples
 
@@ -43,6 +43,8 @@ return (
 ### Vanilla JS x CSS
 
 Unsupported.
+
+We recommend to use [Material Design Icons](https://fonts.google.com/icons) icon font.
 
 ## Reference
 ### Preact

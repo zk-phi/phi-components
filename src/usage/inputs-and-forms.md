@@ -49,7 +49,15 @@ Most form elements (unless noted) work just like normal `input` elements.
   </form>
   ```
 
-  Note that if a value is an array, it will be sent as a comma-separated string.
+  Note that non-string values are serialized as follows on submit.
+
+  | JS value type | Form value             |
+  |---------------|------------------------|
+  | `null`        | `""` (empty string)    |
+  | `boolean`     | `1` or `0`             |
+  | `number`      | `number.toString()`    |
+  | `array`       | comma-separated string |
+  | `object`      | `FormData`             |
 
 ## as Preact component
 

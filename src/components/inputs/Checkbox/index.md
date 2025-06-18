@@ -2,6 +2,8 @@
 
 A checkbox component to receive a boolean input.
 
+If you are creating a form with multiple options, you may be interested in `Option` component.
+
 ## Examples
 
 <script setup>
@@ -50,3 +52,55 @@ const checked = ref(true);
   Value: {{checked ? "true" : "false"}}
 </div>
 ```
+
+### Vanilla JS x CSS
+
+``` html
+<label class="phi-checkbox">
+  <input id="input" type="checkbox" class="input" checked />
+  I agree to sell my personal data
+</label>
+<div id="value" style="margin-top: 0.5em">
+  Value: true
+</div>
+
+<script>
+function onChange (e) {
+  const value = e.currentTarget.value;
+  document.getElementById("value").innerHTML = `Value: ${value ? "true" : "false"}`;
+}
+document.getElementById("input").addEventListener("change", onChange);
+</script>
+```
+
+## Reference
+### Preact
+#### Properties
+
+| Property   | Type                | Default    | Description                               |
+|------------|---------------------|------------|-------------------------------------------|
+| `checked`  | `boolean`           | (required) | Whether the checkbox is checked           |
+| `onChange` | `boolean => void`   | `false`    | A handler function called on value change |
+| `children` | `ComponentChildren` | empty      | Label text                                |
+
+### Custom Element
+#### Props / Attrs
+
+| Slot      | Category  | Type                       | Default   |
+|-----------|-----------|----------------------------|-----------|
+| `checked` | Prop/Attr | `boolean`                  | `false`   |
+
+#### Events
+
+Following events are confirmed to work as expected. Some other events may also work.
+
+| Event    | Description             |
+|----------|-------------------------|
+| `change` | Emitted on value change |
+
+### Pure-CSS
+#### Classes
+
+| Class                |             |
+|----------------------|-------------|
+| `phi-check`, `input` | Core styles |
