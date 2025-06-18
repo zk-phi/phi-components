@@ -30,13 +30,11 @@
   &.primary {
     color: var(--phi-color-distant-fg);
     background-color: var(--phi-color-accent-default);
-    border: 1px solid var(--phi-color-accent-default);
     box-shadow: var(--phi-shadow-pressable-accent-default);
     transform: translateY(-1px);
     &:hover {
       color: var(--phi-color-distant-fg);
       background-color: var(--phi-color-accent-hover);
-      border-color: var(--phi-color-accent-hover);
       box-shadow: var(--phi-shadow-pressable-accent-hover);
     }
     &:active {
