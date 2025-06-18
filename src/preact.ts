@@ -6,5 +6,6 @@ export { default as Stack } from "./components/layout/Stack/preact";
 export { default as Checkbox } from "./components/inputs/Checkbox/preact";
 export { default as Option } from "./components/inputs/Option/preact";
 export { default as Radio } from "./components/inputs/Radio/preact";
+export { default as TextInput } from "./components/inputs/TextInput/preact";
 export { default as Icon } from "./components/others/Icon/preact";
 import "./base.css";
