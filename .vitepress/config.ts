@@ -21,6 +21,7 @@ export default defineConfig({
         { text: "Installation", link: "/usage/installation" },
         { text: "Properties and attributes", link: "/usage/props-and-attrs" },
         { text: "Boolean attributes", link: "/usage/boolean-attributes" },
+        { text: "Inputs and forms", link: "/usage/inputs-and-forms" },
         { text: "Dark mode", link: "/usage/darkmode" },
       ],
     }, {
