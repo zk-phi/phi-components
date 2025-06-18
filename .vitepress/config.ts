@@ -39,6 +39,12 @@ export default defineConfig({
           { text: "TextButton", link: "/components/buttons/TextButton/" },
         ],
       }, {
+        text: "Inputs",
+        items: [
+          { text: "Checkbox", link: "/components/inputs/Checkbox/" },
+          { text: "Option", link: "/components/inputs/Option/" },
+        ],
+      }, {
         text: "Layout",
         items: [
           { text: "Group", link: "/components/layout/Group/" },

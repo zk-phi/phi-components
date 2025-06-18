@@ -1,0 +1,47 @@
+/* TODO */
+
+.phi-checkbox {
+  display: inline-flex;
+  line-height: var(--phi-fontsize-checkbox);
+  gap: var(--phi-spacing-margin-inline);
+  cursor: pointer;
+  user-select: none;
+
+  & > .input {
+    content: "";
+    position: relative;
+    width: var(--phi-fontsize-checkbox);
+    height: var(--phi-fontsize-checkbox);
+    border: 1px solid var(--phi-color-border);
+    border-radius: var(--phi-radius-sm);
+    background: var(--phi-color-bg);
+    cursor: pointer;
+
+    &:checked:before {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 5px;
+      transform: rotate(45deg);
+      width: 4px;
+      height: 9px;
+      border-right: 1px solid currentColor;
+      border-bottom: 1px solid currentColor;
+    }
+  }
+
+  &:hover {
+    color: var(--phi-color-neutral-default);
+    & > .input {
+      border-color: var(--phi-color-neutral-default);
+    }
+  }
+
+  &:active {
+    color: var(--phi-color-neutral-active);
+    background: var(--phi-color-neutral-bg);
+    & > .input {
+      border-color: var(--phi-color-neutral-active);
+    }
+  }
+}

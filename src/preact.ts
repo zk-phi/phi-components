@@ -3,5 +3,7 @@ export { default as IconButton } from "./components/buttons/IconButton/preact";
 export { default as TextButton } from "./components/buttons/TextButton/preact";
 export { default as Group } from "./components/layout/Group/preact";
 export { default as Stack } from "./components/layout/Stack/preact";
+export { default as Checkbox } from "./components/inputs/Checkbox/preact";
+export { default as Option } from "./components/inputs/Option/preact";
 export { default as Icon } from "./components/others/Icon/preact";
 import "./base.css";

@@ -3,6 +3,8 @@ import registerIconButton from "./components/buttons/IconButton/custom-element";
 import registerTextButton from "./components/buttons/TextButton/custom-element";
 import registerGroup from "./components/layout/Group/custom-element";
 import registerStack from "./components/layout/Stack/custom-element";
+import registerCheckbox from "./components/inputs/Checkbox/custom-element";
+import registerOption from "./components/inputs/Option/custom-element";
 import registerIcon from "./components/others/Icon/custom-element";
 import "./base.css";
 
@@ -13,6 +15,8 @@ const register = () => {
     registerTextButton();
     registerGroup();
     registerStack();
+    registerCheckbox();
+    registerOption();
     registerIcon();
   }
 };
