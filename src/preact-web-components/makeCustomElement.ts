@@ -48,6 +48,10 @@ const serializeFormValue = (value: any): string | FormData => {
   if (value == null) {
     return "";
   }
+  if (typeof value === "boolean") {
+    return value ? "1" : "0";
+  }
+  // string or number
   if (typeof value !== "object") {
     return value.toString();
   }
