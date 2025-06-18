@@ -95,6 +95,8 @@
     0 0 0 2px var(--phi-color-palette-danger-outline);
 
   --phi-fontsize-md: 1.000rem;
+  --phi-lineheight: 1.250rem;
+
   --phi-fontsize-icon-md: 1.250rem;
   --phi-fontsize-icon-lg: 1.875rem;
   --phi-fontsize-checkbox: 1.125rem;
@@ -160,7 +162,7 @@ html.dark:not(.light) {
   --phi-color-danger-active:  var(--phi-color-palette-danger-lighter);
 }
 
-/* enable use of "rem" unit. */
+/* this will be the basis for "rem" unit. */
 html {
   font-size: 14px;
 }
@@ -173,9 +175,9 @@ body {
     'Hiragino Sans',
     Meiryo,
     sans-serif;
-  font-size: 14px;
+  font-size: var(--phi-fontsize-md);
 
-  line-height: 1.25em;
+  line-height: var(--phi-lineheight);
   color: var(--phi-color-fg);
   background-color: var(--phi-color-bg);
 }
