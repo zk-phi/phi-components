@@ -82,7 +82,7 @@ document.getElementById("button").addEventListener("click", onClick);
 ## Style variants
 ### `default` variant
 
-The default variant that fits most usecases.
+The default variant fits most usecases.
 
 <figure>
   <phi-button variant="default">
@@ -95,7 +95,7 @@ The default variant that fits most usecases.
 
 ### `primary` variant
 
-Suitable for the most significant button in the screen, that usually sends information (i.e. "submit" button).
+Suitable for the most significant button in the screen, that usually sends or saves some information (i.e. "submit" button).
 
 <figure>
   <phi-button variant="primary">
