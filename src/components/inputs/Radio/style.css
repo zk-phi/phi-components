@@ -3,7 +3,7 @@
 .phi-radio {
   display: inline-flex;
   line-height: var(--phi-fontsize-checkbox);
-  gap: var(--phi-spacing-margin-inline);
+  gap: var(--phi-spacing-horizontal-space);
   cursor: pointer;
   user-select: none;
 

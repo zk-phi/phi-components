@@ -19,9 +19,9 @@
   align-items: center;
   justify-content: center;
   font-size: var(--phi-fontsize-md);
-  height: calc(var(--phi-fontsize-md) * 3);
+  height: var(--phi-size-input);
   padding: 0 var(--phi-spacing-padding-md);
-  gap: var(--phi-spacing-margin-inline);
+  gap: var(--phi-spacing-horizontal-space);
   border-radius: var(--phi-radius-md);
 
   cursor: pointer;
