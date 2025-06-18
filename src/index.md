@@ -18,7 +18,7 @@ A WIP component library for my hobby projects.
   - All interactive elements are ALWAYS distinguishable from plain texts
   - All interactive elements are colored when hovered
   - All interactive elements look differently when pressed
-  - Animations are ONLY be used to help user to understand what's happening
+  - Animations are employed ONLY to help user to understand what's happening
     - i.e. when element (dis)appears or moves far
 
 ## Technologies
@@ -26,11 +26,11 @@ A WIP component library for my hobby projects.
 - Language: `TypeScript`, `PostCSS`
 - Bundler: `Vite`
 - DOM manipulation: `Preact`
-- Documentation: `Storybook`
+- Documentation: `Vitebook`
 
 ## License
 
-This is WIP and not licensed for now (i.e. I don't wanna this library be used for now).
+This is a WIP and not licensed for now (i.e. I don't wanna this library be used for now).
 
 Maybe MIT in the future.
 
