@@ -10,7 +10,7 @@ const Component = <T,>({
   children,
 }: {
   checked: T[],
-  onChange: (checked: T[], e: JSX.TargetedEvent<HTMLInputElement, Event>) => void,
+  onChange?: (checked: T[], e: JSX.TargetedEvent<HTMLInputElement, Event>) => void,
   children: ComponentChildren,
   value: T,
 }) => {
@@ -21,9 +21,9 @@ const Component = <T,>({
   const handler = useCallback((e: JSX.TargetedEvent<HTMLInputElement, Event>) => {
     const inputChecked = e.currentTarget.checked;
     if (inputChecked) {
-      onChange([...checked, value], e);
+      onChange?.([...checked, value], e);
     } else {
-      onChange(checked.filter((item) => item !== value!), e);
+      onChange?.(checked.filter((item) => item !== value!), e);
     }
   }, [checked, value]);
 

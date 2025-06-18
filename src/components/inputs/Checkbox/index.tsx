@@ -9,11 +9,11 @@ const Component = <T extends boolean | any[],>({
   children,
 }: {
   checked: boolean,
-  onChange: (checked: boolean, e: JSX.TargetedEvent<HTMLInputElement, Event>) => void,
+  onChange?: (checked: boolean, e: JSX.TargetedEvent<HTMLInputElement, Event>) => void,
   children: ComponentChildren,
 }) => {
   const handler = useCallback((e: JSX.TargetedEvent<HTMLInputElement, Event>) => {
-    onChange(e.currentTarget.checked, e);
+    onChange?.(e.currentTarget.checked, e);
   }, [onChange]);
 
   return (
