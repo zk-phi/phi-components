@@ -1,0 +1,46 @@
+/* TODO */
+
+.phi-radio {
+  display: inline-flex;
+  line-height: var(--phi-fontsize-checkbox);
+  gap: var(--phi-spacing-margin-inline);
+  cursor: pointer;
+  user-select: none;
+
+  & > .input {
+    content: "";
+    position: relative;
+    width: var(--phi-fontsize-checkbox);
+    height: var(--phi-fontsize-checkbox);
+    border: 1px solid var(--phi-color-border);
+    border-radius: calc(var(--phi-fontsize-checkbox) / 2);
+    background: var(--phi-color-bg);
+    cursor: pointer;
+
+    &:checked:before {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 8px;
+      height: 8px;
+      border-radius: 4px;
+      background: currentColor;
+    }
+  }
+
+  &:hover {
+    color: var(--phi-color-neutral-default);
+    & > .input {
+      border-color: var(--phi-color-neutral-default);
+    }
+  }
+
+  &:active {
+    color: var(--phi-color-neutral-active);
+    background: var(--phi-color-neutral-bg);
+    & > .input {
+      border-color: var(--phi-color-neutral-active);
+    }
+  }
+}
