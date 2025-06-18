@@ -8,8 +8,11 @@
     --phi-color-accent-bg:      var(--phi-color-danger-bg);
   }
 
-  display: inline-block;
-  padding: var(--phi-spacing-padding-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--phi-size-icon-button);
+  height: var(--phi-size-icon-button);
   font-size: var(--phi-fontsize-icon-lg);
   line-height: 1em;
   border-radius: 50%;
