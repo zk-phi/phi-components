@@ -49,7 +49,7 @@ return (
       Respect
     </Option>
     <div style="margin-top: 0.5em">
-      Value: {checked.join(", ")}
+      Value: {JSON.stringify(checked)}
     </div>
   </>
 )
@@ -78,7 +78,7 @@ const checked = ref(["P", "L", "U", "R"]);
   </phi-option>
 </phi-group>
 <div style="margin-top: 0.5em">
-  Value: {{checked.join(", ")}}
+  Value: {{JSON.stringify(checked)}}
 </div>
 ```
 
