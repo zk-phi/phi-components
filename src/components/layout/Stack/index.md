@@ -14,7 +14,7 @@ Align elements vertically.
     </phi-button>
     <phi-button variant="primary">
       <span slot="icon">
-        <phi-icon icon="check" />
+        <phi-icon icon="okay" />
       </span>
       Confirm
     </phi-button>
@@ -28,7 +28,7 @@ Align elements vertically.
   <Button icon={<Icon icon="back" />}>
     Cancel
   </Button>
-  <Button icon={<Icon icon="check" />}>
+  <Button icon={<Icon icon="okay" />}>
     Confirm
   </Button>
 </Stack>
@@ -46,7 +46,7 @@ Align elements vertically.
   </phi-button>
   <phi-button variant="primary">
     <span slot="icon">
-      <phi-icon icon="check" />
+      <phi-icon icon="okay" />
     </span>
     Confirm
   </phi-button>
@@ -83,7 +83,7 @@ Suitable to align normal elements.
     </phi-button>
     <phi-button variant="primary">
       <span slot="icon">
-        <phi-icon icon="check" />
+        <phi-icon icon="okay" />
       </span>
       Confirm
     </phi-button>

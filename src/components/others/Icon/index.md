@@ -6,6 +6,7 @@ An icon component.
 
 <figure>
   <ul>
+    <li>beer: <phi-icon icon="beer" /></li>
     <li>back: <phi-icon icon="back" /></li>
     <li>next: <phi-icon icon="next" /></li>
     <li>align-center: <phi-icon icon="align-center" /></li>
@@ -21,8 +22,7 @@ An icon component.
     <li>image: <phi-icon icon="image" /></li>
     <li>effect: <phi-icon icon="effect" /></li>
     <li>emoji: <phi-icon icon="emoji" /></li>
-    <li>check: <phi-icon icon="check" /></li>
-    <li>check-radio: <phi-icon icon="check-radio" /></li>
+    <li>okay: <phi-icon icon="okay" /></li>
   </ul>
 </figure>
 

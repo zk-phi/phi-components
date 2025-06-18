@@ -11,7 +11,9 @@ const count = ref(0);
 
 <figure>
   <phi-button @click="count++" variant="primary" :danger="count >= 10">
-     <span slot="icon">🍺</span>
+     <span slot="icon">
+       <phi-icon icon="beer" />
+     </span>
      Cheers!
   </phi-button>
   <div style="margin-top: 0.5em">
@@ -27,7 +29,7 @@ const inc = useCallback(() => setCount(c => c + 1), []);
 
 return (
   <>
-    <Button variant="primary" onClick={inc} danger={count >= 10} icon="🍺">
+    <Button variant="primary" onClick={inc} danger={count >= 10} icon={<Icon icon="beer" />}>
       Cheers!
     </Button>
     <div style="margin-top: 0.5em">
@@ -98,7 +100,7 @@ Suitable for the most significant button in the screen, that usually sends infor
 <figure>
   <phi-button variant="primary">
     <span slot="icon">
-      <phi-icon icon="check" />
+      <phi-icon icon="okay" />
     </span>
     Confirm
   </phi-button>

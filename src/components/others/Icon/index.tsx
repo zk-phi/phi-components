@@ -6,7 +6,6 @@ import AlignLeft from "./icons/AlignLeft";
 import AlignRight from "./icons/AlignRight";
 import Back from "./icons/Back";
 import Next from "./icons/Next";
-import Check from "./icons/Check";
 import Decrement from "./icons/Decrement";
 import Delete from "./icons/Delete";
 import Effect from "./icons/Effect";
@@ -14,12 +13,14 @@ import Emoji from "./icons/Emoji";
 import File from "./icons/File";
 import Image from "./icons/Image";
 import Increment from "./icons/Increment";
-import CheckRadio from "./icons/CheckRadio";
 import Save from "./icons/Save";
+import Beer from "./icons/Beer";
+import Okay from "./icons/Okay";
 
 type Empty = { [key: string]: never };
 
 const icons: Record<string, FunctionComponent<Empty>> = {
+  "beer": Beer,
   "text": Text,
   "align-center": AlignCenter,
   "align-justify": AlignJustify,
@@ -27,8 +28,6 @@ const icons: Record<string, FunctionComponent<Empty>> = {
   "align-right": AlignRight,
   "back": Back,
   "next": Next,
-  "check": Check,
-  "check-radio": CheckRadio,
   "decrement": Decrement,
   "delete": Delete,
   "effect": Effect,
@@ -37,6 +36,7 @@ const icons: Record<string, FunctionComponent<Empty>> = {
   "image": Image,
   "increment": Increment,
   "save": Save,
+  "okay": Okay,
 };
 
 const Component = ({ icon }: { icon: string }) => {

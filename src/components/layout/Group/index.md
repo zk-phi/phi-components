@@ -72,7 +72,7 @@ You may put `style="flex-grow: 1"` to some children to control widths.
     </phi-button>
     <phi-button style="flex-grow: 1" variant="primary">
       <span slot="icon">
-        <phi-icon icon="check" />
+        <phi-icon icon="okay" />
       </span>
       Complete
     </phi-button>
@@ -84,7 +84,7 @@ You may put `style="flex-grow: 1"` to some children to control widths.
   <Button icon={<Icon icon="back" />}>
     Cancel
   </Button>
-  <Button icon={<Icon icon="check" />} style="flex-grow: 1">
+  <Button icon={<Icon icon="okay" />} style="flex-grow: 1">
     Complete
   </Button>
 </Group>
@@ -136,7 +136,7 @@ You may put `style="flex-grow: 1"` to some children to control widths.
     </phi-button>
     <phi-button variant="primary">
       <span slot="icon">
-        <phi-icon icon="check" />
+        <phi-icon icon="okay" />
       </span>
       Send
     </phi-button>
