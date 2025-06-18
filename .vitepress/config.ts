@@ -42,6 +42,7 @@ export default defineConfig({
         text: "Inputs",
         items: [
           { text: "TextInput", link: "/components/inputs/TextInput/" },
+          { text: "NumberInput", link: "/components/inputs/NumberInput/" },
           { text: "Checkbox", link: "/components/inputs/Checkbox/" },
           { text: "Option", link: "/components/inputs/Option/" },
           { text: "Radio", link: "/components/inputs/Radio/" },

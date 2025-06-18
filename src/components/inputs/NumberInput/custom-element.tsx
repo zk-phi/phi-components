@@ -3,39 +3,30 @@ import type { ComponentChildren, JSX } from "preact";
 import {
   register,
   string,
-  boolean,
   number,
+  boolean,
   oneof,
   instantiateStyleSheet,
   type SignalLike,
 } from "../../../preact-web-components";
-import Component, { type Size } from ".";
+import Component from ".";
 import destyle from "../../../destyle";
 import style from "./style.css?inline";
 
 const sheet = instantiateStyleSheet(style);
 
-const WCComponent = ({
-  $el,
-  value,
-  placeholder,
-  required,
-  minlength,
-  maxlength,
-  size,
-  error,
-}: {
+const WCComponent = ({ $el, value, required, min, max, step, placeholder, error }: {
   $el: HTMLElement,
-  value: SignalLike<string>,
-  placeholder: SignalLike<string>,
+  value: SignalLike<number | undefined>,
   required: SignalLike<boolean>,
-  minlength: SignalLike<number | undefined>,
-  maxlength: SignalLike<number | undefined>,
-  size: SignalLike<Size>,
+  min: SignalLike<number | undefined>,
+  max: SignalLike<number | undefined>,
+  step: SignalLike<number | undefined>,
+  placeholder: SignalLike<string>,
   error: SignalLike<boolean>,
 }) => {
   const handler = useCallback((
-    newValue: string,
+    newValue: number | undefined,
     e: JSX.TargetedEvent<HTMLInputElement, Event>,
   ) => {
     e.stopPropagation();
@@ -45,40 +36,44 @@ const WCComponent = ({
 
   return (
     <Component
-        value={value.value}
         placeholder={placeholder.value}
+        value={value.value}
         required={required.value}
-        minlength={minlength.value}
-        maxlength={maxlength.value}
-        size={size.value}
+        min={min.value}
+        max={max.value}
+        step={step.value}
         error={error.value}
         onInput={handler} />
   );
 };
 
-export default () => register(WCComponent, "phi-text-input", {
+export default () => register(WCComponent, "phi-number-input", {
   adoptedStyleSheets: [destyle, sheet],
   properties: [{
     name: "value",
     formAssociated: true,
-    attribute: { name: "value", type: string },
-  }, {
-    name: "placeholder",
-    attribute: { name: "placeholder", type: string },
+    attribute: { name: "value", type: number },
   }, {
     name: "required",
     attribute: { name: "required", type: boolean },
   }, {
-    name: "minlength",
-    attribute: { name: "minlength", type: number },
+    name: "min",
+    formAssociated: true,
+    attribute: { name: "min", type: number },
   }, {
-    name: "maxlength",
-    attribute: { name: "maxlength", type: number },
+    name: "max",
+    formAssociated: true,
+    attribute: { name: "max", type: number },
   }, {
-    name: "size",
-    attribute: { name: "size", type: oneof("md", ["sm"]) },
+    name: "step",
+    formAssociated: true,
+    attribute: { name: "step", type: number },
+  }, {
+    name: "placeholder",
+    attribute: { name: "placeholder", type: string },
   }, {
     name: "error",
+    formAssociated: true,
     attribute: { name: "error", type: boolean },
   }],
 });

@@ -1,0 +1,47 @@
+.phi-number-input {
+  --text-color:     var(--phi-color-fg);
+  --border-color:   var(--phi-color-border);
+  --selected-color: var(--phi-color-neutral-default);
+  --hover-color:    var(--phi-color-neutral-hover);
+  --active-color:   var(--phi-color-neutral-active);
+  --focus-shadow:   var(--phi-shadow-focus-neutral);
+
+  &.error, &:user-invalid {
+    --text-color:     var(--phi-color-danger-default);
+    --border-color:   var(--phi-color-danger-default);
+    --selected-color: var(--phi-color-danger-default);
+    --hover-color:    var(--phi-color-danger-hover);
+    --active-color:   var(--phi-color-danger-active);
+    --focus-shadow:   var(--phi-shadow-focus-danger);
+  }
+
+  display: block;
+  width: 100%;
+  height: var(--phi-size-input-md);
+  padding: 0 var(--phi-spacing-padding-md);
+  border-radius: var(--phi-radius-md);
+
+  color: var(--text-color);
+  background: var(--phi-color-bg);
+  border: 1px solid var(--border-color);
+
+  &::placeholder {
+    color: var(--phi-color-border);
+  }
+
+  &:focus {
+    box-shadow: var(--focus-shadow);
+  }
+
+  &:hover {
+    border-color: var(--hover-color);
+  }
+
+  &:focus:not(:hover) {
+    border-color: var(--selected-color);
+  }
+
+  &:active {
+    border-color: var(--active-color);
+  }
+}
