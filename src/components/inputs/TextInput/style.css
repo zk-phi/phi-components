@@ -6,7 +6,7 @@
   --active-color:   var(--phi-color-neutral-active);
   --focus-shadow:   var(--phi-shadow-focus-neutral);
 
-  &.error {
+  &.error, &:user-invalid {
     --text-color:     var(--phi-color-danger-default);
     --border-color:   var(--phi-color-danger-default);
     --selected-color: var(--phi-color-danger-default);

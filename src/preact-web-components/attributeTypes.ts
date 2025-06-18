@@ -8,8 +8,8 @@ export const string = (val: AttributeValue): string => (
   val == null ? "" : val.toString()
 );
 
-export const number = (val: AttributeValue): number => (
-  val === null || val === "" || val === false || val === true ? NaN : Number(val)
+export const number = (val: AttributeValue): number | undefined => (
+  val === null ? undefined : val === "" || val === false || val === true ? NaN : Number(val)
 );
 
 export const raw = (val: AttributeValue): AttributeValue => (

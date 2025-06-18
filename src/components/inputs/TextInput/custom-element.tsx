@@ -14,11 +14,23 @@ import style from "./style.css?inline";
 
 const sheet = instantiateStyleSheet(style);
 
-const WCComponent = ({ $el, placeholder, size, value, error }: {
+const WCComponent = ({
+  $el,
+  value,
+  placeholder,
+  required,
+  minlength,
+  maxlength,
+  size,
+  error,
+}: {
   $el: HTMLElement,
   value: SignalLike<string>,
-  size: SignalLike<Size>,
   placeholder: SignalLike<string>,
+  required: SignalLike<boolean>,
+  minlength: SignalLike<number | undefined>,
+  maxlength: SignalLike<number | undefined>,
+  size: SignalLike<Size>,
   error: SignalLike<boolean>,
 }) => {
   const handler = useCallback((
@@ -32,8 +44,11 @@ const WCComponent = ({ $el, placeholder, size, value, error }: {
 
   return (
     <Component
-        placeholder={placeholder.value}
         value={value.value}
+        placeholder={placeholder.value}
+        required={required.value}
+        minlength={minlength.value}
+        maxlength={maxlength.value}
         size={size.value}
         error={error.value}
         onInput={handler} />
@@ -49,6 +64,15 @@ export default () => register(WCComponent, "phi-text-input", {
   }, {
     name: "placeholder",
     attribute: { name: "placeholder", type: string },
+  }, {
+    name: "required",
+    attribute: { name: "required", type: boolean },
+  }, {
+    name: "minlength",
+    attribute: { name: "minlength", type: number },
+  }, {
+    name: "maxlength",
+    attribute: { name: "maxlength", type: number },
   }, {
     name: "size",
     attribute: { name: "size", type: oneof("md", ["sm"]) },

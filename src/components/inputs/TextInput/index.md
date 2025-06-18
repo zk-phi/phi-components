@@ -12,7 +12,8 @@ const value = ref("");
 <figure>
   <phi-text-input
     :value="value"
-    :error="value.length > 5"
+    required
+    maxlength="10"
     placeholder="Jot something down"
     @input="value = $event.target.value" />
   <div style="margin-top: 0.5em">
@@ -30,7 +31,7 @@ return (
     <TextInput
       value={value}
       placeholder="Jot something down"
-      error={value.length > 5}
+      maxlength="10"
       onInput={(e) => setValue(e.currentTarget.value)} />
     <div style="margin-top: 0.5em">
       Value: {{JSON.stringify(value)}}
@@ -49,7 +50,7 @@ const value = ref("");
 
 <phi-text-input
   :value="value"
-  :error="value.length > 5"
+  maxlength="10"
   placeholder="Jot something down"
   @input="value = $event.target.value" />
 <div style="margin-top: 0.5em">
@@ -64,7 +65,8 @@ const value = ref("");
   id="input"
   type="text"
   class="phi-text-input md"
-  placeholder="Jot something down" />
+  placeholder="Jot something down"
+  maxlength="10" />
 <div id="value" style="margin-top: 0.5em">
   Value: ""
 </div>
@@ -73,11 +75,6 @@ const value = ref("");
 function onInput (e) {
   const value = e.currentTarget.value;
   document.getElementById("value").innerHTML = `Value: "${value}"`;
-  if (value.length > 5) {
-    document.getElementById("input").classList.add("error");
-  } else {
-    document.getElementById("input").classList.remove("error");
-  }
 }
 document.getElementById("input").addEventListener("input", onInput);
 </script>
@@ -101,23 +98,29 @@ document.getElementById("input").addEventListener("input", onInput);
 ### Preact
 #### Properties
 
-| Property      | Type             | Default    | Description                               |
-|---------------|------------------|------------|-------------------------------------------|
-| `value`       | `string`         | (required) | Input value                               |
-| `size`        | `md\|sm`         | `"md"`     | Select size variants                      |
-| `placeholder` | `string`         | `""`       | Placeholder string                        |
-| `error`       | `boolean`        | `false`    | Toggle error variant                      |
-| `onInput`     | `string => void` | `false`    | A handler function called on input change |
+| Property      | Type                | Default     | Description                               |
+|---------------|---------------------|-------------|-------------------------------------------|
+| `value`       | `string`            | (required)  | Input value                               |
+| `placeholder` | `string`            | `""`        | Placeholder string                        |
+| `required`    | `boolean`           | `false`     | Whether non-empty string is allowed       |
+| `minlength`   | `number\|undefined` | `undefined` | Minimum allowed length of string          |
+| `maxlength`   | `number\|undefined` | `undefined` | Maximum allowed length of string          |
+| `size`        | `md\|sm`            | `"md"`      | Select size variants                      |
+| `error`       | `boolean`           | `false`     | Toggle error variant                      |
+| `onInput`     | `string => void`    | `false`     | A handler function called on input change |
 
 ### Custom Element
 #### Props / Attrs
 
-| Slot          | Category  | Type      | Default |
-|---------------|-----------|-----------|---------|
-| `value`       | Prop/Attr | `string`  | `""`    |
-| `size`        | Prop/Attr | `md\|sm`  | `"md"`  |
-| `placeholder` | Prop/Attr | `string`  | `""`    |
-| `error`       | Prop/Attr | `boolean` | `false` |
+| Slot          | Category  | Type                | Default     |
+|---------------|-----------|---------------------|-------------|
+| `value`       | Prop/Attr | `string`            | `""`        |
+| `placeholder` | Prop/Attr | `string`            | `""`        |
+| `required`    | Prop/Attr | `boolean`           | `false`     |
+| `minlength`   | Prop/Attr | `number\|undefined` | `undefined` |
+| `maxlength`   | Prop/Attr | `number\|undefined` | `undefined` |
+| `size`        | Prop/Attr | `md\|sm`            | `"md"`      |
+| `error`       | Prop/Attr | `boolean`           | `false`     |
 
 #### Events
 
