@@ -1,0 +1,1 @@
+import{_ as i,c as o,o as a,ae as l}from"./chunks/framework.qXQ5Z7UF.js";const u=JSON.parse('{"title":"phi-components","description":"","frontmatter":{},"headers":[],"relativePath":"index.md","filePath":"index.md"}'),n={name:"index.md"};function t(r,e,s,c,d,p){return a(),o("div",null,e[0]||(e[0]=[l("",17)]))}const m=i(n,[["render",t]]);export{u as __pageData,m as default};

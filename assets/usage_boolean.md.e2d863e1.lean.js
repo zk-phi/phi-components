@@ -1,1 +1,0 @@
-import{_ as t,o as e,c as o,f as d}from"./app.9ad3b021.js";const p=JSON.parse('{"title":"Boolean attributes","description":"","frontmatter":{},"headers":[],"relativePath":"usage/boolean.md"}'),a={name:"usage/boolean.md"},r=d("",3),c=[r];function s(n,l,i,u,_,h){return e(),o("div",null,c)}const f=t(a,[["render",s]]);export{p as __pageData,f as default};
