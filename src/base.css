@@ -49,50 +49,63 @@
  */
 
 :root {
-  --phi-color-palette-neutral-lighter: #ffb81cff; /* okhsl(80, 100, 80) */
-  --phi-color-palette-neutral-base:    #eeaa00ff; /* okhsl(80, 100, 75) */
-  --phi-color-palette-neutral-darker:  #cd9200ff; /* okhsl(80, 100, 65) */
-  --phi-color-palette-neutral-bg:      #eeaa0020;
-  --phi-color-palette-neutral-outline: #eeaa0030;
+  /* Palette */
 
-  --phi-color-palette-danger-lighter: #fa837eff;  /* okhsl(24, 90, 70) */
-  --phi-color-palette-danger-base:    #f76b68ff;  /* okhsl(24, 90, 65) */
-  --phi-color-palette-danger-darker:  #e53c42ff;  /* okhsl(24, 90, 55) */
-  --phi-color-palette-danger-bg:      #f76b6820;
-  --phi-color-palette-danger-outline: #f76b6830;
+  --phi-color-palette-neutral-weaker:   #ffb81cff; /* okhsl(80, 100, 80) */
+  --phi-color-palette-neutral-base:     #eeaa00ff; /* okhsl(80, 100, 75) */
+  --phi-color-palette-neutral-stronger: #cd9200ff; /* okhsl(80, 100, 65) */
+  --phi-color-palette-neutral-bg:       #eeaa0020;
+  --phi-color-palette-neutral-outline:  #eeaa0030;
 
-  --phi-color-bg:         #ffffffff;
-  --phi-color-distant-fg: #ffffffff;
-  --phi-color-fg:         #000000d0; /* #323232 */
-  --phi-color-border:     #00000040; /* #b2b2b2 */
+  --phi-color-palette-danger-weaker:   #fa837eff;  /* okhsl(24, 90, 70) */
+  --phi-color-palette-danger-base:     #f76b68ff;  /* okhsl(24, 90, 65) */
+  --phi-color-palette-danger-stronger: #e53c42ff;  /* okhsl(24, 90, 55) */
+  --phi-color-palette-danger-bg:       #f76b6820;
+  --phi-color-palette-danger-outline:  #f76b6830;
+
+  --phi-color-palette-bg:     #ffffffff;
+  --phi-color-palette-fg:     #000000d0; /* #323232 */
+  --phi-color-palette-border: #00000040; /* #b2b2b2 */
+  --phi-color-palette-shadow: #00000040;
+
+  /* Color mappings */
+
+  --phi-color-bg:         var(--phi-color-palette-bg);
+  --phi-color-distant-fg: var(--phi-color-palette-bg);
+  --phi-color-fg:         var(--phi-color-palette-fg);
+  --phi-color-border:     var(--phi-color-palette-border);
 
   --phi-color-neutral-bg:      var(--phi-color-palette-neutral-bg);
-  --phi-color-neutral-hover:   var(--phi-color-palette-neutral-lighter);
+  --phi-color-neutral-hover:   var(--phi-color-palette-neutral-weaker);
   --phi-color-neutral-default: var(--phi-color-palette-neutral-base);
-  --phi-color-neutral-active:  var(--phi-color-palette-neutral-darker);
+  --phi-color-neutral-active:  var(--phi-color-palette-neutral-stronger);
   --phi-color-danger-bg:       var(--phi-color-palette-danger-bg);
-  --phi-color-danger-hover:    var(--phi-color-palette-danger-lighter);
+  --phi-color-danger-hover:    var(--phi-color-palette-danger-weaker);
   --phi-color-danger-default:  var(--phi-color-palette-danger-base);
-  --phi-color-danger-active:   var(--phi-color-palette-danger-darker);
+  --phi-color-danger-active:   var(--phi-color-palette-danger-stronger);
+
+  /* Shadows */
 
   --phi-shadow-pressable-default:
-    0 1px #00000040;
+    0 1px var(--phi-color-palette-border);
   --phi-shadow-pressable-neutral-default:
-    0 1px #00000020,
+    0 1px var(--phi-color-palette-shadow),
     0 1px var(--phi-color-palette-neutral-base);
   --phi-shadow-pressable-neutral-hover:
-    0 1px #00000020,
-    0 1px var(--phi-color-palette-neutral-lighter);
+    0 1px var(--phi-color-palette-shadow),
+    0 1px var(--phi-color-palette-neutral-weaker);
   --phi-shadow-pressable-danger-default:
-    0 1px #00000020,
+    0 1px var(--phi-color-palette-shadow),
     0 1px var(--phi-color-palette-danger-base);
   --phi-shadow-pressable-danger-hover:
-    0 1px #00000020,
-    0 1px var(--phi-color-palette-danger-lighter);
+    0 1px var(--phi-color-palette-shadow),
+    0 1px var(--phi-color-palette-danger-weaker);
   --phi-shadow-focus-neutral:
     0 0 0 2px var(--phi-color-palette-neutral-outline);
   --phi-shadow-focus-danger:
     0 0 0 2px var(--phi-color-palette-danger-outline);
+
+  /* Sizes */
 
   --phi-fontsize-md: 1.000rem;
   --phi-fontsize-icon-md: 1.250rem;
@@ -101,8 +114,12 @@
   --phi-lineheight: 1.250rem;
   --phi-size-input: 3.000rem;
 
+  /* Shapes */
+
   --phi-radius-sm: 0.250rem;
   --phi-radius-md: 0.625rem;
+
+  /* Spacings */
 
   --phi-spacing-padding-sm: 0.375rem;
   --phi-spacing-padding-md: 1.000rem;
@@ -115,52 +132,43 @@
 
 @media (prefers-color-scheme: dark) {
   html:not(.light) {
-    --phi-color-palette-neutral-lighter: #e6af47ff; /* okhsl(80, 80, 75) */
-    --phi-color-palette-neutral-base:    #d7a139ff; /* okhsl(80, 80, 70) */
-    --phi-color-palette-neutral-darker:  #c79431ff; /* okhsl(80, 80, 65) */
-    --phi-color-palette-neutral-bg:      #d7a13920;
-    --phi-color-palette-neutral-outline: #d7a13930;
+    --phi-color-palette-neutral-weaker:   #c79431ff; /* okhsl(80, 80, 65) */
+    --phi-color-palette-neutral-base:     #d7a139ff; /* okhsl(80, 80, 70) */
+    --phi-color-palette-neutral-stronger: #e6af47ff; /* okhsl(80, 80, 75) */
+    --phi-color-palette-neutral-bg:       #d7a13920;
+    --phi-color-palette-neutral-outline:  #d7a13930;
 
-    --phi-color-palette-danger-lighter: #f38882ff;  /* okhsl(24, 80, 70) */
-    --phi-color-palette-danger-base:    #ee736eff;  /* okhsl(24, 80, 65) */
-    --phi-color-palette-danger-darker:  #e65f5cff;  /* okhsl(24, 80, 60) */
-    --phi-color-palette-danger-bg:      #ee736e20;
-    --phi-color-palette-danger-outline: #ee736e30;
+    --phi-color-palette-danger-weaker:   #e65f5cff;  /* okhsl(24, 80, 60) */
+    --phi-color-palette-danger-base:     #ee736eff;  /* okhsl(24, 80, 65) */
+    --phi-color-palette-danger-stronger: #f38882ff;  /* okhsl(24, 80, 70) */
+    --phi-color-palette-danger-bg:       #ee736e20;
+    --phi-color-palette-danger-outline:  #ee736e30;
 
-    --phi-color-bg:         #222222ff;
-    --phi-color-distant-fg: #222222ff;
-    --phi-color-fg:         #ffffffd0; /* #d4d4d4 */
-    --phi-color-border:     #ffffff40; /* #656565 */
-
-    --phi-color-neutral-hover:  var(--phi-color-palette-neutral-darker);
-    --phi-color-neutral-active: var(--phi-color-palette-neutral-lighter);
-    --phi-color-danger-hover:   var(--phi-color-palette-danger-darker);
-    --phi-color-danger-active:  var(--phi-color-palette-danger-lighter);
+    --phi-color-palette-bg:     #222222ff;
+    --phi-color-palette-fg:     #ffffffd0; /* #d4d4d4 */
+    --phi-color-palette-border: #ffffff40; /* #656565 */
+    --phi-color-palette-shadow: #00000060;
   }
 }
 
+/* same as 'prefers-color-scheme: dark' */
 html.dark:not(.light) {
-  --phi-color-palette-neutral-lighter: #e6af47ff; /* okhsl(80, 80, 75) */
-  --phi-color-palette-neutral-base:    #d7a139ff; /* okhsl(80, 80, 70) */
-  --phi-color-palette-neutral-darker:  #c79431ff; /* okhsl(80, 80, 65) */
-  --phi-color-palette-neutral-bg:      #d7a13920;
-  --phi-color-palette-neutral-outline: #d7a13930;
+  --phi-color-palette-neutral-weaker:   #c79431ff; /* okhsl(80, 80, 65) */
+  --phi-color-palette-neutral-base:     #d7a139ff; /* okhsl(80, 80, 70) */
+  --phi-color-palette-neutral-stronger: #e6af47ff; /* okhsl(80, 80, 75) */
+  --phi-color-palette-neutral-bg:       #d7a13920;
+  --phi-color-palette-neutral-outline:  #d7a13930;
 
-  --phi-color-palette-danger-lighter: #f38882ff;  /* okhsl(24, 80, 70) */
-  --phi-color-palette-danger-base:    #ee736eff;  /* okhsl(24, 80, 65) */
-  --phi-color-palette-danger-darker:  #e65f5cff;  /* okhsl(24, 80, 60) */
-  --phi-color-palette-danger-bg:      #ee736e20;
-  --phi-color-palette-danger-outline: #ee736e30;
+  --phi-color-palette-danger-weaker:   #e65f5cff;  /* okhsl(24, 80, 60) */
+  --phi-color-palette-danger-base:     #ee736eff;  /* okhsl(24, 80, 65) */
+  --phi-color-palette-danger-stronger: #f38882ff;  /* okhsl(24, 80, 70) */
+  --phi-color-palette-danger-bg:       #ee736e20;
+  --phi-color-palette-danger-outline:  #ee736e30;
 
-  --phi-color-bg:         #222222ff;
-  --phi-color-distant-fg: #222222ff;
-  --phi-color-fg:         #ffffffd0; /* #d4d4d4 */
-  --phi-color-border:     #ffffff40; /* #656565 */
-
-  --phi-color-neutral-hover:  var(--phi-color-palette-neutral-darker);
-  --phi-color-neutral-active: var(--phi-color-palette-neutral-lighter);
-  --phi-color-danger-hover:   var(--phi-color-palette-danger-darker);
-  --phi-color-danger-active:  var(--phi-color-palette-danger-lighter);
+  --phi-color-palette-bg:     #222222ff;
+  --phi-color-palette-fg:     #ffffffd0; /* #d4d4d4 */
+  --phi-color-palette-border: #ffffff40; /* #656565 */
+  --phi-color-palette-shadow: #00000080;
 }
 
 /* this will be the basis for "rem" unit. */
