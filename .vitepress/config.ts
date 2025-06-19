@@ -56,6 +56,7 @@ export default defineConfig({
       }, {
         text: "Others",
         items: [
+          { text: "ColorSwatch", link: "/components/others/ColorSwatch/" },
           { text: "Icon", link: "/components/others/Icon/" },
         ],
       }],

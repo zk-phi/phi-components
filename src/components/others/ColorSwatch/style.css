@@ -1,0 +1,7 @@
+.phi-color-swatch {
+  display: inline-block;
+  width: calc(1.6 * var(--phi-fontsize-icon-md));
+  height: var(--phi-fontsize-icon-md);
+  border: 1px solid var(--phi-color-border);
+  border-radius: var(--phi-radius-sm);
+}

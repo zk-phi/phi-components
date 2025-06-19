@@ -9,6 +9,7 @@ import registerRadio from "./components/inputs/Radio/custom-element";
 import registerTextInput from "./components/inputs/TextInput/custom-element";
 import registerNumberInput from "./components/inputs/NumberInput/custom-element";
 import registerIcon from "./components/others/Icon/custom-element";
+import registerColorSwatch from "./components/others/ColorSwatch/custom-element";
 import "./global.css";
 
 const register = () => {
@@ -24,6 +25,7 @@ const register = () => {
     registerTextInput();
     registerNumberInput();
     registerIcon();
+    registerColorSwatch();
   }
 };
 
