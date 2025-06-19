@@ -8,9 +8,31 @@ export const string = (val: AttributeValue): string => (
   val == null ? "" : val.toString()
 );
 
-export const number = (val: AttributeValue): number | undefined => (
+export const numberOrUndef = (val: AttributeValue): number | undefined => (
   val === null ? undefined : val === "" || val === false || val === true ? NaN : Number(val)
 );
+
+export const numberWithDefault = (n: number) => (val: AttributeValue) => (
+  numberOrUndef(val) ?? n
+);
+
+export const stringList = (val: AttributeValue): string[] => (
+  val == null || val === "" ? (
+    []
+  ) : typeof val === "string" ? (
+    // non-empty string
+    val.split(",")
+  ) : (
+    // boolean or number
+    [val.toString()]
+  )
+);
+
+export const numberList = (val: AttributeValue): number[] => {
+  const list = stringList(val);
+  const numbers = list.map(str => Number(str));
+  return numbers.some(num => Number.isNaN(num)) ? [] : numbers;
+};
 
 export const raw = (val: AttributeValue): AttributeValue => (
   val

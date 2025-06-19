@@ -4,7 +4,7 @@ import {
   register,
   string,
   boolean,
-  number,
+  numberOrUndef,
   oneof,
   instantiateStyleSheet,
   type SignalLike,
@@ -70,10 +70,10 @@ export default () => register(WCComponent, "phi-text-input", {
     attribute: { name: "required", type: boolean },
   }, {
     name: "minlength",
-    attribute: { name: "minlength", type: number },
+    attribute: { name: "minlength", type: numberOrUndef },
   }, {
     name: "maxlength",
-    attribute: { name: "maxlength", type: number },
+    attribute: { name: "maxlength", type: numberOrUndef },
   }, {
     name: "size",
     attribute: { name: "size", type: oneof("md", ["sm"]) },

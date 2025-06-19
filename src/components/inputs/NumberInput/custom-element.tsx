@@ -3,7 +3,7 @@ import type { ComponentChildren, JSX } from "preact";
 import {
   register,
   string,
-  number,
+  numberOrUndef,
   boolean,
   oneof,
   instantiateStyleSheet,
@@ -52,28 +52,24 @@ export default () => register(WCComponent, "phi-number-input", {
   properties: [{
     name: "value",
     formAssociated: true,
-    attribute: { name: "value", type: number },
+    attribute: { name: "value", type: numberOrUndef },
   }, {
     name: "required",
     attribute: { name: "required", type: boolean },
   }, {
     name: "min",
-    formAssociated: true,
-    attribute: { name: "min", type: number },
+    attribute: { name: "min", type: numberOrUndef },
   }, {
     name: "max",
-    formAssociated: true,
-    attribute: { name: "max", type: number },
+    attribute: { name: "max", type: numberOrUndef },
   }, {
     name: "step",
-    formAssociated: true,
-    attribute: { name: "step", type: number },
+    attribute: { name: "step", type: numberOrUndef },
   }, {
     name: "placeholder",
     attribute: { name: "placeholder", type: string },
   }, {
     name: "error",
-    formAssociated: true,
     attribute: { name: "error", type: boolean },
   }],
 });

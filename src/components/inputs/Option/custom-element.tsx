@@ -3,6 +3,7 @@ import type { ComponentChildren, JSX } from "preact";
 import {
   register,
   string,
+  stringList,
   boolean,
   oneof,
   instantiateStyleSheet,
@@ -41,10 +42,7 @@ export default () => register(WCComponent, "phi-option", {
   properties: [{
     name: "checked",
     formAssociated: true,
-    attribute: {
-      name: "checked",
-      type: (value) => typeof value === "string" ? value.split(",") : [],
-    },
+    attribute: { name: "checked", type: stringList },
   }, {
     name: "value",
     attribute: { name: "variant", type: string }

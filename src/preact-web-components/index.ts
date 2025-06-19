@@ -1,7 +1,10 @@
 export {
   boolean,
   string,
-  number,
+  numberOrUndef,
+  numberWithDefault,
+  stringList,
+  numberList,
   raw,
   oneof,
 } from "./attributeTypes";
