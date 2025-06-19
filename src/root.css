@@ -76,6 +76,8 @@
   --phi-size-icon-button: 2.500rem;
   --phi-size-input-sm: 2.000rem;
   --phi-size-input-md: 3.000rem;
+  --phi-size-range-track: 0.625rem;
+  --phi-size-range-thumb-scale: 2;
 
   /* Shapes */
 

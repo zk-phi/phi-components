@@ -19,6 +19,7 @@ export {
   register,
 } from "./register";
 
+"./register"
 export {
   instantiateStyleSheet,
 } from "./instantiateStyleSheet";

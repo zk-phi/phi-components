@@ -1,22 +1,20 @@
-# NumberInput
+# Slider
 
-A number input component.
+A slider number input component.
 
 ## Examples
 
 <script setup>
 import { ref } from "vue";
-const value = ref(undefined);
+const value = ref(0);
 </script>
 
 <figure>
-  <phi-number-input
+  <phi-slider
     :value="value"
-    required
     min="0"
     max="100"
     step="0.1"
-    placeholder="Example: 5"
     @input="value = $event.target.value" />
   <div style="margin-top: 0.5em">
     Value: {{value}}
@@ -30,13 +28,11 @@ const [value, setValue] = useState("");
 
 return (
   <>
-    <NumberInput
+    <Slider
       value={value}
-      required
       min="0"
       max="100"
       step="0.1"
-      placeholder="Example: 5"
       onInput={(e) => setValue(e.currentTarget.value)} />
     <div style="margin-top: 0.5em">
       Value: {{value}}
@@ -50,16 +46,14 @@ return (
 ``` html
 <script setup>
 import { ref } from "vue";
-const value = ref(undefined);
+const value = ref(0);
 </script>
 
 <phi-number-input
   :value="value"
-  required
   min="0"
   max="100"
   step="0.1"
-  placeholder="Example: 5"
   @input="value = $event.target.value" />
 <div style="margin-top: 0.5em">
   Value: {{value}}
@@ -68,16 +62,27 @@ const value = ref(undefined);
 
 ### Vanilla JS x CSS
 
+LIMITATION: Track color will not change in Pure-CSS installation.
+
+<figure>
+  <input
+    id="input"
+    type="range"
+    class="phi-slider"
+    value="0"
+    min="0"
+    max="100"
+    step="0.1" />
+</figure>
+
 ``` html
 <input
   id="input"
-  type="number"
-  class="phi-number-input"
-  required
+  type="range"
+  class="phi-slider"
   min="0"
   max="100"
-  step="0.1"
-  placeholder="Example: 5" />
+  step="0.1" />
 <div id="value" style="margin-top: 0.5em">
   Value:
 </div>
@@ -91,27 +96,17 @@ document.getElementById("input").addEventListener("input", onInput);
 </script>
 ```
 
-## State variants
-### `error` variant
-
-<figure>
-  <phi-number-input value="-100" error />
-</figure>
-
 ## Reference
 ### Preact
 #### Properties
 
-| Property      | Type                | Default     | Description                               |
-|---------------|---------------------|-------------|-------------------------------------------|
-| `value`       | `string`            | (required)  | Input value                               |
-| `placeholder` | `string`            | `""`        | Placeholder string                        |
-| `required`    | `boolean`           | `false`     | Whether non-empty value is allowed        |
-| `min`         | `number\|undefined` | `undefined` | Minimum allowed value                     |
-| `max`         | `number\|undefined` | `undefined` | Maximum allowed value                     |
-| `step`        | `number\|undefined` | `undefined` | Minimum allowed step                      |
-| `error`       | `boolean`           | `false`     | Toggle error variant                      |
-| `onInput`     | `string => void`    | `false`     | A handler function called on input change |
+| Property  | Type                | Default     | Description                               |
+|-----------|---------------------|-------------|-------------------------------------------|
+| `value`   | `string`            | (required)  | Input value                               |
+| `min`     | `number\|undefined` | `undefined` | Minimum allowed value                     |
+| `max`     | `number\|undefined` | `undefined` | Maximum allowed value                     |
+| `step`    | `number\|undefined` | `undefined` | Minimum allowed step                      |
+| `onInput` | `string => void`    | `false`     | A handler function called on input change |
 
 ### Custom Element
 #### Props / Attrs
@@ -119,12 +114,9 @@ document.getElementById("input").addEventListener("input", onInput);
 | Slot          | Category  | Type                | Default     |
 |---------------|-----------|---------------------|-------------|
 | `value`       | Prop/Attr | `number\|undefined` | `undefined` |
-| `placeholder` | Prop/Attr | `string`            | `""`        |
-| `required`    | Prop/Attr | `boolean`           | `false`     |
 | `min`         | Prop/Attr | `number\|undefined` | `undefined` |
 | `max`         | Prop/Attr | `number\|undefined` | `undefined` |
 | `step`        | Prop/Attr | `number\|undefined` | `undefined` |
-| `error`       | Prop/Attr | `boolean`           | `false`     |
 
 #### Events
 
@@ -137,7 +129,6 @@ Following events are confirmed to work as expected. Some other events may also w
 ### Pure-CSS
 #### Classes
 
-| Class              |                |
-|--------------------|----------------|
-| `phi-number-input` | Core styles    |
-| `error`            | State variants |
+| Class        |             |
+|--------------|-------------|
+| `phi-slider` | Core styles |

@@ -8,6 +8,7 @@ export { default as Option } from "./components/inputs/Option/preact";
 export { default as Radio } from "./components/inputs/Radio/preact";
 export { default as TextInput } from "./components/inputs/TextInput/preact";
 export { default as NumberInput } from "./components/inputs/NumberInput/preact";
+export { default as Slider } from "./components/inputs/Slider/preact";
 export { default as Icon } from "./components/others/Icon/preact";
 export { default as ColorSwatch } from "./components/others/ColorSwatch/preact";
 import "./global.css";
