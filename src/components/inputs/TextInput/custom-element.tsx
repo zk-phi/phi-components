@@ -1,5 +1,5 @@
 import { useCallback } from "preact/hooks";
-import type { ComponentChildren, JSX } from "preact";
+import type { JSX } from "preact";
 import {
   register,
   string,

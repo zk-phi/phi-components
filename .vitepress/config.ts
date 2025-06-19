@@ -1,4 +1,4 @@
-import Path from "path";
+import Path from "node:path";
 import { defineConfig } from "vitepress";
 
 export default defineConfig({

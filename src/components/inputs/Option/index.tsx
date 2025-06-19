@@ -23,15 +23,15 @@ const Component = <T,>({
     if (inputChecked) {
       onChange?.([...checked, value], e);
     } else {
-      onChange?.(checked.filter((item) => item !== value!), e);
+      onChange?.(checked.filter((item) => item !== value), e);
     }
-  }, [checked, value]);
+  }, [checked, value, onChange]);
 
   return (
-    <label className="phi-checkbox">
+    <label class="phi-checkbox">
       <input
           type="checkbox"
-          className="input"
+          class="input"
           checked={isChecked}
           onChange={handler} />
       {" "}

@@ -1,11 +1,11 @@
-import { useMemo, useCallback } from "preact/hooks";
-import type { ComponentChildren, JSX } from "preact";
+import { useCallback } from "preact/hooks";
+import type { JSX } from "preact";
 
 /* TODO: disabled state */
 
 export type Size = "md" | "sm";
 
-const Component = <T extends boolean | any[],>({
+const Component = ({
   value,
   placeholder = "",
   required = false,
@@ -31,7 +31,7 @@ const Component = <T extends boolean | any[],>({
   return (
     <input
         type="text"
-        className={`phi-text-input ${error ? "error" : ""} ${size}`}
+        class={`phi-text-input ${error ? "error" : ""} ${size}`}
         placeholder={placeholder}
         required={required}
         minlength={minlength}

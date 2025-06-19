@@ -1,13 +1,9 @@
 import { useCallback } from "preact/hooks";
-import type { ComponentChildren, JSX } from "preact";
+import type { JSX } from "preact";
 import {
   register,
-  string,
   numberOrUndef,
   numberWithDefault,
-  boolean,
-  oneof,
-  numberList,
   instantiateStyleSheet,
   type SignalLike,
 } from "../../../preact-web-components";

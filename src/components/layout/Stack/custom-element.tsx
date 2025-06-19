@@ -1,7 +1,6 @@
-import { type ComponentChildren } from "preact";
+import type { ComponentChildren } from "preact";
 import {
   register,
-  boolean,
   oneof,
   instantiateStyleSheet,
   type SignalLike,

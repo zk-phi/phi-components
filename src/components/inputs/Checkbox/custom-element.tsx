@@ -4,7 +4,6 @@ import {
   register,
   string,
   boolean,
-  oneof,
   instantiateStyleSheet,
   type SignalLike,
 } from "../../../preact-web-components";

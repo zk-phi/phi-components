@@ -1,4 +1,4 @@
-import type { ComponentChildren, FunctionComponent } from "preact";
+import type { FunctionComponent } from "preact";
 import Text from "./icons/Text";
 import AlignCenter from "./icons/AlignCenter";
 import AlignJustify from "./icons/AlignJustify";

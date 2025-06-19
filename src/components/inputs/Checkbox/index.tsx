@@ -1,9 +1,9 @@
-import { useMemo, useCallback } from "preact/hooks";
+import { useCallback } from "preact/hooks";
 import type { ComponentChildren, JSX } from "preact";
 
 /* TODO: disabled state */
 
-const Component = <T extends boolean | any[],>({
+const Component = ({
   checked,
   onChange,
   children,
@@ -17,10 +17,10 @@ const Component = <T extends boolean | any[],>({
   }, [onChange]);
 
   return (
-    <label className="phi-checkbox">
+    <label class="phi-checkbox">
       <input
           type="checkbox"
-          className="input"
+          class="input"
           checked={checked}
           onChange={handler} />
       {" "}

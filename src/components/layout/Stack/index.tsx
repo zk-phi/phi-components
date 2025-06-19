@@ -6,7 +6,7 @@ const Component = ({ size, children }: {
   size: Size,
   children: ComponentChildren,
 }) => (
-  <div className={`phi-stack ${size}`}>
+  <div class={`phi-stack ${size}`}>
     {children}
   </div>
 );

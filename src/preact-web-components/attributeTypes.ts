@@ -9,7 +9,7 @@ export const string = (val: AttributeValue): string => (
 );
 
 export const numberOrUndef = (val: AttributeValue): number | undefined => (
-  val === null ? undefined : val === "" || val === false || val === true ? NaN : Number(val)
+  val === null ? undefined : val === "" || val === false || val === true ? Number.NaN : Number(val)
 );
 
 export const numberWithDefault = (n: number) => (val: AttributeValue) => (
@@ -38,7 +38,7 @@ export const raw = (val: AttributeValue): AttributeValue => (
   val
 );
 
-export const oneof = <T>(deflt: string, others: string[]) => {
+export const oneof = (deflt: string, others: string[]) => {
   const items = [deflt, ...others];
   return (val: AttributeValue): string => {
     const string = val?.toString() ?? "";

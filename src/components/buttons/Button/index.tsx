@@ -1,4 +1,3 @@
-import { useCallback } from "preact/hooks";
 import type { ComponentChildren } from "preact";
 
 export type Variant = "default" | "primary" | "dotted";
@@ -18,8 +17,11 @@ const Component = ({
   icon?: ComponentChildren,
   children: ComponentChildren,
 }) => (
-  <button className={`phi-button ${variant} ${danger ? 'danger' : ''}`} onClick={onClick}>
-    {icon && <span className="icon">{icon}</span>}
+  <button
+      type="button"
+      class={`phi-button ${variant} ${danger ? 'danger' : ''}`}
+      onClick={onClick}>
+    {icon && <span class="icon">{icon}</span>}
     {children}
   </button>
 );

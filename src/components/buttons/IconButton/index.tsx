@@ -1,4 +1,4 @@
-import { useCallback } from "preact/hooks";
+
 import type { ComponentChildren } from "preact";
 
 const Component = ({
@@ -10,7 +10,10 @@ const Component = ({
   onClick?: () => void,
   children: ComponentChildren,
 }) => (
-  <button className={`phi-icon-button ${danger ? 'danger' : ''}`} onClick={onClick}>
+  <button
+      type="button"
+      class={`phi-icon-button ${danger ? 'danger' : ''}`}
+      onClick={onClick}>
     {children}
   </button>
 );

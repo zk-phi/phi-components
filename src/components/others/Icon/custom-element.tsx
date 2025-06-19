@@ -1,5 +1,3 @@
-import { useCallback } from "preact/hooks"
-import type { ComponentChildren } from "preact";
 import {
   register,
   string,

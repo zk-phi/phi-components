@@ -24,13 +24,13 @@ const Component = <T,>({
     if (e.currentTarget.checked) {
       onChange?.(value, e);
     }
-  }, [value]);
+  }, [value, onChange]);
 
   return (
-    <label className="phi-radio">
+    <label class="phi-radio">
       <input
           type="radio"
-          className="input"
+          class="input"
           name={name}
           checked={isChecked}
           onChange={handler} />

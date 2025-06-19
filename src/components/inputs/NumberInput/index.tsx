@@ -1,9 +1,9 @@
-import { useState, useMemo, useCallback } from "preact/hooks";
-import type { ComponentChildren, JSX } from "preact";
+import { useState, useCallback } from "preact/hooks";
+import type { JSX } from "preact";
 
 /* TODO: disabled state */
 
-const Component = <T extends boolean | any[],>({
+const Component = ({
   value,
   placeholder = "",
   required = false,
@@ -33,7 +33,7 @@ const Component = <T extends boolean | any[],>({
   return (
     <input
         type="number"
-        className={`phi-number-input ${error ? "error" : ""}`}
+        class={`phi-number-input ${error ? "error" : ""}`}
         placeholder={placeholder}
         value={text}
         required={required}

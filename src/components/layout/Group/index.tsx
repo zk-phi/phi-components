@@ -8,7 +8,7 @@ const Component = ({ size, align, children }: {
   align: Align,
   children: ComponentChildren,
 }) => (
-  <div className={`phi-group ${size} ${align}`}>
+  <div class={`phi-group ${size} ${align}`}>
     {children}
   </div>
 );

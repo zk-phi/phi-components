@@ -2,7 +2,6 @@ import {
   h,
   cloneElement,
   render,
-  hydrate,
   type FunctionComponent,
   type ComponentClass,
   type FunctionalComponent,
@@ -61,9 +60,9 @@ const serializeFormValue = (value: any): string | FormData => {
   // valueType must be "object" here
   const fields = Object.keys(value);
   const formData = new FormData();
-  fields.forEach(field => {
+  for (const field of fields) {
     formData.append(field, value[field].toString());
-  });
+  }
   return formData;
 }
 
@@ -167,7 +166,7 @@ export const makeCustomElement = (
     }
   }
 
-  properties.forEach(prop => (
+  for (const prop of properties) {
     Object.defineProperty(CustomElement.prototype, prop.name, {
       get () {
         return this._props[prop.name]._value;
@@ -175,8 +174,8 @@ export const makeCustomElement = (
       set (value: any) {
         this.setProp(prop.name, value, true);
       },
-    })
-  ));
+    });
+  }
 
   return CustomElement;
 };

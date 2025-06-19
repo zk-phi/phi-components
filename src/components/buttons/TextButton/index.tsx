@@ -9,7 +9,10 @@ const Component = ({
   onClick?: () => void,
   children: ComponentChildren,
 }) => (
-  <button className={`phi-text-button ${danger ? 'danger' : ''}`} onClick={onClick}>
+  <button
+      type="button"
+      class={`phi-text-button ${danger ? 'danger' : ''}`}
+      onClick={onClick}>
     {children}
   </button>
 );

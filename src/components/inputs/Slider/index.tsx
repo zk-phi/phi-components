@@ -1,9 +1,9 @@
-import { useState, useMemo, useCallback } from "preact/hooks";
-import type { ComponentChildren, JSX } from "preact";
+import { useMemo, useCallback } from "preact/hooks";
+import type { JSX } from "preact";
 
 /* TODO: disabled state */
 
-const Component = <T extends boolean | any[],>({
+const Component = ({
   value,
   min,
   max,
@@ -29,7 +29,7 @@ const Component = <T extends boolean | any[],>({
   return (
     <input
         type="range"
-        className="phi-slider"
+        class="phi-slider"
         value={value}
         max={max}
         min={min}
