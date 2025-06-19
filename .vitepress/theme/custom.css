@@ -1,5 +1,6 @@
 :root {
-  --vp-c-brand-1: var(--phi-color-palette-neutral-base);
+  --vp-c-brand-1: var(--phi-color-neutral-default);
+  --vp-c-brand-2: var(--phi-color-neutral-hover);
   --vp-code-color: var(--phi-color-fg);
 }
 
