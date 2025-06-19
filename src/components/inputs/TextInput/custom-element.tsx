@@ -10,7 +10,7 @@ import {
   type SignalLike,
 } from "../../../preact-web-components";
 import Component, { type Size } from ".";
-import destyle from "../../../destyle";
+import root from "../../../root";
 import style from "./style.css?inline";
 
 const sheet = instantiateStyleSheet(style);
@@ -57,7 +57,7 @@ const WCComponent = ({
 };
 
 export default () => register(WCComponent, "phi-text-input", {
-  adoptedStyleSheets: [destyle, sheet],
+  adoptedStyleSheets: [root, sheet],
   properties: [{
     name: "value",
     formAssociated: true,

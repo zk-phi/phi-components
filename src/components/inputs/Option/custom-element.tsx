@@ -9,7 +9,7 @@ import {
   type SignalLike,
 } from "../../../preact-web-components";
 import Component from ".";
-import destyle from "../../../destyle";
+import root from "../../../root";
 import style from "../Checkbox/style.css?inline";
 
 const sheet = instantiateStyleSheet(style);
@@ -37,7 +37,7 @@ const WCComponent = <T,>({ $el, checked, value, children }: {
 };
 
 export default () => register(WCComponent, "phi-option", {
-  adoptedStyleSheets: [destyle, sheet],
+  adoptedStyleSheets: [root, sheet],
   properties: [{
     name: "checked",
     formAssociated: true,

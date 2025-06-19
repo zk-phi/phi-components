@@ -7,7 +7,7 @@ import {
   type SignalLike,
 } from "../../../preact-web-components";
 import Component from ".";
-import destyle from "../../../destyle";
+import root from "../../../root";
 import style from "./style.css?inline";
 
 const sheet = instantiateStyleSheet(style);
@@ -36,7 +36,7 @@ const WCComponent = <T,>({ $el, name, checked, value, children }: {
 };
 
 export default () => register(WCComponent, "phi-radio", {
-  adoptedStyleSheets: [destyle, sheet],
+  adoptedStyleSheets: [root, sheet],
   properties: [{
     name: "name",
     attribute: { name: "name", type: string },

@@ -7,7 +7,7 @@ import {
   type SignalLike,
 } from "../../../preact-web-components";
 import Component, { type Size, type Align } from ".";
-import destyle from "../../../destyle";
+import root from "../../../root";
 import style from "./style.css?inline";
 
 const sheet = instantiateStyleSheet(style);
@@ -23,7 +23,7 @@ const WCComponent = ({ size, align, children }: {
 );
 
 export default () => register(WCComponent, "phi-group", {
-  adoptedStyleSheets: [destyle, sheet],
+  adoptedStyleSheets: [root, sheet],
   properties: [{
     name: "size",
     attribute: { name: "size", type: oneof("md", ["sm"]) },
