@@ -28,9 +28,12 @@
     "build:preact": "vite build --config ./vite.preact.config.ts",
     "build:custom-elements": "vite build --config ./vite.custom-elements.config.ts",
     "check": "tsc --noEmit",
-    "build-doc": "vitepress build"
+    "build-doc": "vitepress build",
+    "lint": "biome lint",
+    "fix": "biome lint --write"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "@preact/preset-vite": "^2.10.1",
     "concurrently": "^9.1.2",
     "preact": "^10.26.5",
