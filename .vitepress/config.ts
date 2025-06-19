@@ -27,7 +27,8 @@ export default defineConfig({
     }, {
       text: "Principles",
       items: [
-        { text: "サービス人格", link: "/principles/characteristics" },
+        { text: "デザイン原則", link: "/principles/design-principles" },
+        { text: "サービス原則", link: "/principles/characteristics" },
       ],
     }, {
       text: "Components",
