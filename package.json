@@ -36,7 +36,7 @@
     "@biomejs/biome": "^1.9.4",
     "@preact/preset-vite": "^2.10.1",
     "concurrently": "^9.1.2",
-    "preact": "^10.26.5",
+    "preact": "^10.26.9",
     "typescript": "^5.8.3",
     "vite": "^6.3.5",
     "vite-bundle-analyzer": "^0.21.0",
@@ -44,6 +44,6 @@
     "vitepress": "^1.6.3"
   },
   "peerDependencies": {
-    "preact": "^10.26.5"
+    "preact": "^10.26.9"
   }
 }
