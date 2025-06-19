@@ -9,4 +9,4 @@ export { default as Radio } from "./components/inputs/Radio/preact";
 export { default as TextInput } from "./components/inputs/TextInput/preact";
 export { default as NumberInput } from "./components/inputs/NumberInput/preact";
 export { default as Icon } from "./components/others/Icon/preact";
-import "./base.css";
+import "./global.css";

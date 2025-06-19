@@ -9,7 +9,7 @@ import registerRadio from "./components/inputs/Radio/custom-element";
 import registerTextInput from "./components/inputs/TextInput/custom-element";
 import registerNumberInput from "./components/inputs/NumberInput/custom-element";
 import registerIcon from "./components/others/Icon/custom-element";
-import "./base.css";
+import "./global.css";
 
 const register = () => {
   if (typeof window !== "undefined") {
