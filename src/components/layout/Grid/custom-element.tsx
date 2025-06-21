@@ -57,13 +57,13 @@ export default () => register(WCComponent, "phi-grid", {
     name: "col-min-width",
     attribute: {
       name: "col-min-width",
-      type: keywordOrNumber("min-content", ["max-content"]),
+      type: keywordOrNumber("max-content", ["min-content"]),
     },
   }, {
     name: "col-max-width",
     attribute: {
       name: "col-max-width",
-      type: keywordOrNumber("min-content", ["max-content"]),
+      type: keywordOrNumber("max-content", ["min-content"]),
     },
   }],
 });
