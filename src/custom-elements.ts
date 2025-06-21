@@ -4,6 +4,8 @@ import registerTextButton from "./components/buttons/TextButton/custom-element";
 import registerGroup from "./components/layout/Group/custom-element";
 import registerStack from "./components/layout/Stack/custom-element";
 import registerGrid from "./components/layout/Grid/custom-element";
+import registerResponsiveColumns from "./components/containers/ResponsiveColumns/custom-element";
+import registerResponsiveContainer from "./components/containers/ResponsiveContainer/custom-element";
 import registerCheckbox from "./components/inputs/Checkbox/custom-element";
 import registerOption from "./components/inputs/Option/custom-element";
 import registerRadio from "./components/inputs/Radio/custom-element";
@@ -22,6 +24,8 @@ const register = () => {
     registerGroup();
     registerStack();
     registerGrid();
+    registerResponsiveColumns();
+    registerResponsiveContainer();
     registerCheckbox();
     registerOption();
     registerRadio();

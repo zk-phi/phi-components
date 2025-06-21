@@ -33,6 +33,19 @@ export default defineConfig({
     }, {
       text: "Components",
       items: [{
+        text: "Containers",
+        items: [
+          { text: "ResponsiveColumns", link: "/components/containers/ResponsiveColumns/" },
+          { text: "ResponsiveContainer", link: "/components/containers/ResponsiveContainer/" },
+        ],
+      }, {
+        text: "Layout",
+        items: [
+          { text: "Group", link: "/components/layout/Group/" },
+          { text: "Stack", link: "/components/layout/Stack/" },
+          { text: "Grid", link: "/components/layout/Grid/" },
+        ],
+      }, {
         text: "Buttons",
         items: [
           { text: "Button", link: "/components/buttons/Button/" },
@@ -48,13 +61,6 @@ export default defineConfig({
           { text: "Option", link: "/components/inputs/Option/" },
           { text: "Radio", link: "/components/inputs/Radio/" },
           { text: "Slider", link: "/components/inputs/Slider/" },
-        ],
-      }, {
-        text: "Layout",
-        items: [
-          { text: "Group", link: "/components/layout/Group/" },
-          { text: "Stack", link: "/components/layout/Stack/" },
-          { text: "Grid", link: "/components/layout/Grid/" },
         ],
       }, {
         text: "Others",

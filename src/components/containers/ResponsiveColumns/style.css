@@ -1,0 +1,12 @@
+.phi-responsive-columns {
+  display: grid;
+  width: 100%;
+
+  &.md {
+    gap: var(--phi-spacing-margin-md);
+  }
+
+  &.sm {
+    gap: var(--phi-spacing-margin-sm);
+  }
+}
