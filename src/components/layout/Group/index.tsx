@@ -3,9 +3,9 @@ import type { ComponentChildren, JSX } from "preact";
 export type Gap = "sm" | "md";
 export type Align = "left" | "center" | "right" | "space-between";
 
-const Component = ({ gap, align, style, children }: {
+const Component = ({ gap, align = "left", style, children }: {
   gap: Gap,
-  align: Align,
+  align?: Align,
   style?: JSX.CSSProperties,
   children: ComponentChildren,
 }) => (

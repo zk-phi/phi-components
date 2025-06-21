@@ -137,13 +137,14 @@ Suitable to align options, tags, etc.
 ### Preact
 #### Properties
 
-| Property      | Type                                   | Default         | Description            |
-|---------------|----------------------------------------|-----------------|------------------------|
-| `gap`         | `'md'\|'sm'`                           | `'md'`          | Switch gap variants    |
-| `cols`        | `number\|'auto-fit'`                   | `'auto-fit'`    | Number of grid columns |
-| `colWidth`    | `number\|'min-content'\|'max-content'` | -               | Force column width     |
-| `colMinWidth` | `number\|'min-content'\|'max-content'` | `'max-content'` | Force min column width |
-| `colMaxWidth` | `number\|'min-content'\|'max-content'` | `'max-content'` | Force max column width |
+| Property      | Type                                   | Default         | Description               |
+|---------------|----------------------------------------|-----------------|---------------------------|
+| `gap`         | `'md'\|'sm'`                           | `'md'`          | Switch gap variants       |
+| `align`       | `'left'\|'center'\|'right'`            | `'left'`        | Switch alignment variants |
+| `cols`        | `number\|'auto-fit'`                   | `'auto-fit'`    | Number of grid columns    |
+| `colWidth`    | `number\|'min-content'\|'max-content'` | -               | Force column width        |
+| `colMinWidth` | `number\|'min-content'\|'max-content'` | `'max-content'` | Force min column width    |
+| `colMaxWidth` | `number\|'min-content'\|'max-content'` | `'max-content'` | Force max column width    |
 
 NOTE: If you omit `cols` property, you usually want to specify `colWidth` instead (otherwise the
 grid may look like just a stack).
@@ -154,6 +155,7 @@ grid may look like just a stack).
 | Slot            | Category  | Type                                   | Default         |
 |-----------------|-----------|----------------------------------------|-----------------|
 | `gap`           | Prop/Attr | `'md'\|'sm'`                           | `'md'`          |
+| `align`         | Prop/Attr | `'left'\|'center'\|'right'`            | `'left'`        |
 | `cols`          | Prop/Attr | `number\|'auto-fit'`                   | `'auto-fit'`    |
 | `colWidth`      | Prop      | `number\|'min-content'\|'max-content'` | `'min-content'` |
 | `colMinWidth`   | Prop      | `number\|'min-content'\|'max-content'` | `'min-content'` |
@@ -165,7 +167,8 @@ grid may look like just a stack).
 ### Pure-CSS
 #### Classes
 
-| Class      |              |
-|------------|--------------|
-| `phi-grid` | Core styles  |
-| `md`, `sm` | Gap variants |
+| Class                                      |                    |
+|--------------------------------------------|--------------------|
+| `phi-grid`                                 | Core styles        |
+| `left`, `center`, `right`, `space-between` | Alignment variants |
+| `md`, `sm`                                 | Gap variants       |

@@ -7,14 +7,15 @@ import {
   instantiateStyleSheet,
   type SignalLike,
 } from "../../../preact-web-components";
-import Component, { type Gap, type Cols, type ColWidth } from ".";
+import Component, { type Gap, type Cols, type ColWidth, type Align } from ".";
 import root from "../../../root";
 import style from "./style.css?inline";
 
 const sheet = instantiateStyleSheet(style);
 
-const WCComponent = ({ gap, cols, colWidth, colMinWidth, colMaxWidth, children }: {
+const WCComponent = ({ gap, align, cols, colWidth, colMinWidth, colMaxWidth, children }: {
   gap: SignalLike<Gap>,
+  align: SignalLike<Align>,
   cols: SignalLike<Cols>,
   colWidth: SignalLike<ColWidth | undefined>,
   colMinWidth: SignalLike<ColWidth>,
@@ -23,6 +24,7 @@ const WCComponent = ({ gap, cols, colWidth, colMinWidth, colMaxWidth, children }
 }) => (
   <Component
       gap={gap.value}
+      align={align.value}
       cols={cols.value}
       colWidth={colWidth.value}
       colMinWidth={colMinWidth.value}
@@ -36,6 +38,9 @@ export default () => register(WCComponent, "phi-grid", {
   properties: [{
     name: "gap",
     attribute: { name: "gap", type: keyword("md", ["sm"]) },
+  }, {
+    name: "align",
+    attribute: { name: "align", type: keyword("left", ["center", "right", "space-between"]) },
   }, {
     name: "cols",
     attribute: {

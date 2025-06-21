@@ -219,4 +219,4 @@ Suitable to align options, tags, etc.
 |--------------------------------------------|--------------------|
 | `phi-group`                                | Core styles        |
 | `left`, `center`, `right`, `space-between` | Alignment variants |
-| `md`, `sm`                                 | Gap variants      |
+| `md`, `sm`                                 | Gap variants       |

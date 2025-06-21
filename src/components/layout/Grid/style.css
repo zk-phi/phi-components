@@ -1,7 +1,22 @@
 .phi-grid {
   display: grid;
   width: 100%;
-  flex-wrap: wrap;
+
+  &.left {
+    justify-content: flex-start;
+  }
+
+  &.right {
+    justify-content: flex-end;
+  }
+
+  &.center {
+    justify-content: center;
+  }
+
+  &.space-between {
+    justify-content: space-between;
+  }
 
   &.md {
     gap: var(--phi-spacing-margin-md);
