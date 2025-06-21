@@ -1,12 +1,12 @@
 import type { ComponentChildren } from "preact";
 
-export type Size = "sm" | "md";
+export type Gap = "sm" | "md";
 
-const Component = ({ size, children }: {
-  size: Size,
+const Component = ({ gap, children }: {
+  gap: Gap,
   children: ComponentChildren,
 }) => (
-  <div class={`phi-stack ${size}`}>
+  <div class={`phi-stack ${gap}`}>
     {children}
   </div>
 );

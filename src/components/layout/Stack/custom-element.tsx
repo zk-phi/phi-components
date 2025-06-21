@@ -5,17 +5,17 @@ import {
   instantiateStyleSheet,
   type SignalLike,
 } from "../../../preact-web-components";
-import Component, { type Size } from ".";
+import Component, { type Gap } from ".";
 import root from "../../../root";
 import style from "./style.css?inline";
 
 const sheet = instantiateStyleSheet(style);
 
-const WCComponent = ({ size, children }: {
-  size: SignalLike<Size>,
+const WCComponent = ({ gap, children }: {
+  gap: SignalLike<Gap>,
   children: ComponentChildren,
 }) => (
-  <Component size={size.value}>
+  <Component gap={gap.value}>
     {children}
   </Component>
 );
@@ -23,7 +23,7 @@ const WCComponent = ({ size, children }: {
 export default () => register(WCComponent, "phi-stack", {
   adoptedStyleSheets: [root, sheet],
   properties: [{
-    name: "size",
-    attribute: { name: "size", type: oneof("md", ["sm"]) },
+    name: "gap",
+    attribute: { name: "gap", type: oneof("md", ["sm"]) },
   }],
 });

@@ -68,13 +68,13 @@ Align elements vertically.
 </div>
 ```
 
-## Size variants
+## Gap variants
 ### `md` variant (default)
 
 Suitable to align normal elements.
 
 <figure>
-  <phi-stack size="md">
+  <phi-stack gap="md">
     <phi-button>
       <span slot="icon">
         <phi-icon icon="back" />
@@ -95,7 +95,7 @@ Suitable to align normal elements.
 Suitable to align options, tags, etc.
 
 <figure>
-  <phi-stack size="sm">
+  <phi-stack gap="sm">
     <code>Foo</code>
     <code>Bar</code>
     <code>Baz</code>
@@ -106,22 +106,22 @@ Suitable to align options, tags, etc.
 ### Preact
 #### Properties
 
-| Property   | Type                | Default | Description          |
-|------------|---------------------|---------|----------------------|
-| `size`     | `md\|sm`            | `md`    | Switch size variants |
-| `children` | `ComponentChildren` | empty   | Child elements       |
+| Property   | Type                | Default | Description         |
+|------------|---------------------|---------|---------------------|
+| `gap`      | `md\|sm`            | `md`    | Switch gap variants |
+| `children` | `ComponentChildren` | empty   | Child elements      |
 
 ### Custom Element
 #### Props / Attrs
 
-| Slot   | Category  | Type     | Default |
-|--------|-----------|----------|---------|
-| `size` | Prop/Attr | `md\|sm` | `md`    |
+| Slot  | Category  | Type     | Default |
+|-------|-----------|----------|---------|
+| `gap` | Prop/Attr | `md\|sm` | `md`    |
 
 ### Pure-CSS
 #### Classes
 
-| Class       |               |
-|-------------|---------------|
-| `phi-group` | Core styles   |
-| `md`, `sm`  | Size variants |
+| Class       |              |
+|-------------|--------------|
+| `phi-group` | Core styles  |
+| `md`, `sm`  | Gap variants |

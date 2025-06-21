@@ -162,13 +162,13 @@ You may put `style="flex-grow: 1"` to some children to control widths.
   </phi-group>
 </figure>
 
-## Size variants
+## Gap variants
 ### `md` variant (default)
 
 Suitable to align normal elements.
 
 <figure>
-  <phi-group size="md">
+  <phi-group gap="md">
     <phi-button>
       <span slot="icon">
         <phi-icon icon="back" />
@@ -187,7 +187,7 @@ Suitable to align normal elements.
 Suitable to align options, tags, etc.
 
 <figure>
-  <phi-group size="sm">
+  <phi-group gap="sm">
     <code>Foo</code>
     <code>Bar</code>
     <code>Baz</code>
@@ -200,7 +200,7 @@ Suitable to align options, tags, etc.
 
 | Property   | Type                  | Default | Description               |
 |------------|-----------------------|---------|---------------------------|
-| `size`     | `md\|sm`              | `md`    | Switch size variants      |
+| `gap`      | `md\|sm`              | `md`    | Switch gap variants       |
 | `align`    | `left\|center\|right` | `left`  | Switch alignment variants |
 | `children` | `ComponentChildren`   | empty   | Child elements            |
 
@@ -209,7 +209,7 @@ Suitable to align options, tags, etc.
 
 | Slot    | Category  | Type                  | Default |
 |---------|-----------|-----------------------|---------|
-| `size`  | Prop/Attr | `md\|sm`              | `md`    |
+| `gap`   | Prop/Attr | `md\|sm`              | `md`    |
 | `align` | Prop/Attr | `left\|center\|right` | `left`  |
 
 ### Pure-CSS
@@ -219,4 +219,4 @@ Suitable to align options, tags, etc.
 |--------------------------------------------|--------------------|
 | `phi-group`                                | Core styles        |
 | `left`, `center`, `right`, `space-between` | Alignment variants |
-| `md`, `sm`                                 | Size variants      |
+| `md`, `sm`                                 | Gap variants      |

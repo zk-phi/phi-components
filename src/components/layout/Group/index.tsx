@@ -1,14 +1,14 @@
 import type { ComponentChildren } from "preact";
 
-export type Size = "sm" | "md";
+export type Gap = "sm" | "md";
 export type Align = "left" | "center" | "right" | "space-between";
 
-const Component = ({ size, align, children }: {
-  size: Size,
+const Component = ({ gap, align, children }: {
+  gap: Gap,
   align: Align,
   children: ComponentChildren,
 }) => (
-  <div class={`phi-group ${size} ${align}`}>
+  <div class={`phi-group ${gap} ${align}`}>
     {children}
   </div>
 );
