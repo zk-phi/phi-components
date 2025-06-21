@@ -6,10 +6,12 @@ import type { ComponentChildren, JSX } from "preact";
 const Component = ({
   checked,
   onChange,
+  style,
   children,
 }: {
   checked: boolean,
   onChange?: (checked: boolean, e: JSX.TargetedEvent<HTMLInputElement, Event>) => void,
+  style?: JSX.CSSProperties,
   children: ComponentChildren,
 }) => {
   const handler = useCallback((e: JSX.TargetedEvent<HTMLInputElement, Event>) => {
@@ -17,7 +19,7 @@ const Component = ({
   }, [onChange]);
 
   return (
-    <label class="phi-checkbox">
+    <label class="phi-checkbox" style={style}>
       <input
           type="checkbox"
           class="input"

@@ -14,6 +14,7 @@ const Component = ({
   size = "md",
   error,
   onInput,
+  style,
 }: {
   value: string,
   placeholder: string,
@@ -23,6 +24,7 @@ const Component = ({
   size: Size,
   error?: boolean,
   onInput?: (value: string, e: JSX.TargetedEvent<HTMLInputElement, Event>) => void,
+  style?: JSX.CSSProperties,
 }) => {
   const handler = useCallback((e: JSX.TargetedEvent<HTMLInputElement, Event>) => {
     onInput?.(e.currentTarget.value, e);
@@ -37,7 +39,8 @@ const Component = ({
         minlength={minlength}
         maxlength={maxlength}
         value={value}
-        onInput={handler} />
+        onInput={handler}
+        style={style} />
   );
 };
 

@@ -8,13 +8,15 @@ const Component = <T,>({
   checked,
   onChange,
   value,
+  style,
   children,
 }: {
   name: string,
   checked: T,
   onChange?: (checked: T, e: JSX.TargetedEvent<HTMLInputElement, Event>) => void,
-  children: ComponentChildren,
   value: T,
+  style?: JSX.CSSProperties,
+  children: ComponentChildren,
 }) => {
   const isChecked = useMemo(() => {
     return checked === value;
@@ -27,7 +29,7 @@ const Component = <T,>({
   }, [value, onChange]);
 
   return (
-    <label class="phi-radio">
+    <label class="phi-radio" style={style}>
       <input
           type="radio"
           class="input"

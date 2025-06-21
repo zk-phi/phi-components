@@ -1,14 +1,15 @@
-import type { ComponentChildren } from "preact";
+import type { ComponentChildren, JSX } from "preact";
 
 export type Gap = "sm" | "md";
 export type Align = "left" | "center" | "right" | "space-between";
 
-const Component = ({ gap, align, children }: {
+const Component = ({ gap, align, style, children }: {
   gap: Gap,
   align: Align,
+  style?: JSX.CSSProperties,
   children: ComponentChildren,
 }) => (
-  <div class={`phi-group ${gap} ${align}`}>
+  <div class={`phi-group ${gap} ${align}`} style={style}>
     {children}
   </div>
 );

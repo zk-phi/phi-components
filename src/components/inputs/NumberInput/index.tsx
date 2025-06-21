@@ -12,6 +12,7 @@ const Component = ({
   step,
   error,
   onInput,
+  style,
 }: {
   value?: number | undefined,
   placeholder: string,
@@ -21,6 +22,7 @@ const Component = ({
   step?: number,
   error?: boolean,
   onInput?: (value: number | undefined, e: JSX.TargetedEvent<HTMLInputElement, Event>) => void,
+  style?: JSX.CSSProperties,
 }) => {
   const [text, setText] = useState(value == null ? "" : value.toString());
 
@@ -40,7 +42,8 @@ const Component = ({
         max={max}
         min={min}
         step={step}
-        onInput={handler} />
+        onInput={handler}
+        style={style} />
   );
 };
 

@@ -1,4 +1,4 @@
-import type { ComponentChildren } from "preact";
+import type { ComponentChildren, JSX } from "preact";
 
 export type Variant = "default" | "primary" | "dotted";
 
@@ -9,17 +9,20 @@ const Component = ({
   danger,
   variant = "default",
   icon,
+  style,
   children,
 }: {
   danger?: boolean,
   variant: Variant,
   onClick?: () => void,
   icon?: ComponentChildren,
+  style?: JSX.CSSProperties,
   children: ComponentChildren,
 }) => (
   <button
       type="button"
       class={`phi-button ${variant} ${danger ? 'danger' : ''}`}
+      style={style}
       onClick={onClick}>
     {icon && <span class="icon">{icon}</span>}
     {children}

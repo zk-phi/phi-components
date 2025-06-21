@@ -7,12 +7,14 @@ const Component = <T,>({
   checked,
   onChange,
   value,
+  style,
   children,
 }: {
   checked: T[],
   onChange?: (checked: T[], e: JSX.TargetedEvent<HTMLInputElement, Event>) => void,
-  children: ComponentChildren,
   value: T,
+  style?: JSX.CSSProperties,
+  children: ComponentChildren,
 }) => {
   const isChecked = useMemo(() => {
     return checked.findIndex((item) => item === value) !== -1;
@@ -28,7 +30,7 @@ const Component = <T,>({
   }, [checked, value, onChange]);
 
   return (
-    <label class="phi-checkbox">
+    <label class="phi-checkbox" style={style}>
       <input
           type="checkbox"
           class="input"

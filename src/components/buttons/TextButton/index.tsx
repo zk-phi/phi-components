@@ -1,18 +1,21 @@
-import type { ComponentChildren } from "preact";
+import type { ComponentChildren, JSX } from "preact";
 
 const Component = ({
   onClick,
   danger,
+  style,
   children,
 }: {
   danger?: boolean,
   onClick?: () => void,
+  style?: JSX.CSSProperties,
   children: ComponentChildren,
 }) => (
   <button
       type="button"
       class={`phi-text-button ${danger ? 'danger' : ''}`}
-      onClick={onClick}>
+      onClick={onClick}
+      style={style}>
     {children}
   </button>
 );

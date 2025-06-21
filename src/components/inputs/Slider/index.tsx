@@ -9,12 +9,14 @@ const Component = ({
   max,
   step,
   onInput,
+  style,
 }: {
   value: number,
   min: number,
   max: number,
   step: number,
   onInput?: (value: number | undefined, e: JSX.TargetedEvent<HTMLInputElement, Event>) => void,
+  style?: JSX.CSSProperties,
 }) => {
   const handler = useCallback((e: JSX.TargetedEvent<HTMLInputElement, Event>) => {
     const textValue = e.currentTarget.value;
@@ -34,7 +36,7 @@ const Component = ({
         max={max}
         min={min}
         step={step}
-        style={{ background: gradient }}
+        style={{ background: gradient, ...style }}
         onInput={handler} />
   );
 };
