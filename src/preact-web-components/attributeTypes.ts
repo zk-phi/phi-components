@@ -62,7 +62,7 @@ export const maybeKeywordOrNumber = <Key>(others: Key[]) => {
   return (val: AttributeValue): Key | number | undefined => find(val) ?? maybeNumber(val);
 };
 
-export const keywordOrNumber = <Key>(deflt: Key | number, others: Key[]) => {
-  const find = maybeKeywordOrNumber(others);
+export const keywordOrNumber = <Key>(deflt: Key | number, others: Key[] = []) => {
+  const find = maybeKeywordOrNumber([deflt, ...others]);
   return (val: AttributeValue): Key | number => find(val) ?? deflt;
 };
