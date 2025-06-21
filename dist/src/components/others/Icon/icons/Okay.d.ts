@@ -1,2 +1,2 @@
-declare const Check: () => import("preact").JSX.Element;
-export default Check;
+declare const Okay: () => import("preact").JSX.Element;
+export default Okay;

@@ -1,2 +1,2 @@
-declare const Emoji: () => import("preact").JSX.Element;
-export default Emoji;
+declare const Beer: () => import("preact").JSX.Element;
+export default Beer;

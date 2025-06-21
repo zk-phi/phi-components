@@ -1,7 +1,8 @@
 import { ComponentChildren, JSX } from 'preact';
-declare const Component: <T extends boolean | any[]>({ checked, onChange, children, }: {
+declare const Component: ({ checked, onChange, style, children, }: {
     checked: boolean;
     onChange?: (checked: boolean, e: JSX.TargetedEvent<HTMLInputElement, Event>) => void;
+    style?: JSX.CSSProperties;
     children: ComponentChildren;
 }) => JSX.Element;
 export default Component;
