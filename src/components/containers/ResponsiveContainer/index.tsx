@@ -2,6 +2,8 @@ import type { ComponentChildren, JSX } from "preact";
 
 export type Padding = "sm" | "md";
 
+/* 本番でリロードすると壊れるの何。 */
+
 const Component = ({
   padding,
   maxWidth = "100%",

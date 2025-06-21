@@ -1,10 +1,11 @@
-import { ComponentChildren } from 'preact';
+import { ComponentChildren, JSX } from 'preact';
 export type Variant = "default" | "primary" | "dotted";
-declare const Component: ({ onClick, danger, variant, icon, children, }: {
+declare const Component: ({ onClick, danger, variant, icon, style, children, }: {
     danger?: boolean;
     variant: Variant;
     onClick?: () => void;
     icon?: ComponentChildren;
+    style?: JSX.CSSProperties;
     children: ComponentChildren;
-}) => import("preact").JSX.Element;
+}) => JSX.Element;
 export default Component;

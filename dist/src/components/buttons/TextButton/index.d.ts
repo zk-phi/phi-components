@@ -1,7 +1,8 @@
-import { ComponentChildren } from 'preact';
-declare const Component: ({ onClick, danger, children, }: {
+import { ComponentChildren, JSX } from 'preact';
+declare const Component: ({ onClick, danger, style, children, }: {
     danger?: boolean;
     onClick?: () => void;
+    style?: JSX.CSSProperties;
     children: ComponentChildren;
-}) => import("preact").JSX.Element;
+}) => JSX.Element;
 export default Component;
