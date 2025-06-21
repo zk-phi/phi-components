@@ -108,15 +108,15 @@ Suitable to align options, tags, etc.
 
 | Property   | Type                | Default | Description         |
 |------------|---------------------|---------|---------------------|
-| `gap`      | `md\|sm`            | `md`    | Switch gap variants |
+| `gap`      | `'md'\|'sm'`        | `'md'`  | Switch gap variants |
 | `children` | `ComponentChildren` | empty   | Child elements      |
 
 ### Custom Element
 #### Props / Attrs
 
-| Slot  | Category  | Type     | Default |
-|-------|-----------|----------|---------|
-| `gap` | Prop/Attr | `md\|sm` | `md`    |
+| Slot  | Category  | Type         | Default |
+|-------|-----------|--------------|---------|
+| `gap` | Prop/Attr | `'md'\|'sm'` | `'md'`  |
 
 ### Pure-CSS
 #### Classes

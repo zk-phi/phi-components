@@ -198,19 +198,19 @@ Suitable to align options, tags, etc.
 ### Preact
 #### Properties
 
-| Property   | Type                  | Default | Description               |
-|------------|-----------------------|---------|---------------------------|
-| `gap`      | `md\|sm`              | `md`    | Switch gap variants       |
-| `align`    | `left\|center\|right` | `left`  | Switch alignment variants |
-| `children` | `ComponentChildren`   | empty   | Child elements            |
+| Property   | Type                        | Default  | Description               |
+|------------|-----------------------------|----------|---------------------------|
+| `gap`      | `'md'\|'sm'`                | `'md'`   | Switch gap variants       |
+| `align`    | `'left'\|'center'\|'right'` | `'left'` | Switch alignment variants |
+| `children` | `ComponentChildren`         | empty    | Child elements            |
 
 ### Custom Element
 #### Props / Attrs
 
-| Slot    | Category  | Type                  | Default |
-|---------|-----------|-----------------------|---------|
-| `gap`   | Prop/Attr | `md\|sm`              | `md`    |
-| `align` | Prop/Attr | `left\|center\|right` | `left`  |
+| Slot    | Category  | Type                        | Default  |
+|---------|-----------|-----------------------------|----------|
+| `gap`   | Prop/Attr | `'md'\|'sm'`                | `'md'`   |
+| `align` | Prop/Attr | `'left'\|'center'\|'right'` | `'left'` |
 
 ### Pure-CSS
 #### Classes

@@ -105,7 +105,7 @@ document.getElementById("input").addEventListener("input", onInput);
 | `required`    | `boolean`           | `false`     | Whether non-empty string is allowed       |
 | `minlength`   | `number\|undefined` | `undefined` | Minimum allowed length of string          |
 | `maxlength`   | `number\|undefined` | `undefined` | Maximum allowed length of string          |
-| `size`        | `md\|sm`            | `"md"`      | Select size variants                      |
+| `size`        | `'md'\|'sm'`        | `"'md'"`    | Select size variants                      |
 | `error`       | `boolean`           | `false`     | Toggle error variant                      |
 | `onInput`     | `string => void`    | `false`     | A handler function called on input change |
 
@@ -119,7 +119,7 @@ document.getElementById("input").addEventListener("input", onInput);
 | `required`    | Prop/Attr | `boolean`           | `false`     |
 | `minlength`   | Prop/Attr | `number\|undefined` | `undefined` |
 | `maxlength`   | Prop/Attr | `number\|undefined` | `undefined` |
-| `size`        | Prop/Attr | `md\|sm`            | `"md"`      |
+| `size`        | Prop/Attr | `'md'\|'sm'`        | `"'md'"`    |
 | `error`       | Prop/Attr | `boolean`           | `false`     |
 
 #### Events

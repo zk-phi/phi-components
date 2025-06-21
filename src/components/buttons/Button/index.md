@@ -137,22 +137,22 @@ Suitable for irreversible actions (that usually cause data loss), so that users 
 ### Preact
 #### Properties
 
-| Property   | Type                       | Default   | Description                        |
-|------------|----------------------------|-----------|------------------------------------|
-| `onClick`  | `() => void`               | empty     | A handler function called on click |
-| `danger`   | `boolean`                  | `false`   | Toggle danger color variant        |
-| `variant`  | `default\|primary\|dotted` | `default` | Switch style variants              |
-| `icon`     | `ComponentChildren`        | empty     | An icon DOM element                |
-| `children` | `ComponentChildren`        | empty     | Button text                        |
+| Property   | Type                             | Default     | Description                        |
+|------------|----------------------------------|-------------|------------------------------------|
+| `onClick`  | `() => void`                     | empty       | A handler function called on click |
+| `danger`   | `boolean`                        | `false`     | Toggle danger color variant        |
+| `variant`  | `'default'\|'primary'\|'dotted'` | `'default'` | Switch style variants              |
+| `icon`     | `ComponentChildren`              | empty       | An icon DOM element                |
+| `children` | `ComponentChildren`              | empty       | Button text                        |
 
 ### Custom Element
 #### Props / Attrs
 
-| Slot      | Category  | Type                       | Default   |
-|-----------|-----------|----------------------------|-----------|
-| `danger`  | Prop/Attr | `boolean`                  | `false`   |
-| `variant` | Prop/Attr | `default\|primary\|dotted` | `default` |
-| `icon`    | Slot      | -                          | -         |
+| Slot      | Category  | Type                             | Default     |
+|-----------|-----------|----------------------------------|-------------|
+| `danger`  | Prop/Attr | `boolean`                        | `false`     |
+| `variant` | Prop/Attr | `'default'\|'primary'\|'dotted'` | `'default'` |
+| `icon`    | Slot      | -                                | -           |
 
 #### Events
 
