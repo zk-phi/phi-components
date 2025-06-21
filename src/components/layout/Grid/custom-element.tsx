@@ -31,8 +31,6 @@ const WCComponent = ({ gap, cols, colWidth, colMinWidth, colMaxWidth, children }
   </Component>
 );
 
-const WIDTH_OPTIONS = ["fit-content", "max-content", "min-content"];
-
 export default () => register(WCComponent, "phi-grid", {
   adoptedStyleSheets: [root, sheet],
   properties: [{
