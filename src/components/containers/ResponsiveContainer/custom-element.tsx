@@ -2,7 +2,7 @@ import type { ComponentChildren } from "preact";
 import {
   register,
   keyword,
-  number,
+  maybeNumber,
   instantiateStyleSheet,
   type SignalLike,
 } from "../../../preact-web-components";
@@ -14,7 +14,7 @@ const sheet = instantiateStyleSheet(style);
 
 const WCComponent = ({ padding, maxWidth, children }: {
   padding: SignalLike<Padding>,
-  maxWidth: SignalLike<number>,
+  maxWidth: SignalLike<number | undefined>,
   children: ComponentChildren,
 }) => (
   <Component padding={padding.value} maxWidth={maxWidth.value}>
@@ -29,6 +29,6 @@ export default () => register(WCComponent, "phi-responsive-container", {
     attribute: { name: "padding", type: keyword("md", ["sm"]) },
   }, {
     name: "maxWidth",
-    attribute: { name: "max-width", type: number(750) },
+    attribute: { name: "max-width", type: maybeNumber },
   }],
 });

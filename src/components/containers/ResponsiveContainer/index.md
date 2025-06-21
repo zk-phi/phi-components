@@ -50,19 +50,19 @@ NOTE: `configuration` ATTRIBUTE is not supported, so you need some JS to configu
 ### Preact
 #### Properties
 
-| Property   | Type         | Default    | Description             |
-|------------|--------------|------------|-------------------------|
-| `padding`  | `'md'\|'sm'` | `'md'`     | Switch padding variants |
-| `maxWidth` | `number`     | (required) | Max app width           |
+| Property   | Type         | Default  | Description             |
+|------------|--------------|----------|-------------------------|
+| `padding`  | `'md'\|'sm'` | `'md'`   | Switch padding variants |
+| `maxWidth` | `number`     | `'100%'` | Max app width           |
 
 ### Custom Element
 #### Props / Attrs
 
-| Slot        | Category  | Type         | Default |
-|-------------|-----------|--------------|---------|
-| `padding`   | Prop/Attr | `'md'\|'sm'` | `'md'`  |
-| `maxWidth`  | Prop      | `number`     | `750`   |
-| `max-width` | Attr      | `number`     | `750`   |
+| Slot        | Category  | Type                | Default     |
+|-------------|-----------|---------------------|-------------|
+| `padding`   | Prop/Attr | `'md'\|'sm'`        | `'md'`      |
+| `maxWidth`  | Prop      | `number\|undefined` | `undefined` |
+| `max-width` | Attr      | `number\|undefined` | `undefined` |
 
 ### Pure-CSS
 #### Classes

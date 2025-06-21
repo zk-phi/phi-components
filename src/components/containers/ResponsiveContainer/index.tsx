@@ -4,12 +4,12 @@ export type Padding = "sm" | "md";
 
 const Component = ({
   padding,
-  maxWidth,
+  maxWidth = "100%",
   style,
   children,
 }: {
   padding: Padding,
-  maxWidth: number,
+  maxWidth?: number | "100%",
   style?: JSX.CSSProperties,
   children: ComponentChildren,
 }) => (
