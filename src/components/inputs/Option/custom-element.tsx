@@ -43,6 +43,6 @@ export default () => register(WCComponent, "phi-option", {
     attribute: { name: "checked", type: stringList },
   }, {
     name: "value",
-    attribute: { name: "variant", type: string }
+    attribute: { name: "value", type: string }
   }],
 });

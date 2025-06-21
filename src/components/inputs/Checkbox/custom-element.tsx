@@ -42,6 +42,6 @@ export default () => register(WCComponent, "phi-checkbox", {
     attribute: { name: "checked", type: boolean },
   }, {
     name: "value",
-    attribute: { name: "variant", type: string }
+    attribute: { name: "value", type: string }
   }],
 });

@@ -46,6 +46,6 @@ export default () => register(WCComponent, "phi-radio", {
     attribute: { name: "checked", type: string },
   }, {
     name: "value",
-    attribute: { name: "variant", type: string }
+    attribute: { name: "value", type: string }
   }],
 });
