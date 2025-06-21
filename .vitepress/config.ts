@@ -54,6 +54,7 @@ export default defineConfig({
         items: [
           { text: "Group", link: "/components/layout/Group/" },
           { text: "Stack", link: "/components/layout/Stack/" },
+          { text: "Grid", link: "/components/layout/Grid/" },
         ],
       }, {
         text: "Others",

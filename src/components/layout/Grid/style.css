@@ -1,0 +1,13 @@
+.phi-grid {
+  display: grid;
+  width: 100%;
+  flex-wrap: wrap;
+
+  &.md {
+    gap: var(--phi-spacing-margin-md);
+  }
+
+  &.sm {
+    gap: var(--phi-spacing-margin-sm);
+  }
+}
