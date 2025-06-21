@@ -28,7 +28,7 @@ export default () => register(WCComponent, "phi-responsive-container", {
     name: "padding",
     attribute: { name: "padding", type: keyword("md", ["sm"]) },
   }, {
-    name: "maxWidth",
+    name: "max-width",
     attribute: { name: "max-width", type: maybeNumber },
   }],
 });
