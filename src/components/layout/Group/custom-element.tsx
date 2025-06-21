@@ -1,7 +1,7 @@
 import type { ComponentChildren } from "preact";
 import {
   register,
-  oneof,
+  keyword,
   instantiateStyleSheet,
   type SignalLike,
 } from "../../../preact-web-components";
@@ -25,9 +25,9 @@ export default () => register(WCComponent, "phi-group", {
   adoptedStyleSheets: [root, sheet],
   properties: [{
     name: "gap",
-    attribute: { name: "gap", type: oneof("md", ["sm"]) },
+    attribute: { name: "gap", type: keyword("md", ["sm"]) },
   }, {
     name: "align",
-    attribute: { name: "align", type: oneof("left", ["center", "right", "space-between"]) },
+    attribute: { name: "align", type: keyword("left", ["center", "right", "space-between"]) },
   }],
 });

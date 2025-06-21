@@ -2,7 +2,7 @@ import type { ComponentChildren } from "preact";
 import {
   register,
   boolean,
-  oneof,
+  keyword,
   instantiateStyleSheet,
   type SignalLike,
 } from "../../../preact-web-components";
@@ -33,6 +33,6 @@ export default () => register(WCComponent, "phi-button", {
     attribute: { name: "danger", type: boolean }
   }, {
     name: "variant",
-    attribute: { name: "variant", type: oneof("default", ["primary", "dotted"]) }
+    attribute: { name: "variant", type: keyword("default", ["primary", "dotted"]) }
   }],
 });

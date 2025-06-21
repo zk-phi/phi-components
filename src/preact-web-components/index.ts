@@ -1,12 +1,15 @@
 export {
   boolean,
   string,
-  numberOrUndef,
-  numberWithDefault,
+  number,
+  maybeNumber,
   stringList,
   numberList,
   raw,
-  oneof,
+  keyword,
+  maybeKeyword,
+  keywordOrNumber,
+  maybeKeywordOrNumber,
 } from "./attributeTypes";
 
 export {

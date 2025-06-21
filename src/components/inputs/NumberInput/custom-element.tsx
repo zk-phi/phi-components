@@ -3,7 +3,7 @@ import type { JSX } from "preact";
 import {
   register,
   string,
-  numberOrUndef,
+  maybeNumber,
   boolean,
   instantiateStyleSheet,
   type SignalLike,
@@ -51,19 +51,19 @@ export default () => register(WCComponent, "phi-number-input", {
   properties: [{
     name: "value",
     formAssociated: true,
-    attribute: { name: "value", type: numberOrUndef },
+    attribute: { name: "value", type: maybeNumber },
   }, {
     name: "required",
     attribute: { name: "required", type: boolean },
   }, {
     name: "min",
-    attribute: { name: "min", type: numberOrUndef },
+    attribute: { name: "min", type: maybeNumber },
   }, {
     name: "max",
-    attribute: { name: "max", type: numberOrUndef },
+    attribute: { name: "max", type: maybeNumber },
   }, {
     name: "step",
-    attribute: { name: "step", type: numberOrUndef },
+    attribute: { name: "step", type: maybeNumber },
   }, {
     name: "placeholder",
     attribute: { name: "placeholder", type: string },

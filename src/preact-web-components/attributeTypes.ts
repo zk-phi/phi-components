@@ -8,12 +8,20 @@ export const string = (val: AttributeValue): string => (
   val == null ? "" : val.toString()
 );
 
-export const numberOrUndef = (val: AttributeValue): number | undefined => (
-  val === null ? undefined : val === "" || val === false || val === true ? Number.NaN : Number(val)
+export const maybeNumber = (val: AttributeValue): number | undefined => (
+  typeof val === "number" ? (
+    val
+  ) : val == null || val === "" ? (
+    undefined
+  ) : typeof val === "string" ? (
+    Number(val)
+  ) : (
+    Number.NaN
+  )
 );
 
-export const numberWithDefault = (n: number) => (val: AttributeValue) => (
-  numberOrUndef(val) ?? n
+export const number = (n: number) => (
+  (val: AttributeValue) => maybeNumber(val) ?? n
 );
 
 export const stringList = (val: AttributeValue): string[] => (
@@ -30,18 +38,31 @@ export const stringList = (val: AttributeValue): string[] => (
 
 export const numberList = (val: AttributeValue): number[] => {
   const list = stringList(val);
-  const numbers = list.map(str => Number(str));
-  return numbers.some(num => Number.isNaN(num)) ? [] : numbers;
+  return list.map(str => str === "" ? Number.NaN : Number(str));
 };
 
 export const raw = (val: AttributeValue): AttributeValue => (
   val
 );
 
-export const oneof = (deflt: string, others: string[]) => {
-  const items = [deflt, ...others];
-  return (val: AttributeValue): string => {
+export const maybeKeyword = <Key>(items: Key[]) => {
+  return (val: AttributeValue): Key | undefined => {
     const string = val?.toString() ?? "";
-    return items.find(item => item === string) ?? deflt;
+    return items.find(item => item === string) ?? undefined;
   };
+};
+
+export const keyword = <Key>(deflt: Key, others: Key[]) => {
+  const find = maybeKeyword(others);
+  return (val: AttributeValue): Key => find(val) ?? deflt;
+};
+
+export const maybeKeywordOrNumber = <Key>(others: Key[]) => {
+  const find = maybeKeyword(others);
+  return (val: AttributeValue): Key | number | undefined => find(val) ?? maybeNumber(val);
+};
+
+export const keywordOrNumber = <Key>(deflt: Key | number, others: Key[]) => {
+  const find = maybeKeywordOrNumber(others);
+  return (val: AttributeValue): Key | number => find(val) ?? deflt;
 };

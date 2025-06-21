@@ -4,8 +4,8 @@ import {
   register,
   string,
   boolean,
-  numberOrUndef,
-  oneof,
+  maybeNumber,
+  keyword,
   instantiateStyleSheet,
   type SignalLike,
 } from "../../../preact-web-components";
@@ -70,13 +70,13 @@ export default () => register(WCComponent, "phi-text-input", {
     attribute: { name: "required", type: boolean },
   }, {
     name: "minlength",
-    attribute: { name: "minlength", type: numberOrUndef },
+    attribute: { name: "minlength", type: maybeNumber },
   }, {
     name: "maxlength",
-    attribute: { name: "maxlength", type: numberOrUndef },
+    attribute: { name: "maxlength", type: maybeNumber },
   }, {
     name: "size",
-    attribute: { name: "size", type: oneof("md", ["sm"]) },
+    attribute: { name: "size", type: keyword("md", ["sm"]) },
   }, {
     name: "error",
     attribute: { name: "error", type: boolean },

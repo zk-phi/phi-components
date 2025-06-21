@@ -2,8 +2,8 @@ import { useCallback } from "preact/hooks";
 import type { JSX } from "preact";
 import {
   register,
-  numberOrUndef,
-  numberWithDefault,
+  maybeNumber,
+  number,
   instantiateStyleSheet,
   type SignalLike,
 } from "../../../preact-web-components";
@@ -44,15 +44,15 @@ export default () => register(WCComponent, "phi-slider", {
   properties: [{
     name: "value",
     formAssociated: true,
-    attribute: { name: "value", type: numberOrUndef },
+    attribute: { name: "value", type: maybeNumber },
   }, {
     name: "min",
-    attribute: { name: "min", type: numberWithDefault(0) },
+    attribute: { name: "min", type: number(0) },
   }, {
     name: "max",
-    attribute: { name: "max", type: numberWithDefault(100) },
+    attribute: { name: "max", type: number(100) },
   }, {
     name: "step",
-    attribute: { name: "step", type: numberWithDefault(1) },
+    attribute: { name: "step", type: number(1) },
   }],
 });
