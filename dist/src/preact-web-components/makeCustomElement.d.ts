@@ -32,6 +32,7 @@ export declare const makeCustomElement: (Component: PreactComponent, options?: O
         _vdom: VNode | null;
         _internals: ElementInternals | null;
         _props: Record<string, InternalProp<any>>;
+        _camelCaseProps: Record<string, InternalProp<any>>;
         _frameRequested: boolean;
         parseAttribute<T>(attribute: AttributeConfig<T>): T;
         setProp(name: string, value: any, markAsDirty: boolean): void;
