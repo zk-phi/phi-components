@@ -12,7 +12,7 @@ function de(e) {
 function D(e, t, r) {
   var o, i, n, s = {};
   for (n in t) n == "key" ? o = t[n] : n == "ref" ? i = t[n] : s[n] = t[n];
-  if (arguments.length > 2 && (s.children = arguments.length > 3 ? I.call(arguments, 2) : r), typeof e == "function" && e.defaultProps != null) for (n in e.defaultProps) s[n] == null && (s[n] = e.defaultProps[n]);
+  if (arguments.length > 2 && (s.children = arguments.length > 3 ? I.call(arguments, 2) : r), typeof e == "function" && e.defaultProps != null) for (n in e.defaultProps) s[n] === void 0 && (s[n] = e.defaultProps[n]);
   return U(e, s, o, i, null);
 }
 function U(e, t, r, o, i) {
@@ -228,7 +228,7 @@ function oe(e, t, r) {
 }
 function tt(e, t, r) {
   var o, i, n, s, c = H({}, e.props);
-  for (n in e.type && e.type.defaultProps && (s = e.type.defaultProps), t) n == "key" ? o = t[n] : n == "ref" ? i = t[n] : c[n] = t[n] == null && s != null ? s[n] : t[n];
+  for (n in e.type && e.type.defaultProps && (s = e.type.defaultProps), t) n == "key" ? o = t[n] : n == "ref" ? i = t[n] : c[n] = t[n] === void 0 && s != null ? s[n] : t[n];
   return arguments.length > 2 && (c.children = arguments.length > 3 ? I.call(arguments, 2) : r), U(e.type, c, o || e.key, i || e.ref, null);
 }
 I = qe.slice, g = { __e: function(e, t, r, o) {
