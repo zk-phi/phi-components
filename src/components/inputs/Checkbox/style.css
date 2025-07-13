@@ -23,8 +23,8 @@
       transform: rotate(45deg);
       width: 4px;
       height: 9px;
-      border-right: 1px solid currentColor;
-      border-bottom: 1px solid currentColor;
+      border-right: 1px solid var(--phi-color-fg);
+      border-bottom: 1px solid var(--phi-color-fg);
     }
   }
 
