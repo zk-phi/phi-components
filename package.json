@@ -35,7 +35,7 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@preact/preset-vite": "^2.10.2",
-    "concurrently": "^9.1.2",
+    "concurrently": "^9.2.0",
     "preact": "^10.26.9",
     "typescript": "^5.8.3",
     "vite": "^6.3.5",
