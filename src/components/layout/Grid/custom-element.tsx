@@ -48,19 +48,19 @@ export default () => register(WCComponent, "phi-grid", {
       type: keywordOrNumber("auto-fit"),
     },
   }, {
-    name: "col-width",
+    name: "colWidth",
     attribute: {
       name: "col-width",
       type: maybeKeywordOrNumber(["max-content", "min-content"]),
     },
   }, {
-    name: "col-min-width",
+    name: "colMinWidth",
     attribute: {
       name: "col-min-width",
       type: keywordOrNumber("max-content", ["min-content"]),
     },
   }, {
-    name: "col-max-width",
+    name: "colMaxWidth",
     attribute: {
       name: "col-max-width",
       type: keywordOrNumber("max-content", ["min-content"]),

@@ -30,7 +30,7 @@ NOTE: `configuration` ATTRIBUTE is not supported, so you need some JS to configu
 
 ``` html
 <div style="background: #888">
-  <phi-responsive-container padding="md" :maxWidth="420">
+  <phi-responsive-container padding="md" :max-width="420">
     <div style="color: white; background: red; min-height: 260px">App</div>
   </phi-responsive-container>
 </div>

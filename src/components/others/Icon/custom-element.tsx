@@ -16,7 +16,6 @@ const WCComponent = ({ icon }: {
   <Component icon={icon.value} />
 );
 
-
 export default () => register(WCComponent, "phi-icon", {
   adoptedStyleSheets: [root, sheet],
   properties: [{

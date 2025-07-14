@@ -66,10 +66,6 @@ const serializeFormValue = (value: any): string | FormData => {
   return formData;
 }
 
-const toCamel = (str: string): string => (
-  str.replace(/-(\w)/g, (_, c) => (c ? c.toUpperCase() : ""))
-);
-
 export const makeCustomElement = (
   Component: PreactComponent,
   options?: Options,
@@ -92,7 +88,6 @@ export const makeCustomElement = (
     _vdom: VNode | null = null;
     _internals: ElementInternals | null;
     _props: Record<string, InternalProp<any>>;
-    _camelCaseProps: Record<string, InternalProp<any>>;
     _frameRequested = false;
 
     constructor () {
@@ -118,9 +113,6 @@ export const makeCustomElement = (
           }];
         })
       );
-      this._camelCaseProps = Object.fromEntries(
-        Object.entries(this._props).map(entry => [toCamel(entry[0]), entry[1]])
-      );
     }
 
     parseAttribute <T>(attribute: AttributeConfig<T>) {
@@ -145,7 +137,7 @@ export const makeCustomElement = (
         requestAnimationFrame(() => {
           if (this._vdom) {
             this._frameRequested = false;
-            this._vdom = cloneElement(this._vdom, this._camelCaseProps);
+            this._vdom = cloneElement(this._vdom, this._props);
             render(this._vdom, this._root);
           }
         });
@@ -156,7 +148,7 @@ export const makeCustomElement = (
       const vSlots: Record<string, VNode<any>> = Object.fromEntries(
         slots.map(slot => [slot, h(Slot, { name: slot }, null)]),
       );
-      const props = { $el: this, ...this._camelCaseProps, ...vSlots };
+      const props = { $el: this, ...this._props, ...vSlots };
       this._vdom = h(Component, props, h(Slot, { name: undefined }, null));
       render(this._vdom, this._root);
     }
