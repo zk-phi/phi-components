@@ -24,7 +24,7 @@ Resize the window to see how this component works.
 ### Preact
 
 ``` jsx
-<ResponsiveColumns gap="md" configuration={
+<ResponsiveColumns gap="md" :configuration={
   { width: 0, columns: [1] },
   { width: 500, columns: [1, 2] },
   { width: 1000, columns: [1, 2, 1] },
