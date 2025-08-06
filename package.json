@@ -41,7 +41,7 @@
     "vite": "^6.3.5",
     "vite-bundle-analyzer": "^1.1.0",
     "vite-plugin-dts": "^4.5.4",
-    "vitepress": "^1.6.3"
+    "vitepress": "^1.6.4"
   },
   "peerDependencies": {
     "preact": "^10.26.9"
