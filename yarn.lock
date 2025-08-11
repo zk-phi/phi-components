@@ -2394,10 +2394,10 @@ vfile@^6.0.0:
     "@types/unist" "^3.0.0"
     vfile-message "^4.0.0"
 
-vite-bundle-analyzer@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/vite-bundle-analyzer/-/vite-bundle-analyzer-1.1.0.tgz#211ff64e71e7e113b88d5d9810024a89e5fe4313"
-  integrity sha512-f/9m+6S5yPOHf/QS00rLOkyQ0icZeF67roM3O5LZZMPTOZFU1bHJTptNHCKMJc2yxXzj0Hunwcetrc+vM2LEQQ==
+vite-bundle-analyzer@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/vite-bundle-analyzer/-/vite-bundle-analyzer-1.2.1.tgz#1767ce9684283310a799747a87e1b871cd81ee7b"
+  integrity sha512-dpJMQBnVjieMirpHILmgGsZAWU8fGyqK3ckj6O48wdy3fARlH7Mnz7BfYFUsd3ZdbuXjsYe7t5I/q2zsMOd5ig==
 
 vite-plugin-dts@^4.5.4:
   version "4.5.4"
