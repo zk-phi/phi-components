@@ -6,6 +6,8 @@
  * NOTE:
  * We define these variables for each shadow root, so that the palette can be
  * overriden at non-root parents.
+ * This behavior is used to implement figure.dark element in the principles.md
+ * for an example.
  */
 
 /* size:
