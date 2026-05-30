@@ -6,7 +6,7 @@ Available in three different formats (Pure-CSS, WebComponent, Preact).
 
 ## Technologies
 
-- Language: `TypeScript`, `PostCSS`
+- Language: `TSX/TypeScript`, `PostCSS`
 - Bundler: `Vite`
 - DOM manipulation: `Preact`
 - Documentation: `Vitebook`
