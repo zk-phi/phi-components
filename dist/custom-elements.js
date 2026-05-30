@@ -325,7 +325,7 @@ const A = (e) => e && e !== "false" && e !== "0" || e === "", T = (e) => e == nu
     }
     rerender() {
       this._frameRequested || (this._frameRequested = !0, requestAnimationFrame(() => {
-        this._vdom && (this._frameRequested = !1, this._vdom = rt(this._vdom, this._props), oe(this._vdom, this._root));
+        this._frameRequested = !1, this._vdom && (this._vdom = rt(this._vdom, this._props), oe(this._vdom, this._root));
       }));
     }
     connectedCallback() {
