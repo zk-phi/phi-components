@@ -828,9 +828,9 @@ const Ge = (t) => G("slot", t), Ye = (t) => {
   for (const o of e)
     r.append(o, t[o].toString());
   return r;
-}, Zt = (t, e) => {
+}, Zt = (t, e = {}) => {
   var l, d;
-  const r = (e == null ? void 0 : e.properties) ?? [], o = (e == null ? void 0 : e.slots) ?? [], i = ((l = e == null ? void 0 : e.adoptedStyleSheets) == null ? void 0 : l.filter((a) => !!a)) ?? [], n = Object.fromEntries(
+  const r = e.properties ?? [], o = e.slots ?? [], i = ((l = e.adoptedStyleSheets) == null ? void 0 : l.filter((a) => !!a)) ?? [], n = Object.fromEntries(
     r.filter((a) => "attribute" in a).map((a) => [a.attribute.name, { prop: a.name, parser: a.attribute.type }])
   ), s = Object.keys(n), c = (d = r.find((a) => a.formAssociated)) == null ? void 0 : d.name;
   class p extends HTMLElement {
@@ -879,7 +879,7 @@ const Ge = (t) => G("slot", t), Ye = (t) => {
       }
     });
   return p;
-}, S = (t, e, r) => {
+}, S = (t, e, r = {}) => {
   const o = Zt(t, r);
   return customElements.define(e, o);
 }, z = (...t) => {
