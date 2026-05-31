@@ -1,8 +1,6 @@
-import { FunctionComponent, ComponentClass, FunctionalComponent, VNode } from 'preact';
+import { FunctionComponent, ComponentClass, FunctionalComponent } from 'preact';
+import { Signal } from '@preact/signals';
 export type AttributeValue = null | string | boolean | number;
-export type SignalLike<T> = {
-    value: T;
-};
 export type PreactComponent = FunctionComponent<any> | ComponentClass<any> | FunctionalComponent<any>;
 type AttributeConfig<T> = {
     name: string;
@@ -21,27 +19,22 @@ export type Options = {
     slots?: string[];
     properties?: PropertyConfig<any>[];
 };
-type InternalProp<T> = {
-    _dirty: boolean;
-    _value: T;
-    value: T;
-};
 export declare const makeCustomElement: (Component: PreactComponent, options?: Options) => {
     new (): {
         _root: ShadowRoot;
-        _vdom: VNode | null;
         _internals: ElementInternals | null;
-        _props: Record<string, InternalProp<any>>;
+        _props: Record<string, Signal<any>>;
+        _dirtyAttrs: Record<string, true>;
         _frameRequested: boolean;
         parseAttribute<T>(attribute: AttributeConfig<T>): T;
         setProp(name: string, value: any, markAsDirty: boolean): void;
-        rerender(): void;
         connectedCallback(): void;
         disconnectedCallback(): void;
         attributeChangedCallback(name: string, _: AttributeValue, newValue: AttributeValue): void;
         accessKey: string;
         readonly accessKeyLabel: string;
         autocapitalize: string;
+        autocorrect: boolean;
         dir: string;
         draggable: boolean;
         hidden: boolean;
@@ -149,6 +142,8 @@ export declare const makeCustomElement: (Component: PreactComponent, options?: O
         setPointerCapture(pointerId: number): void;
         toggleAttribute(qualifiedName: string, force?: boolean): boolean;
         webkitMatchesSelector(selectors: string): boolean;
+        get textContent(): string;
+        set textContent(value: string | null);
         readonly baseURI: string;
         readonly childNodes: NodeListOf<ChildNode>;
         readonly firstChild: ChildNode | null;
@@ -161,7 +156,6 @@ export declare const makeCustomElement: (Component: PreactComponent, options?: O
         readonly parentElement: HTMLElement | null;
         readonly parentNode: ParentNode | null;
         readonly previousSibling: ChildNode | null;
-        textContent: string | null;
         appendChild<T extends Node>(node: T): T;
         cloneNode(subtree?: boolean): Node;
         compareDocumentPosition(other: Node): number;
@@ -196,6 +190,7 @@ export declare const makeCustomElement: (Component: PreactComponent, options?: O
         readonly DOCUMENT_POSITION_CONTAINED_BY: 16;
         readonly DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC: 32;
         dispatchEvent(event: Event): boolean;
+        ariaActiveDescendantElement: Element | null;
         ariaAtomic: string | null;
         ariaAutoComplete: string | null;
         ariaBrailleLabel: string | null;
@@ -206,21 +201,28 @@ export declare const makeCustomElement: (Component: PreactComponent, options?: O
         ariaColIndex: string | null;
         ariaColIndexText: string | null;
         ariaColSpan: string | null;
+        ariaControlsElements: ReadonlyArray<Element> | null;
         ariaCurrent: string | null;
+        ariaDescribedByElements: ReadonlyArray<Element> | null;
         ariaDescription: string | null;
+        ariaDetailsElements: ReadonlyArray<Element> | null;
         ariaDisabled: string | null;
+        ariaErrorMessageElements: ReadonlyArray<Element> | null;
         ariaExpanded: string | null;
+        ariaFlowToElements: ReadonlyArray<Element> | null;
         ariaHasPopup: string | null;
         ariaHidden: string | null;
         ariaInvalid: string | null;
         ariaKeyShortcuts: string | null;
         ariaLabel: string | null;
+        ariaLabelledByElements: ReadonlyArray<Element> | null;
         ariaLevel: string | null;
         ariaLive: string | null;
         ariaModal: string | null;
         ariaMultiLine: string | null;
         ariaMultiSelectable: string | null;
         ariaOrientation: string | null;
+        ariaOwnsElements: ReadonlyArray<Element> | null;
         ariaPlaceholder: string | null;
         ariaPosInSet: string | null;
         ariaPressed: string | null;
@@ -278,18 +280,19 @@ export declare const makeCustomElement: (Component: PreactComponent, options?: O
         onanimationend: ((this: GlobalEventHandlers, ev: AnimationEvent) => any) | null;
         onanimationiteration: ((this: GlobalEventHandlers, ev: AnimationEvent) => any) | null;
         onanimationstart: ((this: GlobalEventHandlers, ev: AnimationEvent) => any) | null;
-        onauxclick: ((this: GlobalEventHandlers, ev: MouseEvent) => any) | null;
+        onauxclick: ((this: GlobalEventHandlers, ev: PointerEvent) => any) | null;
         onbeforeinput: ((this: GlobalEventHandlers, ev: InputEvent) => any) | null;
-        onbeforetoggle: ((this: GlobalEventHandlers, ev: Event) => any) | null;
+        onbeforematch: ((this: GlobalEventHandlers, ev: Event) => any) | null;
+        onbeforetoggle: ((this: GlobalEventHandlers, ev: ToggleEvent) => any) | null;
         onblur: ((this: GlobalEventHandlers, ev: FocusEvent) => any) | null;
         oncancel: ((this: GlobalEventHandlers, ev: Event) => any) | null;
         oncanplay: ((this: GlobalEventHandlers, ev: Event) => any) | null;
         oncanplaythrough: ((this: GlobalEventHandlers, ev: Event) => any) | null;
         onchange: ((this: GlobalEventHandlers, ev: Event) => any) | null;
-        onclick: ((this: GlobalEventHandlers, ev: MouseEvent) => any) | null;
+        onclick: ((this: GlobalEventHandlers, ev: PointerEvent) => any) | null;
         onclose: ((this: GlobalEventHandlers, ev: Event) => any) | null;
         oncontextlost: ((this: GlobalEventHandlers, ev: Event) => any) | null;
-        oncontextmenu: ((this: GlobalEventHandlers, ev: MouseEvent) => any) | null;
+        oncontextmenu: ((this: GlobalEventHandlers, ev: PointerEvent) => any) | null;
         oncontextrestored: ((this: GlobalEventHandlers, ev: Event) => any) | null;
         oncopy: ((this: GlobalEventHandlers, ev: ClipboardEvent) => any) | null;
         oncuechange: ((this: GlobalEventHandlers, ev: Event) => any) | null;
@@ -337,6 +340,7 @@ export declare const makeCustomElement: (Component: PreactComponent, options?: O
         onpointermove: ((this: GlobalEventHandlers, ev: PointerEvent) => any) | null;
         onpointerout: ((this: GlobalEventHandlers, ev: PointerEvent) => any) | null;
         onpointerover: ((this: GlobalEventHandlers, ev: PointerEvent) => any) | null;
+        onpointerrawupdate: ((this: GlobalEventHandlers, ev: Event) => any) | null;
         onpointerup: ((this: GlobalEventHandlers, ev: PointerEvent) => any) | null;
         onprogress: ((this: GlobalEventHandlers, ev: ProgressEvent) => any) | null;
         onratechange: ((this: GlobalEventHandlers, ev: Event) => any) | null;
@@ -355,7 +359,7 @@ export declare const makeCustomElement: (Component: PreactComponent, options?: O
         onsubmit: ((this: GlobalEventHandlers, ev: SubmitEvent) => any) | null;
         onsuspend: ((this: GlobalEventHandlers, ev: Event) => any) | null;
         ontimeupdate: ((this: GlobalEventHandlers, ev: Event) => any) | null;
-        ontoggle: ((this: GlobalEventHandlers, ev: Event) => any) | null;
+        ontoggle: ((this: GlobalEventHandlers, ev: ToggleEvent) => any) | null;
         ontouchcancel?: ((this: GlobalEventHandlers, ev: TouchEvent) => any) | null | undefined;
         ontouchend?: ((this: GlobalEventHandlers, ev: TouchEvent) => any) | null | undefined;
         ontouchmove?: ((this: GlobalEventHandlers, ev: TouchEvent) => any) | null | undefined;
