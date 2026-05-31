@@ -1,11 +1,11 @@
 import type { ComponentChildren } from "preact";
+import type { Signal } from "@preact/signals";
 import {
   register,
   keyword,
   keywordOrNumber,
   maybeKeywordOrNumber,
   instantiateStyleSheet,
-  type SignalLike,
 } from "../../../preact-web-components";
 import Component, { type Gap, type Cols, type ColWidth, type Align } from ".";
 import root from "../../../root";
@@ -14,12 +14,12 @@ import style from "./style.css?inline";
 const sheet = instantiateStyleSheet(style);
 
 const WCComponent = ({ gap, align, cols, colWidth, colMinWidth, colMaxWidth, children }: {
-  gap: SignalLike<Gap>,
-  align: SignalLike<Align>,
-  cols: SignalLike<Cols>,
-  colWidth: SignalLike<ColWidth | undefined>,
-  colMinWidth: SignalLike<ColWidth>,
-  colMaxWidth: SignalLike<ColWidth>,
+  gap: Signal<Gap>,
+  align: Signal<Align>,
+  cols: Signal<Cols>,
+  colWidth: Signal<ColWidth | undefined>,
+  colMinWidth: Signal<ColWidth>,
+  colMaxWidth: Signal<ColWidth>,
   children: ComponentChildren,
 }) => (
   <Component

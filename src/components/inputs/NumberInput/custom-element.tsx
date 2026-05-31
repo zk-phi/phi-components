@@ -1,12 +1,12 @@
 import { useCallback } from "preact/hooks";
 import type { JSX } from "preact";
+import type { Signal } from "@preact/signals";
 import {
   register,
   string,
   maybeNumber,
   boolean,
   instantiateStyleSheet,
-  type SignalLike,
 } from "../../../preact-web-components";
 import Component from ".";
 import root from "../../../root";
@@ -16,13 +16,13 @@ const sheet = instantiateStyleSheet(style);
 
 const WCComponent = ({ $el, value, required, min, max, step, placeholder, error }: {
   $el: HTMLElement,
-  value: SignalLike<number | undefined>,
-  required: SignalLike<boolean>,
-  min: SignalLike<number | undefined>,
-  max: SignalLike<number | undefined>,
-  step: SignalLike<number | undefined>,
-  placeholder: SignalLike<string>,
-  error: SignalLike<boolean>,
+  value: Signal<number | undefined>,
+  required: Signal<boolean>,
+  min: Signal<number | undefined>,
+  max: Signal<number | undefined>,
+  step: Signal<number | undefined>,
+  placeholder: Signal<string>,
+  error: Signal<boolean>,
 }) => {
   const handler = useCallback((
     newValue: number | undefined,

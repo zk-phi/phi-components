@@ -1,9 +1,9 @@
 import type { ComponentChildren } from "preact";
+import type { Signal } from "@preact/signals";
 import {
   register,
   boolean,
   instantiateStyleSheet,
-  type SignalLike,
 } from "../../../preact-web-components";
 import Component from ".";
 import root from "../../../root";
@@ -12,7 +12,7 @@ import style from "./style.css?inline";
 const sheet = instantiateStyleSheet(style);
 
 const WCComponent = ({ danger, children }: {
-  danger: SignalLike<boolean>,
+  danger: Signal<boolean>,
   children: ComponentChildren,
 }) => (
   <Component danger={danger.value}>

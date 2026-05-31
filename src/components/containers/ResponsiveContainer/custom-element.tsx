@@ -1,10 +1,10 @@
 import type { ComponentChildren } from "preact";
+import type { Signal } from "@preact/signals";
 import {
   register,
   keyword,
   maybeNumber,
   instantiateStyleSheet,
-  type SignalLike,
 } from "../../../preact-web-components";
 import Component, { type Padding } from ".";
 import root from "../../../root";
@@ -13,8 +13,8 @@ import style from "./style.css?inline";
 const sheet = instantiateStyleSheet(style);
 
 const WCComponent = ({ padding, maxWidth, children }: {
-  padding: SignalLike<Padding>,
-  maxWidth: SignalLike<number | undefined>,
+  padding: Signal<Padding>,
+  maxWidth: Signal<number | undefined>,
   children: ComponentChildren,
 }) => (
   <Component padding={padding.value} maxWidth={maxWidth.value}>

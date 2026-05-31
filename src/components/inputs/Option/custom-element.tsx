@@ -1,11 +1,11 @@
 import { useCallback } from "preact/hooks";
 import type { ComponentChildren, JSX } from "preact";
+import type { Signal } from "@preact/signals";
 import {
   register,
   string,
   stringList,
   instantiateStyleSheet,
-  type SignalLike,
 } from "../../../preact-web-components";
 import Component from ".";
 import root from "../../../root";
@@ -15,9 +15,9 @@ const sheet = instantiateStyleSheet(style);
 
 const WCComponent = <T,>({ $el, checked, value, children }: {
   $el: HTMLElement,
-  checked: SignalLike<T[]>,
+  checked: Signal<T[]>,
   children: ComponentChildren,
-  value: SignalLike<T>,
+  value: Signal<T>,
 }) => {
   const handler = useCallback((
     newChecked: T[],

@@ -1,10 +1,10 @@
 import type { ComponentChildren } from "preact";
+import type { Signal } from "@preact/signals";
 import {
   register,
   boolean,
   keyword,
   instantiateStyleSheet,
-  type SignalLike,
 } from "../../../preact-web-components";
 import Component, { type Variant } from ".";
 import root from "../../../root";
@@ -14,8 +14,8 @@ const sheet = instantiateStyleSheet(style);
 
 const WCComponent = ({ danger, variant, icon, children }: {
   $el: HTMLElement,
-  danger: SignalLike<boolean>,
-  variant: SignalLike<Variant>,
+  danger: Signal<boolean>,
+  variant: Signal<Variant>,
   icon: ComponentChildren,
   children: ComponentChildren,
 }) => (

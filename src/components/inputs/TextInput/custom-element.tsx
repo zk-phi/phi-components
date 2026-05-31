@@ -1,5 +1,6 @@
 import { useCallback } from "preact/hooks";
 import type { JSX } from "preact";
+import type { Signal } from "@preact/signals";
 import {
   register,
   string,
@@ -7,7 +8,6 @@ import {
   maybeNumber,
   keyword,
   instantiateStyleSheet,
-  type SignalLike,
 } from "../../../preact-web-components";
 import Component, { type Size } from ".";
 import root from "../../../root";
@@ -26,13 +26,13 @@ const WCComponent = ({
   error,
 }: {
   $el: HTMLElement,
-  value: SignalLike<string>,
-  placeholder: SignalLike<string>,
-  required: SignalLike<boolean>,
-  minlength: SignalLike<number | undefined>,
-  maxlength: SignalLike<number | undefined>,
-  size: SignalLike<Size>,
-  error: SignalLike<boolean>,
+  value: Signal<string>,
+  placeholder: Signal<string>,
+  required: Signal<boolean>,
+  minlength: Signal<number | undefined>,
+  maxlength: Signal<number | undefined>,
+  size: Signal<Size>,
+  error: Signal<boolean>,
 }) => {
   const handler = useCallback((
     newValue: string,

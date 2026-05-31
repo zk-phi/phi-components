@@ -1,9 +1,9 @@
 import type { ComponentChildren } from "preact";
+import type { Signal } from "@preact/signals";
 import {
   register,
   keyword,
   instantiateStyleSheet,
-  type SignalLike,
 } from "../../../preact-web-components";
 import Component, { type Gap, type ConfigurationEntry } from ".";
 import root from "../../../root";
@@ -12,8 +12,8 @@ import style from "./style.css?inline";
 const sheet = instantiateStyleSheet(style);
 
 const WCComponent = ({ gap, configuration, children }: {
-  gap: SignalLike<Gap>,
-  configuration: SignalLike<ConfigurationEntry[]>,
+  gap: Signal<Gap>,
+  configuration: Signal<ConfigurationEntry[]>,
   children: ComponentChildren,
 }) => (
   <Component

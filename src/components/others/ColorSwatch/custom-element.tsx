@@ -1,8 +1,8 @@
+import type { Signal } from "@preact/signals";
 import {
   register,
   string,
   instantiateStyleSheet,
-  type SignalLike,
 } from "../../../preact-web-components";
 import Component from ".";
 import root from "../../../root";
@@ -11,7 +11,7 @@ import style from "./style.css?inline";
 const sheet = instantiateStyleSheet(style);
 
 const WCComponent = ({ color }: {
-  color: SignalLike<string>,
+  color: Signal<string>,
 }) => (
   <Component color={color.value} />
 );
