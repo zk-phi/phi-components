@@ -76,7 +76,7 @@ export default () => register(WCComponent, "phi-text-input", {
     attribute: { name: "maxlength", type: maybeNumber },
   }, {
     name: "size",
-    attribute: { name: "size", type: keyword("md", ["sm"]) },
+    attribute: { name: "size", type: keyword<Size>("md", ["sm"]) },
   }, {
     name: "error",
     attribute: { name: "error", type: boolean },

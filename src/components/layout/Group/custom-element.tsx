@@ -25,9 +25,9 @@ export default () => register(WCComponent, "phi-group", {
   adoptedStyleSheets: [root, sheet],
   properties: [{
     name: "gap",
-    attribute: { name: "gap", type: keyword("md", ["sm"]) },
+    attribute: { name: "gap", type: keyword<Gap>("md", ["sm"]) },
   }, {
     name: "align",
-    attribute: { name: "align", type: keyword("left", ["center", "right", "space-between"]) },
+    attribute: { name: "align", type: keyword<Align>("left", ["center", "right", "space-between"]) },
   }],
 });

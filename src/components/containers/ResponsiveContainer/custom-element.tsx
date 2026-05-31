@@ -26,7 +26,7 @@ export default () => register(WCComponent, "phi-responsive-container", {
   adoptedStyleSheets: [root, sheet],
   properties: [{
     name: "padding",
-    attribute: { name: "padding", type: keyword("md", ["sm"]) },
+    attribute: { name: "padding", type: keyword<Padding>("md", ["sm"]) },
   }, {
     name: "maxWidth",
     attribute: { name: "max-width", type: maybeNumber },

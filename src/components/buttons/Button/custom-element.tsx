@@ -24,7 +24,6 @@ const WCComponent = ({ danger, variant, icon, children }: {
   </Component>
 );
 
-
 export default () => register(WCComponent, "phi-button", {
   adoptedStyleSheets: [root, sheet],
   slots: ["icon"],
@@ -33,6 +32,6 @@ export default () => register(WCComponent, "phi-button", {
     attribute: { name: "danger", type: boolean }
   }, {
     name: "variant",
-    attribute: { name: "variant", type: keyword("default", ["primary", "dotted"]) }
+    attribute: { name: "variant", type: keyword<Variant>("default", ["primary", "dotted"]) }
   }],
 });

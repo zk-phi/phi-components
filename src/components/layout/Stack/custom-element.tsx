@@ -24,6 +24,6 @@ export default () => register(WCComponent, "phi-stack", {
   adoptedStyleSheets: [root, sheet],
   properties: [{
     name: "gap",
-    attribute: { name: "gap", type: keyword("md", ["sm"]) },
+    attribute: { name: "gap", type: keyword<Gap>("md", ["sm"]) },
   }],
 });
