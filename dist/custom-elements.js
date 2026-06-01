@@ -1043,7 +1043,7 @@ const Ge = (t) => G("slot", t), Ye = (t) => {
   style: r,
   children: o
 }) => {
-  const [i, n] = ht(() => document.body.clientWidth), s = W(() => e.sort((p, l) => l.width - p.width), [e]), c = W(() => (s.find((l) => l.width <= i) ?? { columns: [1] }).columns.map((l) => `${l}fr`).join(" "), [s, i]);
+  const [i, n] = ht(() => document.body.clientWidth), s = W(() => e.toSorted((p, l) => l.width - p.width), [e]), c = W(() => (s.find((l) => l.width <= i) ?? { columns: [1] }).columns.map((l) => `${l}fr`).join(" "), [s, i]);
   return Vt(() => {
     const p = () => {
       const l = document.body.clientWidth;

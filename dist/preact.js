@@ -201,7 +201,7 @@ const $ = (n) => typeof n == "number" ? `${n}px` : n, ut = ({
   style: e,
   children: i
 }) => {
-  const [h, r] = A(() => document.body.clientWidth), p = w(() => t.sort((s, _) => _.width - s.width), [t]), c = w(() => (p.find((_) => _.width <= h) ?? { columns: [1] }).columns.map((_) => `${_}fr`).join(" "), [p, h]);
+  const [h, r] = A(() => document.body.clientWidth), p = w(() => t.toSorted((s, _) => _.width - s.width), [t]), c = w(() => (p.find((_) => _.width <= h) ?? { columns: [1] }).columns.map((_) => `${_}fr`).join(" "), [p, h]);
   return R(() => {
     const s = () => {
       const _ = document.body.clientWidth;
