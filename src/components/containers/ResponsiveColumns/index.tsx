@@ -2,7 +2,11 @@ import { useMemo, useEffect, useState } from "preact/hooks";
 import type { ComponentChildren, JSX } from "preact";
 
 export type Gap = "sm" | "md";
-export type ConfigurationEntry = { width: number, columns: number[] };
+
+export type ConfigurationEntry = {
+  readonly width: number,
+  readonly columns: readonly number[]
+};
 
 const Component = ({
   gap,
@@ -11,14 +15,14 @@ const Component = ({
   children,
 }: {
   gap: Gap,
-  configuration: ConfigurationEntry[],
+  configuration: Readonly<ConfigurationEntry[]>,
   style?: JSX.CSSProperties,
   children: ComponentChildren,
 }) => {
   const [width, setWidth] = useState(() => document.body.clientWidth);
 
   const sortedConfiguration = useMemo(() => (
-    configuration.sort((a, b) => b.width - a.width)
+    configuration.toSorted((a, b) => b.width - a.width)
   ), [configuration]);
 
   const template = useMemo(() => {

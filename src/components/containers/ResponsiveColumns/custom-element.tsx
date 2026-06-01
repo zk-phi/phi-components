@@ -13,7 +13,7 @@ const sheet = instantiateStyleSheet(style);
 
 const WCComponent = ({ gap, configuration, children }: {
   gap: Signal<Gap>,
-  configuration: Signal<ConfigurationEntry[]>,
+  configuration: Signal<Readonly<ConfigurationEntry[]>>,
   children: ComponentChildren,
 }) => (
   <Component
@@ -30,6 +30,6 @@ export default () => register(WCComponent, "phi-responsive-columns", {
     attribute: { name: "gap", type: keyword<Gap>("md", ["sm"]) },
   }, {
     name: "configuration",
-    initialValue: [{ width: 0, columns: [1] }] as ConfigurationEntry[],
+    initialValue: [{ width: 0, columns: [1] }],
   }],
 });
